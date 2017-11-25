@@ -8,4 +8,5 @@ target 'Music' do
   # Pods for Music
   pod 'MJRefresh', '3.1.15'
   pod 'MJExtension', '3.0.13'
+  pod 'DOUAudioStreamer', '0.2.15'
 end
