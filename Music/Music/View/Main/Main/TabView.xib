@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TabView" customModule="Music" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aXw-5A-Mo2">
+                    <rect key="frame" x="0.0" y="0.0" width="75" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOl-Hm-ux2">
+                            <rect key="frame" x="13" y="0.0" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="4eo-rV-AuA"/>
+                                <constraint firstAttribute="width" constant="48" id="cd8-Sh-4Xp"/>
+                            </constraints>
+                            <state key="normal" image="tab_fm_normal.png"/>
+                            <state key="selected" image="tab_fm_selected.png"/>
+                            <state key="highlighted" image="tab_fm_selected.png"/>
+                            <connections>
+                                <action selector="onFMButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="6IG-FU-K6O"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="lOl-Hm-ux2" firstAttribute="centerX" secondItem="aXw-5A-Mo2" secondAttribute="centerX" id="afz-IU-XUG"/>
+                        <constraint firstItem="lOl-Hm-ux2" firstAttribute="centerY" secondItem="aXw-5A-Mo2" secondAttribute="centerY" id="jy5-5Q-zzC"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBY-T9-glQ">
+                    <rect key="frame" x="75" y="0.0" width="75" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4R-FM-uOf">
+                            <rect key="frame" x="13" y="0.0" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="Lin-Et-7Gp"/>
+                                <constraint firstAttribute="width" constant="48" id="Mbf-hZ-hcQ"/>
+                            </constraints>
+                            <state key="normal" image="tab_music_normal.png"/>
+                            <state key="selected" image="tab_music_selected.png"/>
+                            <state key="highlighted" image="tab_music_selected.png"/>
+                            <connections>
+                                <action selector="onMusicButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="HRd-yD-EOf"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="v4R-FM-uOf" firstAttribute="centerY" secondItem="yBY-T9-glQ" secondAttribute="centerY" id="J0p-zh-xaZ"/>
+                        <constraint firstItem="v4R-FM-uOf" firstAttribute="centerX" secondItem="yBY-T9-glQ" secondAttribute="centerX" id="X7c-PP-FVo"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUd-pb-VlC">
+                    <rect key="frame" x="150" y="0.0" width="75" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lm2-RP-dF9">
+                            <rect key="frame" x="13" y="0.0" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="6M0-vV-Vgt"/>
+                                <constraint firstAttribute="width" constant="48" id="XKq-f3-wzF"/>
+                            </constraints>
+                            <state key="normal" image="tab_discover_normal.png"/>
+                            <state key="selected" image="tab_discover_selected.png"/>
+                            <state key="highlighted" image="tab_discover_selected.png"/>
+                            <connections>
+                                <action selector="onDicoverButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="nUp-MX-sid"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Lm2-RP-dF9" firstAttribute="centerX" secondItem="mUd-pb-VlC" secondAttribute="centerX" id="BwH-P8-qwO"/>
+                        <constraint firstItem="Lm2-RP-dF9" firstAttribute="centerY" secondItem="mUd-pb-VlC" secondAttribute="centerY" id="J85-pH-vLk"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3S-9I-c4n">
+                    <rect key="frame" x="225" y="0.0" width="75" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIQ-mU-nxG">
+                            <rect key="frame" x="13" y="0.0" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="6It-pM-qXi"/>
+                                <constraint firstAttribute="width" constant="48" id="eX2-BM-NK0"/>
+                            </constraints>
+                            <state key="normal" image="tab_search_normal.png"/>
+                            <state key="selected" image="tab_search_selected.png"/>
+                            <state key="highlighted" image="tab_search_selected.png"/>
+                            <connections>
+                                <action selector="onSearchButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="NZ5-sM-fib"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="mIQ-mU-nxG" firstAttribute="centerX" secondItem="B3S-9I-c4n" secondAttribute="centerX" id="3Bi-Cv-dNV"/>
+                        <constraint firstItem="mIQ-mU-nxG" firstAttribute="centerY" secondItem="B3S-9I-c4n" secondAttribute="centerY" id="Sxa-Jb-Qzk"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hA-I8-Pvj">
+                    <rect key="frame" x="300" y="0.0" width="75" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwD-od-SiT">
+                            <rect key="frame" x="13" y="0.0" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="HY1-q3-Pqo"/>
+                                <constraint firstAttribute="width" constant="48" id="Ics-1E-t2U"/>
+                            </constraints>
+                            <state key="normal" image="tab_mine_normal.png"/>
+                            <state key="selected" image="tab_mine_selected.png"/>
+                            <state key="highlighted" image="tab_mine_selected.png"/>
+                            <connections>
+                                <action selector="onMeButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Qkv-F7-QJO"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="LwD-od-SiT" firstAttribute="centerY" secondItem="6hA-I8-Pvj" secondAttribute="centerY" id="Una-Nw-qy6"/>
+                        <constraint firstItem="LwD-od-SiT" firstAttribute="centerX" secondItem="6hA-I8-Pvj" secondAttribute="centerX" id="tsf-Oj-bmL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="yBY-T9-glQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1UA-l2-V8t"/>
+                <constraint firstItem="aXw-5A-Mo2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3jG-dJ-zgJ"/>
+                <constraint firstItem="mUd-pb-VlC" firstAttribute="width" secondItem="aXw-5A-Mo2" secondAttribute="width" id="7rY-KC-NDR"/>
+                <constraint firstAttribute="bottom" secondItem="aXw-5A-Mo2" secondAttribute="bottom" id="93Z-FN-TJr"/>
+                <constraint firstItem="B3S-9I-c4n" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9vg-8v-1Q4"/>
+                <constraint firstItem="yBY-T9-glQ" firstAttribute="leading" secondItem="aXw-5A-Mo2" secondAttribute="trailing" id="Ajk-qH-Qhs"/>
+                <constraint firstItem="6hA-I8-Pvj" firstAttribute="leading" secondItem="B3S-9I-c4n" secondAttribute="trailing" id="Asj-JM-ZRo"/>
+                <constraint firstAttribute="bottom" secondItem="6hA-I8-Pvj" secondAttribute="bottom" id="CgR-cz-3KM"/>
+                <constraint firstItem="yBY-T9-glQ" firstAttribute="width" secondItem="aXw-5A-Mo2" secondAttribute="width" id="GHJ-GX-n0X"/>
+                <constraint firstItem="mUd-pb-VlC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="M1V-s9-3sm"/>
+                <constraint firstItem="B3S-9I-c4n" firstAttribute="width" secondItem="aXw-5A-Mo2" secondAttribute="width" id="MpS-99-XIO"/>
+                <constraint firstItem="6hA-I8-Pvj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OVF-FT-wnp"/>
+                <constraint firstAttribute="bottom" secondItem="B3S-9I-c4n" secondAttribute="bottom" id="W73-Ne-qyi"/>
+                <constraint firstItem="6hA-I8-Pvj" firstAttribute="width" secondItem="aXw-5A-Mo2" secondAttribute="width" id="dwo-IC-i1N"/>
+                <constraint firstAttribute="bottom" secondItem="yBY-T9-glQ" secondAttribute="bottom" id="f3r-I5-nry"/>
+                <constraint firstItem="mUd-pb-VlC" firstAttribute="leading" secondItem="yBY-T9-glQ" secondAttribute="trailing" id="jdC-jl-oG7"/>
+                <constraint firstAttribute="trailing" secondItem="6hA-I8-Pvj" secondAttribute="trailing" id="oQY-NR-aqa"/>
+                <constraint firstItem="aXw-5A-Mo2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rIj-qj-zPk"/>
+                <constraint firstItem="B3S-9I-c4n" firstAttribute="leading" secondItem="mUd-pb-VlC" secondAttribute="trailing" id="sT9-Db-Mhx"/>
+                <constraint firstAttribute="bottom" secondItem="mUd-pb-VlC" secondAttribute="bottom" id="shm-aK-el1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dicoverButton" destination="Lm2-RP-dF9" id="YJQ-Ue-BQT"/>
+                <outlet property="fmButton" destination="lOl-Hm-ux2" id="Jzo-AS-SfY"/>
+                <outlet property="meButton" destination="LwD-od-SiT" id="maQ-HV-jUw"/>
+                <outlet property="musicButton" destination="v4R-FM-uOf" id="RLm-0Q-f6o"/>
+                <outlet property="searchButton" destination="mIQ-mU-nxG" id="NiZ-2c-cdg"/>
+            </connections>
+            <point key="canvasLocation" x="160.5" y="82"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tab_discover_normal.png" width="146" height="146"/>
+        <image name="tab_discover_selected.png" width="146" height="146"/>
+        <image name="tab_fm_normal.png" width="146" height="146"/>
+        <image name="tab_fm_selected.png" width="146" height="146"/>
+        <image name="tab_mine_normal.png" width="146" height="146"/>
+        <image name="tab_mine_selected.png" width="146" height="146"/>
+        <image name="tab_music_normal.png" width="146" height="146"/>
+        <image name="tab_music_selected.png" width="146" height="146"/>
+        <image name="tab_search_normal.png" width="146" height="146"/>
+        <image name="tab_search_selected.png" width="146" height="146"/>
+    </resources>
+</document>

@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Music
+
+  Created by hzg on 2017/11/26.
+  Copyright © 2017年 demo. All rights reserved.
+*/
+
+"fm"       = "FM";
+"MyMusic"  = "My Music";
+"Discover" = "Discover";
+"Search"   = "Search";
+"Me"       = "Me";

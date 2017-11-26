@@ -10,26 +10,55 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    /// 主视图容器
+    @IBOutlet weak var containerView: UIView!
+    
     let player = AudioPlayer()
 
     // MARK: - override methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        let path = Bundle.main.path(forResource: "test", ofType: "lrc")
-        let lyric = Lyric.parse(lrcPath: path)
-        NotificationCenter.default.addObserver(self, selector: #selector(notitfyAudioDurationChanged(_ :)), name: NoticationAudioDurationChanged, object: nil)
+        setup()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    // MARK: - private methods
+    private func setup() {
+//        let path = Bundle.main.path(forResource: "test", ofType: "lrc")
+//        let lyric = Lyric.parse(lrcPath: path)
+//        NotificationCenter.default.addObserver(self, selector: #selector(notitfyAudioDurationChanged(_ :)), name: NoticationAudioDurationChanged, object: nil)
+        setupMainView()
+        setupTabView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    /// 设置主视图
+    private func setupMainView() {
+        let w = containerView.frame.width
+        let h = containerView.frame.height - BOTTOM_TAB_HEIGHT
+        let subViews = [FMView(frame: CGRect(x: 0, y: 0, width: w, height: h)),
+                        MyMusicView(frame: CGRect(x: 0, y: 0, width: w, height: h)),
+                        DiscoverView(frame: CGRect(x: 0, y: 0, width: w, height: h)),
+                        SearchView(frame: CGRect(x: 0, y: 0, width: w, height: h)),
+                        MeView(frame: CGRect(x: 0, y: 0, width: w, height: h))]
+        scrollView.contentSize = CGSize(width: w * CGFloat(subViews.count), height: h)
+        let colors = [UIColor.black, UIColor.red, UIColor.blue, UIColor.brown, UIColor.darkGray]
+        for subView in subViews {
+            let index = subViews.index(of: subView)!
+            subView.frame = CGRect(x: CGFloat(index) * w, y: 0, width: w, height: h)
+            subView.backgroundColor = colors[index]
+            scrollView.addSubview(subView)
+        }
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    
+    /// 设置底部标签视图
+    private func setupTabView() {
+        let tabView = Bundle.main.loadNibNamed("TabView", owner: nil, options: nil)?[0] as! TabView
+        tabView.frame = CGRect(x: 0, y: containerView.frame.height - BOTTOM_TAB_HEIGHT, width: containerView.frame.width, height: BOTTOM_TAB_HEIGHT)
+        containerView.addSubview(tabView)
+        tabView.tabClickedClosure = { [weak self](tabType) in
+            self?.scrollView.setContentOffset(CGPoint(x: CGFloat(tabType.rawValue)*DEVICE_SCREEN_WIDTH, y: 0), animated: false)
+        }
     }
     
     /// 点击播放
