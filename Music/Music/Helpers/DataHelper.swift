@@ -26,4 +26,5 @@ class DataHelper {
         let artwork = MPMediaItemArtwork(image: UIImage(named: "test.png")!)
         MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle:"歌名", MPMediaItemPropertyArtist:"歌手名", MPMediaItemPropertyArtwork:artwork]
     }
+    
 }

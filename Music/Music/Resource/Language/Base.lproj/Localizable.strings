@@ -7,7 +7,7 @@
 */
 
 "fm"       = "电台";
-"MyMusic"  = "我的音乐";
-"Discover" = "发现";
-"Search"   = "搜索";
-"Me"       = "我";
+"myMusic"  = "我的音乐";
+"discover" = "发现";
+"search"   = "搜索";
+"me"       = "我";

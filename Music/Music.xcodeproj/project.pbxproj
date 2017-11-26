@@ -14,6 +14,8 @@
 		3C0407821FC3F5A800080935 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C04077A1FC3F5A800080935 /* Assets.xcassets */; };
 		3C0407891FC3FFA400080935 /* GlobalMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0407881FC3FFA400080935 /* GlobalMacro.swift */; };
 		3C04078B1FC4001E00080935 /* NetworkMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C04078A1FC4001E00080935 /* NetworkMacro.swift */; };
+		3C0EE6741FCAE53B00046C5A /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0EE6731FCAE53B00046C5A /* LanguageHelper.swift */; };
+		3C0EE6761FCAE9AD00046C5A /* UserDefaultMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0EE6751FCAE9AD00046C5A /* UserDefaultMacro.swift */; };
 		3C58CFC31FC94F1800045BA9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFC21FC94F1800045BA9 /* Log.swift */; };
 		3C58CFC61FC9525300045BA9 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFC51FC9525300045BA9 /* DataHelper.swift */; };
 		3C58CFC91FC96AD800045BA9 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C58CFC81FC96AD700045BA9 /* test.png */; };
@@ -57,6 +59,8 @@
 		3C0407831FC3FDA900080935 /* Music-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Music-Bridging-Header.h"; sourceTree = "<group>"; };
 		3C0407881FC3FFA400080935 /* GlobalMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalMacro.swift; sourceTree = "<group>"; };
 		3C04078A1FC4001E00080935 /* NetworkMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMacro.swift; sourceTree = "<group>"; };
+		3C0EE6731FCAE53B00046C5A /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
+		3C0EE6751FCAE9AD00046C5A /* UserDefaultMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultMacro.swift; sourceTree = "<group>"; };
 		3C58CFC21FC94F1800045BA9 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		3C58CFC51FC9525300045BA9 /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		3C58CFC81FC96AD700045BA9 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 				3C0407881FC3FFA400080935 /* GlobalMacro.swift */,
 				3C04078A1FC4001E00080935 /* NetworkMacro.swift */,
 				3C7C72641FC91B87008793E6 /* NotificationMacro.swift */,
+				3C0EE6751FCAE9AD00046C5A /* UserDefaultMacro.swift */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				3C58CFC51FC9525300045BA9 /* DataHelper.swift */,
+				3C0EE6731FCAE53B00046C5A /* LanguageHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -555,9 +561,11 @@
 				3C04077C1FC3F5A800080935 /* AppDelegate.swift in Sources */,
 				3C6203F51FC5AA6C003D2309 /* AudioPlayer.swift in Sources */,
 				3C58CFC31FC94F1800045BA9 /* Log.swift in Sources */,
+				3C0EE6761FCAE9AD00046C5A /* UserDefaultMacro.swift in Sources */,
 				3C58CFCF1FC9919F00045BA9 /* Lyric.swift in Sources */,
 				3C7C72671FC924D6008793E6 /* Double+Extension.swift in Sources */,
 				3C58CFDA1FC9B83600045BA9 /* Float+Extension.swift in Sources */,
+				3C0EE6741FCAE53B00046C5A /* LanguageHelper.swift in Sources */,
 				3CD05F6B1FCAAA2B00FEC161 /* TabView.swift in Sources */,
 				3C7C72651FC91B87008793E6 /* NotificationMacro.swift in Sources */,
 				3CD05F501FCA9DE500FEC161 /* SearchView.swift in Sources */,

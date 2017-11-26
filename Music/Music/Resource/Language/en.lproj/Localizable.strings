@@ -7,7 +7,7 @@
 */
 
 "fm"       = "FM";
-"MyMusic"  = "My Music";
-"Discover" = "Discover";
-"Search"   = "Search";
-"Me"       = "Me";
+"myMusic"  = "My Music";
+"discover" = "Discover";
+"search"   = "Search";
+"me"       = "Me";

@@ -31,18 +31,23 @@ class TabView: UIView {
 
     /// 电台
     @IBOutlet weak var fmButton: UIButton!
+    @IBOutlet weak var fmLabel: UILabel!
     
     /// 我的音乐
     @IBOutlet weak var musicButton: UIButton!
+    @IBOutlet weak var musicLabel: UILabel!
     
     /// 发现
-    @IBOutlet weak var dicoverButton: UIButton!
+    @IBOutlet weak var discoverButton: UIButton!
+    @IBOutlet weak var discoverLabel: UILabel!
     
     /// 搜索
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchLabel: UILabel!
     
     /// ’我‘
     @IBOutlet weak var meButton: UIButton!
+    @IBOutlet weak var meLabel: UILabel!
     
     // MARK: - override methods
     override func awakeFromNib() {
@@ -51,18 +56,28 @@ class TabView: UIView {
     
     /// 初始化设置
     fileprivate func setup() {
-        buttonArray = [fmButton, musicButton, dicoverButton, searchButton, meButton]
+        buttonArray = [fmButton, musicButton, discoverButton, searchButton, meButton]
         setExclusiveTouchForButtons()
         selectedButtonWithButtonType(.fm)
+        setLabelsText() 
     }
     
     /// 设置独占触摸事件
     fileprivate func setExclusiveTouchForButtons() {
         fmButton.isExclusiveTouch      = true
         musicButton.isExclusiveTouch   = true
-        dicoverButton.isExclusiveTouch = true
+        discoverButton.isExclusiveTouch = true
         searchButton.isExclusiveTouch  = true
         meButton.isExclusiveTouch      = true
+    }
+    
+    /// 设置标签文字
+    fileprivate func setLabelsText() {
+        fmLabel.text = LanguageHelper.shared.getLanguageText(by: "fm")
+        musicLabel.text = LanguageHelper.shared.getLanguageText(by: "myMusic")
+        discoverLabel.text = LanguageHelper.shared.getLanguageText(by: "discover")
+        searchLabel.text = LanguageHelper.shared.getLanguageText(by: "search")
+        meLabel.text = LanguageHelper.shared.getLanguageText(by: "me")
     }
     
     /// 指定按钮为选中状态

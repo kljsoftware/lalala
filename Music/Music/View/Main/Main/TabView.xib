@@ -31,11 +31,19 @@
                                 <action selector="onFMButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="6IG-FU-K6O"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9H-dO-3cv">
+                            <rect key="frame" x="37.5" y="46" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="l9H-dO-3cv" firstAttribute="centerX" secondItem="lOl-Hm-ux2" secondAttribute="centerX" id="MTQ-Nf-8vE"/>
                         <constraint firstItem="lOl-Hm-ux2" firstAttribute="centerX" secondItem="aXw-5A-Mo2" secondAttribute="centerX" id="afz-IU-XUG"/>
                         <constraint firstItem="lOl-Hm-ux2" firstAttribute="centerY" secondItem="aXw-5A-Mo2" secondAttribute="centerY" id="jy5-5Q-zzC"/>
+                        <constraint firstAttribute="bottom" secondItem="l9H-dO-3cv" secondAttribute="bottom" constant="2" id="mDX-lK-CLs"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBY-T9-glQ">
@@ -54,11 +62,19 @@
                                 <action selector="onMusicButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="HRd-yD-EOf"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wkz-z2-ek0">
+                            <rect key="frame" x="37.5" y="46" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Wkz-z2-ek0" secondAttribute="bottom" constant="2" id="FOG-ZE-z7e"/>
                         <constraint firstItem="v4R-FM-uOf" firstAttribute="centerY" secondItem="yBY-T9-glQ" secondAttribute="centerY" id="J0p-zh-xaZ"/>
                         <constraint firstItem="v4R-FM-uOf" firstAttribute="centerX" secondItem="yBY-T9-glQ" secondAttribute="centerX" id="X7c-PP-FVo"/>
+                        <constraint firstItem="Wkz-z2-ek0" firstAttribute="centerX" secondItem="v4R-FM-uOf" secondAttribute="centerX" id="vKL-3b-UbQ"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUd-pb-VlC">
@@ -77,11 +93,19 @@
                                 <action selector="onDicoverButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="nUp-MX-sid"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHu-GY-8hH">
+                            <rect key="frame" x="37.5" y="46" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="XHu-GY-8hH" secondAttribute="bottom" constant="2" id="9ve-Z1-eII"/>
                         <constraint firstItem="Lm2-RP-dF9" firstAttribute="centerX" secondItem="mUd-pb-VlC" secondAttribute="centerX" id="BwH-P8-qwO"/>
                         <constraint firstItem="Lm2-RP-dF9" firstAttribute="centerY" secondItem="mUd-pb-VlC" secondAttribute="centerY" id="J85-pH-vLk"/>
+                        <constraint firstItem="XHu-GY-8hH" firstAttribute="centerX" secondItem="Lm2-RP-dF9" secondAttribute="centerX" id="mH0-AW-Qp5"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3S-9I-c4n">
@@ -100,11 +124,19 @@
                                 <action selector="onSearchButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="NZ5-sM-fib"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsD-Lf-zXO">
+                            <rect key="frame" x="37.5" y="46" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="mIQ-mU-nxG" firstAttribute="centerX" secondItem="B3S-9I-c4n" secondAttribute="centerX" id="3Bi-Cv-dNV"/>
+                        <constraint firstItem="JsD-Lf-zXO" firstAttribute="centerX" secondItem="mIQ-mU-nxG" secondAttribute="centerX" id="F1y-5f-Yxf"/>
                         <constraint firstItem="mIQ-mU-nxG" firstAttribute="centerY" secondItem="B3S-9I-c4n" secondAttribute="centerY" id="Sxa-Jb-Qzk"/>
+                        <constraint firstAttribute="bottom" secondItem="JsD-Lf-zXO" secondAttribute="bottom" constant="2" id="ydD-NU-Gj8"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hA-I8-Pvj">
@@ -123,10 +155,18 @@
                                 <action selector="onMeButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Qkv-F7-QJO"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YnF-WS-9ES">
+                            <rect key="frame" x="37.5" y="46" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="LwD-od-SiT" firstAttribute="centerY" secondItem="6hA-I8-Pvj" secondAttribute="centerY" id="Una-Nw-qy6"/>
+                        <constraint firstItem="YnF-WS-9ES" firstAttribute="centerX" secondItem="LwD-od-SiT" secondAttribute="centerX" id="dOj-1Z-CTo"/>
+                        <constraint firstAttribute="bottom" secondItem="YnF-WS-9ES" secondAttribute="bottom" constant="2" id="p3H-gz-f3G"/>
                         <constraint firstItem="LwD-od-SiT" firstAttribute="centerX" secondItem="6hA-I8-Pvj" secondAttribute="centerX" id="tsf-Oj-bmL"/>
                     </constraints>
                 </view>
@@ -156,11 +196,16 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="dicoverButton" destination="Lm2-RP-dF9" id="YJQ-Ue-BQT"/>
+                <outlet property="discoverButton" destination="Lm2-RP-dF9" id="DGK-oA-owN"/>
+                <outlet property="discoverLabel" destination="XHu-GY-8hH" id="XpB-S0-KdS"/>
                 <outlet property="fmButton" destination="lOl-Hm-ux2" id="Jzo-AS-SfY"/>
+                <outlet property="fmLabel" destination="l9H-dO-3cv" id="IjZ-ux-ojR"/>
                 <outlet property="meButton" destination="LwD-od-SiT" id="maQ-HV-jUw"/>
+                <outlet property="meLabel" destination="YnF-WS-9ES" id="cm4-eS-VW5"/>
                 <outlet property="musicButton" destination="v4R-FM-uOf" id="RLm-0Q-f6o"/>
+                <outlet property="musicLabel" destination="Wkz-z2-ek0" id="IEN-kS-BNn"/>
                 <outlet property="searchButton" destination="mIQ-mU-nxG" id="NiZ-2c-cdg"/>
+                <outlet property="searchLabel" destination="JsD-Lf-zXO" id="fP6-QI-g62"/>
             </connections>
             <point key="canvasLocation" x="160.5" y="82"/>
         </view>
