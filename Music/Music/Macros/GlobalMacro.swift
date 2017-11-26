@@ -6,3 +6,4 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
+let LOG_ENABLED = true

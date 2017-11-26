@@ -1,15 +1,18 @@
 PODS:
+  - DOUAudioStreamer (0.2.15)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.15)
 
 DEPENDENCIES:
+  - DOUAudioStreamer (= 0.2.15)
   - MJExtension (= 3.0.13)
   - MJRefresh (= 3.1.15)
 
 SPEC CHECKSUMS:
+  DOUAudioStreamer: 14f217bab01b52171fc2bd7d96e1f8fdd50fce68
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
 
-PODFILE CHECKSUM: 392297455bd0c468dc9c2278800a130ac1b9079a
+PODFILE CHECKSUM: a500754987d98d4e59697fe014a344c027d77c05
 
 COCOAPODS: 1.4.0.beta.2
