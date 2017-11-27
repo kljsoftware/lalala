@@ -6,8 +6,8 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
+/// 语言类型
 enum LanguageType : String {
-    case Base   = "Base"
     case en     = "en"       // 英
     case zhHans = "zh-Hans"  // 简体汉
 }
@@ -21,13 +21,14 @@ class LanguageHelper {
     /// 当前使用的bundle资源
     private var bundle:Bundle?
     
+    /// 当前使用语言
+    var language = "zh-Hans"
+    
     /// 构造
     private init() {
         let systemLanguages = UserDefaults.standard.value(forKey: "AppleLanguages") as! NSArray
         let systemLanguage = systemLanguages.firstObject as! String
-        let language = isSupportLanguage(systemLanguage) ? systemLanguage : "Base"
-        UserDefaults.standard.set(language, forKey: UserDefaultLanguage)
-        UserDefaults.standard.synchronize()
+        language = isSupportLanguage(systemLanguage) ? systemLanguage : "zh-Hans"
         guard let path = Bundle.main.path(forResource: language, ofType: "lproj") else {
             Log.e("language \(language) 不存在")
             return
@@ -39,7 +40,7 @@ class LanguageHelper {
     private func isSupportLanguage(_ language:String) -> Bool {
         var isSupported = false
         switch language {
-        case LanguageType.Base.rawValue, LanguageType.en.rawValue, LanguageType.zhHans.rawValue:
+        case LanguageType.en.rawValue, LanguageType.zhHans.rawValue:
             isSupported = true
         default:
             break
@@ -50,8 +51,7 @@ class LanguageHelper {
     /// 切换语言
     func setLanguage(type:LanguageType) {
         
-        let language = UserDefaults.standard.value(forKey: UserDefaultLanguage) as? String
-        if language != nil && language == type.rawValue {
+        if language == type.rawValue {
             return
         }
         guard let path = Bundle.main.path(forResource: type.rawValue, ofType: "lproj") else {

@@ -7,5 +7,4 @@
 //
 
 /// 轻量级本地存储键值常量
-/// 当前应用使用的语言版本
-let UserDefaultLanguage = "UserDefaultLanguage"
+
