@@ -15,6 +15,21 @@ class DataHelper {
     static let shared = DataHelper()
     private init() {}
     
+    /// 当前电台频道id
+    var channelId:Int?
+    
+    /// 同步本地化数据
+    func setup() {
+        let standard = UserDefaults.standard
+        channelId = standard.value(forKey: UserDefaultChannelId) as? Int
+    }
+    
+    /// 设置当前频道
+    func setupChannel(channelId:Int) {
+        self.channelId = channelId
+        UserDefaults.standard.set(channelId, forKey: UserDefaultChannelId)
+    }
+    
     /// 设置并激活音频会话类别
     func setAudioSessionActive(_ category:String, isActive:Bool = true) {
         try? AVAudioSession.sharedInstance().setCategory(category)

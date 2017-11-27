@@ -16,6 +16,8 @@
 		3C04078B1FC4001E00080935 /* NetworkMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C04078A1FC4001E00080935 /* NetworkMacro.swift */; };
 		3C0EE6741FCAE53B00046C5A /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0EE6731FCAE53B00046C5A /* LanguageHelper.swift */; };
 		3C0EE6761FCAE9AD00046C5A /* UserDefaultMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0EE6751FCAE9AD00046C5A /* UserDefaultMacro.swift */; };
+		3C16B8A81FCC68A000FAABCA /* common_btn_cd_activated.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C16B8A61FCC68A000FAABCA /* common_btn_cd_activated.png */; };
+		3C16B8A91FCC68A000FAABCA /* common_btn_cd_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C16B8A71FCC68A000FAABCA /* common_btn_cd_normal.png */; };
 		3C48ACC31FCB942A00B8992A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACC21FCB942A00B8992A /* UIColor+Extension.swift */; };
 		3C48ACC51FCBB0FA00B8992A /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACC41FCBB0FA00B8992A /* Dictionary+Extension.swift */; };
 		3C48ACCA1FCBB69800B8992A /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACC91FCBB69800B8992A /* ResultModel.swift */; };
@@ -70,6 +72,8 @@
 		3C04078A1FC4001E00080935 /* NetworkMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMacro.swift; sourceTree = "<group>"; };
 		3C0EE6731FCAE53B00046C5A /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		3C0EE6751FCAE9AD00046C5A /* UserDefaultMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultMacro.swift; sourceTree = "<group>"; };
+		3C16B8A61FCC68A000FAABCA /* common_btn_cd_activated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_btn_cd_activated.png; sourceTree = "<group>"; };
+		3C16B8A71FCC68A000FAABCA /* common_btn_cd_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_btn_cd_normal.png; sourceTree = "<group>"; };
 		3C48ACC21FCB942A00B8992A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3C48ACC41FCBB0FA00B8992A /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		3C48ACC91FCBB69800B8992A /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
@@ -293,6 +297,15 @@
 			path = Macros;
 			sourceTree = "<group>";
 		};
+		3C16B8A51FCC68A000FAABCA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3C16B8A61FCC68A000FAABCA /* common_btn_cd_activated.png */,
+				3C16B8A71FCC68A000FAABCA /* common_btn_cd_normal.png */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		3C48ACC61FCBB66600B8992A /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				3CD05F551FCAA85800FEC161 /* Main */,
+				3C16B8A51FCC68A000FAABCA /* Common */,
 				3C58CFC81FC96AD700045BA9 /* test.png */,
 			);
 			path = Image;
@@ -536,6 +550,7 @@
 				3CD05F681FCAA85800FEC161 /* tab_discover_normal.png in Resources */,
 				3CD05F541FCA9F8800FEC161 /* TabView.xib in Resources */,
 				3CD05F611FCAA85800FEC161 /* tab_search_normal.png in Resources */,
+				3C16B8A81FCC68A000FAABCA /* common_btn_cd_activated.png in Resources */,
 				3C58CFC91FC96AD800045BA9 /* test.png in Resources */,
 				3C04077D1FC3F5A800080935 /* Info.plist in Resources */,
 				3CD05F641FCAA85800FEC161 /* tab_fm_normal.png in Resources */,
@@ -543,6 +558,7 @@
 				3CD05F621FCAA85800FEC161 /* tab_fm_selected.png in Resources */,
 				3CD05F671FCAA85800FEC161 /* tab_discover_selected.png in Resources */,
 				3C0407821FC3F5A800080935 /* Assets.xcassets in Resources */,
+				3C16B8A91FCC68A000FAABCA /* common_btn_cd_normal.png in Resources */,
 				3C04077E1FC3F5A800080935 /* LaunchScreen.storyboard in Resources */,
 				3CD05F651FCAA85800FEC161 /* tab_music_selected.png in Resources */,
 				3CD05F691FCAA85800FEC161 /* tab_search_selected.png in Resources */,
@@ -787,7 +803,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Music/Config/Music-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -806,7 +822,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.demo.Music;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Music/Config/Music-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

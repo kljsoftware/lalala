@@ -25,28 +25,32 @@ class FMChannelView: UIView {
         return _scrollView
     }()
     
-//    /// MARK: - override methods
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
     /// 布局初始化
     func setup() {
         if channelListDataModel == nil {
             return
         }
-        var x:CGFloat = 0
+        let blank:CGFloat = 8, letMargin:CGFloat = 8, rightMargin:CGFloat = 8
+        var x:CGFloat = letMargin
+        var font = ARIAL_FONT_19
+        var color = UIColor.white
         for channel in channelListDataModel!.channels {
+            if channel.id == DataHelper.shared.channelId! {
+                font = ARIAL_FONT_21
+                color = COLOR_69EDC8
+            } else {
+                font = ARIAL_FONT_19
+                color = UIColor.white
+            }
+            let size = channel.name.sizeWithFont(font)
             let button = UIButton(type: .custom)
-            button.frame = CGRect(x: x, y: 0, width: 50, height: scrollView.frame.height)
-            button.titleLabel?.text = channel.name
+            button.frame = CGRect(x: x, y: 0, width: size.width + 2*blank, height: scrollView.frame.height)
+            button.setTitle(channel.name, for: .normal)
+            button.titleLabel?.font = font
+            button.titleLabel?.textColor = color
             scrollView.addSubview(button)
             x += button.frame.width
         }
-        scrollView.contentSize = CGSize(width: x, height: scrollView.frame.height)
+        scrollView.contentSize = CGSize(width: x+rightMargin, height: scrollView.frame.height)
     }
 }

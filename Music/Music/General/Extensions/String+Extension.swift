@@ -14,4 +14,11 @@ extension String {
         let endIndex   = end <= 0 ? index(self.endIndex, offsetBy: end) : index(self.startIndex, offsetBy: end)
         return String(self[startIndex..<endIndex])
     }
+    
+    // 测量单行字符串
+    func sizeWithFont(_ font:UIFont) -> CGSize {
+        let attrs = [NSFontAttributeName:font]
+        let string:NSString = self as NSString
+        return string.size(attributes: attrs)
+    }
 }

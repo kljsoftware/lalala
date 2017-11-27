@@ -10,5 +10,5 @@ import UIKit
 
 class ResultModel: NSObject {
     // 1表示成功, 2表示失败
-    var status = ""
+    var status = 1
 }

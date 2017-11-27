@@ -15,24 +15,27 @@ class FMChannelListResultModel: ResultModel {
 class FMChannelListDataModel : NSObject {
     
     /// 电台频道数组
-    var channels = [FMChannelModel]()
+    var channels = [FMChannelDataModel]()
     
     /// 指定数组元素类型
     override class func mj_objectClassInArray() -> [AnyHashable: Any]! {
-        return ["channels" : FMChannelModel.self]
+        return ["channels" : FMChannelDataModel.self]
     }
 }
 
 /// 电台频道
-class FMChannelModel : NSObject {
+class FMChannelDataModel : NSObject {
     
+    /// 封面，可选值
+    var cover:String?
+   
     /// 电台频道id
-    var id     = ""
+    var id     = 0
     
     /// 电台频道名称
     var name   = ""
     
     /// ?
-    var source = ""
+    var source = 0
 }
 

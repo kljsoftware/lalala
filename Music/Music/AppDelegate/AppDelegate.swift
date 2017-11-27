@@ -15,9 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var backTaskId = UIBackgroundTaskInvalid
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        UIApplication.shared.beginReceivingRemoteControlEvents()
+        setup()
         return true
     }
 
@@ -51,6 +50,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         UIApplication.shared.endReceivingRemoteControlEvents()
+    }
+    
+    // MARK: - private methods
+    /// 初始化设置
+    private func setup() {
+        
+        /// 音乐接收远程控制
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        
+        /// 同步本地数据
+        DataHelper.shared.setup()
     }
 }
 

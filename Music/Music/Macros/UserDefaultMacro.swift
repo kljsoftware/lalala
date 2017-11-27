@@ -7,4 +7,4 @@
 //
 
 /// 轻量级本地存储键值常量
-
+let UserDefaultChannelId = "ChannelId"
