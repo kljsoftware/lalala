@@ -26,8 +26,9 @@ class TabView: UIView {
     // 当前选中项的按钮类型
     fileprivate var tabType:TabButtonType = .none
     
-    // 按钮数组
+    // 按钮数组&按钮名数组
     fileprivate var buttonArray:[UIButton]!
+    fileprivate var labelArray:[UILabel]!
 
     /// 电台
     @IBOutlet weak var fmButton: UIButton!
@@ -57,6 +58,7 @@ class TabView: UIView {
     /// 初始化设置
     fileprivate func setup() {
         buttonArray = [fmButton, musicButton, discoverButton, searchButton, meButton]
+        labelArray  = [fmLabel, musicLabel, discoverLabel, searchLabel, meLabel]
         setExclusiveTouchForButtons()
         selectedButtonWithButtonType(.fm)
         setLabelsText() 
@@ -80,16 +82,29 @@ class TabView: UIView {
         meLabel.text = LanguageHelper.shared.getLanguageText(by: "me")
     }
     
+    // 取消指定项的选中状态
+    fileprivate func unSelectedButtonWithButtonType(_ tabType:TabButtonType) {
+        if tabType == TabButtonType.none {
+            return
+        }
+        
+        let button:UIButton = buttonArray[tabType.rawValue]
+        button.isSelected = false
+        button.isUserInteractionEnabled = true
+        labelArray[tabType.rawValue].textColor = UIColor.black
+    }
+    
     /// 指定按钮为选中状态
     fileprivate func selectedButtonWithButtonType(_ tabType:TabButtonType) {
         
         // 取消上个按钮的选中状态
         unSelectedButtonWithButtonType(self.tabType)
         
-        // 选中当前按钮
+        // 选中当前按钮&颜色
         let button:UIButton = buttonArray[tabType.rawValue]
         button.isSelected = true
         button.isUserInteractionEnabled = false
+        labelArray[tabType.rawValue].textColor = COLOR_69EDC8
         
         // 置当前索引标志
         self.tabType = tabType
@@ -108,17 +123,6 @@ class TabView: UIView {
         
         // 设置当前选项为选中状态
         selectedButtonWithButtonType(tabType)
-    }
-    
-    // 取消指定项的选中状态
-    fileprivate func unSelectedButtonWithButtonType(_ tabType:TabButtonType) {
-        if tabType == TabButtonType.none {
-            return
-        }
-        
-        let button:UIButton = buttonArray[tabType.rawValue]
-        button.isSelected = false
-        button.isUserInteractionEnabled = true
     }
     
     // MARK: - IBAction methods

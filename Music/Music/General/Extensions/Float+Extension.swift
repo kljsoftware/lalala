@@ -6,7 +6,6 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-// MARK: - 浮点型扩展
 extension Float {
     
     // 浮点型转换为字符串

@@ -20,3 +20,6 @@ let TOP_AD_HEIGHT:CGFloat       = 44
 
 /// 底部标签栏高度
 let BOTTOM_TAB_HEIGHT:CGFloat   = 48
+
+/// 常用颜色定义
+let COLOR_69EDC8 = UIColor.hexToColor(0x69EDC8)
