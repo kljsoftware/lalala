@@ -21,7 +21,7 @@ enum TabButtonType : Int {
 class TabView: UIView {
    
     /// 标签点击回调
-    var tabClickedClosure:((TabButtonType) -> Void)?
+    var selectedClosure:((TabButtonType) -> Void)?
     
     // 当前选中项的按钮类型
     fileprivate var tabType:TabButtonType = .none
@@ -119,7 +119,7 @@ class TabView: UIView {
         }
         
         // 切换页面
-        tabClickedClosure?(tabType)
+        selectedClosure?(tabType)
         
         // 设置当前选项为选中状态
         selectedButtonWithButtonType(tabType)

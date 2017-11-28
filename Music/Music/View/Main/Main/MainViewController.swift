@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
         let tabView = Bundle.main.loadNibNamed("TabView", owner: nil, options: nil)?[0] as! TabView
         tabView.frame = CGRect(x: 0, y: h - BOTTOM_TAB_HEIGHT, width: w, height: BOTTOM_TAB_HEIGHT)
         containerView.addSubview(tabView)
-        tabView.tabClickedClosure = { [weak self](tabType) in
+        tabView.selectedClosure = { [weak self](tabType) in
             self?.scrollView.setContentOffset(CGPoint(x: CGFloat(tabType.rawValue)*w, y: 0), animated: false)
         }
     }
