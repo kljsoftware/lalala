@@ -42,7 +42,6 @@ class FMChannelView: UIView {
     
     /// 初始化子视图
     private func setupSubViews() {
-
         let blank:CGFloat = 8, letMargin:CGFloat = 8, rightMargin:CGFloat = 8
         var x:CGFloat = letMargin
         for channel in channelListDataModel!.channels {
@@ -72,12 +71,12 @@ class FMChannelView: UIView {
         if self.channelId != nil {
             unselectedButton(with: self.channelId!)
         }
-        let button = scrollView.viewWithTag(channelId) as? UIButton
-        button?.isSelected = true
-        button?.titleLabel?.font = ARIAL_FONT_21
+        let button = scrollView.viewWithTag(channelId) as! UIButton
+        button.isSelected = true
+        button.titleLabel?.font = ARIAL_FONT_21
         self.channelId = channelId
+        scrollToHeader(distance: button.frame.minX - 8) // 第一项位置是居左8dp
         selectedClosure?(channelId)
-        scrollView.sr
     }
     
     /// 取消频道按钮
@@ -85,5 +84,20 @@ class FMChannelView: UIView {
         let button = scrollView.viewWithTag(channelId) as? UIButton
         button?.isSelected = false
         button?.titleLabel?.font = ARIAL_FONT_19
+    }
+    
+    /// distance:表示要移动的位移
+    private func scrollToHeader(distance:CGFloat) {
+        
+        /// 滚动偏移量
+        var contentOffset = scrollView.contentOffset
+        
+        /// 可移动位移
+        let movableDistance = scrollView.contentSize.width - scrollView.frame.width
+        let d = movableDistance > 0 ? movableDistance : 0
+        contentOffset.x = distance >= d ? d : distance
+
+        /// 执行滚动动画
+        scrollView.setContentOffset(contentOffset, animated: true)
     }
 }
