@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class MainViewController: UIViewController {
     
@@ -53,13 +54,15 @@ class MainViewController: UIViewController {
     
     /// 设置底部标签视图
     private func setupTabView() {
-        let w = DEVICE_SCREEN_WIDTH
-        let h = DEVICE_SCREEN_HEIGHT - DEVICE_STATUS_BAR_HEIGHT - TOP_AD_HEIGHT
         let tabView = Bundle.main.loadNibNamed("TabView", owner: nil, options: nil)?[0] as! TabView
-        tabView.frame = CGRect(x: 0, y: h - BOTTOM_TAB_HEIGHT, width: w, height: BOTTOM_TAB_HEIGHT)
         containerView.addSubview(tabView)
-        tabView.selectedClosure = { [weak self](tabType) in
-            self?.scrollView.setContentOffset(CGPoint(x: CGFloat(tabType.rawValue)*w, y: 0), animated: false)
+        tabView.snp.makeConstraints { (maker) in
+            maker.left.right.width.equalTo(containerView)
+            maker.height.equalTo(BOTTOM_TAB_HEIGHT)
+            maker.bottom.equalTo(containerView).offset(-DEVICE_INDICATOR_HEIGHT)
+        }
+        tabView.selectedClosure = { [weak self](type) in
+            self?.scrollView.setContentOffset(CGPoint(x: CGFloat(type.rawValue)*DEVICE_SCREEN_WIDTH, y: 0), animated: false)
         }
     }
     

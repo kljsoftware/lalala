@@ -34,7 +34,13 @@ class FMView: UIView {
         viewModel.setCompletion(onSuccess: { (result) in
             channelView.channelListDataModel = self.viewModel.channelListResultModel?.data
         }) { (error) in
-            
+            Log.e("error = \(error as! String)")
         }
+        
+        let loopPageView = LoopPageView(frame: CGRect(x: 0, y: 48, width: self.frame.width, height: 200))
+        addSubview(loopPageView)
+        
+        let backLoopView = UIView(frame:CGRect(x: 0, y: 0, width: self.frame.width, height: 200))
+        loopPageView.setup(backView: backLoopView, imageSize: CGSize(width: 100, height: 100), cornerRadius: 8)
     }
 }

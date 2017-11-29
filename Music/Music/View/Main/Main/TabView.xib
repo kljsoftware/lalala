@@ -43,12 +43,12 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="l9H-dO-3cv" firstAttribute="centerX" secondItem="lOl-Hm-ux2" secondAttribute="centerX" id="MTQ-Nf-8vE"/>
                         <constraint firstItem="lOl-Hm-ux2" firstAttribute="centerX" secondItem="aXw-5A-Mo2" secondAttribute="centerX" id="afz-IU-XUG"/>
                         <constraint firstItem="lOl-Hm-ux2" firstAttribute="centerY" secondItem="aXw-5A-Mo2" secondAttribute="centerY" id="jy5-5Q-zzC"/>
-                        <constraint firstAttribute="bottom" secondItem="l9H-dO-3cv" secondAttribute="bottom" constant="2" id="mDX-lK-CLs"/>
+                        <constraint firstItem="l9H-dO-3cv" firstAttribute="bottom" secondItem="lOl-Hm-ux2" secondAttribute="bottom" constant="-2" id="riE-Ow-a9Z"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBY-T9-glQ">
@@ -74,11 +74,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Wkz-z2-ek0" secondAttribute="bottom" constant="2" id="FOG-ZE-z7e"/>
                         <constraint firstItem="v4R-FM-uOf" firstAttribute="centerY" secondItem="yBY-T9-glQ" secondAttribute="centerY" id="J0p-zh-xaZ"/>
                         <constraint firstItem="v4R-FM-uOf" firstAttribute="centerX" secondItem="yBY-T9-glQ" secondAttribute="centerX" id="X7c-PP-FVo"/>
+                        <constraint firstItem="Wkz-z2-ek0" firstAttribute="bottom" secondItem="v4R-FM-uOf" secondAttribute="bottom" constant="-2" id="b2m-kC-n28"/>
                         <constraint firstItem="Wkz-z2-ek0" firstAttribute="centerX" secondItem="v4R-FM-uOf" secondAttribute="centerX" id="vKL-3b-UbQ"/>
                     </constraints>
                 </view>
@@ -105,9 +105,9 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="XHu-GY-8hH" secondAttribute="bottom" constant="2" id="9ve-Z1-eII"/>
+                        <constraint firstItem="XHu-GY-8hH" firstAttribute="bottom" secondItem="Lm2-RP-dF9" secondAttribute="bottom" constant="-2" id="BL9-jQ-qVp"/>
                         <constraint firstItem="Lm2-RP-dF9" firstAttribute="centerX" secondItem="mUd-pb-VlC" secondAttribute="centerX" id="BwH-P8-qwO"/>
                         <constraint firstItem="Lm2-RP-dF9" firstAttribute="centerY" secondItem="mUd-pb-VlC" secondAttribute="centerY" id="J85-pH-vLk"/>
                         <constraint firstItem="XHu-GY-8hH" firstAttribute="centerX" secondItem="Lm2-RP-dF9" secondAttribute="centerX" id="mH0-AW-Qp5"/>
@@ -136,12 +136,12 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="mIQ-mU-nxG" firstAttribute="centerX" secondItem="B3S-9I-c4n" secondAttribute="centerX" id="3Bi-Cv-dNV"/>
                         <constraint firstItem="JsD-Lf-zXO" firstAttribute="centerX" secondItem="mIQ-mU-nxG" secondAttribute="centerX" id="F1y-5f-Yxf"/>
+                        <constraint firstItem="JsD-Lf-zXO" firstAttribute="bottom" secondItem="mIQ-mU-nxG" secondAttribute="bottom" constant="-2" id="HWG-ma-SmZ"/>
                         <constraint firstItem="mIQ-mU-nxG" firstAttribute="centerY" secondItem="B3S-9I-c4n" secondAttribute="centerY" id="Sxa-Jb-Qzk"/>
-                        <constraint firstAttribute="bottom" secondItem="JsD-Lf-zXO" secondAttribute="bottom" constant="2" id="ydD-NU-Gj8"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hA-I8-Pvj">
@@ -167,16 +167,16 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="YnF-WS-9ES" firstAttribute="bottom" secondItem="LwD-od-SiT" secondAttribute="bottom" constant="-2" id="Enb-bt-10v"/>
                         <constraint firstItem="LwD-od-SiT" firstAttribute="centerY" secondItem="6hA-I8-Pvj" secondAttribute="centerY" id="Una-Nw-qy6"/>
                         <constraint firstItem="YnF-WS-9ES" firstAttribute="centerX" secondItem="LwD-od-SiT" secondAttribute="centerX" id="dOj-1Z-CTo"/>
-                        <constraint firstAttribute="bottom" secondItem="YnF-WS-9ES" secondAttribute="bottom" constant="2" id="p3H-gz-f3G"/>
                         <constraint firstItem="LwD-od-SiT" firstAttribute="centerX" secondItem="6hA-I8-Pvj" secondAttribute="centerX" id="tsf-Oj-bmL"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="yBY-T9-glQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1UA-l2-V8t"/>
                 <constraint firstItem="aXw-5A-Mo2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3jG-dJ-zgJ"/>

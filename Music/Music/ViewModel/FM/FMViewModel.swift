@@ -54,7 +54,7 @@ class FMViewModel: BaseViewModel {
             Log.e("reponse = \(String(describing: result))")
             self.setupChannel(channelListResultModel: FMChannelListResultModel.mj_object(withKeyValues: result))
         }) { (error) in
-            self.failureCallback?(error)
+            self.failureCallback?(error.localizedDescription)
         }
     }
     
@@ -71,7 +71,7 @@ class FMViewModel: BaseViewModel {
                 self.failureCallback?("服务器内部错误")
             }
         }) { (error) in
-            self.failureCallback?(error)
+            self.failureCallback?(error.localizedDescription)
         }
     }
 }
