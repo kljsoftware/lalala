@@ -22,4 +22,15 @@ extension UIView {
             layer.rasterizationScale = UIScreen.main.scale
         }
     }
+    
+    // 模糊
+    class func blurViewWithRect(_ rect: CGRect, style:UIBlurEffectStyle = .light) -> UIView {
+        let view = UIView(frame: rect)
+        view.backgroundColor = UIColor.clear
+        let blurEffect = UIBlurEffect(style: style)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = CGRect(x: 0, y: 0, width: rect.width, height: rect.height)
+        view.addSubview(blurView)
+        return view
+    }
 }

@@ -29,6 +29,9 @@
                                     </constraints>
                                     <state key="normal" image="fm_player_btn_love_normal.png"/>
                                     <state key="selected" image="fm_player_btn_love_selected.png"/>
+                                    <connections>
+                                        <action selector="onLoveButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Lb1-hs-CkX"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,6 +51,9 @@
                                     </constraints>
                                     <state key="normal" image="fm_player_btn_prev_normal.png"/>
                                     <state key="highlighted" image="fm_player_btn_prev_pressed.png"/>
+                                    <connections>
+                                        <action selector="onPrevButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="xeZ-43-hLQ"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,6 +73,9 @@
                                     </constraints>
                                     <state key="normal" image="fm_player_btn_play_normal.png"/>
                                     <state key="highlighted" image="fm_player_btn_play_pressed.png"/>
+                                    <connections>
+                                        <action selector="onControlButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="njX-0R-7Zj"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,6 +95,9 @@
                                     </constraints>
                                     <state key="normal" image="fm_player_btn_next_normal.png"/>
                                     <state key="highlighted" image="fm_player_btn_next_pressed.png"/>
+                                    <connections>
+                                        <action selector="onNextButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="tEn-Er-VjQ"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -105,6 +117,9 @@
                                     </constraints>
                                     <state key="normal" image="fm_player_btn_more_normal.png"/>
                                     <state key="highlighted" image="fm_player_btn_more_pressed.png"/>
+                                    <connections>
+                                        <action selector="onMoreButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="EmO-RD-R8a"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -154,13 +169,13 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9Ax-rW-95f">
-                            <rect key="frame" x="70" y="9" width="235" height="2"/>
-                        </progressView>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iz5-hJ-4kS">
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iz5-hJ-4kS" customClass="SliderView" customModule="Music" customModuleProvider="target">
                             <rect key="frame" x="68" y="-5.5" width="239" height="31"/>
                             <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onSliderValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="aeU-o4-ve1"/>
+                            </connections>
                         </slider>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -168,14 +183,11 @@
                         <constraint firstItem="txa-Kq-Gqa" firstAttribute="centerY" secondItem="iPY-eL-o8K" secondAttribute="centerY" id="5Zq-Li-Kv5"/>
                         <constraint firstItem="txa-Kq-Gqa" firstAttribute="leading" secondItem="iPY-eL-o8K" secondAttribute="leading" constant="12" id="7zT-Bo-h3F"/>
                         <constraint firstItem="lwy-m9-xee" firstAttribute="centerY" secondItem="iPY-eL-o8K" secondAttribute="centerY" id="D7f-KQ-0fU"/>
-                        <constraint firstItem="lwy-m9-xee" firstAttribute="leading" secondItem="9Ax-rW-95f" secondAttribute="trailing" constant="12" id="Ikc-P2-guu"/>
                         <constraint firstItem="lwy-m9-xee" firstAttribute="leading" secondItem="iz5-hJ-4kS" secondAttribute="trailing" constant="12" id="MjP-tE-pW3"/>
                         <constraint firstAttribute="height" constant="20" id="gjp-p5-Vwh"/>
-                        <constraint firstItem="9Ax-rW-95f" firstAttribute="leading" secondItem="txa-Kq-Gqa" secondAttribute="trailing" constant="12" id="k8r-Co-Kb8"/>
                         <constraint firstAttribute="trailing" secondItem="lwy-m9-xee" secondAttribute="trailing" constant="12" id="mBR-De-vq0"/>
-                        <constraint firstItem="iz5-hJ-4kS" firstAttribute="centerY" secondItem="iPY-eL-o8K" secondAttribute="centerY" id="nmf-mF-fwL"/>
                         <constraint firstItem="iz5-hJ-4kS" firstAttribute="leading" secondItem="txa-Kq-Gqa" secondAttribute="trailing" constant="12" id="sFx-eA-DTp"/>
-                        <constraint firstItem="9Ax-rW-95f" firstAttribute="centerY" secondItem="iPY-eL-o8K" secondAttribute="centerY" id="xuC-50-o5F"/>
+                        <constraint firstItem="iz5-hJ-4kS" firstAttribute="centerY" secondItem="iPY-eL-o8K" secondAttribute="centerY" id="yc6-kL-Qpk"/>
                     </constraints>
                 </view>
             </subviews>
@@ -190,7 +202,6 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="cacheProgressView" destination="9Ax-rW-95f" id="HEJ-hB-IIA"/>
                 <outlet property="controlButton" destination="7O9-ZV-Pko" id="z4a-cD-Q7A"/>
                 <outlet property="currentLabel" destination="txa-Kq-Gqa" id="EmC-RA-QNf"/>
                 <outlet property="durationLabel" destination="lwy-m9-xee" id="Rbc-lW-rQn"/>
@@ -198,7 +209,7 @@
                 <outlet property="moreButton" destination="3Xx-wx-BQT" id="BLm-TI-dAe"/>
                 <outlet property="nextButton" destination="N01-1P-ugI" id="9Xs-In-iYG"/>
                 <outlet property="prevButton" destination="iut-AU-ICZ" id="FE2-X3-3u3"/>
-                <outlet property="progressSlider" destination="iz5-hJ-4kS" id="wPO-rR-MUv"/>
+                <outlet property="slider" destination="iz5-hJ-4kS" id="ZAD-ge-eh0"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="299"/>
         </view>

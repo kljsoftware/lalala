@@ -17,6 +17,9 @@ PODS:
   - DOUAudioStreamer (0.2.15)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.15)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
   - SnapKit (3.2.0)
 
 DEPENDENCIES:
@@ -24,6 +27,7 @@ DEPENDENCIES:
   - DOUAudioStreamer (= 0.2.15)
   - MJExtension (= 3.0.13)
   - MJRefresh (= 3.1.15)
+  - SDWebImage (= 4.2.2)
   - SnapKit (= 3.2.0)
 
 SPEC CHECKSUMS:
@@ -31,8 +35,9 @@ SPEC CHECKSUMS:
   DOUAudioStreamer: 14f217bab01b52171fc2bd7d96e1f8fdd50fce68
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
 
-PODFILE CHECKSUM: 9650a158c4290a0a453d66175a1da319038c4d8a
+PODFILE CHECKSUM: 3300e6987f762e71e36566c10f4328e96b31dcce
 
 COCOAPODS: 1.4.0.beta.2

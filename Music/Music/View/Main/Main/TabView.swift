@@ -91,7 +91,7 @@ class TabView: UIView {
         let button:UIButton = buttonArray[tabType.rawValue]
         button.isSelected = false
         button.isUserInteractionEnabled = true
-        labelArray[tabType.rawValue].textColor = UIColor.black
+        labelArray[tabType.rawValue].textColor = UIColor.white
     }
     
     /// 指定按钮为选中状态

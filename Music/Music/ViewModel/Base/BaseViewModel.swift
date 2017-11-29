@@ -6,8 +6,8 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-typealias SuccessCallback = (_ result: Any?) -> Void
-typealias FailureCallback = (_ result: Any?) -> Void
+typealias SuccessCallback = (_ result: ResultModel) -> Void
+typealias FailureCallback = (_ result: String) -> Void
 
 /// 基类ViewModel
 class BaseViewModel: NSObject {

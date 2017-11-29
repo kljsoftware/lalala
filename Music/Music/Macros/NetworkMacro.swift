@@ -58,15 +58,15 @@ class BaseInfo {
 /// api地址
 enum NetworkURL {
     case FMChannelList(language:String)   // 获取电台频道列表
-    case FMSongList(categoryId:Int)       // 获取某一频道的歌曲列表
+    case FMSongList(channelId:Int)       // 获取某一频道的歌曲列表
     
     var url : String {
         var api = ""
         switch self {
         case let .FMChannelList(language):
             api = "/myfm/category/list/\(language)/"
-        case let .FMSongList(categoryId):
-            api = "/myfm/category/\(categoryId)/"
+        case let .FMSongList(channelId):
+            api = "/myfm/category/\(channelId)/"
         }
         return "\(SERVER_ADDRESS)\(api)?\(BaseInfo.shared.generalParams)"
     }

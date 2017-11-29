@@ -36,3 +36,4 @@ let ARIAL_FONT_21 = UIFont(name: "Arial", size: 21)!
 
 /// 常用颜色定义
 let COLOR_69EDC8 = UIColor.hexToColor(0x69EDC8)
+let COLOR_ABABAB = UIColor.hexToColor(0xABABAB)
