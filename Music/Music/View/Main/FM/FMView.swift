@@ -107,6 +107,8 @@ class FMView: UIView {
             } else if result.isKind(of: FMSongListResultModel.self) {
                 let songList = (result as! FMSongListResultModel).data
                 switch PlayerHelper.shared.state {
+                case .channelChanged:
+                    fallthrough
                 case .waitingNext:
                     PlayerHelper.shared.addSongList(songList: songList)
                     PlayerHelper.shared.start()
@@ -116,6 +118,7 @@ class FMView: UIView {
                     PlayerHelper.shared.start()
                     PlayerHelper.shared.state = .play
                 default:
+                    PlayerHelper.shared.addSongList(songList: songList)
                     break
                 }
                 self?.loopPageView.setup(urls: PlayerHelper.shared.getCoverList())

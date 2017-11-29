@@ -68,7 +68,6 @@ class MainViewController: UIViewController {
     
     /// 点击播放
     @IBAction func onPlayClicked(_ sender: UIButton) {
-        player.start("http://a929.phobos.apple.com/us/r1000/143/Music3/v4/2c/4e/69/2c4e69d7-bd0f-8c76-30ca-75f6a2f51ef5/mzaf_1157339944153759874.plus.aac.p.m4a")
         DataHelper.shared.setPlayingInfo()
     }
     

@@ -70,13 +70,13 @@ class FMChannelView: UIView {
     private func selectedButton(with channelId:Int) {
         if self.channelId != nil {
             unselectedButton(with: self.channelId!)
-            selectedClosure?(channelId)
         }
         let button = scrollView.viewWithTag(channelId) as! UIButton
         button.isSelected = true
         button.titleLabel?.font = ARIAL_FONT_21
         self.channelId = channelId
         scrollToHeader(distance: button.frame.minX - 8) // 第一项位置是居左8dp
+        selectedClosure?(channelId)
     }
     
     /// 取消频道按钮
