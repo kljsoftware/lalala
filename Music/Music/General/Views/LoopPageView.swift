@@ -9,12 +9,24 @@
 /// 轮播视图数量
 private let count = 3
 
+/// 默认轮播视图封面
+fileprivate let defaultImage = UIImage(named: "default_cover_2")
+
 /// 无限轮播视图
 class LoopPageView : UIView {
     
     /// 上一页、下一页闭包
     fileprivate var prevPageClosure:(() -> Void)?
     fileprivate var nextPageClosure:(() -> Void)?
+    fileprivate var clickedClosure:(() -> Void)?
+    
+    /// 背景视图
+    lazy var pageBackView:PageBackView = {
+        let _pageBackView = PageBackView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+        _pageBackView.backgroundColor = UIColor.clear
+        self.insertSubview(_pageBackView, at: 0)
+        return _pageBackView
+    }()
     
     /// 滚动视图
     lazy var scrollView:UIScrollView = {
@@ -34,24 +46,46 @@ class LoopPageView : UIView {
         return _scrollView
     }()
     
+    // MARK: - init/override methods
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(performTapGesture)))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    /// 点击手势
+    func performTapGesture(sender:UITapGestureRecognizer) {
+        self.isHidden = true
+        clickedClosure?()
+    }
+    
     // MARK: - MARK
     /// 初始化配置
-    func setup(backView:UIView, imageSize:CGSize, cornerRadius:CGFloat, imageBackColor:UIColor = .clear) {
-       
-        /// 背景视图
-        addSubview(backView)
-        
-        /// 轮播视图
+    func setup(imageSize:CGSize, cornerRadius:CGFloat, imageBackColor:UIColor = .clear) {
         for subview in scrollView.subviews {
             let pageview = subview as! PageView
             pageview.setup(imageSize: imageSize, cornerRadius: cornerRadius, imageBackColor:imageBackColor)
         }
     }
     
+    /// 显示文字
+    func showLabel(text:String? = nil) {
+        pageBackView.showLabel(text: text)
+    }
+    
+    /// 显示背景
+    func showBack(image:UIImage?, size:CGSize) {
+        pageBackView.showBack(image: image, size: size)
+    }
+    
     /// 设置上一页、下一页闭包
-    func setup(prev:(() -> Void)?, next:(() -> Void)?) {
+    func setup(prev:(() -> Void)?, next:(() -> Void)?, clicked:(() -> Void)?) {
         prevPageClosure = prev
         nextPageClosure = next
+        clickedClosure  = clicked
     }
     
     /// 设置轮播图片
@@ -86,7 +120,47 @@ class LoopPageView : UIView {
     }
 }
 
-fileprivate let defaultImage = UIImage(named: "default_cover_2")
+/// 背景视图
+class PageBackView : UIView {
+
+    /// 底部文字
+    private lazy var textLabel:UILabel = {
+        let _textLabel = UILabel()
+        _textLabel.textAlignment = .center
+        _textLabel.font = ARIAL_FONT_12
+        _textLabel.textColor = UIColor.white
+        self.addSubview(_textLabel)
+        _textLabel.snp.makeConstraints({ (maker) in
+            maker.width.bottom.equalTo(self).offset(-12)
+            maker.height.equalTo(20)
+        })
+        return _textLabel
+    }()
+    
+    /// 背景
+    private lazy var backImageView:UIImageView = {
+        let _backImageView = UIImageView()
+        self.addSubview(_backImageView)
+        return _backImageView
+    }()
+    
+    // MARK: - public methods
+    /// 显示文字
+    func showLabel(text:String?) {
+        textLabel.text = text ?? "------- - -------"
+    }
+    
+    /// 显示背景图片
+    func showBack(image:UIImage?, size:CGSize) {
+        backImageView.image = image
+        backImageView.snp.makeConstraints { (maker) in
+            maker.center.equalTo(self)
+            maker.width.equalTo(size.width)
+            maker.height.equalTo(size.height)
+        }
+    }
+}
+
 
 /// 滚动页视图
 class PageView : UIView {

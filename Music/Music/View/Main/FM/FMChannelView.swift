@@ -24,6 +24,8 @@ class FMChannelView: UIView {
     /// 滚动视图
     private lazy var scrollView:UIScrollView = {
         let _scrollView = UIScrollView(frame:CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+        _scrollView.showsVerticalScrollIndicator = false
+        _scrollView.showsHorizontalScrollIndicator = false
         self.addSubview(_scrollView)
         return _scrollView
     }()

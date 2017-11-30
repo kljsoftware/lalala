@@ -31,6 +31,7 @@ let TOP_AD_HEIGHT:CGFloat       = 44
 let BOTTOM_TAB_HEIGHT:CGFloat   = 48
 
 /// 常用字体定义
+let ARIAL_FONT_12 = UIFont(name: "Arial", size: 12)!
 let ARIAL_FONT_19 = UIFont(name: "Arial", size: 19)!
 let ARIAL_FONT_21 = UIFont(name: "Arial", size: 21)!
 

@@ -49,11 +49,11 @@
 		3C48ACDE1FCBEABD00B8992A /* FMSongListResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACDC1FCBEABD00B8992A /* FMSongListResultModel.swift */; };
 		3C48ACDF1FCBEABD00B8992A /* FMChannelListResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACDD1FCBEABD00B8992A /* FMChannelListResultModel.swift */; };
 		3C48ACE11FCBEE7F00B8992A /* FMChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACE01FCBEE7F00B8992A /* FMChannelView.swift */; };
+		3C526F691FCF95D80093B837 /* LyricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C526F681FCF95D80093B837 /* LyricView.swift */; };
 		3C58CFC31FC94F1800045BA9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFC21FC94F1800045BA9 /* Log.swift */; };
 		3C58CFC61FC9525300045BA9 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFC51FC9525300045BA9 /* DataHelper.swift */; };
 		3C58CFC91FC96AD800045BA9 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C58CFC81FC96AD700045BA9 /* test.png */; };
 		3C58CFCD1FC9910500045BA9 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFCC1FC9910500045BA9 /* Song.swift */; };
-		3C58CFCF1FC9919F00045BA9 /* Lyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFCE1FC9919F00045BA9 /* Lyric.swift */; };
 		3C58CFD31FC9A86700045BA9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFD21FC9A86700045BA9 /* String+Extension.swift */; };
 		3C58CFD81FC9B41F00045BA9 /* test.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 3C58CFD71FC9B41F00045BA9 /* test.lrc */; };
 		3C58CFDA1FC9B83600045BA9 /* Float+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFD91FC9B83600045BA9 /* Float+Extension.swift */; };
@@ -129,11 +129,11 @@
 		3C48ACDC1FCBEABD00B8992A /* FMSongListResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSongListResultModel.swift; sourceTree = "<group>"; };
 		3C48ACDD1FCBEABD00B8992A /* FMChannelListResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMChannelListResultModel.swift; sourceTree = "<group>"; };
 		3C48ACE01FCBEE7F00B8992A /* FMChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMChannelView.swift; sourceTree = "<group>"; };
+		3C526F681FCF95D80093B837 /* LyricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricView.swift; sourceTree = "<group>"; };
 		3C58CFC21FC94F1800045BA9 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		3C58CFC51FC9525300045BA9 /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		3C58CFC81FC96AD700045BA9 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		3C58CFCC1FC9910500045BA9 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		3C58CFCE1FC9919F00045BA9 /* Lyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lyric.swift; sourceTree = "<group>"; };
 		3C58CFD21FC9A86700045BA9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		3C58CFD71FC9B41F00045BA9 /* test.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.lrc; sourceTree = "<group>"; };
 		3C58CFD91FC9B83600045BA9 /* Float+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Extension.swift"; sourceTree = "<group>"; };
@@ -231,7 +231,6 @@
 				3C48ACDD1FCBEABD00B8992A /* FMChannelListResultModel.swift */,
 				3C48ACDC1FCBEABD00B8992A /* FMSongListResultModel.swift */,
 				3C58CFCC1FC9910500045BA9 /* Song.swift */,
-				3C58CFCE1FC9919F00045BA9 /* Lyric.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -411,6 +410,7 @@
 			children = (
 				3C16B8AE1FCDA95100FAABCA /* LoopPageView.swift */,
 				3C16B8D91FCE917E00FAABCA /* SliderView.swift */,
+				3C526F681FCF95D80093B837 /* LyricView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -748,7 +748,6 @@
 				3C6203F51FC5AA6C003D2309 /* AudioPlayer.swift in Sources */,
 				3C58CFC31FC94F1800045BA9 /* Log.swift in Sources */,
 				3C0EE6761FCAE9AD00046C5A /* UserDefaultMacro.swift in Sources */,
-				3C58CFCF1FC9919F00045BA9 /* Lyric.swift in Sources */,
 				3C7C72671FC924D6008793E6 /* Double+Extension.swift in Sources */,
 				3C48ACCA1FCBB69800B8992A /* ResultModel.swift in Sources */,
 				3C367A6D1FCF08FF00F6323F /* UIImageView+Extension.swift in Sources */,
@@ -766,6 +765,7 @@
 				3C58CFD31FC9A86700045BA9 /* String+Extension.swift in Sources */,
 				3C0407891FC3FFA400080935 /* GlobalMacro.swift in Sources */,
 				3C48ACC31FCB942A00B8992A /* UIColor+Extension.swift in Sources */,
+				3C526F691FCF95D80093B837 /* LyricView.swift in Sources */,
 				3C58CFC61FC9525300045BA9 /* DataHelper.swift in Sources */,
 				3C7C72631FC90AFA008793E6 /* MainViewController.swift in Sources */,
 				3C04078B1FC4001E00080935 /* NetworkMacro.swift in Sources */,

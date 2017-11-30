@@ -39,6 +39,16 @@ class FMView: UIView {
         return _backImageView
     }()
     
+    /// 歌词视图
+    lazy var lyricView:LyricView = {
+        let height = self.frame.height - channelViewHeight - playViewHeight - (BOTTOM_TAB_HEIGHT+DEVICE_INDICATOR_HEIGHT)
+        let _lyricView = LyricView(frame: CGRect(x: 0, y: channelViewHeight, width: self.frame.width, height: height))
+        _lyricView.isHidden = true
+        self.addSubview(_lyricView)
+        _lyricView.backgroundColor = UIColor.red
+        return _lyricView
+    }()
+    
     /// 频道视图
     lazy var channelView:FMChannelView = {
         let _channelView = FMChannelView(frame: CGRect(x: 0, y: 0, width: self.frame.width - channelViewRightMargin, height: channelViewHeight))
@@ -51,9 +61,9 @@ class FMView: UIView {
         let height = self.frame.height - channelViewHeight - playViewHeight - (BOTTOM_TAB_HEIGHT+DEVICE_INDICATOR_HEIGHT)
         let _loopPageView = LoopPageView(frame: CGRect(x: 0, y: channelViewHeight, width: self.frame.width, height: height))
         self.addSubview(_loopPageView)
-        let backLoopView = UIView(frame:CGRect(x: 0, y: 0, width: self.frame.width, height: height))
         let imageWH = (self.frame.width >= height) ? height - loopViewBlank*2 : self.frame.width - loopViewBlank*2
-        _loopPageView.setup(backView: backLoopView, imageSize: CGSize(width: imageWH, height: imageWH), cornerRadius: loopViewCornerRadius, imageBackColor:COLOR_ABABAB)
+        _loopPageView.setup(imageSize: CGSize(width: imageWH, height: imageWH), cornerRadius: loopViewCornerRadius, imageBackColor:COLOR_ABABAB)
+        _loopPageView.showLabel()
         return _loopPageView
     }()
     
@@ -84,16 +94,19 @@ class FMView: UIView {
     private func setup() {
         
         /// 模糊图
-        addSubview(UIView.blurViewWithRect(bounds))
+        addSubview(UIView.blurViewWithRect(self.bounds, style:.dark))
         
         /// 业务模块处理回调 (频道切换/歌曲数据回调)
         viewModelCallback()
         
-        /// 频道切换回调
-        channelChangedCallBack()
+        /// 歌词点击回调
+        lyricViewCallBack()
       
         /// 无限切换视图上一页、下一页切换回调
         loopPageCallBack()
+        
+        /// 频道切换回调
+        channelChangedCallBack()
 
         /// 播放控制视图回调
         playViewCallBack()
@@ -121,17 +134,18 @@ class FMView: UIView {
                     PlayerHelper.shared.addSongList(songList: songList)
                     break
                 }
-                self?.loopPageView.setup(urls: PlayerHelper.shared.getCoverList())
-                self?.setBackImageView()
+                self?.updateWithSongChanged()
             }
         }) { (error) in
             Log.e("error = \(error)")
         }
     }
     
-    /// 设置背景
-    private func setBackImageView() {
-        backImageView.setImage(urlStr: PlayerHelper.shared.song?.coverURL ?? "", placeholderStr: "", radius: 0)
+    /// 歌词点击回调
+    private func lyricViewCallBack() {
+        lyricView.clickedClosure = { [weak self] in
+            self?.loopPageView.isHidden = false
+        }
     }
     
     /// 频道切换
@@ -142,24 +156,24 @@ class FMView: UIView {
         }
     }
     
-    /// 无限切换视图上一页、下一页切换回调
+    /// 无限切换视图上一页、下一页切换、点击事件回调
     private func loopPageCallBack() {
         loopPageView.setup(prev: { [weak self] in
             if !PlayerHelper.shared.prev() {
                 PlayerHelper.shared.state = .waitingPrev
                 self?.viewModel.getSongList(channelId: DataHelper.shared.channelId)
             } else {
-                self?.loopPageView.setup(urls: PlayerHelper.shared.getCoverList())
-                self?.setBackImageView()
+                self?.updateWithSongChanged()
             }
-        }) { [weak self] in
+        }, next: { [weak self] in
             if !PlayerHelper.shared.next() {
                 PlayerHelper.shared.state = .waitingNext
                 self?.viewModel.getSongList(channelId: DataHelper.shared.channelId)
             } else {
-                self?.loopPageView.setup(urls: PlayerHelper.shared.getCoverList())
-                self?.setBackImageView()
+                self?.updateWithSongChanged()
             }
+        }) { [weak self] in
+            self?.lyricView.isHidden = false
         }
     }
     
@@ -175,8 +189,7 @@ class FMView: UIView {
                     PlayerHelper.shared.state = .waitingPrev
                     self?.viewModel.getSongList(channelId: DataHelper.shared.channelId)
                 } else {
-                    self?.loopPageView.setup(urls: PlayerHelper.shared.getCoverList())
-                    self?.setBackImageView()
+                    self?.updateWithSongChanged()
                 }
             case .control:
                 break
@@ -185,8 +198,7 @@ class FMView: UIView {
                     PlayerHelper.shared.state = .waitingNext
                     self?.viewModel.getSongList(channelId: DataHelper.shared.channelId)
                 } else {
-                    self?.loopPageView.setup(urls: PlayerHelper.shared.getCoverList())
-                    self?.setBackImageView()
+
                 }
             case .more:
                 break
@@ -198,5 +210,14 @@ class FMView: UIView {
         playerView.sliderValueChangedClosure = { [weak self] (value:Float) in
             PlayerHelper.shared.seekTo(value: value)
         }
+    }
+    
+    /// 歌曲发生改变，界面更新
+    private func updateWithSongChanged() {
+        let song = PlayerHelper.shared.song
+        backImageView.setImage(urlStr: song?.coverURL ?? "", placeholderStr: "", radius: 0)
+        loopPageView.setup(urls: PlayerHelper.shared.getCoverList())
+        let text = (song != nil) ? ("\(song!.title) / \(song!.artist)") : nil
+        loopPageView.showLabel(text: text)
     }
 }
