@@ -56,6 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// 初始化设置
     private func setup() {
         
+        /// 设置电池栏前景色
+        UIApplication.shared.setStatusBarStyle(.lightContent, animated: false)
+        
         /// 音乐接收远程控制
         UIApplication.shared.beginReceivingRemoteControlEvents()
         
