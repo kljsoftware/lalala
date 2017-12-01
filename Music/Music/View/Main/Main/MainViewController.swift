@@ -43,11 +43,10 @@ class MainViewController: UIViewController {
                         SearchView(frame: CGRect(x: 0, y: 0, width: w, height: h)),
                         MeView(frame: CGRect(x: 0, y: 0, width: w, height: h))]
         scrollView.contentSize = CGSize(width: w * CGFloat(subViews.count), height: h)
-        let colors = [UIColor.black, UIColor.red, UIColor.blue, UIColor.brown, UIColor.darkGray]
         for subView in subViews {
             let index = subViews.index(of: subView)!
             subView.frame = CGRect(x: CGFloat(index) * w, y: 0, width: w, height: h)
-            subView.backgroundColor = colors[index]
+            subView.backgroundColor = UIColor.clear
             scrollView.addSubview(subView)
         }
     }

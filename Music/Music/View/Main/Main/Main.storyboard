@@ -37,9 +37,12 @@
                                     <constraint firstAttribute="height" constant="44" id="wMR-mD-a5z"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="406-DA-b5R">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="406-DA-b5R">
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="GMr-sx-pWv">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                    </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bR-Dj-Qor">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,6 +63,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.4369783216" blue="0.2495008843" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="GMr-sx-pWv" firstAttribute="top" secondItem="406-DA-b5R" secondAttribute="top" id="B2O-Nh-EE0"/>
+                                    <constraint firstItem="GMr-sx-pWv" firstAttribute="leading" secondItem="406-DA-b5R" secondAttribute="leading" id="Opu-WW-BL6"/>
+                                    <constraint firstAttribute="bottom" secondItem="GMr-sx-pWv" secondAttribute="bottom" id="Rbe-6Y-B1E"/>
+                                    <constraint firstAttribute="trailing" secondItem="GMr-sx-pWv" secondAttribute="trailing" id="a2e-oK-2ki"/>
                                     <constraint firstAttribute="trailing" secondItem="wHx-9d-Cxh" secondAttribute="trailing" constant="12" id="arj-Eg-moU"/>
                                     <constraint firstAttribute="trailing" secondItem="1bR-Dj-Qor" secondAttribute="trailing" id="dXY-Dl-0jn"/>
                                     <constraint firstItem="1bR-Dj-Qor" firstAttribute="leading" secondItem="406-DA-b5R" secondAttribute="leading" id="mU0-iY-DTx"/>
@@ -92,6 +99,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg.png" width="640" height="960"/>
         <image name="common_btn_cd_activated.png" width="69" height="69"/>
         <image name="common_btn_cd_normal.png" width="69" height="69"/>
         <image name="default_ad_banner.png" width="2150" height="296"/>

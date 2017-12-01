@@ -46,8 +46,8 @@ class FMViewModel: BaseViewModel {
     }
     
     func loadLyric(lyricUrl:String) {
-        HttpRequest.downloadFile(withURLString: lyricUrl, progressHandler: nil) { (url, error) in
-            print("url = \(String(describing: url))")
-        }
+//        HttpRequest.downloadFile(withURLString: lyricUrl, progressHandler: nil) { (url, error) in
+//            print("url = \(String(describing: url))")
+//        }
     }
 }

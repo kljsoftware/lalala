@@ -40,6 +40,7 @@
 		3C16B8DA1FCE917E00FAABCA /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C16B8D91FCE917E00FAABCA /* SliderView.swift */; };
 		3C16B8DD1FCEA63000FAABCA /* PlayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C16B8DC1FCEA62F00FAABCA /* PlayerHelper.swift */; };
 		3C322AC61FD0EAAB00961348 /* DownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C322AC51FD0EAAB00961348 /* DownloadTask.swift */; };
+		3C322AC81FD1040B00961348 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C322AC71FD1040B00961348 /* bg.png */; };
 		3C367A6D1FCF08FF00F6323F /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C367A6C1FCF08FF00F6323F /* UIImageView+Extension.swift */; };
 		3C48ACC31FCB942A00B8992A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACC21FCB942A00B8992A /* UIColor+Extension.swift */; };
 		3C48ACC51FCBB0FA00B8992A /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACC41FCBB0FA00B8992A /* Dictionary+Extension.swift */; };
@@ -122,6 +123,7 @@
 		3C16B8D91FCE917E00FAABCA /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		3C16B8DC1FCEA62F00FAABCA /* PlayerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHelper.swift; sourceTree = "<group>"; };
 		3C322AC51FD0EAAB00961348 /* DownloadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTask.swift; sourceTree = "<group>"; };
+		3C322AC71FD1040B00961348 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		3C367A6C1FCF08FF00F6323F /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		3C48ACC21FCB942A00B8992A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3C48ACC41FCBB0FA00B8992A /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 		3C16B8A51FCC68A000FAABCA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3C322AC71FD1040B00961348 /* bg.png */,
 				3C526F721FD029B80093B837 /* default_ad_banner.png */,
 				3C16B8D71FCE85CD00FAABCA /* common_seek_img_thumb.png */,
 				3C16B8B21FCE3EB300FAABCA /* default_cover_2.png */,
@@ -662,6 +665,7 @@
 				3C16B8CE1FCE4E7A00FAABCA /* fm_player_btn_love_normal.png in Resources */,
 				3C16B8D81FCE85CD00FAABCA /* common_seek_img_thumb.png in Resources */,
 				3C16B8A91FCC68A000FAABCA /* common_btn_cd_normal.png in Resources */,
+				3C322AC81FD1040B00961348 /* bg.png in Resources */,
 				3C16B8C61FCE4E7A00FAABCA /* fm_player_btn_more_pressed.png in Resources */,
 				3C04077E1FC3F5A800080935 /* LaunchScreen.storyboard in Resources */,
 				3CD05F651FCAA85800FEC161 /* tab_music_selected.png in Resources */,
