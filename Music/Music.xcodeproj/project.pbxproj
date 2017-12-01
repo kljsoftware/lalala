@@ -97,6 +97,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		370BA4F01FD13F3200C15428 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		370BA4F11FD13F4600C15428 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3763B2411FD12611001433D4 /* DiscoveryMainResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryMainResultModel.swift; sourceTree = "<group>"; };
 		3763B2431FD12DA6001433D4 /* DiscoveryLoadSonglistResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryLoadSonglistResultModel.swift; sourceTree = "<group>"; };
 		377C54041FD13B2F00618A9F /* SingerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingerModel.swift; sourceTree = "<group>"; };
@@ -650,6 +652,8 @@
 				en,
 				Base,
 				"zh-Hans",
+				ja,
+				"zh-Hant",
 			);
 			mainGroup = 3C0407471FC3F02400080935;
 			productRefGroup = 3C0407511FC3F02400080935 /* Products */;
@@ -841,6 +845,8 @@
 				3CD05F301FCA953D00FEC161 /* en */,
 				3CD05F321FCA965900FEC161 /* zh-Hans */,
 				3CD05F341FCA96B200FEC161 /* Base */,
+				370BA4F01FD13F3200C15428 /* ja */,
+				370BA4F11FD13F4600C15428 /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
