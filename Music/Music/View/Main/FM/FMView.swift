@@ -212,6 +212,8 @@ class FMView: UIView {
         }
     }
     
+    var downloadTask:DownloadTask?
+    
     /// 歌曲发生改变，界面更新
     private func updateWithSongChanged() {
         let song = PlayerHelper.shared.song
@@ -220,6 +222,13 @@ class FMView: UIView {
         let text = (song != nil) ? ("\(song!.title) / \(song!.artist)") : nil
         loopPageView.showLabel(text: text)
         //lyricView.setup(lyricUrl: song?.lyricURL)
-        viewModel.loadLyric(lyricUrl: song!.lyricURL)
+       // viewModel.loadLyric(lyricUrl: song!.lyricURL)
+        downloadTask = DownloadTask(urlString: song?.lyricURL)
+        downloadTask!.resume()
+        downloadTask!.setupClosures(downloadProgressCallback: { (progress) in
+            Log.e(progress)
+        }) {
+            Log.e("finished")
+        }
     }
 }
