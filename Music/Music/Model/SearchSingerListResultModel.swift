@@ -6,4 +6,13 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-import Foundation
+/// 获取默认歌手列表
+class SearchSingerListResultModel: ResultModel {
+    
+    /// 是否还有更多
+    var has_more = false
+    
+    /// 歌手列表
+    var data = [SingerModel]()
+    
+}

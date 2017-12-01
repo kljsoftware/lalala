@@ -6,4 +6,9 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-import Foundation
+/// 获取排行榜列表
+class DiscoveryRankListResultModel: ResultModel {
+    
+    /// 排行榜列表
+    var data = [RankInfoModel]()
+}
