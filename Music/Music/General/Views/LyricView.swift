@@ -7,13 +7,13 @@
 //
 
 /// 歌词视图
-class LyricView: UIScrollView {
+class LyricView: UIView {
     
     /// 单击歌词回调
     var clickedClosure:(()->Void)?
     
-    /// 歌词首尾距顶部、尾部边距、歌词上下空白、歌词左右屏幕边距
-    private let marginTopBottom:CGFloat = 30, blank:CGFloat = 12, marginLeftRight:CGFloat = 20
+    /// 歌词首尾距顶部、尾部边距、歌词上下空白、歌词左右屏幕边距、渐变区域高度
+    private let marginTopBottom:CGFloat = 30, blank:CGFloat = 12, marginLeftRight:CGFloat = 40, gradientHeight:CGFloat = 20
 
     /// 歌词
     private var lyric:Lyric?
@@ -24,10 +24,20 @@ class LyricView: UIScrollView {
     /// 当前索引
     private var index = 0
     
+    /// 滚动视图
+    private lazy var scrollView:UIScrollView = {
+        let _scrollView = UIScrollView(frame:CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+        _scrollView.showsVerticalScrollIndicator = false
+        _scrollView.showsHorizontalScrollIndicator = false
+        _scrollView.backgroundColor = UIColor.clear
+        self.addSubview(_scrollView)
+        return _scrollView
+    }()
+    
     // MARK: - init/override methods
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(performTapGesture)))
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,9 +51,18 @@ class LyricView: UIScrollView {
     }
     
     // MARK: - private methods
+    /// 初始化
+    private func setup() {
+        scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(performTapGesture)))
+        let topCoverView = UIView.gradientView(frame: CGRect(x: 0, y: 0, width: frame.width, height: gradientHeight), start: CGPoint.zero, end: CGPoint(x: 0, y: 1.0))
+        let bottomCoverView = UIView.gradientView(frame: CGRect(x: 0, y: frame.height - gradientHeight, width: frame.width, height: gradientHeight), start: CGPoint(x: 0.0, y: 1.0), end: CGPoint.zero)
+        addSubview(topCoverView)
+        addSubview(bottomCoverView)
+    }
+    
     /// 清除原有视图
     private func removeSubViews() {
-        for subview in subviews {
+        for subview in scrollView.subviews {
             subview.removeFromSuperview()
         }
     }
@@ -64,18 +83,18 @@ class LyricView: UIScrollView {
             label.lineBreakMode = .byWordWrapping
             label.textAlignment = .center
             label.font = ARIAL_FONT_16
-            self.addSubview(label)
+            scrollView.addSubview(label)
             y += (label.frame.height + blank)
         }
         y += (marginTopBottom - blank)
-        contentSize = CGSize(width: frame.width, height: y)
+        scrollView.contentSize = CGSize(width: frame.width, height: y)
     }
     
     // 计算自动滚动结束位置
     private func calcScrollY(_ rect:CGRect) -> CGFloat {
         let scrollViewHeight        = frame.size.height
         let scrollViewBaseline      = scrollViewHeight / 2
-        let scrollViewContentHeight = contentSize.height
+        let scrollViewContentHeight = scrollView.contentSize.height
         let cellMiddle = rect.midY
         
         var y:CGFloat = 0
@@ -98,17 +117,17 @@ class LyricView: UIScrollView {
     
     /// 选中句子并滚动居中
     private func selectSentence(index:Int) {
-        if index > 0 && index < subviews.count {
-            let label = (subviews[index] as! UILabel)
+        if index > 0 && index < scrollView.subviews.count {
+            let label = (scrollView.subviews[index] as! UILabel)
             label.textColor = COLOR_69EDC8
-            contentOffset = CGPoint(x: 0, y: calcScrollY(label.frame))
+            scrollView.contentOffset = CGPoint(x: 0, y: calcScrollY(label.frame))
         }
     }
     
     /// 取消句子选择状态
     private func unselectSentence(index:Int) {
-        if index > 0 && index < subviews.count {
-            (subviews[index] as! UILabel).textColor = UIColor.white
+        if index > 0 && index < scrollView.subviews.count {
+            (scrollView.subviews[index] as! UILabel).textColor = UIColor.white
         }
     }
     
