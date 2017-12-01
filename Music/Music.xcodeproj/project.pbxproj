@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3763B2421FD12611001433D4 /* DiscoveryMainResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763B2411FD12611001433D4 /* DiscoveryMainResultModel.swift */; };
+		3763B2441FD12DA6001433D4 /* DiscoveryLoadSonglistResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763B2431FD12DA6001433D4 /* DiscoveryLoadSonglistResultModel.swift */; };
+		377C54051FD13B2F00618A9F /* SingerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377C54041FD13B2F00618A9F /* SingerModel.swift */; };
+		377C54071FD13BE700618A9F /* SearchSingerListResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377C54061FD13BE700618A9F /* SearchSingerListResultModel.swift */; };
+		377C54091FD13CC200618A9F /* SearchSongResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377C54081FD13CC200618A9F /* SearchSongResultModel.swift */; };
+		37DF3BA91FD13163006399E2 /* DiscoveryRankResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DF3BA81FD13162006399E2 /* DiscoveryRankResultModel.swift */; };
+		37DF3BAB1FD13340006399E2 /* SongListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DF3BAA1FD13340006399E2 /* SongListDataModel.swift */; };
+		37DF3BAD1FD1394A006399E2 /* DiscoveryRankListResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DF3BAC1FD1394A006399E2 /* DiscoveryRankListResultModel.swift */; };
+		37DF3BAF1FD139D9006399E2 /* DiscoverySongListDataResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DF3BAE1FD139D9006399E2 /* DiscoverySongListDataResultModel.swift */; };
 		3C04077C1FC3F5A800080935 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0407691FC3F5A800080935 /* AppDelegate.swift */; };
 		3C04077D1FC3F5A800080935 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C04076B1FC3F5A800080935 /* Info.plist */; };
 		3C04077E1FC3F5A800080935 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C04076F1FC3F5A800080935 /* LaunchScreen.storyboard */; };
@@ -88,6 +97,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3763B2411FD12611001433D4 /* DiscoveryMainResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryMainResultModel.swift; sourceTree = "<group>"; };
+		3763B2431FD12DA6001433D4 /* DiscoveryLoadSonglistResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryLoadSonglistResultModel.swift; sourceTree = "<group>"; };
+		377C54041FD13B2F00618A9F /* SingerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingerModel.swift; sourceTree = "<group>"; };
+		377C54061FD13BE700618A9F /* SearchSingerListResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSingerListResultModel.swift; sourceTree = "<group>"; };
+		377C54081FD13CC200618A9F /* SearchSongResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongResultModel.swift; sourceTree = "<group>"; };
+		37DF3BA81FD13162006399E2 /* DiscoveryRankResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryRankResultModel.swift; sourceTree = "<group>"; };
+		37DF3BAA1FD13340006399E2 /* SongListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListDataModel.swift; sourceTree = "<group>"; };
+		37DF3BAC1FD1394A006399E2 /* DiscoveryRankListResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryRankListResultModel.swift; sourceTree = "<group>"; };
+		37DF3BAE1FD139D9006399E2 /* DiscoverySongListDataResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverySongListDataResultModel.swift; sourceTree = "<group>"; };
 		3C0407501FC3F02400080935 /* Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Music.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0407691FC3F5A800080935 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C04076B1FC3F5A800080935 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -234,8 +252,17 @@
 			isa = PBXGroup;
 			children = (
 				3C48ACC61FCBB66600B8992A /* Base */,
+				3763B2411FD12611001433D4 /* DiscoveryMainResultModel.swift */,
+				3763B2431FD12DA6001433D4 /* DiscoveryLoadSonglistResultModel.swift */,
+				37DF3BAC1FD1394A006399E2 /* DiscoveryRankListResultModel.swift */,
+				37DF3BA81FD13162006399E2 /* DiscoveryRankResultModel.swift */,
+				37DF3BAE1FD139D9006399E2 /* DiscoverySongListDataResultModel.swift */,
+				37DF3BAA1FD13340006399E2 /* SongListDataModel.swift */,
 				3C48ACDD1FCBEABD00B8992A /* FMChannelListResultModel.swift */,
 				3C48ACDC1FCBEABD00B8992A /* FMSongListResultModel.swift */,
+				377C54061FD13BE700618A9F /* SearchSingerListResultModel.swift */,
+				377C54081FD13CC200618A9F /* SearchSongResultModel.swift */,
+				377C54041FD13B2F00618A9F /* SingerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -756,14 +783,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C16B8B11FCE3CFE00FAABCA /* UIView+Extension.swift in Sources */,
+				3763B2441FD12DA6001433D4 /* DiscoveryLoadSonglistResultModel.swift in Sources */,
+				37DF3BAB1FD13340006399E2 /* SongListDataModel.swift in Sources */,
 				3C16B8D21FCE5B7000FAABCA /* FMPlayerView.swift in Sources */,
 				3C48ACDF1FCBEABD00B8992A /* FMChannelListResultModel.swift in Sources */,
 				3C48ACD31FCBBC7800B8992A /* FMViewModel.swift in Sources */,
+				377C54051FD13B2F00618A9F /* SingerModel.swift in Sources */,
 				3CD05F521FCA9DF100FEC161 /* MeView.swift in Sources */,
 				3CD05F4E1FCA9DD900FEC161 /* DiscoverView.swift in Sources */,
 				3CD05F4A1FCA9DBB00FEC161 /* FMView.swift in Sources */,
 				3C04077C1FC3F5A800080935 /* AppDelegate.swift in Sources */,
+				37DF3BAD1FD1394A006399E2 /* DiscoveryRankListResultModel.swift in Sources */,
 				3C48ACCD1FCBB8D000B8992A /* HttpRequest.swift in Sources */,
+				37DF3BAF1FD139D9006399E2 /* DiscoverySongListDataResultModel.swift in Sources */,
+				377C54071FD13BE700618A9F /* SearchSingerListResultModel.swift in Sources */,
 				3C6203F51FC5AA6C003D2309 /* AudioPlayer.swift in Sources */,
 				3C58CFC31FC94F1800045BA9 /* Log.swift in Sources */,
 				3C0EE6761FCAE9AD00046C5A /* UserDefaultMacro.swift in Sources */,
@@ -773,12 +806,15 @@
 				3C48ACE11FCBEE7F00B8992A /* FMChannelView.swift in Sources */,
 				3C322AC61FD0EAAB00961348 /* DownloadTask.swift in Sources */,
 				3C58CFDA1FC9B83600045BA9 /* Float+Extension.swift in Sources */,
+				37DF3BA91FD13163006399E2 /* DiscoveryRankResultModel.swift in Sources */,
 				3C48ACDE1FCBEABD00B8992A /* FMSongListResultModel.swift in Sources */,
 				3C48ACC51FCBB0FA00B8992A /* Dictionary+Extension.swift in Sources */,
 				3C0EE6741FCAE53B00046C5A /* LanguageHelper.swift in Sources */,
 				3C16B8DA1FCE917E00FAABCA /* SliderView.swift in Sources */,
 				3CD05F6B1FCAAA2B00FEC161 /* TabView.swift in Sources */,
 				3C16B8D61FCE837E00FAABCA /* UIImage+Extension.swift in Sources */,
+				377C54091FD13CC200618A9F /* SearchSongResultModel.swift in Sources */,
+				3763B2421FD12611001433D4 /* DiscoveryMainResultModel.swift in Sources */,
 				3C7C72651FC91B87008793E6 /* NotificationMacro.swift in Sources */,
 				3C48ACD11FCBBC3C00B8992A /* BaseViewModel.swift in Sources */,
 				3CD05F501FCA9DE500FEC161 /* SearchView.swift in Sources */,
