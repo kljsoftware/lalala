@@ -12,8 +12,17 @@ class LyricView: UIScrollView {
     /// 单击歌词回调
     var clickedClosure:(()->Void)?
     
+    /// 歌词首尾距顶部、尾部边距、歌词上下空白、歌词左右屏幕边距
+    private let marginTopBottom:CGFloat = 30, blank:CGFloat = 12, marginLeftRight:CGFloat = 20
+
     /// 歌词
     private var lyric:Lyric?
+    
+    /// 下载任务
+    private var download:DownloadTask?
+    
+    /// 当前索引
+    private var index = 0
     
     // MARK: - init/override methods
     override init(frame: CGRect) {
@@ -40,23 +49,95 @@ class LyricView: UIScrollView {
     }
     
     /// 添加歌词视图
-    private func addLyricView(lyric:Lyric?) {
-        if lyric == nil {
+    private func addLyricView(lrcPath:String?) {
+        guard let lyric = Lyric.parse(lrcPath: lrcPath) else {
             return
         }
-        Log.e(lyric!)
+        self.lyric = lyric
+        var y:CGFloat = marginTopBottom
+        for sentence in lyric.sentences {
+            let size = sentence.content.getTextRectSize(ARIAL_FONT_16, maxWidth: frame.width - 2*marginLeftRight, maxHeight: frame.height)
+            let label = UILabel(frame:CGRect(x:(frame.width - size.width)/2, y: y, width: size.width, height: size.height))
+            label.text = sentence.content
+            label.numberOfLines = 0
+            label.textColor = UIColor.white
+            label.lineBreakMode = .byWordWrapping
+            label.textAlignment = .center
+            label.font = ARIAL_FONT_16
+            self.addSubview(label)
+            y += (label.frame.height + blank)
+        }
+        y += (marginTopBottom - blank)
+        contentSize = CGSize(width: frame.width, height: y)
+    }
+    
+    // 计算自动滚动结束位置
+    private func calcScrollY(_ rect:CGRect) -> CGFloat {
+        let scrollViewHeight        = frame.size.height
+        let scrollViewBaseline      = scrollViewHeight / 2
+        let scrollViewContentHeight = contentSize.height
+        let cellMiddle = rect.midY
+        
+        var y:CGFloat = 0
+        if (scrollViewContentHeight - cellMiddle) < (scrollViewHeight - scrollViewBaseline) {
+            y = scrollViewContentHeight - scrollViewHeight
+        } else {
+            y = cellMiddle - scrollViewBaseline
+        }
+        
+        // 边界处理
+        if y < 0 {
+            y = 0
+        }
+        
+        if y > scrollViewContentHeight {
+            y = scrollViewContentHeight
+        }
+        return y
+    }
+    
+    /// 选中句子并滚动居中
+    private func selectSentence(index:Int) {
+        if index > 0 && index < subviews.count {
+            let label = (subviews[index] as! UILabel)
+            label.textColor = COLOR_69EDC8
+            contentOffset = CGPoint(x: 0, y: calcScrollY(label.frame))
+        }
+    }
+    
+    /// 取消句子选择状态
+    private func unselectSentence(index:Int) {
+        if index > 0 && index < subviews.count {
+            (subviews[index] as! UILabel).textColor = UIColor.white
+        }
     }
     
     // MARK: - public methods
     /// 初始化设置
     func setup(lyricUrl:String?) {
         removeSubViews()
-        addLyricView(lyric:Lyric.parse(lrcPath: lyricUrl))
+        download = nil
+        download = DownloadTask(urlString: lyricUrl)
+        download?.setup(downloadProgressCallback: nil, downloadFinishedCallback: { [weak self](lrcPath) in
+            self?.addLyricView(lrcPath: lrcPath)
+        })
+        download?.resume()
     }
     
     /// 滚动歌词
     func scrollByTime(currentTime:TimeInterval) {
+        if lyric == nil || lyric!.sentences.count == 0 {
+            return
+        }
         
+        for i in 0..<lyric!.sentences.count {
+            let sentence = lyric!.sentences[i]
+            if sentence.fromTime > currentTime {
+                unselectSentence(index: self.index)
+                selectSentence(index: i)
+                break
+            }
+        }
     }
     
 }

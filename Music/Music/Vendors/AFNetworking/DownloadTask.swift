@@ -6,7 +6,7 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-typealias DownloadFinishedCallback = () -> Void
+typealias DownloadFinishedCallback = (_ filePath:String) -> Void
 typealias DownloadProgressCallBack = (_ progres: Float) -> Void
 
 ///  下载任务类，基于第三方AFNetworking封装
@@ -82,8 +82,10 @@ class DownloadTask {
             self?.fileLength = 0
             self?.fileHandle?.closeFile()
             self?.fileHandle = nil
-            Log.e("setTaskDidComplete#")
-            self?.downloadFinishedCallback?()
+            DispatchQueue.main.async {
+                self?.downloadFinishedCallback?(self!.filePath)
+                Log.e("下载完成")
+            }
         })
         
         return _manager
@@ -156,14 +158,11 @@ class DownloadTask {
         request.addValue(range, forHTTPHeaderField: "Range")
         
         /// 下载任务
-        task = manager.dataTask(with: request, completionHandler: {[weak self](response, responseObject, error) in
-            Log.e("completionHandler")
-            self?.downloadFinishedCallback?()
-        })
+        task = manager.dataTask(with: request, completionHandler: nil)
     }
     
     /// 设置回调闭包
-    func setupClosures(downloadProgressCallback:DownloadProgressCallBack?, downloadFinishedCallback:DownloadFinishedCallback?) {
+    func setup(downloadProgressCallback:DownloadProgressCallBack?, downloadFinishedCallback:DownloadFinishedCallback?) {
         self.downloadProgressCallback = downloadProgressCallback
         self.downloadFinishedCallback = downloadFinishedCallback
     }
@@ -182,5 +181,12 @@ class DownloadTask {
     func stop() {
         task?.cancel()
         task = nil
+    }
+    
+    /// 清理下载文件
+    func clean() {
+        if FileManager.default.fileExists(atPath: filePath) {
+            try? FileManager.default.removeItem(atPath: filePath)
+        }
     }
 }

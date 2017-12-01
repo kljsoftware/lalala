@@ -39,28 +39,4 @@ class HttpRequest {
             }
         }
     }
-    
-    /**
-     通过http下载文件
-     - parameter URLString        : 文件URL
-     - parameter progressHandler  : 下载进度
-     - parameter completionHandler: 下载完成回调
-     */
-    class func downloadFile(withURLString URLString: String, progressHandler: ((Progress) -> Void)?, completionHandler: @escaping ((URL?, Error?) -> Void)) {
-        let manager = AFURLSessionManager(sessionConfiguration: URLSessionConfiguration.default)
-        let request = URLRequest(url: URL(string: URLString)!)
-        let downloadTask = manager.downloadTask(with: request, progress: { (progress) -> Void in
-            print("Download progress: \(progress.fractionCompleted)")
-            if progressHandler != nil {
-                progressHandler!(progress)
-            }
-        }, destination: { (URL, response) -> Foundation.URL in
-            let fileUrl = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            return fileUrl.appendingPathComponent(response.suggestedFilename!)
-        }) { (response, URL, error) -> Void in
-            completionHandler(URL, error)
-        }
-        
-        downloadTask.resume()
-    }
 }

@@ -15,10 +15,19 @@ extension String {
         return String(self[startIndex..<endIndex])
     }
     
-    // 测量单行字符串
+    /// 测量单行字符串
     func sizeWithFont(_ font:UIFont) -> CGSize {
         let attrs = [NSFontAttributeName:font]
         let string:NSString = self as NSString
         return string.size(attributes: attrs)
+    }
+    
+    /// 测量多行字符串宽高
+    func getTextRectSize(_ font:UIFont, maxWidth:CGFloat, maxHeight:CGFloat) -> CGSize {
+        let attributes = [NSFontAttributeName: font]
+        let option = NSStringDrawingOptions.usesLineFragmentOrigin
+        let size = CGSize(width: maxWidth, height: maxHeight)
+        let rect:CGRect = self.boundingRect(with: size, options: option, attributes: attributes, context: nil)
+        return rect.size;
     }
 }

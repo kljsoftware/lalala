@@ -44,8 +44,8 @@ class FMView: UIView {
         let height = self.frame.height - channelViewHeight - playViewHeight - (BOTTOM_TAB_HEIGHT+DEVICE_INDICATOR_HEIGHT)
         let _lyricView = LyricView(frame: CGRect(x: 0, y: channelViewHeight, width: self.frame.width, height: height))
         _lyricView.isHidden = true
+        _lyricView.backgroundColor = UIColor.clear
         self.addSubview(_lyricView)
-        _lyricView.backgroundColor = UIColor.red
         return _lyricView
     }()
     
@@ -212,8 +212,6 @@ class FMView: UIView {
         }
     }
     
-    var downloadTask:DownloadTask?
-    
     /// 歌曲发生改变，界面更新
     private func updateWithSongChanged() {
         let song = PlayerHelper.shared.song
@@ -221,14 +219,6 @@ class FMView: UIView {
         loopPageView.setup(urls: PlayerHelper.shared.getCoverList())
         let text = (song != nil) ? ("\(song!.title) / \(song!.artist)") : nil
         loopPageView.showLabel(text: text)
-        //lyricView.setup(lyricUrl: song?.lyricURL)
-       // viewModel.loadLyric(lyricUrl: song!.lyricURL)
-        downloadTask = DownloadTask(urlString: song?.lyricURL)
-        downloadTask!.resume()
-        downloadTask!.setupClosures(downloadProgressCallback: { (progress) in
-            Log.e(progress)
-        }) {
-            Log.e("finished")
-        }
+        lyricView.setup(lyricUrl: song?.lyricURL)
     }
 }
