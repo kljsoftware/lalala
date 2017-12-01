@@ -219,5 +219,7 @@ class FMView: UIView {
         loopPageView.setup(urls: PlayerHelper.shared.getCoverList())
         let text = (song != nil) ? ("\(song!.title) / \(song!.artist)") : nil
         loopPageView.showLabel(text: text)
+        //lyricView.setup(lyricUrl: song?.lyricURL)
+        viewModel.loadLyric(lyricUrl: song!.lyricURL)
     }
 }

@@ -90,6 +90,7 @@ class LoopPageView : UIView {
     
     /// 设置轮播图片
     func setup(urls:[String]) {
+        SDWebImageManager.shared().cancelAll()
         for i in 0..<count {
             let pageview = scrollView.subviews[i] as! PageView
             pageview.setup(url: urls[i])
@@ -160,7 +161,6 @@ class PageBackView : UIView {
         }
     }
 }
-
 
 /// 滚动页视图
 class PageView : UIView {

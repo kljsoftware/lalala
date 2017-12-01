@@ -21,10 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Te0-E5-Zhi">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Te0-E5-Zhi">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2rK-DS-6y8">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_ad_banner.png" translatesAutoresizingMaskIntoConstraints="NO" id="2rK-DS-6y8">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     </imageView>
                                 </subviews>
@@ -69,7 +69,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="406-DA-b5R" firstAttribute="top" secondItem="Te0-E5-Zhi" secondAttribute="bottom" id="10F-ci-1l4"/>
                             <constraint firstAttribute="bottom" secondItem="406-DA-b5R" secondAttribute="bottom" id="5Ed-og-wzg"/>
@@ -94,5 +94,6 @@
     <resources>
         <image name="common_btn_cd_activated.png" width="69" height="69"/>
         <image name="common_btn_cd_normal.png" width="69" height="69"/>
+        <image name="default_ad_banner.png" width="2150" height="296"/>
     </resources>
 </document>

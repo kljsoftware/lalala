@@ -12,8 +12,8 @@ class LyricView: UIScrollView {
     /// 单击歌词回调
     var clickedClosure:(()->Void)?
     
-    /// 歌词句子
-    private var sentences = [LyricSentence]()
+    /// 歌词
+    private var lyric:Lyric?
     
     // MARK: - init/override methods
     override init(frame: CGRect) {
@@ -31,10 +31,27 @@ class LyricView: UIScrollView {
         clickedClosure?()
     }
     
+    // MARK: - private methods
+    /// 清除原有视图
+    private func removeSubViews() {
+        for subview in subviews {
+            subview.removeFromSuperview()
+        }
+    }
+    
+    /// 添加歌词视图
+    private func addLyricView(lyric:Lyric?) {
+        if lyric == nil {
+            return
+        }
+        Log.e(lyric!)
+    }
+    
     // MARK: - public methods
     /// 初始化设置
     func setup(lyricUrl:String?) {
-        
+        removeSubViews()
+        addLyricView(lyric:Lyric.parse(lrcPath: lyricUrl))
     }
     
     /// 滚动歌词
@@ -82,7 +99,13 @@ class Lyric : NSObject {
     /// 歌词解析
     class func parse(lrcPath:String?) -> Lyric? {
         
-        guard let path = lrcPath, let content = try? String(contentsOfFile: path, encoding: String.Encoding.utf8) else {
+        /// 空串
+        if lrcPath == nil || lrcPath!.isEmpty {
+            return nil
+        }
+        
+        /// 检验是否时合法Url
+        guard let content = try? String.init(contentsOfFile: lrcPath!, encoding: String.Encoding.utf8) else {
             return nil
         }
         
