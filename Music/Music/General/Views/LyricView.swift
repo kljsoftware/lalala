@@ -235,8 +235,10 @@ class Lyric : NSObject {
                 }
                 else {
                     let result = component.components(separatedBy: CharacterSet(charactersIn: "[]"))
-                    let sentence = LyricSentence(Double.transfer(format: result[1]), result[2])
-                    lrc.sentences.append(sentence)
+                    if result.count > 2 {
+                        let sentence = LyricSentence(Double.transfer(format: result[1]), result[2])
+                        lrc.sentences.append(sentence)
+                    }
                 }
             }
         }
