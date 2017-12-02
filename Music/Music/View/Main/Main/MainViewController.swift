@@ -12,11 +12,7 @@ import SnapKit
 class MainViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    
-    /// 主视图容器
     @IBOutlet weak var containerView: UIView!
-    
-    let player = AudioPlayer()
 
     // MARK: - override methods
     override func viewDidLoad() {
@@ -25,10 +21,8 @@ class MainViewController: UIViewController {
     }
 
     // MARK: - private methods
+    /// 初始化
     private func setup() {
-//        let path = Bundle.main.path(forResource: "test", ofType: "lrc")
-//        let lyric = Lyric.parse(lrcPath: path)
-//        NotificationCenter.default.addObserver(self, selector: #selector(notitfyAudioDurationChanged(_ :)), name: NoticationAudioDurationChanged, object: nil)
         setupMainView()
         setupTabView()
     }
@@ -66,14 +60,9 @@ class MainViewController: UIViewController {
     }
     
     /// 点击播放
-    @IBAction func onPlayClicked(_ sender: UIButton) {
-        DataHelper.shared.setPlayingInfo()
-    }
-    
-    @objc func notitfyAudioDurationChanged(_ notify:Notification) {
-        let cuttentTime = player.audioStreamer?.currentTime.transferFormat() ?? "00:00"
-        let totalTime   = player.audioStreamer?.duration.transferFormat() ?? "00:00"
-        print("cuttentTime = \(cuttentTime), totalTime = \(totalTime)")
+    @IBAction func onCDButtonClicked(_ sender: UIButton) {
+        let immersionPlayerView = Bundle.main.loadNibNamed("ImmersionPlayerView", owner: nil, options: nil)?[0] as! ImmersionPlayerView
+        view.push(view: immersionPlayerView, size: CGSize(width: DEVICE_SCREEN_WIDTH, height: DEVICE_SCREEN_HEIGHT - TOP_AD_HEIGHT - DEVICE_STATUS_BAR_HEIGHT))
     }
     
     override func remoteControlReceived(with event: UIEvent?) {
@@ -82,17 +71,17 @@ class MainViewController: UIViewController {
             print("event!.subtype = \(event!.subtype.rawValue)")
             switch event!.subtype {
             case .remoteControlPlay:  // 播放事件【操作：停止状态下，按耳机线控中间按钮一下】
-                player.resume()
+                PlayerHelper.shared.resume()
             case .remoteControlPause: // 暂停事件
-                player.pause()
+                PlayerHelper.shared.pause()
             case .remoteControlStop:  // 停止事件
-                break
+                 PlayerHelper.shared.stop()
             case .remoteControlTogglePlayPause:      // 播放或暂停切换【操作：播放或暂停状态下，按耳机线控中间按钮一下】
-                break
+                PlayerHelper.shared.resume()
             case .remoteControlNextTrack:            // 下一曲【操作：按耳机线控中间按钮两下】
-                break
+                _ = PlayerHelper.shared.next()
             case .remoteControlPreviousTrack:        // 上一曲【操作：按耳机线控中间按钮三下】
-                break
+                _ = PlayerHelper.shared.prev()
             case .remoteControlBeginSeekingBackward: // 快退开始【操作：按耳机线控中间按钮三下不要松开】
                 break
             case .remoteControlEndSeekingBackward:   // 快退停止【操作：按耳机线控中间按钮三下到了快退的位置松开】

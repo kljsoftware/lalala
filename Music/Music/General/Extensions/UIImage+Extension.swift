@@ -16,4 +16,18 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return scaleImage
     }
+    
+    /// 生成对应颜色图片
+    class func imageWithColor(color:UIColor, rect:CGRect, radius:CGFloat) -> UIImage? {
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        let path = UIBezierPath(roundedRect: rect, cornerRadius: radius)
+        path.addClip()
+        context?.addPath(path.cgPath)
+        context?.drawPath(using: CGPathDrawingMode.fill)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
 }

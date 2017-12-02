@@ -10,7 +10,7 @@ import UIKit
 
 /// 按钮类型
 enum FMPlayerViewButtonType {
-    case love, prev, control, next, more
+    case love, prev, play, pause, next, more
 }
 
 class FMPlayerView: UIView {
@@ -18,8 +18,8 @@ class FMPlayerView: UIView {
     /// 按钮回调
     var selectButtonClosure:((FMPlayerViewButtonType) -> Void)?
     
-    /// 进度条发生变化
-    var sliderValueChangedClosure:((Float)->Void)?
+    /// 播放暂停按钮图片资源
+    let playImages = [UIImage(named:"fm_player_btn_play_normal")!, UIImage(named:"fm_player_btn_play_pressed")!], pauseImages = [UIImage(named:"fm_player_btn_stop_normal")!, UIImage(named:"fm_player_btn_stop_pressed")!]
 
     /// 喜欢按钮
     @IBOutlet weak var loveButton: UIButton!
@@ -44,6 +44,9 @@ class FMPlayerView: UIView {
    
     /// 播放进度条
     @IBOutlet weak var slider: SliderView!
+    
+    /// 计时器
+    private var timer:Timer? = nil
     
     // MARK: - override methods
     override func awakeFromNib() {
@@ -75,6 +78,31 @@ class FMPlayerView: UIView {
         nextButton.isExclusiveTouch = true
         moreButton.isExclusiveTouch = true
     }
+    
+    /// 计时开始
+    private func startTimer() {
+        stopTimer()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)//Timer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
+        timer?.fire()
+    }
+    
+    /// 停止计时
+    private func stopTimer() {
+        if nil != timer {
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
+    /// 是否正在记时
+    private func isFire() -> Bool {
+        return nil != timer
+    }
+    
+    /// 计时
+    @objc private func fire() {
+        updateProgress()
+    }
 
     // MARK: - IBAction methods
     @IBAction func onLoveButtonClicked(_ sender: UIButton) {
@@ -86,7 +114,15 @@ class FMPlayerView: UIView {
     }
     
     @IBAction func onControlButtonClicked(_ sender: UIButton) {
-        selectButtonClosure?(.control)
+        if PlayerHelper.shared.state == .play {
+            sender.setImage(nor: pauseImages[0], dwn: pauseImages[1])
+            PlayerHelper.shared.pause()
+            startTimer()
+        } else {
+            sender.setImage(nor: playImages[0], dwn: playImages[1])
+            PlayerHelper.shared.resume()
+            stopTimer()
+        }
     }
     
     @IBAction func onNextButtonClicked(_ sender: UIButton) {
@@ -99,16 +135,50 @@ class FMPlayerView: UIView {
     
     /// 进度条发生变化
     @IBAction func onSliderValueChanged(_ sender: UISlider) {
-        sliderValueChangedClosure?(sender.value)
+        let current = TimeInterval(slider.value) * PlayerHelper.shared.duration
+        PlayerHelper.shared.seekTo(time: current)
+        currentLabel.text = current.transferFormat()
     }
     
     /// 按下
     func sliderTouchBegin() {
-        
+        let current = TimeInterval(slider.value) * PlayerHelper.shared.duration
+        PlayerHelper.shared.seekTo(time: current)
+        currentLabel.text = current.transferFormat()
     }
     
     /// 抬起
     func sliderTouchEnd() {
         
+    }
+    
+    // MARK: - public methods
+    /// 更新状态
+    func update() {
+        
+        /// 按钮状态
+        if PlayerHelper.shared.state == .play {
+            controlButton.setImage(nor: pauseImages[0], dwn: pauseImages[1])
+            if !isFire() {
+                startTimer()
+            }
+        } else {
+            stopTimer()
+            controlButton.setImage(nor: playImages[0], dwn: playImages[1])
+        }
+        
+        durationLabel.text = PlayerHelper.shared.duration.transferFormat()
+    }
+    
+    /// 更新进度
+    func updateProgress() {
+        
+        /// 进度
+        let value = PlayerHelper.shared.duration != 0 ? PlayerHelper.shared.current/PlayerHelper.shared.duration : 0
+        Log.e(value)
+        slider.setValue(Float(value), animated: false)
+        
+        /// 时间
+        currentLabel.text = PlayerHelper.shared.current.transferFormat()
     }
 }

@@ -6,15 +6,15 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
+private let pushPopAnimationDuration = 0.5, pushPopDelayDuration = 0.1
+
 extension UIView {
     
-    // 圆角
+    /// 圆角
     var cornerRadius:CGFloat {
-    
         get {
             return layer.cornerRadius
         }
-        
         set {
             layer.cornerRadius = newValue
             layer.masksToBounds = false
@@ -23,7 +23,7 @@ extension UIView {
         }
     }
     
-    // 模糊
+    /// 模糊
     class func blurViewWithRect(_ rect: CGRect, style:UIBlurEffectStyle = .light) -> UIView {
         let view = UIView(frame: rect)
         view.backgroundColor = UIColor.clear
@@ -45,5 +45,45 @@ extension UIView {
         gradientLayer.colors = [color.cgColor, color.withAlphaComponent(0.0).cgColor]
         view.layer.addSublayer(gradientLayer)
         return view
+    }
+    
+    /// 视图压栈
+    func push(view:UIView, size:CGSize) {
+        self.isUserInteractionEnabled = false
+        self.addSubview(view)
+        view.snp.makeConstraints { (maker) in
+            maker.width.equalTo(size.width)
+            maker.height.equalTo(size.height)
+            maker.bottom.equalTo(self)
+            maker.left.equalTo(self).offset(size.width)
+        }
+        self.perform(#selector(pushAnimation), with: view, afterDelay: pushPopDelayDuration)
+    }
+    
+    /// 视图出栈
+    func pop() {
+        self.superview?.isUserInteractionEnabled = false
+        self.snp.updateConstraints({ (maker) in
+            maker.left.equalTo(self.superview!).offset(self.frame.width)
+        })
+        
+        UIView.animate(withDuration: pushPopAnimationDuration, animations: {
+            self.superview!.layoutIfNeeded()
+        }, completion: { (finished) in
+            self.superview?.isUserInteractionEnabled = true
+            self.removeFromSuperview()
+        })
+    }
+    
+    /// 压栈动画
+    @objc private func pushAnimation(view:UIView) {
+        view.snp.updateConstraints({ (maker) in
+            maker.left.equalTo(self)
+        })
+        UIView.animate(withDuration: pushPopAnimationDuration, animations: {
+            self.layoutIfNeeded()
+        }, completion: { (finished) in
+            self.isUserInteractionEnabled = true
+        })
     }
 }

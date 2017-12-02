@@ -57,7 +57,7 @@
                                         <state key="normal" image="common_btn_cd_normal.png"/>
                                         <state key="selected" image="common_btn_cd_activated.png"/>
                                         <connections>
-                                            <action selector="onPlayClicked:" destination="4Fr-1Q-gi4" eventType="touchUpInside" id="cjJ-8r-gE2"/>
+                                            <action selector="onCDButtonClicked:" destination="4Fr-1Q-gi4" eventType="touchUpInside" id="6bF-ED-Yio"/>
                                         </connections>
                                     </button>
                                 </subviews>

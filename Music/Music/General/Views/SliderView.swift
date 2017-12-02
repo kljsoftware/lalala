@@ -19,11 +19,11 @@ class SliderView: UISlider {
     // MARK: - override methods
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        touchBeganClousre?()
         let pt = touches.first!.location(in: self)
         let rect = trackRect(forBounds: self.bounds)
         let value = minimumValue + Float(pt.x - rect.origin.x - thumbSize.width/2)*(maximumValue - minimumValue) / Float(rect.size.width - thumbSize.width)
-        setValue(value, animated: true)
+        setValue(value, animated: false)
+        touchBeganClousre?()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

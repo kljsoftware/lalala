@@ -21,7 +21,13 @@ class PlayerHelper {
     
     /// 实例对象
     static let shared = PlayerHelper()
-    private init() {}
+    private init() {
+        registerNotification()
+    }
+    
+    deinit {
+        unregisterNotification()
+    }
     
     // MARK: - private & public members
     /// 播放器
@@ -39,7 +45,60 @@ class PlayerHelper {
     // 当前播放器状态
     var state:PlayerState = .stop
     
+    /// 当前音乐的总时长
+    var duration:TimeInterval {
+        return player.audioStreamer?.duration ?? 0
+    }
+    
+    /// 当前音乐播放时长
+    var current:TimeInterval {
+        return player.audioStreamer?.currentTime ?? 0
+    }
+    
+    /// 当前音乐缓冲进度
+    var buffer:TimeInterval {
+        return player.audioStreamer?.bufferingRatio ?? 0
+    }
+    
     // MARK: - private methods
+    // 注册通知
+    fileprivate func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyAudioStatusChanged), name: NoticationAudioStatusChanged, object: nil)
+    }
+    
+    // 销毁通知
+    fileprivate func unregisterNotification() {
+        NotificationCenter.default.removeObserver(self, name: NoticationAudioStatusChanged, object: nil)
+    }
+    
+    /// 音频状态更新
+    @objc private func notifyAudioStatusChanged(_ sender:Notification) {
+        
+        /// 流播放器为空
+        guard let streamer = player.audioStreamer else {
+            state = .stop
+            NotificationCenter.default.post(name: NoticationUpdateForAudioStatusChanged, object: nil)
+            return
+        }
+
+        switch streamer.status {
+        case .buffering:
+            break
+        case .playing:
+            state = .play
+        case .paused:
+            state = .pause
+        case .error:
+            state = .stop
+        case .idle:
+            state = .stop
+        case .finished:
+            state = .stop
+        }
+    
+        NotificationCenter.default.post(name: NoticationUpdateForAudioStatusChanged, object: nil)
+    }
+    
     private func songIndex(song:FMSongDataModel?) -> Int? {
         if nil == song {return nil}
         guard let index = songList.index(of: song!) else {
@@ -56,19 +115,32 @@ class PlayerHelper {
         }
     }
     
-    /// 恢复播放
+    /// 开始/恢复播放
     func resume() {
-        player.resume()
+        if state == .pause {
+            player.resume()
+            state = .play
+        } else {
+            start()
+            state = .play
+        }
     }
     
     /// 暂停播放
     func pause() {
         player.pause()
+        state = .pause
+    }
+    
+    /// 停止播放
+    func stop() {
+        player.stop()
+        state = .stop
     }
     
     /// 快进/快退 value = [0, 1]
-    func seekTo(value:Float) {
-       // player.seekTo()
+    func seekTo(time:TimeInterval) {
+       player.seekTo(time)
     }
     
     /// 上一首

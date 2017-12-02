@@ -19,25 +19,29 @@ class AudioPlayer : NSObject {
     // 流播放器
     var audioStreamer:DOUAudioStreamer?
     
-    // 是否已经停止
-    var isStopped:Bool = true
+    // 是否正在播放
+    var isPlaying : Bool {
+        if nil == audioStreamer {
+            return false
+        }
+        return (audioStreamer!.status == DOUAudioStreamerStatus.playing)
+    }
     
-    // 代理
-    weak var delegate:AudioPlayerDelegate?
+    /// 是否暂停
+    var isPaused:Bool {
+        if nil == audioStreamer {
+            return false
+        }
+        return audioStreamer!.status == DOUAudioStreamerStatus.paused
+    }
     
     // MARK: - init/deinit methods
     // 构造
     override init() {
         super.init()
-        
-        isStopped = true
-        
-//        // 监听是否触发home键挂起程序
-//        NotificationCenter.default.addObserver(self, selector: #selector(notifyApplicationWillResignActive), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
     }
     
     deinit {
-     //   NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
         removeAudioStreamObserver()
     }
     
@@ -86,60 +90,25 @@ class AudioPlayer : NSObject {
     // 延时播放
     @objc func delayPlay() {
         audioStreamer?.play()
-        //播放开始
-        delegate?.onStreamerPlayStart()
     }
     
     // MARK: - observer methods
     // 观察流播放器的播放状态
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if context == &kStatusKVOKey {
-            perform(#selector(playbackStateChanged), on: Thread.main, with: nil, waitUntilDone: false)
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: NoticationAudioStatusChanged, object: nil)
+            }
         } else if context == &kDurationKVOKey {
             DispatchQueue.main.async {
-                NotificationCenter.default.post(name: NoticationAudioDurationChanged, object: nil)
+                NotificationCenter.default.post(name: NoticationAudioStatusChanged, object: nil)
             }
         } else if context == &kBufferingRatioKVOKey {
             DispatchQueue.main.async {
-                NotificationCenter.default.post(name: NoticationAudioBufferRatioChanged, object: nil)
+                NotificationCenter.default.post(name: NoticationAudioStatusChanged, object: nil)
             }
         } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
-        }
-        
-        
-    }
-    
-    // 流播放器状态发生改变
-    @objc func playbackStateChanged() {
-       
-        let status = audioStreamer?.status
-        if status == nil {
-            return
-        }
-        print("YJYDOUAudioStreamerWrapper | status = \(String(describing: status?.rawValue))")
-        switch status! {
-        case DOUAudioStreamerStatus.buffering:
-            break
-        case DOUAudioStreamerStatus.playing:
-            isStopped = false
-            break
-        case DOUAudioStreamerStatus.paused:
-            isStopped = false
-            delegate?.onStreamerPlayPaused?()
-            break
-        case DOUAudioStreamerStatus.error:
-            audioStreamer?.stop()
-            delegate?.onStreamerPlayError?()
-            break
-        case DOUAudioStreamerStatus.idle:
-            // 播放完成
-            isStopped = true
-            delegate?.onStreamerPlayStoped()
-            break
-        case DOUAudioStreamerStatus.finished:
-            audioStreamer?.stop()
-            break
         }
     }
     
@@ -168,14 +137,14 @@ class AudioPlayer : NSObject {
     
     /// 恢复
     func resume() {
-        if isPaused() {
+        if isPaused {
             audioStreamer?.play()
         }
     }
     
     // 暂停
     func pause() {
-        if isPlaying() {
+        if isPlaying {
            audioStreamer?.pause()
         }
     }
@@ -189,38 +158,4 @@ class AudioPlayer : NSObject {
     func stop() {
         audioStreamer?.stop()
     }
-    
-    // 是否正在播放
-    func isPlaying() -> Bool {
-        if nil == audioStreamer {
-            return false
-        }
-        return (audioStreamer!.status == DOUAudioStreamerStatus.playing)
-    }
-    
-    func isPaused() -> Bool {
-        if nil == audioStreamer {
-            return false
-        }
-        return audioStreamer!.status == DOUAudioStreamerStatus.paused
-    }
-}
-
-// 代理
-@objc protocol AudioPlayerDelegate : NSObjectProtocol {
-    
-    // 流播放开始
-    func onStreamerPlayStart()
-    
-    // 流播放继续
-    @objc optional func onStreamerPlayContinue()
-    
-    // 流播放暂停
-    @objc optional func onStreamerPlayPaused()
-    
-    // 流播放结束
-    func onStreamerPlayStoped()
-    
-    // 流播放错误
-    @objc optional func onStreamerPlayError()
 }
