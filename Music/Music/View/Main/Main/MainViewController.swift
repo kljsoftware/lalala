@@ -11,20 +11,35 @@ import SnapKit
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var cdButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
+    private var animation:RotateAnimation?
 
     // MARK: - override methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerNotification()
         setup()
+    }
+    
+    deinit {
+        unregisterNotification()
     }
 
     // MARK: - private methods
     /// 初始化
     private func setup() {
+        setupcdButton()
         setupMainView()
         setupTabView()
+    }
+    
+    /// 设置按钮及按钮动画
+    private func setupcdButton() {
+        cdButton.isExclusiveTouch = true
+        cdButton.setHighlightedImage(nor: UIImage(named:"common_btn_cd_normal"), sel: UIImage(named:"common_btn_cd_activated"))
+        animation = RotateAnimation(animationView: cdButton)
     }
     
     /// 设置主视图
@@ -56,6 +71,27 @@ class MainViewController: UIViewController {
         }
         tabView.selectedClosure = { [weak self](type) in
             self?.scrollView.setContentOffset(CGPoint(x: CGFloat(type.rawValue)*DEVICE_SCREEN_WIDTH, y: 0), animated: false)
+        }
+    }
+
+    /// 注册通知
+    fileprivate func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
+    }
+    
+    /// 销毁通知
+    fileprivate func unregisterNotification() {
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioStatusChanged, object: nil)
+    }
+    
+    /// 通知相关音频控制更新
+    @objc private func notifyUpdateForAudioStatusChanged(_ sender:Notification) {
+        if PlayerHelper.shared.state == .stop || PlayerHelper.shared.state == .pause {
+            cdButton.isSelected = false
+            animation?.stop()
+        } else {
+            cdButton.isSelected = true
+            animation?.start()
         }
     }
     

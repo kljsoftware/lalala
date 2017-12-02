@@ -46,4 +46,10 @@ extension UIButton {
         }
     }
     
+    /// 设置选中和非选中按下状态
+    func setHighlightedImage(nor:UIImage?, sel:UIImage?) {
+        setImage(nor, for: [.normal, .highlighted])
+        setImage(sel, for: [.selected, .highlighted])
+    }
+    
 }

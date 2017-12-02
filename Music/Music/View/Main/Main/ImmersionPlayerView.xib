@@ -11,10 +11,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImmersionPlayerView" customModule="Music" customModuleProvider="target">
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImmersionPlayerView" customModule="Music" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fcx-OB-riB">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXS-BQ-wMt">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zlW-uK-RC6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZ7-EQ-cFc">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <subviews>
@@ -34,12 +45,14 @@
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dmd-41-3r5">
                             <rect key="frame" x="54" y="0.0" width="267" height="21"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zy-qK-crR">
                             <rect key="frame" x="54" y="23" width="267" height="21"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -53,7 +66,8 @@
                             <state key="normal" image="immersion_btn_share_normal.png"/>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="H5E-sI-3qf" firstAttribute="leading" secondItem="Dmd-41-3r5" secondAttribute="trailing" constant="12" id="6uX-Kl-QHG"/>
                         <constraint firstItem="Dmd-41-3r5" firstAttribute="leading" secondItem="tCi-pH-NuP" secondAttribute="trailing" constant="12" id="82J-Sd-I5m"/>
@@ -70,7 +84,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wqr-RN-5oU">
                     <rect key="frame" x="0.0" y="44" width="375" height="463"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96b-tP-Gid">
                     <rect key="frame" x="0.0" y="507" width="375" height="160"/>
@@ -93,6 +107,9 @@
                                             </constraints>
                                             <state key="normal" image="immersion_player_btn_prev_normal.png"/>
                                             <state key="highlighted" image="immersion_player_btn_prev_pressed.png"/>
+                                            <connections>
+                                                <action selector="onPrevButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="uR0-Cm-3ec"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,6 +129,9 @@
                                             </constraints>
                                             <state key="normal" image="immersion_player_btn_play_normal.png"/>
                                             <state key="highlighted" image="immersion_player_btn_play_pressed.png"/>
+                                            <connections>
+                                                <action selector="onControlButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Pfe-gP-4wr"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -131,6 +151,9 @@
                                             </constraints>
                                             <state key="normal" image="immersion_player_btn_next_normal.png"/>
                                             <state key="highlighted" image="immersion_player_btn_next_pressed.png"/>
+                                            <connections>
+                                                <action selector="onNextButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="h8H-RX-YyN"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -189,6 +212,9 @@
                                     <color key="minimumTrackTintColor" red="0.41176470590000003" green="0.92941176469999998" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="maximumTrackTintColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <action selector="onSliderValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="lbc-1i-Ai1"/>
+                                    </connections>
                                 </slider>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -217,6 +243,9 @@
                                             <state key="normal" image="immersion_player_btn_love_normal.png"/>
                                             <state key="selected" image="immersion_player_btn_love_selected.png"/>
                                             <state key="highlighted" image="immersion_player_btn_love_selected.png"/>
+                                            <connections>
+                                                <action selector="onLoveButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="aZX-ep-f3W"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -293,6 +322,9 @@
                                             </constraints>
                                             <state key="normal" image="immersion_player_btn_more_normal.png"/>
                                             <state key="highlighted" image="immersion_player_btn_more_pressed.png"/>
+                                            <connections>
+                                                <action selector="onMoreButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="0Lb-Gl-PYQ"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -328,7 +360,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="QPT-d4-zX9" firstAttribute="leading" secondItem="96b-tP-Gid" secondAttribute="leading" id="0OA-Dl-yEq"/>
                         <constraint firstItem="k2y-4P-aPO" firstAttribute="top" secondItem="8ux-k3-BLp" secondAttribute="bottom" id="Bmk-dP-NZ0"/>
@@ -344,21 +376,37 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="JXS-BQ-wMt" secondAttribute="trailing" id="2rl-yT-kqL"/>
+                <constraint firstAttribute="bottom" secondItem="Fcx-OB-riB" secondAttribute="bottom" id="5eD-NY-h5Q"/>
                 <constraint firstAttribute="trailing" secondItem="Wqr-RN-5oU" secondAttribute="trailing" id="9vb-qi-DNm"/>
                 <constraint firstItem="UZ7-EQ-cFc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Bna-eo-qWx"/>
                 <constraint firstAttribute="trailing" secondItem="96b-tP-Gid" secondAttribute="trailing" id="Els-yE-SNc"/>
                 <constraint firstAttribute="trailing" secondItem="UZ7-EQ-cFc" secondAttribute="trailing" id="G6f-UT-ydi"/>
+                <constraint firstItem="Fcx-OB-riB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GJ5-LR-2tg"/>
+                <constraint firstItem="Fcx-OB-riB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Lpm-Pi-wM0"/>
                 <constraint firstItem="Wqr-RN-5oU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="MqN-nB-Ca2"/>
+                <constraint firstItem="JXS-BQ-wMt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QWZ-6w-PXD"/>
+                <constraint firstAttribute="bottom" secondItem="JXS-BQ-wMt" secondAttribute="bottom" id="Qqg-kq-M8q"/>
                 <constraint firstItem="96b-tP-Gid" firstAttribute="top" secondItem="Wqr-RN-5oU" secondAttribute="bottom" id="R9G-hn-Rk4"/>
+                <constraint firstAttribute="trailing" secondItem="Fcx-OB-riB" secondAttribute="trailing" id="jNf-IK-2JM"/>
                 <constraint firstItem="Wqr-RN-5oU" firstAttribute="top" secondItem="UZ7-EQ-cFc" secondAttribute="bottom" id="lQ8-Xp-o4C"/>
                 <constraint firstItem="UZ7-EQ-cFc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mw4-sk-tIy"/>
                 <constraint firstAttribute="bottom" secondItem="96b-tP-Gid" secondAttribute="bottom" id="tmf-vQ-aR4"/>
+                <constraint firstItem="JXS-BQ-wMt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wiF-xh-vVQ"/>
                 <constraint firstItem="96b-tP-Gid" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zht-wP-gle"/>
             </constraints>
             <connections>
                 <outlet property="bottomLayoutConstraint" destination="tmf-vQ-aR4" id="hhY-Na-84y"/>
+                <outlet property="controlButton" destination="TOE-cB-WCi" id="Etf-gl-36U"/>
+                <outlet property="currentLabel" destination="1BW-zC-G9i" id="71A-Lv-hjk"/>
+                <outlet property="durationLabel" destination="cW3-nA-6YR" id="sRv-wL-lXi"/>
+                <outlet property="loveButton" destination="KE5-wa-Gxz" id="gcu-LG-Y45"/>
+                <outlet property="moreButton" destination="rdG-j1-KhP" id="Eq6-Um-QkS"/>
+                <outlet property="nextButton" destination="XoQ-8h-JlB" id="jmY-nL-tT9"/>
+                <outlet property="prevButton" destination="X01-Wk-LQX" id="vFV-WU-rUW"/>
+                <outlet property="slider" destination="Scj-CP-fS0" id="wkz-0S-1gz"/>
             </connections>
         </view>
     </objects>

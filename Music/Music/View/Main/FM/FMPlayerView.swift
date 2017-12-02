@@ -19,7 +19,7 @@ class FMPlayerView: UIView {
     var selectButtonClosure:((FMPlayerViewButtonType) -> Void)?
     
     /// 播放暂停按钮图片资源
-    let playImages = [UIImage(named:"fm_player_btn_play_normal")!, UIImage(named:"fm_player_btn_play_pressed")!], pauseImages = [UIImage(named:"fm_player_btn_stop_normal")!, UIImage(named:"fm_player_btn_stop_pressed")!]
+    private let playImages = [UIImage(named:"fm_player_btn_play_normal")!, UIImage(named:"fm_player_btn_play_pressed")!], pauseImages = [UIImage(named:"fm_player_btn_stop_normal")!, UIImage(named:"fm_player_btn_stop_pressed")!]
 
     /// 喜欢按钮
     @IBOutlet weak var loveButton: UIButton!
@@ -82,7 +82,7 @@ class FMPlayerView: UIView {
     /// 计时开始
     private func startTimer() {
         stopTimer()
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)//Timer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
         timer?.fire()
     }
     
@@ -117,11 +117,11 @@ class FMPlayerView: UIView {
         if PlayerHelper.shared.state == .play {
             sender.setImage(nor: pauseImages[0], dwn: pauseImages[1])
             PlayerHelper.shared.pause()
-            startTimer()
+            stopTimer()
         } else {
             sender.setImage(nor: playImages[0], dwn: playImages[1])
             PlayerHelper.shared.resume()
-            stopTimer()
+            startTimer()
         }
     }
     
@@ -175,7 +175,6 @@ class FMPlayerView: UIView {
         
         /// 进度
         let value = PlayerHelper.shared.duration != 0 ? PlayerHelper.shared.current/PlayerHelper.shared.duration : 0
-        Log.e(value)
         slider.setValue(Float(value), animated: false)
         
         /// 时间

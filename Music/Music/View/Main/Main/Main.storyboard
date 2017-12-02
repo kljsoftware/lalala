@@ -89,6 +89,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="MUb-tp-dKA"/>
                     <connections>
+                        <outlet property="cdButton" destination="wHx-9d-Cxh" id="SF3-cQ-xOd"/>
                         <outlet property="containerView" destination="406-DA-b5R" id="hON-0o-Lsc"/>
                         <outlet property="scrollView" destination="1bR-Dj-Qor" id="MGe-mI-eMF"/>
                     </connections>
