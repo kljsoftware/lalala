@@ -44,13 +44,7 @@ class AudioPlayer : NSObject {
     deinit {
         removeAudioStreamObserver()
     }
-    
-    // MARK: - notification methods
-    // 触发home键挂起程序
-    @objc func notifyApplicationWillResignActive(){
-        stop()
-    }
-    
+
     // MARK: - private methods
     // 添加观察者
     fileprivate func addAudioStreamObserver() {
@@ -157,5 +151,10 @@ class AudioPlayer : NSObject {
     // 停止
     func stop() {
         audioStreamer?.stop()
+    }
+    
+    /// 清理
+    func clean() {
+        removeAudioStreamObserver()
     }
 }

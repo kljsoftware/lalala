@@ -13,5 +13,6 @@ let NoticationAudioStatusChanged  = Notification.Name("NoticationAudioStatusChan
 
 /// 音频播放器发生改变，通知界面更新
 let NoticationUpdateForAudioStatusChanged = Notification.Name("NoticationUpdateForAudioStatusChanged")
+let NoticationUpdateForAudioProgressChanged = Notification.Name("NoticationUpdateForAudioProgressChanged")
 
 

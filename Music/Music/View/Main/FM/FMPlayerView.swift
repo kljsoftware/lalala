@@ -45,18 +45,43 @@ class FMPlayerView: UIView {
     /// 播放进度条
     @IBOutlet weak var slider: SliderView!
     
-    /// 计时器
-    private var timer:Timer? = nil
-    
     // MARK: - override methods
     override func awakeFromNib() {
+        registerNotification()
         setup()
     }
     
+    deinit {
+        unregisterNotification()
+    }
+    
     // MARK: - private methods
+    /// 初始化
     private func setup() {
         setupProgressView()
         setupButtons()
+    }
+    
+    /// 注册通知
+    fileprivate func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioProgressChanged), name: NoticationUpdateForAudioProgressChanged, object: nil)
+    }
+    
+    /// 销毁通知
+    fileprivate func unregisterNotification() {
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioStatusChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioProgressChanged, object: nil)
+    }
+    
+    /// 通知相关音频控制更新
+    @objc private func notifyUpdateForAudioStatusChanged(_ sender:Notification) {
+        update()
+    }
+    
+    /// 通知进度更新
+    @objc private func notifyUpdateForAudioProgressChanged(_ sender:Notification) {
+        updateProgress()
     }
     
     /// 进度初始化设置
@@ -78,31 +103,6 @@ class FMPlayerView: UIView {
         nextButton.isExclusiveTouch = true
         moreButton.isExclusiveTouch = true
     }
-    
-    /// 计时开始
-    private func startTimer() {
-        stopTimer()
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
-        timer?.fire()
-    }
-    
-    /// 停止计时
-    private func stopTimer() {
-        if nil != timer {
-            timer?.invalidate()
-            timer = nil
-        }
-    }
-    
-    /// 是否正在记时
-    private func isFire() -> Bool {
-        return nil != timer
-    }
-    
-    /// 计时
-    @objc private func fire() {
-        updateProgress()
-    }
 
     // MARK: - IBAction methods
     @IBAction func onLoveButtonClicked(_ sender: UIButton) {
@@ -117,11 +117,9 @@ class FMPlayerView: UIView {
         if PlayerHelper.shared.state == .play {
             sender.setImage(nor: pauseImages[0], dwn: pauseImages[1])
             PlayerHelper.shared.pause()
-            stopTimer()
         } else {
             sender.setImage(nor: playImages[0], dwn: playImages[1])
             PlayerHelper.shared.resume()
-            startTimer()
         }
     }
     
@@ -159,11 +157,7 @@ class FMPlayerView: UIView {
         /// 按钮状态
         if PlayerHelper.shared.state == .play {
             controlButton.setImage(nor: pauseImages[0], dwn: pauseImages[1])
-            if !isFire() {
-                startTimer()
-            }
         } else {
-            stopTimer()
             controlButton.setImage(nor: playImages[0], dwn: playImages[1])
         }
         

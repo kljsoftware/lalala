@@ -60,6 +60,9 @@ class PlayerHelper {
         return player.audioStreamer?.bufferingRatio ?? 0
     }
     
+    /// 计时器
+    private var timer:Timer? = nil
+    
     // MARK: - private methods
     // 注册通知
     fileprivate func registerNotification() {
@@ -71,6 +74,26 @@ class PlayerHelper {
         NotificationCenter.default.removeObserver(self, name: NoticationAudioStatusChanged, object: nil)
     }
     
+    /// 计时开始
+    private func startTimer() {
+        stopTimer()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
+        timer?.fire()
+    }
+    
+    /// 停止计时
+    private func stopTimer() {
+        if nil != timer {
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
+    /// 计时
+    @objc private func fire() {
+        NotificationCenter.default.post(name: NoticationUpdateForAudioProgressChanged, object: nil)
+    }
+    
     /// 音频状态更新
     @objc private func notifyAudioStatusChanged(_ sender:Notification) {
         
@@ -80,12 +103,13 @@ class PlayerHelper {
             NotificationCenter.default.post(name: NoticationUpdateForAudioStatusChanged, object: nil)
             return
         }
-
+        stopTimer()
         switch streamer.status {
         case .buffering:
             break
         case .playing:
             state = .play
+            startTimer()
         case .paused:
             state = .pause
         case .error:
@@ -209,5 +233,11 @@ class PlayerHelper {
         }
         
         return coverList
+    }
+    
+    /// 清理
+    func clean() {
+        stopTimer()
+        player.clean()
     }
 }

@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         UIApplication.shared.endReceivingRemoteControlEvents()
+        PlayerHelper.shared.clean()
     }
     
     // MARK: - private methods

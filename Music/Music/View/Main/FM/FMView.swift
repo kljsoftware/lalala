@@ -82,32 +82,11 @@ class FMView: UIView {
     // MARK: - override methods
     override init(frame: CGRect) {
         super.init(frame: frame)
-        registerNotification()
         setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    deinit {
-        unregisterNotification()
-    }
-    
-    // MARK: - private methods
-    /// 注册通知
-    fileprivate func registerNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
-    }
-    
-    /// 销毁通知
-    fileprivate func unregisterNotification() {
-        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioStatusChanged, object: nil)
-    }
-    
-    /// 通知相关音频控制更新
-    @objc private func notifyUpdateForAudioStatusChanged(_ sender:Notification) {
-        playerView.update()
     }
     
     /// 初始化/相关模块回调处理
