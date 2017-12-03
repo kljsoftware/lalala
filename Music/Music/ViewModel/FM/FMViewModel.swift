@@ -44,10 +44,4 @@ class FMViewModel: BaseViewModel {
             self.failureCallback?(error.localizedDescription)
         }
     }
-    
-    func loadLyric(lyricUrl:String) {
-//        HttpRequest.downloadFile(withURLString: lyricUrl, progressHandler: nil) { (url, error) in
-//            print("url = \(String(describing: url))")
-//        }
-    }
 }

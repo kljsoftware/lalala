@@ -47,8 +47,14 @@ class ImmersionPlayerView: UIView {
     /// 播放进度条
     @IBOutlet weak var slider: SliderView!
     
-    /// 计时器
-    private var timer:Timer? = nil
+    /// 背景视图
+    @IBOutlet weak var backImageView: UIImageView!
+    
+    /// 歌名
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    /// 艺人名
+    @IBOutlet weak var artistLabel: UILabel!
     
     /// 无限切换视图
     lazy var loopPageView:LoopPageView = {
@@ -61,6 +67,16 @@ class ImmersionPlayerView: UIView {
         _loopPageView.setup(imageSize: CGSize(width: imageWH, height: imageWH), cornerRadius: imageWH/2, imageBackColor:COLOR_ABABAB)
         _loopPageView.showBack(image: backImage, size: CGSize(width: backWH, height: backWH))
         return _loopPageView
+    }()
+    
+    /// 歌词视图
+    lazy var lyricView:LyricView = {
+        let height = loopPageViewHeight
+        let _lyricView = LyricView(frame: CGRect(x: 0, y: titleViewHeight, width: DEVICE_SCREEN_WIDTH, height: height))
+        _lyricView.isHidden = true
+        _lyricView.backgroundColor = UIColor.clear
+        self.addSubview(_lyricView)
+        return _lyricView
     }()
     
     // MARK: - init/override methods
@@ -78,38 +94,69 @@ class ImmersionPlayerView: UIView {
     // MARK: - private methods
     /// 初始化
     private func setup() {
+        
+        /// 距底约束，适配iphoneX
         bottomLayoutConstraint.constant = DEVICE_INDICATOR_HEIGHT
-        loopPageView.setup(prev: {
-            
-        }, next: {
-            
-        }) {
-            
+       
+        /// 更新歌曲信息、按钮状态与进度
+        updateBySongChanged()
+        updateByStatusChanged()
+        updateByProgressChanged()
+        setupProgressView()
+        
+        /// 歌词
+        lyricView.clickedClosure = { [weak self] in
+            self?.loopPageView.isHidden = false
         }
-        update()
-        updateProgress()
+        
+        /// 无限切换视图
+        loopPageView.setup(prev: {
+            PlayerHelper.shared.prev()
+        }, next: {
+            PlayerHelper.shared.next()
+        }) { [weak self] in
+            self?.lyricView.isHidden = false
+        }
+    }
+    
+    /// 进度初始化设置
+    private func setupProgressView() {
+        slider.setThumbImage("common_seek_img_thumb")
+        slider.touchBeganClousre = { [weak self] in
+            self?.sliderTouchBegin()
+        }
+        slider.touchEndClousre = { [weak self] in
+            self?.sliderTouchEnd()
+        }
     }
     
     /// 注册通知
     fileprivate func registerNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioProgressChanged), name: NoticationUpdateForAudioProgressChanged, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForSongChanged), name: NoticationUpdateForSongChanged, object: nil)
     }
     
     /// 销毁通知
     fileprivate func unregisterNotification() {
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioStatusChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioProgressChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongChanged, object: nil)
     }
     
     /// 通知相关音频控制更新
     @objc private func notifyUpdateForAudioStatusChanged(_ sender:Notification) {
-        update()
+        updateByStatusChanged()
     }
     
     /// 通知进度更新
     @objc private func notifyUpdateForAudioProgressChanged(_ sender:Notification) {
-        updateProgress()
+        updateByProgressChanged()
+    }
+    
+    /// 通知歌曲更新
+    @objc private func notifyUpdateForSongChanged(_ sender:Notification) {
+        updateBySongChanged()
     }
     
     /// 按钮初始化设置
@@ -133,8 +180,18 @@ class ImmersionPlayerView: UIView {
         
     }
     
+    /// 更新歌曲相关信息
+    private func updateBySongChanged() {
+        let song = PlayerHelper.shared.song
+        backImageView.setImage(urlStr: song?.coverURL ?? "", placeholderStr: "", radius: 0)
+        loopPageView.setup(urls: PlayerHelper.shared.getCoverList())
+        titleLabel.text = song?.title
+        artistLabel.text = song?.artist
+        lyricView.setup(lyricUrl: song?.lyricURL)
+    }
+    
     /// 更新按钮状态
-    private func update() {
+    private func updateByStatusChanged() {
         
         /// 按钮状态
         if PlayerHelper.shared.state == .play {
@@ -147,14 +204,18 @@ class ImmersionPlayerView: UIView {
     }
     
     /// 更新进度
-    private func updateProgress() {
+    private func updateByProgressChanged() {
         
         /// 进度
         let value = PlayerHelper.shared.duration != 0 ? PlayerHelper.shared.current/PlayerHelper.shared.duration : 0
         slider.setValue(Float(value), animated: false)
         
         /// 时间
-        currentLabel.text = PlayerHelper.shared.current.transferFormat()
+        let current = PlayerHelper.shared.current
+        currentLabel.text = current.transferFormat()
+        
+        // 歌词
+        lyricView.scrollByTime(currentTime: current)
     }
     
     // MARK: - IBAction methods
@@ -163,7 +224,7 @@ class ImmersionPlayerView: UIView {
     }
     
     @IBAction func onPrevButtonClicked(_ sender: UIButton) {
-        
+        PlayerHelper.shared.prev()
     }
     
     @IBAction func onControlButtonClicked(_ sender: UIButton) {
@@ -177,7 +238,7 @@ class ImmersionPlayerView: UIView {
     }
     
     @IBAction func onNextButtonClicked(_ sender: UIButton) {
-        
+        PlayerHelper.shared.next()
     }
     
     @IBAction func onMoreButtonClicked(_ sender: UIButton) {
@@ -194,6 +255,4 @@ class ImmersionPlayerView: UIView {
     @IBAction func onBackButtonClicked(_ sender: UIButton) {
         pop()
     }
-    
-    
 }

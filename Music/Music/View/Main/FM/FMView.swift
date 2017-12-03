@@ -82,11 +82,51 @@ class FMView: UIView {
     // MARK: - override methods
     override init(frame: CGRect) {
         super.init(frame: frame)
+        registerNotification()
         setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        unregisterNotification()
+    }
+
+    // MARK: - private methods
+    /// 注册通知
+    fileprivate func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioProgressChanged), name: NoticationUpdateForAudioProgressChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForSongChanged), name: NoticationUpdateForSongChanged, object: nil)
+    }
+    
+    /// 销毁通知
+    fileprivate func unregisterNotification() {
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioStatusChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioProgressChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongChanged, object: nil)
+    }
+    
+    /// 通知相关音频控制更新
+    @objc private func notifyUpdateForAudioStatusChanged(_ sender:Notification) {
+        playerView.updateByStatusChanged()
+    }
+    
+    /// 通知进度更新
+    @objc private func notifyUpdateForAudioProgressChanged(_ sender:Notification) {
+        
+        // 进度
+        playerView.updateByProgressChanged()
+      
+        // 歌词
+        lyricView.scrollByTime(currentTime: PlayerHelper.shared.current)
+    }
+    
+    /// 通知歌曲更新
+    @objc private func notifyUpdateForSongChanged(_ sender:Notification) {
+        updateBySongChanged()
     }
     
     /// 初始化/相关模块回调处理
@@ -133,7 +173,7 @@ class FMView: UIView {
                     PlayerHelper.shared.addSongList(songList: songList)
                     break
                 }
-                self?.updateWithSongChanged()
+                
             }
         }) { (error) in
             Log.e("error = \(error)")
@@ -157,20 +197,10 @@ class FMView: UIView {
     
     /// 无限切换视图上一页、下一页切换、点击事件回调
     private func loopPageCallBack() {
-        loopPageView.setup(prev: { [weak self] in
-            if !PlayerHelper.shared.prev() {
-                PlayerHelper.shared.state = .waitingPrev
-                self?.viewModel.getSongList(channelId: DataHelper.shared.channelId)
-            } else {
-                self?.updateWithSongChanged()
-            }
-        }, next: { [weak self] in
-            if !PlayerHelper.shared.next() {
-                PlayerHelper.shared.state = .waitingNext
-                self?.viewModel.getSongList(channelId: DataHelper.shared.channelId)
-            } else {
-                self?.updateWithSongChanged()
-            }
+        loopPageView.setup(prev: {
+            PlayerHelper.shared.prev()
+        }, next: {
+            PlayerHelper.shared.next()
         }) { [weak self] in
             self?.lyricView.isHidden = false
         }
@@ -179,37 +209,20 @@ class FMView: UIView {
     // 播放控制视图回调
     private func playViewCallBack() {
         /// 按钮点击事件
-        playerView.selectButtonClosure = { [weak self] (type:FMPlayerViewButtonType) in
+        playerView.selectButtonClosure = { (type:FMPlayerViewButtonType) in
             switch type {
             case .love:
                 break
-            case .prev:
-                if !PlayerHelper.shared.prev() {
-                    PlayerHelper.shared.state = .waitingPrev
-                    self?.viewModel.getSongList(channelId: DataHelper.shared.channelId)
-                } else {
-                    self?.updateWithSongChanged()
-                }
-            case .play:
-                PlayerHelper.shared.resume()
-            case .pause:
-                PlayerHelper.shared.pause()
-            case .next:
-                if !PlayerHelper.shared.next() {
-                    PlayerHelper.shared.state = .waitingNext
-                    self?.viewModel.getSongList(channelId: DataHelper.shared.channelId)
-                } else {
-                    self?.updateWithSongChanged()
-                }
             case .more:
                 break
-                
+            default:
+                break
             }
         }
     }
     
     /// 歌曲发生改变，界面更新
-    private func updateWithSongChanged() {
+    private func updateBySongChanged() {
         let song = PlayerHelper.shared.song
         backImageView.setImage(urlStr: song?.coverURL ?? "", placeholderStr: "", radius: 0)
         loopPageView.setup(urls: PlayerHelper.shared.getCoverList())

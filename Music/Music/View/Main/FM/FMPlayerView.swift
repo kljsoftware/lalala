@@ -47,12 +47,7 @@ class FMPlayerView: UIView {
     
     // MARK: - override methods
     override func awakeFromNib() {
-        registerNotification()
         setup()
-    }
-    
-    deinit {
-        unregisterNotification()
     }
     
     // MARK: - private methods
@@ -60,28 +55,6 @@ class FMPlayerView: UIView {
     private func setup() {
         setupProgressView()
         setupButtons()
-    }
-    
-    /// 注册通知
-    fileprivate func registerNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioProgressChanged), name: NoticationUpdateForAudioProgressChanged, object: nil)
-    }
-    
-    /// 销毁通知
-    fileprivate func unregisterNotification() {
-        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioStatusChanged, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioProgressChanged, object: nil)
-    }
-    
-    /// 通知相关音频控制更新
-    @objc private func notifyUpdateForAudioStatusChanged(_ sender:Notification) {
-        update()
-    }
-    
-    /// 通知进度更新
-    @objc private func notifyUpdateForAudioProgressChanged(_ sender:Notification) {
-        updateProgress()
     }
     
     /// 进度初始化设置
@@ -110,7 +83,7 @@ class FMPlayerView: UIView {
     }
     
     @IBAction func onPrevButtonClicked(_ sender: UIButton) {
-        selectButtonClosure?(.prev)
+        PlayerHelper.shared.prev()
     }
     
     @IBAction func onControlButtonClicked(_ sender: UIButton) {
@@ -124,7 +97,7 @@ class FMPlayerView: UIView {
     }
     
     @IBAction func onNextButtonClicked(_ sender: UIButton) {
-        selectButtonClosure?(.next)
+        PlayerHelper.shared.next()
     }
     
     @IBAction func onMoreButtonClicked(_ sender: UIButton) {
@@ -151,8 +124,8 @@ class FMPlayerView: UIView {
     }
     
     // MARK: - public methods
-    /// 更新状态
-    func update() {
+    /// 更新按钮状态
+    func updateByStatusChanged() {
         
         /// 按钮状态
         if PlayerHelper.shared.state == .play {
@@ -165,13 +138,14 @@ class FMPlayerView: UIView {
     }
     
     /// 更新进度
-    func updateProgress() {
+    func updateByProgressChanged() {
         
         /// 进度
         let value = PlayerHelper.shared.duration != 0 ? PlayerHelper.shared.current/PlayerHelper.shared.duration : 0
         slider.setValue(Float(value), animated: false)
         
         /// 时间
-        currentLabel.text = PlayerHelper.shared.current.transferFormat()
+        let current = PlayerHelper.shared.current
+        currentLabel.text = current.transferFormat()
     }
 }

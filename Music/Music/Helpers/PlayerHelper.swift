@@ -136,6 +136,7 @@ class PlayerHelper {
     func start() {
         if nil != song {
             player.start(song!.url)
+            NotificationCenter.default.post(name: NoticationUpdateForSongChanged, object: nil)
         }
     }
     
@@ -168,29 +169,27 @@ class PlayerHelper {
     }
     
     /// 上一首
-    func prev() -> Bool {
+    func prev() {
         if let index = songIndex(song: song) {
             if index > 0 {
                 song = songList[index - 1]
                 start()
-                return true
+                return
             }
-            return false
         }
-        return false
+        // 请求歌曲列表
     }
     
     /// 下一首
-    func next() -> Bool {
+    func next() {
         if let index = songIndex(song: song) {
             if index < songList.count - 1 {
                 song = songList[index + 1]
                 start()
-                return true
+                return
             }
-            return false
         }
-        return false
+        // 请求歌曲列表
     }
     
     /// 清空歌曲列表
@@ -240,4 +239,14 @@ class PlayerHelper {
         stopTimer()
         player.clean()
     }
+}
+
+/// 后台业务处理
+class BackgroundViewModel : BaseViewModel {
+    
+    // 获取歌曲列表
+    
+    // 获取当前播放歌曲的封面
+    
+    
 }

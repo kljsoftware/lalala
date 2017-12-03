@@ -169,7 +169,7 @@
                             <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iz5-hJ-4kS" customClass="SliderView" customModule="Music" customModuleProvider="target">
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iz5-hJ-4kS" customClass="SliderView" customModule="Music" customModuleProvider="target">
                             <rect key="frame" x="68" y="-5.5" width="239" height="31"/>
                             <color key="minimumTrackTintColor" red="0.41176470588235292" green="0.92941176470588238" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="maximumTrackTintColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>

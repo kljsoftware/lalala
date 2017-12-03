@@ -30,4 +30,9 @@ extension String {
         let rect:CGRect = self.boundingRect(with: size, options: option, attributes: attributes, context: nil)
         return rect.size;
     }
+    
+    // 判断是否全是空白
+    func isBlank() -> Bool {
+        return trimmingCharacters(in: CharacterSet.whitespaces) == ""
+    }
 }

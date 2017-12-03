@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fcx-OB-riB">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fcx-OB-riB">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXS-BQ-wMt">
@@ -24,7 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
-                    <blurEffect style="light"/>
+                    <blurEffect style="dark"/>
                 </visualEffectView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZ7-EQ-cFc">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -36,25 +36,22 @@
                                 <constraint firstAttribute="width" constant="30" id="wjI-RZ-Mdn"/>
                             </constraints>
                             <state key="normal" image="common_btn_back_normal.png"/>
-                            <state key="highlighted">
-                                <string key="image">common_btn_back_normal.pngcommon_btn_back_pressed.png</string>
-                            </state>
                             <connections>
                                 <action selector="onBackButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="muZ-5t-6rm"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dmd-41-3r5">
-                            <rect key="frame" x="54" y="0.0" width="267" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dmd-41-3r5">
+                            <rect key="frame" x="54" y="0.0" width="267" height="0.0"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zy-qK-crR">
-                            <rect key="frame" x="54" y="23" width="267" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zy-qK-crR">
+                            <rect key="frame" x="54" y="44" width="267" height="0.0"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5E-sI-3qf">
@@ -207,7 +204,7 @@
                                     <color key="textColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Scj-CP-fS0" customClass="SliderView" customModule="Music" customModuleProvider="target">
+                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Scj-CP-fS0" customClass="SliderView" customModule="Music" customModuleProvider="target">
                                     <rect key="frame" x="68" y="-7.5" width="239" height="31"/>
                                     <color key="minimumTrackTintColor" red="0.41176470590000003" green="0.92941176469999998" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="maximumTrackTintColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
@@ -376,7 +373,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="JXS-BQ-wMt" secondAttribute="trailing" id="2rl-yT-kqL"/>
                 <constraint firstAttribute="bottom" secondItem="Fcx-OB-riB" secondAttribute="bottom" id="5eD-NY-h5Q"/>
@@ -398,6 +395,8 @@
                 <constraint firstItem="96b-tP-Gid" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zht-wP-gle"/>
             </constraints>
             <connections>
+                <outlet property="artistLabel" destination="1zy-qK-crR" id="ECU-bt-3Qp"/>
+                <outlet property="backImageView" destination="Fcx-OB-riB" id="UTf-E8-WOz"/>
                 <outlet property="bottomLayoutConstraint" destination="tmf-vQ-aR4" id="hhY-Na-84y"/>
                 <outlet property="controlButton" destination="TOE-cB-WCi" id="Etf-gl-36U"/>
                 <outlet property="currentLabel" destination="1BW-zC-G9i" id="71A-Lv-hjk"/>
@@ -407,14 +406,12 @@
                 <outlet property="nextButton" destination="XoQ-8h-JlB" id="jmY-nL-tT9"/>
                 <outlet property="prevButton" destination="X01-Wk-LQX" id="vFV-WU-rUW"/>
                 <outlet property="slider" destination="Scj-CP-fS0" id="wkz-0S-1gz"/>
+                <outlet property="titleLabel" destination="Dmd-41-3r5" id="Dlz-ng-5Nd"/>
             </connections>
         </view>
     </objects>
     <resources>
         <image name="common_btn_back_normal.png" width="90" height="90"/>
-        <image width="16" height="16">
-            <string key="name">common_btn_back_normal.pngcommon_btn_back_pressed.png</string>
-        </image>
         <image name="immersion_btn_share_normal.png" width="90" height="90"/>
         <image name="immersion_player_btn_add_normal.png" width="60" height="60"/>
         <image name="immersion_player_btn_add_pressed.png" width="66" height="66"/>

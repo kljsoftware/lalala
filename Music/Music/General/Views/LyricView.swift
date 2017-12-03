@@ -88,6 +88,8 @@ class LyricView: UIView {
         }
         y += (marginTopBottom - blank)
         scrollView.contentSize = CGSize(width: frame.width, height: y)
+        /// 选中第一句
+        selectSentence(index: 0)
     }
     
     // 计算自动滚动结束位置
@@ -117,16 +119,17 @@ class LyricView: UIView {
     
     /// 选中句子并滚动居中
     private func selectSentence(index:Int) {
-        if index > 0 && index < scrollView.subviews.count {
+        if index >= 0 && index < scrollView.subviews.count {
             let label = (scrollView.subviews[index] as! UILabel)
             label.textColor = COLOR_69EDC8
-            scrollView.contentOffset = CGPoint(x: 0, y: calcScrollY(label.frame))
+            scrollView.setContentOffset(CGPoint(x: 0, y: calcScrollY(label.frame)), animated: true)
+            self.index = index
         }
     }
     
     /// 取消句子选择状态
     private func unselectSentence(index:Int) {
-        if index > 0 && index < scrollView.subviews.count {
+        if index >= 0 && index < scrollView.subviews.count {
             (scrollView.subviews[index] as! UILabel).textColor = UIColor.white
         }
     }
@@ -135,6 +138,7 @@ class LyricView: UIView {
     /// 初始化设置
     func setup(lyricUrl:String?) {
         removeSubViews()
+        index = 0
         download = nil
         download = DownloadTask(urlString: lyricUrl)
         download?.setup(downloadProgressCallback: nil, downloadFinishedCallback: { [weak self](lrcPath) in
@@ -145,15 +149,21 @@ class LyricView: UIView {
     
     /// 滚动歌词
     func scrollByTime(currentTime:TimeInterval) {
-        if lyric == nil || lyric!.sentences.count == 0 {
+        if lyric == nil || lyric!.sentences.count == 0  || index > lyric!.sentences.count - 1{
             return
         }
-        
+
         for i in 0..<lyric!.sentences.count {
             let sentence = lyric!.sentences[i]
-            if sentence.fromTime > currentTime {
-                unselectSentence(index: self.index)
-                selectSentence(index: i)
+            if currentTime < sentence.fromTime {
+                let index = i - 1
+                if index > self.index  {
+                    let nextSentence = lyric!.sentences[index]
+                    if currentTime > nextSentence.fromTime && !nextSentence.content.isBlank() {
+                        unselectSentence(index: self.index)
+                        selectSentence(index: index)
+                    }
+                }
                 break
             }
         }

@@ -56,6 +56,10 @@ class LoopPageView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        Log.e("deinit#")
+    }
+    
     /// 点击手势
     func performTapGesture(sender:UITapGestureRecognizer) {
         self.isHidden = true
