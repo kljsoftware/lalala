@@ -57,12 +57,13 @@ extension MyMusicTableView :  UITableViewDataSource, UITableViewDelegate {
     // MARK: UITableViewDelegate
     // 单元(cell)的高度
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 60
     }
     
     // 头部分区(Section)视图高度
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+        if section == 0 {return 0}
+        return 30
     }
     
     // 头部分区(Section)视图

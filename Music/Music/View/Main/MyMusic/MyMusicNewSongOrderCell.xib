@@ -21,10 +21,11 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjG-HE-mmj">
                         <rect key="frame" x="12" y="24" width="296" height="19.5"/>
                         <state key="normal" title="新建歌单">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="NjG-HE-mmj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="067-hS-5g7"/>
                     <constraint firstAttribute="bottom" secondItem="NjG-HE-mmj" secondAttribute="bottom" id="JKr-ZN-URC"/>
@@ -32,6 +33,7 @@
                     <constraint firstItem="NjG-HE-mmj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="tUD-zD-MOV"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </tableViewCell>
     </objects>
 </document>

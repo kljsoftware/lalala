@@ -21,24 +21,45 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌单名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9i-Wz-H2P">
                         <rect key="frame" x="12" y="12" width="52" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RiK-0d-gDt">
-                        <rect key="frame" x="276" y="6" width="32" height="32"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="core_item_img_arrows.png" translatesAutoresizingMaskIntoConstraints="NO" id="RiK-0d-gDt">
+                        <rect key="frame" x="286" y="11" width="22" height="22"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="32" id="HLV-Wz-Js5"/>
-                            <constraint firstAttribute="height" constant="32" id="MRV-Yq-9DI"/>
+                            <constraint firstAttribute="width" constant="22" id="HLV-Wz-Js5"/>
+                            <constraint firstAttribute="height" constant="22" id="MRV-Yq-9DI"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4O-jq-2ba">
+                        <rect key="frame" x="0.0" y="42.5" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="hOv-qk-A2m" customClass="OnePixelConstraint" customModule="Music" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="onePixelConstant">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="L4O-jq-2ba" secondAttribute="bottom" id="BMV-00-j5h"/>
+                    <constraint firstItem="L4O-jq-2ba" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="CiF-uk-eDS"/>
                     <constraint firstItem="RiK-0d-gDt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Xp5-Q4-nPN"/>
                     <constraint firstItem="g9i-Wz-H2P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="YnW-lO-pRv"/>
                     <constraint firstItem="g9i-Wz-H2P" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hcB-B5-cVT"/>
                     <constraint firstAttribute="trailing" secondItem="RiK-0d-gDt" secondAttribute="trailing" constant="12" id="vQ1-jg-AZE"/>
+                    <constraint firstAttribute="trailing" secondItem="L4O-jq-2ba" secondAttribute="trailing" id="vtN-2U-Tkw"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="core_item_img_arrows.png" width="88" height="88"/>
+    </resources>
 </document>
