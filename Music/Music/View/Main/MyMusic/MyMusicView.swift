@@ -49,6 +49,13 @@ private class TitleView : UIView {
         editButton.setTitleColor(COLOR_ABABAB, for: .normal)
         editButton.setTitleColor(COLOR_69EDC8, for: .highlighted)
         editButton.addTarget(self, action: #selector(onEditButtonClicked), for: .touchUpInside)
+        
+        let titleLabel = UILabel(frame: CGRect.zero)
+        titleLabel.text = "我的音乐"
+        titleLabel.textColor = COLOR_ABABAB
+        addSubview(titleLabel)
+        titleLabel.sizeToFit()
+        titleLabel.frame = CGRect.init(x: (frame.width - titleLabel.frame.width)/2, y: (frame.height - titleLabel.frame.height)/2, width: titleLabel.frame.width, height: titleLabel.frame.height)
     }
     
     @objc private func onEditButtonClicked(sender:UIButton) {
@@ -94,5 +101,6 @@ class MyMusicView: UIView {
         
         tableView = Bundle.main.loadNibNamed("MyMusicTableView", owner: nil, options: nil)?[0] as! MyMusicTableView
         addSubview(tableView)
+        tableView.frame = CGRect(x: 0, y: titleViewHeight, width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT - titleViewHeight - (BOTTOM_TAB_HEIGHT + DEVICE_INDICATOR_HEIGHT))
     }
 }

@@ -39,7 +39,7 @@ class FMChannelView: UIView {
             return
         }
         setupSubViews()
-        selectedButton(with: DataHelper.shared.channelId!)
+        selectedButton(with: DataHelper.shared.channelId)
     }
     
     /// 初始化子视图
@@ -69,7 +69,11 @@ class FMChannelView: UIView {
     }
     
     /// 选中频道按钮
-    private func selectedButton(with channelId:Int) {
+    private func selectedButton(with channelId:Int?) {
+        guard let channelId = channelId else {
+            return
+        }
+        
         if self.channelId != nil {
             unselectedButton(with: self.channelId!)
         }
