@@ -6,6 +6,7 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
+/// 按钮类型
 enum MyTableCellType:Int {
     case amount, sleepMode, copyRight, setting, share
 }

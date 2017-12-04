@@ -67,6 +67,7 @@
 		3C1427C61FD5966800D15105 /* mine_ic_sleep_mode.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C1427C11FD5966800D15105 /* mine_ic_sleep_mode.png */; };
 		3C1427C91FD596D800D15105 /* MeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1427C71FD596D800D15105 /* MeTableViewCell.swift */; };
 		3C1427CA1FD596D800D15105 /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C1427C81FD596D800D15105 /* MeTableViewCell.xib */; };
+		3C1427CC1FD5A05800D15105 /* SearchControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C1427CB1FD5A05800D15105 /* SearchControlView.xib */; };
 		3C16B8A81FCC68A000FAABCA /* common_btn_cd_activated.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C16B8A61FCC68A000FAABCA /* common_btn_cd_activated.png */; };
 		3C16B8A91FCC68A000FAABCA /* common_btn_cd_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C16B8A71FCC68A000FAABCA /* common_btn_cd_normal.png */; };
 		3C16B8AF1FCDA95100FAABCA /* LoopPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C16B8AE1FCDA95100FAABCA /* LoopPageView.swift */; };
@@ -221,6 +222,7 @@
 		3C1427C11FD5966800D15105 /* mine_ic_sleep_mode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine_ic_sleep_mode.png; sourceTree = "<group>"; };
 		3C1427C71FD596D800D15105 /* MeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeTableViewCell.swift; sourceTree = "<group>"; };
 		3C1427C81FD596D800D15105 /* MeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeTableViewCell.xib; sourceTree = "<group>"; };
+		3C1427CB1FD5A05800D15105 /* SearchControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchControlView.xib; sourceTree = "<group>"; };
 		3C16B8A61FCC68A000FAABCA /* common_btn_cd_activated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_btn_cd_activated.png; sourceTree = "<group>"; };
 		3C16B8A71FCC68A000FAABCA /* common_btn_cd_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_btn_cd_normal.png; sourceTree = "<group>"; };
 		3C16B8AE1FCDA95100FAABCA /* LoopPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopPageView.swift; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				3CD05F4F1FCA9DE500FEC161 /* SearchView.swift */,
+				3C1427CB1FD5A05800D15105 /* SearchControlView.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -948,6 +951,7 @@
 				3C1427C21FD5966800D15105 /* mine_ic_share.png in Resources */,
 				3C16B8C81FCE4E7A00FAABCA /* fm_player_btn_more_normal.png in Resources */,
 				3C0EBE911FD231220047B1E1 /* immersion_player_btn_more_pressed.png in Resources */,
+				3C1427CC1FD5A05800D15105 /* SearchControlView.xib in Resources */,
 				3C58CFD81FC9B41F00045BA9 /* test.lrc in Resources */,
 				3C16B8C71FCE4E7A00FAABCA /* fm_player_btn_play_pressed.png in Resources */,
 				3C0EBE831FD231220047B1E1 /* immersion_player_btn_more_normal.png in Resources */,

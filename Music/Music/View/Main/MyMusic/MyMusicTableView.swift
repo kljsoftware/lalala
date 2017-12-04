@@ -21,6 +21,10 @@ class MyMusicTableView : UIView {
         tableView.register(UINib(nibName: "MyMusicDownloadCell", bundle: nil), forCellReuseIdentifier: "kMyMusicDownloadCell")
         tableView.register(UINib(nibName: "MyMusicSongOrderCell", bundle: nil), forCellReuseIdentifier: "kMyMusicSongOrderCell")
         tableView.register(UINib(nibName: "MyMusicNewSongOrderCell", bundle: nil), forCellReuseIdentifier: "kMyMusicNewSongOrderCell")
+        tableView.mj_header = MJRefreshStateHeader(refreshingBlock: { [weak self] in
+            self?.tableView.mj_header.beginRefreshing()
+            self?.tableView.mj_header.endRefreshing()
+        })
     }
 }
 
