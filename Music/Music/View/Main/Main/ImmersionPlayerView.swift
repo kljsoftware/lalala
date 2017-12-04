@@ -79,6 +79,8 @@ class ImmersionPlayerView: UIView {
         return _lyricView
     }()
     
+    /// 分享
+    
     // MARK: - init/override methods
     override func awakeFromNib() {
         registerNotification()

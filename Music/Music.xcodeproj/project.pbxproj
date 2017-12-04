@@ -109,6 +109,17 @@
 		3C7C72631FC90AFA008793E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C72621FC90AFA008793E6 /* MainViewController.swift */; };
 		3C7C72651FC91B87008793E6 /* NotificationMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C72641FC91B87008793E6 /* NotificationMacro.swift */; };
 		3C7C72671FC924D6008793E6 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C72661FC924D6008793E6 /* Double+Extension.swift */; };
+		3CA712AD1FD54B2E004F0490 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712AC1FD54B2E004F0490 /* ActionSheet.swift */; };
+		3CA712AF1FD56966004F0490 /* MyMusicTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA712AE1FD56966004F0490 /* MyMusicTableView.xib */; };
+		3CA712B11FD5697C004F0490 /* MyMusicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712B01FD5697C004F0490 /* MyMusicTableView.swift */; };
+		3CA712B41FD56A49004F0490 /* MyMusicDownloadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712B21FD56A49004F0490 /* MyMusicDownloadCell.swift */; };
+		3CA712B51FD56A49004F0490 /* MyMusicDownloadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA712B31FD56A49004F0490 /* MyMusicDownloadCell.xib */; };
+		3CA712B81FD56AB8004F0490 /* MyMusicSongOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712B61FD56AB8004F0490 /* MyMusicSongOrderCell.swift */; };
+		3CA712B91FD56AB8004F0490 /* MyMusicSongOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA712B71FD56AB8004F0490 /* MyMusicSongOrderCell.xib */; };
+		3CA712BC1FD56AF2004F0490 /* MyMusicSongOrderSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712BA1FD56AF2004F0490 /* MyMusicSongOrderSectionCell.swift */; };
+		3CA712BD1FD56AF2004F0490 /* MyMusicSongOrderSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA712BB1FD56AF2004F0490 /* MyMusicSongOrderSectionCell.xib */; };
+		3CA712C01FD56B38004F0490 /* MyMusicNewSongOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712BE1FD56B38004F0490 /* MyMusicNewSongOrderCell.swift */; };
+		3CA712C11FD56B38004F0490 /* MyMusicNewSongOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA712BF1FD56B38004F0490 /* MyMusicNewSongOrderCell.xib */; };
 		3CD05F2F1FCA953D00FEC161 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CD05F311FCA953D00FEC161 /* Localizable.strings */; };
 		3CD05F3F1FCA9C5A00FEC161 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD05F3E1FCA9C5A00FEC161 /* Main.storyboard */; };
 		3CD05F4A1FCA9DBB00FEC161 /* FMView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD05F491FCA9DBB00FEC161 /* FMView.swift */; };
@@ -238,6 +249,17 @@
 		3C7C72621FC90AFA008793E6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3C7C72641FC91B87008793E6 /* NotificationMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMacro.swift; sourceTree = "<group>"; };
 		3C7C72661FC924D6008793E6 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		3CA712AC1FD54B2E004F0490 /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
+		3CA712AE1FD56966004F0490 /* MyMusicTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicTableView.xib; sourceTree = "<group>"; };
+		3CA712B01FD5697C004F0490 /* MyMusicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicTableView.swift; sourceTree = "<group>"; };
+		3CA712B21FD56A49004F0490 /* MyMusicDownloadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicDownloadCell.swift; sourceTree = "<group>"; };
+		3CA712B31FD56A49004F0490 /* MyMusicDownloadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicDownloadCell.xib; sourceTree = "<group>"; };
+		3CA712B61FD56AB8004F0490 /* MyMusicSongOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicSongOrderCell.swift; sourceTree = "<group>"; };
+		3CA712B71FD56AB8004F0490 /* MyMusicSongOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicSongOrderCell.xib; sourceTree = "<group>"; };
+		3CA712BA1FD56AF2004F0490 /* MyMusicSongOrderSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicSongOrderSectionCell.swift; sourceTree = "<group>"; };
+		3CA712BB1FD56AF2004F0490 /* MyMusicSongOrderSectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicSongOrderSectionCell.xib; sourceTree = "<group>"; };
+		3CA712BE1FD56B38004F0490 /* MyMusicNewSongOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicNewSongOrderCell.swift; sourceTree = "<group>"; };
+		3CA712BF1FD56B38004F0490 /* MyMusicNewSongOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicNewSongOrderCell.xib; sourceTree = "<group>"; };
 		3CD05F301FCA953D00FEC161 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3CD05F321FCA965900FEC161 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3CD05F341FCA96B200FEC161 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -519,6 +541,7 @@
 		3C48FE591FC852BF00EF6891 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3CA712AC1FD54B2E004F0490 /* ActionSheet.swift */,
 				3C16B8AE1FCDA95100FAABCA /* LoopPageView.swift */,
 				3C16B8D91FCE917E00FAABCA /* SliderView.swift */,
 				3C526F681FCF95D80093B837 /* LyricView.swift */,
@@ -646,6 +669,16 @@
 			isa = PBXGroup;
 			children = (
 				3CD05F4B1FCA9DC900FEC161 /* MyMusicView.swift */,
+				3CA712AE1FD56966004F0490 /* MyMusicTableView.xib */,
+				3CA712B01FD5697C004F0490 /* MyMusicTableView.swift */,
+				3CA712B21FD56A49004F0490 /* MyMusicDownloadCell.swift */,
+				3CA712B31FD56A49004F0490 /* MyMusicDownloadCell.xib */,
+				3CA712BA1FD56AF2004F0490 /* MyMusicSongOrderSectionCell.swift */,
+				3CA712BB1FD56AF2004F0490 /* MyMusicSongOrderSectionCell.xib */,
+				3CA712B61FD56AB8004F0490 /* MyMusicSongOrderCell.swift */,
+				3CA712B71FD56AB8004F0490 /* MyMusicSongOrderCell.xib */,
+				3CA712BE1FD56B38004F0490 /* MyMusicNewSongOrderCell.swift */,
+				3CA712BF1FD56B38004F0490 /* MyMusicNewSongOrderCell.xib */,
 			);
 			path = MyMusic;
 			sourceTree = "<group>";
@@ -813,6 +846,7 @@
 				3C0EBE7A1FD231220047B1E1 /* immersion_player_btn_next_pressed.png in Resources */,
 				3C0EBE851FD231220047B1E1 /* immersion_player_btn_next_normal.png in Resources */,
 				3C0EBE841FD231220047B1E1 /* immersion_player_btn_play_loading.png in Resources */,
+				3CA712BD1FD56AF2004F0490 /* MyMusicSongOrderSectionCell.xib in Resources */,
 				3C0EBE861FD231220047B1E1 /* immersion_player_btn_play_pressed.png in Resources */,
 				3CD05F621FCAA85800FEC161 /* tab_fm_selected.png in Resources */,
 				3C0EBE8E1FD231220047B1E1 /* immersion_player_bg_pager.png in Resources */,
@@ -823,12 +857,14 @@
 				3C0407821FC3F5A800080935 /* Assets.xcassets in Resources */,
 				3C16B8CE1FCE4E7A00FAABCA /* fm_player_btn_love_normal.png in Resources */,
 				3C0EBE7B1FD231220047B1E1 /* immersion_btn_share_pressed.png in Resources */,
+				3CA712B51FD56A49004F0490 /* MyMusicDownloadCell.xib in Resources */,
 				3C16B8D81FCE85CD00FAABCA /* common_seek_img_thumb.png in Resources */,
 				3C16B8A91FCC68A000FAABCA /* common_btn_cd_normal.png in Resources */,
 				3C0EBE811FD231220047B1E1 /* immersion_player_btn_cycle_random_normal.png in Resources */,
 				3C322AC81FD1040B00961348 /* bg.png in Resources */,
 				3C0EBE7E1FD231220047B1E1 /* immersion_btn_share_normal.png in Resources */,
 				3C16B8C61FCE4E7A00FAABCA /* fm_player_btn_more_pressed.png in Resources */,
+				3CA712C11FD56B38004F0490 /* MyMusicNewSongOrderCell.xib in Resources */,
 				3C04077E1FC3F5A800080935 /* LaunchScreen.storyboard in Resources */,
 				3C0EBE7C1FD231220047B1E1 /* immersion_player_btn_download_normal.png in Resources */,
 				3C0EBE961FD232F90047B1E1 /* common_btn_back_pressed.png in Resources */,
@@ -837,6 +873,7 @@
 				3CD05F691FCAA85800FEC161 /* tab_search_selected.png in Resources */,
 				3C526F731FD029B80093B837 /* default_ad_banner.png in Resources */,
 				3CD05F601FCAA85800FEC161 /* tab_mine_normal.png in Resources */,
+				3CA712B91FD56AB8004F0490 /* MyMusicSongOrderCell.xib in Resources */,
 				3C16B8CB1FCE4E7A00FAABCA /* fm_player_btn_next_pressed.png in Resources */,
 				3C0EBE921FD231220047B1E1 /* immersion_player_btn_add_normal.png in Resources */,
 				3C16B8C81FCE4E7A00FAABCA /* fm_player_btn_more_normal.png in Resources */,
@@ -846,6 +883,7 @@
 				3C0EBE831FD231220047B1E1 /* immersion_player_btn_more_normal.png in Resources */,
 				3C16B8C51FCE4E7A00FAABCA /* fm_player_btn_prev_normal.png in Resources */,
 				3CD05F631FCAA85800FEC161 /* tab_mine_selected.png in Resources */,
+				3CA712AF1FD56966004F0490 /* MyMusicTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -933,6 +971,7 @@
 				3CD05F521FCA9DF100FEC161 /* MeView.swift in Sources */,
 				3CD05F4E1FCA9DD900FEC161 /* DiscoverView.swift in Sources */,
 				3CD05F4A1FCA9DBB00FEC161 /* FMView.swift in Sources */,
+				3CA712BC1FD56AF2004F0490 /* MyMusicSongOrderSectionCell.swift in Sources */,
 				3C04077C1FC3F5A800080935 /* AppDelegate.swift in Sources */,
 				37DF3BAD1FD1394A006399E2 /* DiscoveryRankListResultModel.swift in Sources */,
 				3C48ACCD1FCBB8D000B8992A /* HttpRequest.swift in Sources */,
@@ -943,6 +982,7 @@
 				3C0EE6761FCAE9AD00046C5A /* UserDefaultMacro.swift in Sources */,
 				3C7C72671FC924D6008793E6 /* Double+Extension.swift in Sources */,
 				3C48ACCA1FCBB69800B8992A /* ResultModel.swift in Sources */,
+				3CA712B41FD56A49004F0490 /* MyMusicDownloadCell.swift in Sources */,
 				3C367A6D1FCF08FF00F6323F /* UIImageView+Extension.swift in Sources */,
 				3C48ACE11FCBEE7F00B8992A /* FMChannelView.swift in Sources */,
 				3C322AC61FD0EAAB00961348 /* DownloadTask.swift in Sources */,
@@ -962,7 +1002,10 @@
 				3C58CFD31FC9A86700045BA9 /* String+Extension.swift in Sources */,
 				3C0407891FC3FFA400080935 /* GlobalMacro.swift in Sources */,
 				3C48ACC31FCB942A00B8992A /* UIColor+Extension.swift in Sources */,
+				3CA712B11FD5697C004F0490 /* MyMusicTableView.swift in Sources */,
+				3CA712AD1FD54B2E004F0490 /* ActionSheet.swift in Sources */,
 				3C526F691FCF95D80093B837 /* LyricView.swift in Sources */,
+				3CA712C01FD56B38004F0490 /* MyMusicNewSongOrderCell.swift in Sources */,
 				3C58CFC61FC9525300045BA9 /* DataHelper.swift in Sources */,
 				3C0EBE991FD29A9D0047B1E1 /* UIButton+Extension.swift in Sources */,
 				3C7C72631FC90AFA008793E6 /* MainViewController.swift in Sources */,
@@ -973,6 +1016,7 @@
 				3C6203F41FC5AA6C003D2309 /* AudioFile.swift in Sources */,
 				3C0EBE9B1FD2D8F80047B1E1 /* RotateAnimation.swift in Sources */,
 				3C16B8DD1FCEA63000FAABCA /* PlayerHelper.swift in Sources */,
+				3CA712B81FD56AB8004F0490 /* MyMusicSongOrderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

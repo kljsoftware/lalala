@@ -79,6 +79,17 @@ class FMView: UIView {
         return _playerView
     }()
     
+//    /// 更多选项卡视图
+//    lazy var morePickView:CustomPickerView = {
+//        let _morePickView = CustomPickerView(frame: self.bounds)
+//        _morePickView.dataArray = [["换一批歌曲", "添加到歌单", "下载", "取消"]]
+//        self.addSubview(_morePickView)
+//        _morePickView.selectedIndexsClosure = { (indexs:[Int]) in
+//
+//        }
+//        return _morePickView
+//    }()
+    
     // MARK: - override methods
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -208,16 +219,8 @@ class FMView: UIView {
     
     // 播放控制视图回调
     private func playViewCallBack() {
-        /// 按钮点击事件
-        playerView.selectButtonClosure = { (type:FMPlayerViewButtonType) in
-            switch type {
-            case .love:
-                break
-            case .more:
-                break
-            default:
-                break
-            }
+        playerView.setupClosures { [weak self] in
+
         }
     }
     
