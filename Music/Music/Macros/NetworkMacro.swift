@@ -59,9 +59,12 @@ class BaseInfo {
 enum NetworkURL {
     case FMChannelList(language:String)   // 获取电台频道列表
     case FMSongList(channelId:Int)        // 获取某一频道的歌曲列表
+    case DiscoverRandV3                   // 发现首页数据获取
     case SearchTopArtists(page:Int)       // 热门歌手列表
     case SearchV2(query:String, type:String, page:Int)  // 搜索结果返回
+    case SearchPopular                    // 获取热门搜索
     
+    /// url地址
     var url : String {
         var api = ""
         switch self {
@@ -69,10 +72,14 @@ enum NetworkURL {
             api = "/myfm/category/list/\(language)/?"
         case let .FMSongList(channelId):
             api = "/myfm/category/\(channelId)/?"
+        case .DiscoverRandV3:
+            api = "/myfm/rank/v3/?"
         case let .SearchTopArtists(page):
             api = "/myfm/list/topartists/\(page)/?"
         case let .SearchV2(query, type, page):
             api = "/myfm/search/v2/?query=\(query)&type=\(type)&page_no=\(page)&"
+        case .SearchPopular:
+            api = "/myfm/search/popular/?"
         }
         return "\(SERVER_ADDRESS)\(api)\(BaseInfo.shared.generalParams)"
     }

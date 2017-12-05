@@ -8,7 +8,7 @@
 
 /// 发现首页数据返回
 class DiscoveryMainResultModel: ResultModel {
-    var data = [DiscoveryMainModel]()
+    var data = DiscoveryMainModel()
 }
 
 /// 发现首页数据

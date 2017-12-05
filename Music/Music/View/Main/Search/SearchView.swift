@@ -26,7 +26,7 @@ class SearchView: UIView {
     /// 搜索控制视图
     private lazy var searchControlView:SearchControlView = {
         let _searchControlView = Bundle.main.loadNibNamed("SearchControlView", owner: nil, options: nil)?[0] as! SearchControlView
-        _searchControlView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: searchControlHeight)
+        _searchControlView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: APP_HEIGHT - BOTTOM_TAB_HEIGHT - DEVICE_INDICATOR_HEIGHT)
         self.addSubview(_searchControlView)
         return _searchControlView
     }()
@@ -114,6 +114,7 @@ class SearchView: UIView {
     /// 业务模块
     private func setupViewModel() {
         viewModel.requestTopArtists(page:0)
+        viewModel.requestSearchPopular()
         viewModel.setCompletion(onSuccess: { [weak self](resultModel) in
             guard let weakself = self else {
                 return
@@ -124,12 +125,15 @@ class SearchView: UIView {
                 weakself.artists.append(contentsOf: artistsResultModel.data.artists)
                 weakself.artistTableView.reloadData()
                 weakself.artistTableView.mj_footer.endRefreshing()
-            } else {
+            } else if resultModel.isKind(of: SearchSongResultModel.self){
                 let songResultModel = resultModel as! SearchSongResultModel
                 weakself.hasMoreSearchResult = songResultModel.data.has_more
                 weakself.results.append(contentsOf: songResultModel.data.items)
                 weakself.resultTableView.reloadData()
                 weakself.resultTableView.mj_footer.endRefreshing()
+            } else {
+                let popularResultModel = resultModel as! SearchPopularResultModel
+                weakself.searchControlView.setup(popularDic: popularResultModel.data)
             }
         }) { [weak self](error) in
             Log.e(error)

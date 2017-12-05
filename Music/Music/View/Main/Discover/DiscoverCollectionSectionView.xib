@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Arial.ttf">
+            <string>ArialMT</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="DiscoverCollectionSectionView" customModule="Music" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qDF-h9-cg6">
+                    <rect key="frame" x="12" y="18" width="4" height="14"/>
+                    <color key="backgroundColor" red="0.41176470588235292" green="0.92941176470588238" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="4" id="9yD-vj-Ufh"/>
+                        <constraint firstAttribute="height" constant="14" id="lHB-9f-9pu"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4h-ve-nU3">
+                    <rect key="frame" x="22" y="25" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="core_item_img_arrows.png" translatesAutoresizingMaskIntoConstraints="NO" id="9vM-sx-NVT">
+                    <rect key="frame" x="286" y="14" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="5gB-D3-LpJ"/>
+                        <constraint firstAttribute="height" constant="22" id="u8J-km-v4p"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="qDF-h9-cg6" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="12" id="B94-AH-dKd"/>
+                <constraint firstItem="9vM-sx-NVT" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="LHH-VN-AhA"/>
+                <constraint firstItem="T4h-ve-nU3" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="eL3-nt-5qy"/>
+                <constraint firstItem="T4h-ve-nU3" firstAttribute="leading" secondItem="qDF-h9-cg6" secondAttribute="trailing" constant="6" id="edC-3y-IVl"/>
+                <constraint firstItem="qDF-h9-cg6" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="hfo-5r-fH3"/>
+                <constraint firstAttribute="trailing" secondItem="9vM-sx-NVT" secondAttribute="trailing" constant="12" id="irp-2O-htb"/>
+            </constraints>
+            <connections>
+                <outlet property="arrowImageView" destination="9vM-sx-NVT" id="oaf-wa-EoG"/>
+                <outlet property="nameLabel" destination="T4h-ve-nU3" id="Mz9-po-eNJ"/>
+            </connections>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="core_item_img_arrows.png" width="88" height="88"/>
+    </resources>
+</document>

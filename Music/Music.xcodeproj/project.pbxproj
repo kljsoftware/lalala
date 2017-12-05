@@ -107,6 +107,23 @@
 		3C3AFA801FD67AB9003FFCE3 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA7E1FD67AB9003FFCE3 /* SearchResultCell.swift */; };
 		3C3AFA811FD67AB9003FFCE3 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AFA7F1FD67AB9003FFCE3 /* SearchResultCell.xib */; };
 		3C3AFA831FD67D61003FFCE3 /* common_btn_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AFA821FD67D61003FFCE3 /* common_btn_more.png */; };
+		3C3AFA851FD6A0B0003FFCE3 /* SearchPopularResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA841FD6A0B0003FFCE3 /* SearchPopularResultModel.swift */; };
+		3C3AFA901FD6B3B9003FFCE3 /* SearchPopularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA8E1FD6B3B9003FFCE3 /* SearchPopularCell.swift */; };
+		3C3AFA911FD6B3B9003FFCE3 /* SearchPopularCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AFA8F1FD6B3B9003FFCE3 /* SearchPopularCell.xib */; };
+		3C3AFA941FD6BD38003FFCE3 /* SearchPopularSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA921FD6BD38003FFCE3 /* SearchPopularSectionView.swift */; };
+		3C3AFA951FD6BD38003FFCE3 /* SearchPopularSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AFA931FD6BD38003FFCE3 /* SearchPopularSectionView.xib */; };
+		3C3AFA981FD6C10C003FFCE3 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA971FD6C10C003FFCE3 /* DiscoverViewModel.swift */; };
+		3C3AFA9A1FD6C476003FFCE3 /* DiscoverCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AFA991FD6C476003FFCE3 /* DiscoverCollectionView.xib */; };
+		3C3AFA9C1FD6C4EF003FFCE3 /* DiscoverCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA9B1FD6C4EF003FFCE3 /* DiscoverCollectionView.swift */; };
+		3C3AFA9F1FD6D870003FFCE3 /* DiscoverCollectionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA9D1FD6D870003FFCE3 /* DiscoverCollectionSectionView.swift */; };
+		3C3AFAA01FD6D870003FFCE3 /* DiscoverCollectionSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AFA9E1FD6D870003FFCE3 /* DiscoverCollectionSectionView.xib */; };
+		3C3AFAA31FD6DBB8003FFCE3 /* DiscoverRankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFAA11FD6DBB8003FFCE3 /* DiscoverRankCell.swift */; };
+		3C3AFAA41FD6DBB8003FFCE3 /* DiscoverRankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AFAA21FD6DBB8003FFCE3 /* DiscoverRankCell.xib */; };
+		3C3AFAA71FD6F009003FFCE3 /* DiscoverEnterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFAA51FD6F009003FFCE3 /* DiscoverEnterCell.swift */; };
+		3C3AFAA81FD6F009003FFCE3 /* DiscoverEnterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AFAA61FD6F009003FFCE3 /* DiscoverEnterCell.xib */; };
+		3C3AFAAA1FD6F0E5003FFCE3 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFAA91FD6F0E5003FFCE3 /* BorderView.swift */; };
+		3C3AFAAD1FD6FAB4003FFCE3 /* DiscoverPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFAAB1FD6FAB4003FFCE3 /* DiscoverPlaylistCell.swift */; };
+		3C3AFAAE1FD6FAB4003FFCE3 /* DiscoverPlaylistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AFAAC1FD6FAB4003FFCE3 /* DiscoverPlaylistCell.xib */; };
 		3C48ACC31FCB942A00B8992A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACC21FCB942A00B8992A /* UIColor+Extension.swift */; };
 		3C48ACC51FCBB0FA00B8992A /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACC41FCBB0FA00B8992A /* Dictionary+Extension.swift */; };
 		3C48ACCA1FCBB69800B8992A /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACC91FCBB69800B8992A /* ResultModel.swift */; };
@@ -268,6 +285,23 @@
 		3C3AFA7E1FD67AB9003FFCE3 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		3C3AFA7F1FD67AB9003FFCE3 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		3C3AFA821FD67D61003FFCE3 /* common_btn_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_btn_more.png; sourceTree = "<group>"; };
+		3C3AFA841FD6A0B0003FFCE3 /* SearchPopularResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopularResultModel.swift; sourceTree = "<group>"; };
+		3C3AFA8E1FD6B3B9003FFCE3 /* SearchPopularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopularCell.swift; sourceTree = "<group>"; };
+		3C3AFA8F1FD6B3B9003FFCE3 /* SearchPopularCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPopularCell.xib; sourceTree = "<group>"; };
+		3C3AFA921FD6BD38003FFCE3 /* SearchPopularSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopularSectionView.swift; sourceTree = "<group>"; };
+		3C3AFA931FD6BD38003FFCE3 /* SearchPopularSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPopularSectionView.xib; sourceTree = "<group>"; };
+		3C3AFA971FD6C10C003FFCE3 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
+		3C3AFA991FD6C476003FFCE3 /* DiscoverCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverCollectionView.xib; sourceTree = "<group>"; };
+		3C3AFA9B1FD6C4EF003FFCE3 /* DiscoverCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCollectionView.swift; sourceTree = "<group>"; };
+		3C3AFA9D1FD6D870003FFCE3 /* DiscoverCollectionSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCollectionSectionView.swift; sourceTree = "<group>"; };
+		3C3AFA9E1FD6D870003FFCE3 /* DiscoverCollectionSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverCollectionSectionView.xib; sourceTree = "<group>"; };
+		3C3AFAA11FD6DBB8003FFCE3 /* DiscoverRankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverRankCell.swift; sourceTree = "<group>"; };
+		3C3AFAA21FD6DBB8003FFCE3 /* DiscoverRankCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverRankCell.xib; sourceTree = "<group>"; };
+		3C3AFAA51FD6F009003FFCE3 /* DiscoverEnterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverEnterCell.swift; sourceTree = "<group>"; };
+		3C3AFAA61FD6F009003FFCE3 /* DiscoverEnterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverEnterCell.xib; sourceTree = "<group>"; };
+		3C3AFAA91FD6F0E5003FFCE3 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
+		3C3AFAAB1FD6FAB4003FFCE3 /* DiscoverPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPlaylistCell.swift; sourceTree = "<group>"; };
+		3C3AFAAC1FD6FAB4003FFCE3 /* DiscoverPlaylistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverPlaylistCell.xib; sourceTree = "<group>"; };
 		3C48ACC21FCB942A00B8992A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3C48ACC41FCBB0FA00B8992A /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		3C48ACC91FCBB69800B8992A /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
@@ -398,6 +432,7 @@
 				3C48ACDC1FCBEABD00B8992A /* FMSongListResultModel.swift */,
 				377C54061FD13BE700618A9F /* SearchArtistsResultModel.swift */,
 				377C54081FD13CC200618A9F /* SearchSongResultModel.swift */,
+				3C3AFA841FD6A0B0003FFCE3 /* SearchPopularResultModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -465,10 +500,14 @@
 				3CD05F4F1FCA9DE500FEC161 /* SearchView.swift */,
 				3C1427CB1FD5A05800D15105 /* SearchControlView.xib */,
 				3C3AFA751FD63B02003FFCE3 /* SearchControlView.swift */,
+				3C3AFA8E1FD6B3B9003FFCE3 /* SearchPopularCell.swift */,
+				3C3AFA8F1FD6B3B9003FFCE3 /* SearchPopularCell.xib */,
 				3C3AFA7A1FD66FDF003FFCE3 /* SearchArtistCell.swift */,
 				3C3AFA7B1FD66FDF003FFCE3 /* SearchArtistCell.xib */,
 				3C3AFA7E1FD67AB9003FFCE3 /* SearchResultCell.swift */,
 				3C3AFA7F1FD67AB9003FFCE3 /* SearchResultCell.xib */,
+				3C3AFA921FD6BD38003FFCE3 /* SearchPopularSectionView.swift */,
+				3C3AFA931FD6BD38003FFCE3 /* SearchPopularSectionView.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -503,6 +542,7 @@
 				3C48ACCF1FCBBC0800B8992A /* Base */,
 				3C48ACCE1FCBBBC600B8992A /* FM */,
 				3C3AFA771FD66826003FFCE3 /* Search */,
+				3C3AFA961FD6C0CF003FFCE3 /* Discover */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -587,6 +627,14 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		3C3AFA961FD6C0CF003FFCE3 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				3C3AFA971FD6C10C003FFCE3 /* DiscoverViewModel.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
 		3C48ACC61FCBB66600B8992A /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -627,6 +675,7 @@
 				3C16B8AE1FCDA95100FAABCA /* LoopPageView.swift */,
 				3C16B8D91FCE917E00FAABCA /* SliderView.swift */,
 				3C526F681FCF95D80093B837 /* LyricView.swift */,
+				3C3AFAA91FD6F0E5003FFCE3 /* BorderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -740,6 +789,16 @@
 			isa = PBXGroup;
 			children = (
 				3CD05F4D1FCA9DD900FEC161 /* DiscoverView.swift */,
+				3C3AFA991FD6C476003FFCE3 /* DiscoverCollectionView.xib */,
+				3C3AFA9B1FD6C4EF003FFCE3 /* DiscoverCollectionView.swift */,
+				3C3AFA9D1FD6D870003FFCE3 /* DiscoverCollectionSectionView.swift */,
+				3C3AFA9E1FD6D870003FFCE3 /* DiscoverCollectionSectionView.xib */,
+				3C3AFAA11FD6DBB8003FFCE3 /* DiscoverRankCell.swift */,
+				3C3AFAA21FD6DBB8003FFCE3 /* DiscoverRankCell.xib */,
+				3C3AFAA51FD6F009003FFCE3 /* DiscoverEnterCell.swift */,
+				3C3AFAA61FD6F009003FFCE3 /* DiscoverEnterCell.xib */,
+				3C3AFAAB1FD6FAB4003FFCE3 /* DiscoverPlaylistCell.swift */,
+				3C3AFAAC1FD6FAB4003FFCE3 /* DiscoverPlaylistCell.xib */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -918,6 +977,7 @@
 				3C0EBE8A1FD231220047B1E1 /* immersion_player_btn_add_pressed.png in Resources */,
 				3C0EBE871FD231220047B1E1 /* immersion_player_btn_cycle_all_normal.png in Resources */,
 				3C0EBE8D1FD231220047B1E1 /* immersion_player_btn_prev_pressed.png in Resources */,
+				3C3AFAA81FD6F009003FFCE3 /* DiscoverEnterCell.xib in Resources */,
 				3C16B8A81FCC68A000FAABCA /* common_btn_cd_activated.png in Resources */,
 				3C16B8CC1FCE4E7A00FAABCA /* fm_player_btn_love_selected.png in Resources */,
 				3C58CFC91FC96AD800045BA9 /* test.png in Resources */,
@@ -931,8 +991,11 @@
 				3C0EBE7D1FD231220047B1E1 /* immersion_player_btn_play_normal.png in Resources */,
 				3C0EBE881FD231220047B1E1 /* immersion_player_btn_cycle_one_pressed.png in Resources */,
 				3C0EBE791FD231220047B1E1 /* immersion_player_btn_stop_pressed.png in Resources */,
+				3C3AFAAE1FD6FAB4003FFCE3 /* DiscoverPlaylistCell.xib in Resources */,
+				3C3AFA951FD6BD38003FFCE3 /* SearchPopularSectionView.xib in Resources */,
 				3C0EBE8C1FD231220047B1E1 /* immersion_player_btn_cycle_all_pressed.png in Resources */,
 				3C16B8D01FCE4E7A00FAABCA /* fm_player_btn_stop_normal.png in Resources */,
+				3C3AFAA01FD6D870003FFCE3 /* DiscoverCollectionSectionView.xib in Resources */,
 				3CD05F2F1FCA953D00FEC161 /* Localizable.strings in Resources */,
 				3C16B8CF1FCE4E7A00FAABCA /* fm_player_btn_next_normal.png in Resources */,
 				3C0EBE7A1FD231220047B1E1 /* immersion_player_btn_next_pressed.png in Resources */,
@@ -967,6 +1030,7 @@
 				3CA712C11FD56B38004F0490 /* MyMusicNewSongOrderCell.xib in Resources */,
 				3C04077E1FC3F5A800080935 /* LaunchScreen.storyboard in Resources */,
 				3C0EBE7C1FD231220047B1E1 /* immersion_player_btn_download_normal.png in Resources */,
+				3C3AFA911FD6B3B9003FFCE3 /* SearchPopularCell.xib in Resources */,
 				3C0EBE961FD232F90047B1E1 /* common_btn_back_pressed.png in Resources */,
 				3CD05F651FCAA85800FEC161 /* tab_music_selected.png in Resources */,
 				3C0EBE771FD231220047B1E1 /* immersion_player_btn_prev_normal.png in Resources */,
@@ -984,9 +1048,11 @@
 				3C58CFD81FC9B41F00045BA9 /* test.lrc in Resources */,
 				3C16B8C71FCE4E7A00FAABCA /* fm_player_btn_play_pressed.png in Resources */,
 				3C0EBE831FD231220047B1E1 /* immersion_player_btn_more_normal.png in Resources */,
+				3C3AFA9A1FD6C476003FFCE3 /* DiscoverCollectionView.xib in Resources */,
 				3C16B8C51FCE4E7A00FAABCA /* fm_player_btn_prev_normal.png in Resources */,
 				3CD05F631FCAA85800FEC161 /* tab_mine_selected.png in Resources */,
 				3CA712AF1FD56966004F0490 /* MyMusicTableView.xib in Resources */,
+				3C3AFAA41FD6DBB8003FFCE3 /* DiscoverRankCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1066,6 +1132,7 @@
 			files = (
 				3C16B8B11FCE3CFE00FAABCA /* UIView+Extension.swift in Sources */,
 				3763B2441FD12DA6001433D4 /* DiscoveryLoadSonglistResultModel.swift in Sources */,
+				3C3AFAA71FD6F009003FFCE3 /* DiscoverEnterCell.swift in Sources */,
 				37DF3BAB1FD13340006399E2 /* SongListDataModel.swift in Sources */,
 				3C3AFA761FD63B02003FFCE3 /* SearchControlView.swift in Sources */,
 				3C16B8D21FCE5B7000FAABCA /* FMPlayerView.swift in Sources */,
@@ -1076,6 +1143,7 @@
 				3CD05F4E1FCA9DD900FEC161 /* DiscoverView.swift in Sources */,
 				3CD05F4A1FCA9DBB00FEC161 /* FMView.swift in Sources */,
 				3CA712BC1FD56AF2004F0490 /* MyMusicSongOrderSectionCell.swift in Sources */,
+				3C3AFA981FD6C10C003FFCE3 /* DiscoverViewModel.swift in Sources */,
 				3C04077C1FC3F5A800080935 /* AppDelegate.swift in Sources */,
 				37DF3BAD1FD1394A006399E2 /* DiscoveryRankListResultModel.swift in Sources */,
 				3C48ACCD1FCBB8D000B8992A /* HttpRequest.swift in Sources */,
@@ -1084,6 +1152,7 @@
 				3C6203F51FC5AA6C003D2309 /* AudioPlayer.swift in Sources */,
 				3C58CFC31FC94F1800045BA9 /* Log.swift in Sources */,
 				3C0EE6761FCAE9AD00046C5A /* UserDefaultMacro.swift in Sources */,
+				3C3AFA851FD6A0B0003FFCE3 /* SearchPopularResultModel.swift in Sources */,
 				3C1427BB1FD592F000D15105 /* OnePixelConstraint.swift in Sources */,
 				3C7C72671FC924D6008793E6 /* Double+Extension.swift in Sources */,
 				3C48ACCA1FCBB69800B8992A /* ResultModel.swift in Sources */,
@@ -1097,7 +1166,9 @@
 				3C48ACDE1FCBEABD00B8992A /* FMSongListResultModel.swift in Sources */,
 				3C48ACC51FCBB0FA00B8992A /* Dictionary+Extension.swift in Sources */,
 				3C0EE6741FCAE53B00046C5A /* LanguageHelper.swift in Sources */,
+				3C3AFA941FD6BD38003FFCE3 /* SearchPopularSectionView.swift in Sources */,
 				3C1427C91FD596D800D15105 /* MeTableViewCell.swift in Sources */,
+				3C3AFA9C1FD6C4EF003FFCE3 /* DiscoverCollectionView.swift in Sources */,
 				3C16B8DA1FCE917E00FAABCA /* SliderView.swift in Sources */,
 				3CD05F6B1FCAAA2B00FEC161 /* TabView.swift in Sources */,
 				3C16B8D61FCE837E00FAABCA /* UIImage+Extension.swift in Sources */,
@@ -1107,20 +1178,25 @@
 				3C48ACD11FCBBC3C00B8992A /* BaseViewModel.swift in Sources */,
 				3CD05F501FCA9DE500FEC161 /* SearchView.swift in Sources */,
 				3C58CFD31FC9A86700045BA9 /* String+Extension.swift in Sources */,
+				3C3AFAAA1FD6F0E5003FFCE3 /* BorderView.swift in Sources */,
 				3C0407891FC3FFA400080935 /* GlobalMacro.swift in Sources */,
 				3C48ACC31FCB942A00B8992A /* UIColor+Extension.swift in Sources */,
 				3CA712B11FD5697C004F0490 /* MyMusicTableView.swift in Sources */,
 				3CA712AD1FD54B2E004F0490 /* ActionSheet.swift in Sources */,
 				3C3AFA7C1FD66FDF003FFCE3 /* SearchArtistCell.swift in Sources */,
+				3C3AFAA31FD6DBB8003FFCE3 /* DiscoverRankCell.swift in Sources */,
 				3C526F691FCF95D80093B837 /* LyricView.swift in Sources */,
 				3CA712C01FD56B38004F0490 /* MyMusicNewSongOrderCell.swift in Sources */,
 				3C58CFC61FC9525300045BA9 /* DataHelper.swift in Sources */,
+				3C3AFA9F1FD6D870003FFCE3 /* DiscoverCollectionSectionView.swift in Sources */,
 				3C0EBE991FD29A9D0047B1E1 /* UIButton+Extension.swift in Sources */,
 				3C7C72631FC90AFA008793E6 /* MainViewController.swift in Sources */,
+				3C3AFA901FD6B3B9003FFCE3 /* SearchPopularCell.swift in Sources */,
 				3C04078B1FC4001E00080935 /* NetworkMacro.swift in Sources */,
 				3CD05F4C1FCA9DC900FEC161 /* MyMusicView.swift in Sources */,
 				3C0EBE571FD22D780047B1E1 /* ImmersionPlayerView.swift in Sources */,
 				3C16B8AF1FCDA95100FAABCA /* LoopPageView.swift in Sources */,
+				3C3AFAAD1FD6FAB4003FFCE3 /* DiscoverPlaylistCell.swift in Sources */,
 				3C6203F41FC5AA6C003D2309 /* AudioFile.swift in Sources */,
 				3C0EBE9B1FD2D8F80047B1E1 /* RotateAnimation.swift in Sources */,
 				3C16B8DD1FCEA63000FAABCA /* PlayerHelper.swift in Sources */,

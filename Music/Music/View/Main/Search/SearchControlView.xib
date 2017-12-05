@@ -17,47 +17,77 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchControlView" customModule="Music" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="歌曲、歌手、专辑" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="y2x-An-I6H">
-                    <rect key="frame" x="12" y="3" width="267" height="30"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                    <connections>
-                        <outlet property="delegate" destination="iN0-l3-epB" id="wL3-uH-K7k"/>
-                    </connections>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIJ-Qj-Cz9">
-                    <rect key="frame" x="295" y="2.5" width="32" height="32"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9V-hJ-Z25">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="歌曲、歌手、专辑" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="y2x-An-I6H">
+                            <rect key="frame" x="12" y="7" width="267" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            <connections>
+                                <outlet property="delegate" destination="iN0-l3-epB" id="wL3-uH-K7k"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIJ-Qj-Cz9">
+                            <rect key="frame" x="295" y="6" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="t8z-AB-O4b"/>
+                                <constraint firstAttribute="width" constant="32" id="uBa-Nd-41n"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                            <state key="normal" title="取消"/>
+                            <state key="highlighted">
+                                <color key="titleColor" red="0.41176470588235292" green="0.92941176470588238" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="onCancelButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Czz-Ld-qDL"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="32" id="t8z-AB-O4b"/>
-                        <constraint firstAttribute="width" constant="32" id="uBa-Nd-41n"/>
+                        <constraint firstItem="rIJ-Qj-Cz9" firstAttribute="centerY" secondItem="Y9V-hJ-Z25" secondAttribute="centerY" id="Ltw-At-Ic4"/>
+                        <constraint firstAttribute="height" constant="44" id="Q9B-I2-fuP"/>
+                        <constraint firstItem="y2x-An-I6H" firstAttribute="leading" secondItem="Y9V-hJ-Z25" secondAttribute="leading" constant="12" id="ae3-tt-Zcg"/>
+                        <constraint firstAttribute="trailing" secondItem="rIJ-Qj-Cz9" secondAttribute="trailing" constant="48" id="bBr-CP-ltY"/>
+                        <constraint firstAttribute="trailing" secondItem="y2x-An-I6H" secondAttribute="trailing" constant="96" id="lJF-9V-Map"/>
+                        <constraint firstItem="y2x-An-I6H" firstAttribute="centerY" secondItem="Y9V-hJ-Z25" secondAttribute="centerY" id="uGU-HD-CkV"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                    <state key="normal" title="取消"/>
-                    <state key="highlighted">
-                        <color key="titleColor" red="0.41176470588235292" green="0.92941176470588238" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
+                </view>
+                <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="QNT-zb-SML">
+                    <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vri-X7-VbN">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="40"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="12" minY="0.0" maxX="12" maxY="0.0"/>
+                    </collectionViewFlowLayout>
                     <connections>
-                        <action selector="onCancelButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Czz-Ld-qDL"/>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="q63-hz-QrO"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="Wwh-nF-iQh"/>
                     </connections>
-                </button>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="y2x-An-I6H" secondAttribute="trailing" constant="96" id="DYV-IE-kGH"/>
-                <constraint firstItem="rIJ-Qj-Cz9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IiH-U6-HOF"/>
-                <constraint firstAttribute="trailing" secondItem="rIJ-Qj-Cz9" secondAttribute="trailing" constant="48" id="NSL-UQ-npR"/>
-                <constraint firstItem="y2x-An-I6H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="RgG-7u-FPq"/>
-                <constraint firstItem="y2x-An-I6H" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aPr-jm-S3k"/>
+                <constraint firstItem="Y9V-hJ-Z25" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="66B-Uh-2oJ"/>
+                <constraint firstAttribute="trailing" secondItem="Y9V-hJ-Z25" secondAttribute="trailing" id="8Ja-g1-kGF"/>
+                <constraint firstItem="Y9V-hJ-Z25" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="N8q-Tc-B3x"/>
+                <constraint firstItem="QNT-zb-SML" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bBs-Ir-Ln1"/>
+                <constraint firstItem="QNT-zb-SML" firstAttribute="top" secondItem="Y9V-hJ-Z25" secondAttribute="bottom" id="jLH-TC-laC"/>
+                <constraint firstAttribute="trailing" secondItem="QNT-zb-SML" secondAttribute="trailing" id="sAb-Kn-ard"/>
+                <constraint firstAttribute="bottom" secondItem="QNT-zb-SML" secondAttribute="bottom" id="zGY-yH-q10"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="cancelButton" destination="rIJ-Qj-Cz9" id="Itc-vD-KUX"/>
+                <outlet property="collectionView" destination="QNT-zb-SML" id="j39-m1-2Gf"/>
                 <outlet property="searchTextField" destination="y2x-An-I6H" id="LXu-rw-X2C"/>
-                <outlet property="searchTrailLayoutConstraint" destination="DYV-IE-kGH" id="uDc-ut-3Mg"/>
+                <outlet property="searchTrailLayoutConstraint" destination="lJF-9V-Map" id="a5l-DG-jkf"/>
             </connections>
             <point key="canvasLocation" x="-42.5" y="-94.5"/>
         </view>
