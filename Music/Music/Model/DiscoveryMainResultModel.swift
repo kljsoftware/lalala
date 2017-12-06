@@ -89,11 +89,11 @@ class EnterDataModel : NSObject {
 /// 歌单信息模块
 class PlaylistInfoModel : NSObject {
     
-    /// 歌单id
-    var song_list_id = 0
+    /// 收藏次数
+    var fav_count = 0
     
-    /// 名称
-    var song_list_name = ""
+    /// 封面是否修改
+    var is_cover_modified = false
     
     ///
     var permission = 0
@@ -101,24 +101,74 @@ class PlaylistInfoModel : NSObject {
     /// 播放次数
     var played_count = 0
     
+    /// 分享次数
+    var share_count = 0
+    
     /// 封面图片
     var song_list_cover = ""
     
     /// 描述
     var song_list_desc = ""
     
-    /// 歌曲数量
-    var song_num = 0
+    /// 歌单id
+    var song_list_id = ""
+    
+    /// 名称
+    var song_list_name = ""
     
     ///
     var song_list_type = ""
-    
-    /// 分享次数
-    var share_count = 0
-    
-    /// 收藏次数
-    var fav_count = 0
-    
+
+    /// 歌曲数量
+    var song_num = 0
+
     ///
-    var is_cover_modied = 0
+    var tag_ids = [PlaylistTagIdModel]()
+
+    /// 用户信息
+    var user = PlaylistUserModel()
+    
+    /// 指定数组元素类型
+    override class func mj_objectClassInArray() -> [AnyHashable: Any]! {
+        return ["tag_ids" : PlaylistTagIdModel.self]
+    }
+ 
+}
+
+class PlaylistTagIdModel : NSObject {
+    
+}
+
+/// 歌单用户模型
+class PlaylistUserModel : NSObject {
+    
+    /// 地址
+    var address = ""
+    
+    /// 头像
+    var avatar_url = ""
+    
+    /// 生日
+    var birthday = ""
+    
+    /// 邮件
+    var email = ""
+    
+    /// 性别
+    var gender = 1
+    
+    /// 电话
+    var phone = ""
+    
+    /// 平台
+    var platform = 2
+    
+    /// 平台用户id
+    var platform_uid = ""
+    
+    /// 名称
+    var screen_name = ""
+    
+    /// 用户ID
+    var uid = ""
 }

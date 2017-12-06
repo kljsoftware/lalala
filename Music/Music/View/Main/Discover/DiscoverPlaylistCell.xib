@@ -18,10 +18,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DiscoverPlaylistCell" customModule="Music" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="103" height="151"/>
+            <rect key="frame" x="0.0" y="0.0" width="103" height="174"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="103" height="151"/>
+                <rect key="frame" x="0.0" y="0.0" width="103" height="174"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x8a-FH-MoC">
@@ -36,23 +36,97 @@
                         <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkT-FU-F7u" customClass="BorderView" customModule="Music" customModuleProvider="target">
+                        <rect key="frame" x="51" y="12" width="40" height="20"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playlist_ic_play_count.png" translatesAutoresizingMaskIntoConstraints="NO" id="POS-pu-ASK">
+                                <rect key="frame" x="12" y="5" width="10" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="3Ia-v5-aES"/>
+                                    <constraint firstAttribute="height" constant="10" id="pd6-J8-qX2"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYF-mU-AYm">
+                                <rect key="frame" x="28" y="10" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="BaQ-Zg-Yyj"/>
+                            <constraint firstItem="GYF-mU-AYm" firstAttribute="centerX" secondItem="gkT-FU-F7u" secondAttribute="centerX" constant="8" id="KZ1-96-OEn"/>
+                            <constraint firstItem="GYF-mU-AYm" firstAttribute="leading" secondItem="POS-pu-ASK" secondAttribute="trailing" constant="6" id="UU6-2Q-CMU"/>
+                            <constraint firstItem="GYF-mU-AYm" firstAttribute="centerY" secondItem="gkT-FU-F7u" secondAttribute="centerY" id="Uku-r2-eGz"/>
+                            <constraint firstAttribute="width" constant="40" id="jKn-cX-EdW"/>
+                            <constraint firstItem="POS-pu-ASK" firstAttribute="centerY" secondItem="gkT-FU-F7u" secondAttribute="centerY" id="qhe-cG-zxE"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="fill">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="stroke">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Hq-4L-46g">
+                        <rect key="frame" x="0.0" y="83" width="103" height="20"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="zbk-Fr-DVC"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LRI-2x-pxh">
+                        <rect key="frame" x="12" y="77" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="2Xe-2P-XLB"/>
+                            <constraint firstAttribute="width" constant="24" id="SwR-gP-0ry"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPi-iB-VDL">
+                        <rect key="frame" x="42" y="93" width="49" height="0.0"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="TPi-iB-VDL" secondAttribute="trailing" constant="12" id="4mz-xK-FfP"/>
+                <constraint firstItem="LRI-2x-pxh" firstAttribute="bottom" secondItem="x8a-FH-MoC" secondAttribute="bottom" constant="-2" id="4z3-f2-hkc"/>
                 <constraint firstAttribute="trailing" secondItem="x8a-FH-MoC" secondAttribute="trailing" id="5di-IL-79y"/>
                 <constraint firstItem="aER-mD-1Nv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5la-dT-3c3"/>
+                <constraint firstItem="TPi-iB-VDL" firstAttribute="leading" secondItem="LRI-2x-pxh" secondAttribute="trailing" constant="6" id="AoY-nv-ka4"/>
+                <constraint firstItem="0Hq-4L-46g" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KQf-9e-CVP"/>
                 <constraint firstItem="x8a-FH-MoC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Rj9-Pf-br7"/>
+                <constraint firstAttribute="trailing" secondItem="gkT-FU-F7u" secondAttribute="trailing" constant="12" id="RmG-KK-Y5H"/>
                 <constraint firstItem="x8a-FH-MoC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hFL-5A-Igv"/>
+                <constraint firstItem="0Hq-4L-46g" firstAttribute="bottom" secondItem="x8a-FH-MoC" secondAttribute="bottom" id="hyM-xM-xSK"/>
+                <constraint firstItem="TPi-iB-VDL" firstAttribute="centerY" secondItem="0Hq-4L-46g" secondAttribute="centerY" id="ocX-t0-jHV"/>
+                <constraint firstAttribute="trailing" secondItem="0Hq-4L-46g" secondAttribute="trailing" id="osw-Qa-gWB"/>
                 <constraint firstAttribute="trailing" secondItem="aER-mD-1Nv" secondAttribute="trailing" id="qk2-nn-nV2"/>
                 <constraint firstItem="aER-mD-1Nv" firstAttribute="top" secondItem="x8a-FH-MoC" secondAttribute="bottom" constant="12" id="yeX-0X-iLi"/>
+                <constraint firstItem="gkT-FU-F7u" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="ykx-Mv-6dz"/>
+                <constraint firstItem="LRI-2x-pxh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="zgp-dF-FLA"/>
             </constraints>
-            <size key="customSize" width="103" height="151"/>
+            <size key="customSize" width="103" height="174"/>
             <connections>
                 <outlet property="coverImageView" destination="x8a-FH-MoC" id="y8G-ZF-TEM"/>
                 <outlet property="describeLabel" destination="aER-mD-1Nv" id="YHb-qP-dna"/>
+                <outlet property="playCountLabel" destination="GYF-mU-AYm" id="BZx-K4-PA6"/>
+                <outlet property="screenNameLabel" destination="TPi-iB-VDL" id="SmC-Lv-nAH"/>
+                <outlet property="userAvatarImageView" destination="LRI-2x-pxh" id="cw0-Md-Jm3"/>
             </connections>
-            <point key="canvasLocation" x="12.5" y="180.5"/>
+            <point key="canvasLocation" x="-194" y="82"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="playlist_ic_play_count.png" width="30" height="30"/>
+    </resources>
 </document>

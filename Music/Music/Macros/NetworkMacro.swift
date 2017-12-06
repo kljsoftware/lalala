@@ -59,7 +59,8 @@ class BaseInfo {
 enum NetworkURL {
     case FMChannelList(language:String)   // 获取电台频道列表
     case FMSongList(channelId:Int)        // 获取某一频道的歌曲列表
-    case DiscoverRandV3                   // 发现首页数据获取
+    case DiscoverRankV3                   // 发现首页数据获取
+    case DiscoverRankLoadSongLists(page:Int)  // 获取更多热门歌曲
     case SearchTopArtists(page:Int)       // 热门歌手列表
     case SearchV2(query:String, type:String, page:Int)  // 搜索结果返回
     case SearchPopular                    // 获取热门搜索
@@ -72,8 +73,10 @@ enum NetworkURL {
             api = "/myfm/category/list/\(language)/?"
         case let .FMSongList(channelId):
             api = "/myfm/category/\(channelId)/?"
-        case .DiscoverRandV3:
+        case .DiscoverRankV3:
             api = "/myfm/rank/v3/?"
+        case let .DiscoverRankLoadSongLists(page): //从1开始  每次最多返回10个
+            api = "/myfm/rank/load_song_lists/?page_no=\(page)&"
         case let .SearchTopArtists(page):
             api = "/myfm/list/topartists/\(page)/?"
         case let .SearchV2(query, type, page):

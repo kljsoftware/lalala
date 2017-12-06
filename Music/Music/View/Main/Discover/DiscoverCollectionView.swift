@@ -33,12 +33,18 @@ private let playlistCellWidth = (DEVICE_SCREEN_WIDTH - blank*3)/2, playlistCellH
 
 /// 网格视图
 class DiscoverCollectionView: UIView {
+    
+    /// 开始加载更多
+    var beginFooterRefreshingClosure:((_ page:Int) -> Void)?
 
     /// 模型文件
     fileprivate var model:DiscoveryMainModel?
     
     /// 网格视图
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    fileprivate var playlist = [PlaylistInfoModel]()
+    fileprivate var page = 0, hasMore:Bool = true
     
     // MARK: - override methods
     override func awakeFromNib() {
@@ -47,12 +53,42 @@ class DiscoverCollectionView: UIView {
         collectionView.register(UINib(nibName: "DiscoverPlaylistCell", bundle: nil), forCellWithReuseIdentifier: "kDiscoverPlaylistCell")
         collectionView.register(UINib(nibName: "DiscoverCollectionSectionView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "kDiscoverCollectionSectionView")
         collectionView.register(UINib(nibName: "DiscoverCollectionEmptyView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "DiscoverCollectionEmptyView")
+        collectionView.mj_footer = MJRefreshAutoFooter(refreshingBlock: { [weak self] in
+            self?.collectionViewFooterRefreshing()
+        })
+    }
+    
+    /// 开始加载更多
+    private func collectionViewFooterRefreshing() {
+        if !hasMore {
+            return
+        }
+        collectionView.mj_footer.beginRefreshing()
+        page += 1
+        beginFooterRefreshingClosure?(page)
+    }
+    
+    /// 停止加载更多
+    private func stopFooterRefreshing() {
+        if collectionView.mj_footer.isRefreshing {
+            collectionView.mj_footer.endRefreshing()
+        }
     }
     
     // MARK: - public methods
+    /// 设置数据
     func setup(model:DiscoveryMainModel) {
         self.model = model
+        playlist.append(contentsOf: model.playlist)
         collectionView.reloadData()
+    }
+    
+    /// 加载更多的歌单数据
+    func setupSonglist(songlistModel:DiscoveryLoadSonglistDataModel) {
+        hasMore = songlistModel.has_more
+        playlist.append(contentsOf: songlistModel.song_lists)
+        collectionView.reloadData()
+        stopFooterRefreshing()
     }
 }
 
@@ -76,7 +112,7 @@ extension DiscoverCollectionView :  UICollectionViewDataSource, UICollectionView
         case .enter:
             return model.enter.count
         case .playlist:
-            return model.playlist.count
+            return playlist.count
         }
     }
     
@@ -94,7 +130,7 @@ extension DiscoverCollectionView :  UICollectionViewDataSource, UICollectionView
             return enterCell
         case .playlist:
             let playlistCell = collectionView.dequeueReusableCell(withReuseIdentifier: "kDiscoverPlaylistCell", for: indexPath) as! DiscoverPlaylistCell
-            playlistCell.update(model: model!.playlist[indexPath.row])
+            playlistCell.update(model: playlist[indexPath.row])
             return playlistCell
         }
 

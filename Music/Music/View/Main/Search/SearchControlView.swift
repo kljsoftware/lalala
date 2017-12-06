@@ -65,7 +65,10 @@ class SearchControlView: UIView {
     
     /// 设置热门数据
     func setup(popularDic:[String:Int]) {
-        popularKeys = Array(popularDic.keys)
+        let sortTupes = popularDic.sorted(by: {$0.value >= $1.value})
+        for (key, _) in sortTupes {
+            popularKeys.append(key)
+        }
         collectionView.reloadData()
     }
 }
@@ -95,6 +98,14 @@ extension SearchControlView :  UICollectionViewDataSource, UICollectionViewDeleg
         let sectionCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "kSearchPopularSectionView", for: indexPath) as! SearchPopularSectionView
         sectionCell.update(title: "热点搜索")
         return sectionCell
+    }
+    
+    /// 单元点击事件
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        searchTextField.text = popularKeys[indexPath.row]
+        searchTextField.resignFirstResponder()
+        collectionView.isHidden = true
+        searchCloure?(searchTextField.text ?? "", "song")
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout
@@ -129,9 +140,9 @@ extension SearchControlView : UITextFieldDelegate {
     
     /// 点击软键盘Next、go处理
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        searchTextField.resignFirstResponder()
         collectionView.isHidden = true
-        searchCloure?(textField.text ?? "", "song")
+        searchCloure?(searchTextField.text ?? "", "song")
         return true
     }
 }

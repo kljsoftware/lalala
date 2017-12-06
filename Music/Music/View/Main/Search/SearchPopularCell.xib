@@ -23,6 +23,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mu3-Zl-Zci" customClass="BorderView" customModule="Music" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5UH-03-oyn">
                         <rect key="frame" x="25" y="25" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
@@ -31,8 +35,12 @@
                     </label>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="Mu3-Zl-Zci" secondAttribute="trailing" id="LAL-fz-bL5"/>
+                <constraint firstItem="Mu3-Zl-Zci" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="V29-XP-fX9"/>
+                <constraint firstAttribute="bottom" secondItem="Mu3-Zl-Zci" secondAttribute="bottom" id="VhF-vM-lVy"/>
+                <constraint firstItem="Mu3-Zl-Zci" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="neY-MW-AIR"/>
                 <constraint firstItem="5UH-03-oyn" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="nti-iS-Jc3"/>
                 <constraint firstItem="5UH-03-oyn" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="snW-Hd-li0"/>
             </constraints>

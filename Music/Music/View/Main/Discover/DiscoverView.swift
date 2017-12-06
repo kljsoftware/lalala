@@ -86,12 +86,23 @@ class DiscoverView: UIView {
         // 标题
         titleView.setup(title: "发现")
         
-        collectionView.backgroundColor = UIColor.clear
+        /// 更多加载更多开始闭包
+        collectionView.beginFooterRefreshingClosure = { [weak self](page) in
+            self?.viewModel.requestLoadSongLists(page: page)
+        }
         
         viewModel.requestRankv3()
         viewModel.setCompletion(onSuccess: { [weak self](resultModel) in
-            let model = resultModel as! DiscoveryMainResultModel
-            self?.collectionView.setup(model: model.data)
+            guard let weakself = self else {
+                return
+            }
+            if resultModel.isKind(of: DiscoveryMainResultModel.self) {
+                let model = resultModel as! DiscoveryMainResultModel
+                weakself.collectionView.setup(model: model.data)
+            } else {
+                let model = resultModel as! DiscoveryLoadSonglistResultModel
+                weakself.collectionView.setupSonglist(songlistModel: model.data)
+            }
         }) { (error) in
             Log.e(error)
         }
