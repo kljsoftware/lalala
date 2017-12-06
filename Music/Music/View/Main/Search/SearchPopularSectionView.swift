@@ -6,7 +6,8 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-import UIKit
+/// 标签字典
+private let nameDic = [0:"热门搜索", 1:"历史记录"]
 
 class SearchPopularSectionView: UICollectionReusableView {
 
@@ -17,8 +18,8 @@ class SearchPopularSectionView: UICollectionReusableView {
         // Initialization code
     }
     
-    func update(title:String?) {
-        titleLabel.text = title
+    func update(type:Int) {
+        titleLabel.text = nameDic[type]
     }
     
 }

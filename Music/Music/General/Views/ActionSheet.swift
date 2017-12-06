@@ -91,7 +91,7 @@ class ActionSheet: UIView {
         // 分割线
         if title != nil {
             let lineImgView     = UIImageView(frame: CGRect(x: 0, y: 32, width: bottomView.frame.width, height: 0.5))
-            lineImgView.image   = UIImage(named: "common_bottom_line")
+           // lineImgView.image   = UIImage(named: "common_bottom_line")
             bottomView.addSubview(lineImgView)
         }
         

@@ -74,6 +74,7 @@ class SearchView: UIView {
         /// 搜索控制视图
         searchControlView.setup(searchBeginCloure: { [weak self] in
             self?.artistTableView.isHidden = true
+            self?.resultTableView.isHidden = true
         }, cancelSearchCloure: { [weak self] in
             self?.artistTableView.isHidden = false
             self?.resultTableView.isHidden = true
