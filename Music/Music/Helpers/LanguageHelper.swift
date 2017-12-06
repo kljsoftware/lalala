@@ -62,7 +62,7 @@ class LanguageHelper {
     }
 
     /// 获取对应语言的文字
-    func getLanguageText(by key:String) -> String? {
-        return bundle?.localizedString(forKey: key, value: nil, table: "Localizable")
+    func getLanguageText(by key:String) -> String {
+        return bundle?.localizedString(forKey: key, value: nil, table: "Localizable") ?? "null"
     }
 }

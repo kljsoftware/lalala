@@ -17,6 +17,7 @@ private class TitleView : UIView {
         let _titleLabel = UILabel(frame: self.bounds)
         _titleLabel.textColor = UIColor.white
         _titleLabel.font = ARIAL_FONT_19
+        _titleLabel.text = LanguageHelper.shared.getLanguageText(by: "Discover_Discover")
         _titleLabel.textAlignment = .center
         self.addSubview(_titleLabel)
         return _titleLabel
