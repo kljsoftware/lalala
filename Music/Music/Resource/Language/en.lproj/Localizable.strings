@@ -11,3 +11,9 @@
 "discover" = "Discover";
 "search"   = "Search";
 "me"       = "Me";
+
+"FM_FM"       = "FM";
+"MyMusic_MyMusic"  = "My Music";
+"Discover_Discover" = "Discover";
+"Query_Search"   = "Search";
+"Me_Me"       = "Me";

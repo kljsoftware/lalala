@@ -6,8 +6,14 @@
   Copyright © 2017年 demo. All rights reserved.
 */
 
-"fm"       = "电台";     //FM_FM
-"myMusic"  = "我的音乐";  //MyMusic_MyMusic
-"discover" = "发现";     //Discover_Discover
-"search"   = "搜索";     //Query_Search
-"me"       = "我";       //Me_Me
+"fm"       = "电台";
+"myMusic"  = "我的音乐";
+"discover" = "发现";
+"search"   = "搜索";
+"me"       = "我";
+
+"FM_FM"       = "电台";
+"MyMusic_MyMusic"  = "我的音乐";
+"Discover_Discover" = "发现";
+"Query_Search"   = "搜索";
+"Me_Me"       = "我";     
