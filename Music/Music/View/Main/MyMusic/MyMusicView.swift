@@ -29,6 +29,7 @@ private class TitleView : UIView {
     private lazy var editButton:UIButton = {
         let _editButton = UIButton(type: .custom)
         _editButton.frame = CGRect(x: 12, y: 0, width: self.editButtonSize.width, height: self.editButtonSize.height)
+        _editButton.titleLabel?.font = ARIAL_FONT_16
         self.addSubview(_editButton)
         return _editButton
     }()
@@ -56,7 +57,7 @@ private class TitleView : UIView {
         let titleLabel = UILabel(frame: CGRect.zero)
         titleLabel.text = "我的音乐"
         titleLabel.textColor = UIColor.white
-        titleLabel.font = ARIAL_FONT_21
+        titleLabel.font = ARIAL_FONT_19
         addSubview(titleLabel)
         titleLabel.sizeToFit()
         titleLabel.frame = CGRect(x: (frame.width - titleLabel.frame.width)/2, y: (frame.height - titleLabel.frame.height)/2, width: titleLabel.frame.width, height: titleLabel.frame.height)

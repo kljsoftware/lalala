@@ -8,12 +8,60 @@
 
 import UIKit
 
+/// '我'控制高度
+private let meTitleHeight:CGFloat = 44
+
+/// 标题视图
+private class TitleView : UIView {
+    
+    /// 标题
+    private lazy var titleLabel:UILabel = {
+        let _titleLabel = UILabel(frame: self.bounds)
+        _titleLabel.textColor = UIColor.white
+        _titleLabel.font = ARIAL_FONT_19
+        _titleLabel.textAlignment = .center
+        self.addSubview(_titleLabel)
+        return _titleLabel
+    }()
+    
+    // MARK: - init/override methods
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        /// 下划线
+        let divideView = UIView()
+        divideView.backgroundColor = COLOR_ABABAB.withAlphaComponent(0.5)
+        addSubview(divideView)
+        divideView.snp.makeConstraints { (maker) in
+            maker.left.right.equalTo(self)
+            maker.bottom.equalTo(self).offset(-ONE_PIXELS)
+            maker.height.equalTo(ONE_PIXELS)
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - public methods
+    func setup(title:String?) {
+        titleLabel.text = title
+    }
+}
+
 /// ‘我’界面
 class MeView: UIView {
     
+    /// 标题视图
+    private lazy var titleView : TitleView = {
+        let _titleView = TitleView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: meTitleHeight))
+        _titleView.backgroundColor = UIColor.clear
+        self.addSubview(_titleView)
+        return _titleView
+    }()
+    
     /// 列表视图
     private lazy var tableView:UITableView = {
-        let _tableView = UITableView(frame: CGRect(x: 0, y: 44, width: self.frame.width, height: self.frame.height))
+        let _tableView = UITableView(frame: CGRect(x: 0, y: meTitleHeight, width: self.frame.width, height: self.frame.height))
         _tableView.separatorColor = UIColor.clear
         _tableView.backgroundColor = UIColor.clear
         _tableView.dataSource = self
@@ -37,6 +85,9 @@ class MeView: UIView {
        
         /// 模糊图
         addSubview(UIView.blurViewWithRect(self.bounds, style:.dark))
+        
+        // 标题
+        titleView.setup(title: "我")
         
         /// 列表视图
         tableView.register(UINib(nibName: "MeTableViewCell", bundle: nil), forCellReuseIdentifier: "kMeTableViewCell")

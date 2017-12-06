@@ -15,7 +15,7 @@ extension UIImageView {
      */
     func setImage(urlStr: String, placeholderStr: String, radius: CGFloat) {
         
-        self.sd_setImage(with: URL(string: urlStr), placeholderImage: UIImage(named: placeholderStr), options: SDWebImageOptions.lowPriority){ (image, error, cacheType, url) in
+        self.sd_setImage(with: URL(string: urlStr), placeholderImage: UIImage(named: placeholderStr), options: SDWebImageOptions.retryFailed){ (image, error, cacheType, url) in
             self.corner(radius: radius)
         }
     }
