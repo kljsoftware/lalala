@@ -17,6 +17,11 @@ PODS:
   - DOUAudioStreamer (0.2.15)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.15)
+  - Realm (3.0.2):
+    - Realm/Headers (= 3.0.2)
+  - Realm/Headers (3.0.2)
+  - RealmSwift (3.0.2):
+    - Realm (= 3.0.2)
   - SDWebImage (4.2.2):
     - SDWebImage/Core (= 4.2.2)
   - SDWebImage/Core (4.2.2)
@@ -27,6 +32,7 @@ DEPENDENCIES:
   - DOUAudioStreamer (= 0.2.15)
   - MJExtension (= 3.0.13)
   - MJRefresh (= 3.1.15)
+  - RealmSwift (= 3.0.2)
   - SDWebImage (= 4.2.2)
   - SnapKit (= 3.2.0)
 
@@ -35,9 +41,11 @@ SPEC CHECKSUMS:
   DOUAudioStreamer: 14f217bab01b52171fc2bd7d96e1f8fdd50fce68
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
+  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
+  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
 
-PODFILE CHECKSUM: 3300e6987f762e71e36566c10f4328e96b31dcce
+PODFILE CHECKSUM: 92a8f40fedbc1d2c72d7954aae512dfddf9bdfa3
 
 COCOAPODS: 1.4.0.beta.2
