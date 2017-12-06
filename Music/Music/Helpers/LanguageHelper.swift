@@ -28,7 +28,7 @@ class LanguageHelper {
     private init() {
         let systemLanguages = UserDefaults.standard.value(forKey: "AppleLanguages") as! NSArray
         let systemLanguage = systemLanguages.firstObject as! String
-       // language = isSupportLanguage(systemLanguage) ? systemLanguage : "zh-Hans"
+        language = isSupportLanguage(systemLanguage) ? systemLanguage : "zh-Hans"
         guard let path = Bundle.main.path(forResource: language, ofType: "lproj") else {
             Log.e("language \(language) 不存在")
             return
