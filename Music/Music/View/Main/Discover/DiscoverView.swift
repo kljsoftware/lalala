@@ -80,7 +80,7 @@ class DiscoverView: UIView {
     private func setup() {
         
         // 标题
-        titleView.setup(title: LanguageHelper.shared.getLanguageText(by: "Discover_Discover"))
+        titleView.setup(title: Lang_Discover)
         
         /// 更多加载更多开始闭包
         collectionView.beginFooterRefreshingClosure = { [weak self](page) in

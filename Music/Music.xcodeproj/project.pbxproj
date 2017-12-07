@@ -165,6 +165,7 @@
 		3CA541301FD8E0610064764A /* MeSettingType0Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA5412E1FD8E0610064764A /* MeSettingType0Cell.xib */; };
 		3CA541331FD8E0720064764A /* MeSettingType1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA541311FD8E0720064764A /* MeSettingType1Cell.swift */; };
 		3CA541341FD8E0720064764A /* MeSettingType1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA541321FD8E0720064764A /* MeSettingType1Cell.xib */; };
+		3CA541361FD8ED830064764A /* LanguageMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA541351FD8ED830064764A /* LanguageMacro.swift */; };
 		3CA712AD1FD54B2E004F0490 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712AC1FD54B2E004F0490 /* ActionSheet.swift */; };
 		3CA712AF1FD56966004F0490 /* MyMusicTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA712AE1FD56966004F0490 /* MyMusicTableView.xib */; };
 		3CA712B11FD5697C004F0490 /* MyMusicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712B01FD5697C004F0490 /* MyMusicTableView.swift */; };
@@ -361,6 +362,7 @@
 		3CA5412E1FD8E0610064764A /* MeSettingType0Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSettingType0Cell.xib; sourceTree = "<group>"; };
 		3CA541311FD8E0720064764A /* MeSettingType1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingType1Cell.swift; sourceTree = "<group>"; };
 		3CA541321FD8E0720064764A /* MeSettingType1Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSettingType1Cell.xib; sourceTree = "<group>"; };
+		3CA541351FD8ED830064764A /* LanguageMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageMacro.swift; sourceTree = "<group>"; };
 		3CA712AC1FD54B2E004F0490 /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		3CA712AE1FD56966004F0490 /* MyMusicTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicTableView.xib; sourceTree = "<group>"; };
 		3CA712B01FD5697C004F0490 /* MyMusicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicTableView.swift; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 				3C04078A1FC4001E00080935 /* NetworkMacro.swift */,
 				3C7C72641FC91B87008793E6 /* NotificationMacro.swift */,
 				3C0EE6751FCAE9AD00046C5A /* UserDefaultMacro.swift */,
+				3CA541351FD8ED830064764A /* LanguageMacro.swift */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
@@ -1290,6 +1293,7 @@
 				3C3AFA901FD6B3B9003FFCE3 /* SearchPopularCell.swift in Sources */,
 				3C04078B1FC4001E00080935 /* NetworkMacro.swift in Sources */,
 				3CA5412F1FD8E0610064764A /* MeSettingType0Cell.swift in Sources */,
+				3CA541361FD8ED830064764A /* LanguageMacro.swift in Sources */,
 				3CA541331FD8E0720064764A /* MeSettingType1Cell.swift in Sources */,
 				3CD05F4C1FCA9DC900FEC161 /* MyMusicView.swift in Sources */,
 				3C0EBE571FD22D780047B1E1 /* ImmersionPlayerView.swift in Sources */,

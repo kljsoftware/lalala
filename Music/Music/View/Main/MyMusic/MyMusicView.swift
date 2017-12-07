@@ -25,11 +25,6 @@ private class TitleView : UIView {
     /// 按钮大小
     private let editButtonSize = CGSize(width: 44, height: 44)
     
-    /// 字符串常量
-    private let lan_edit = LanguageHelper.shared.getLanguageText(by: "Common_Edit")
-    private let lan_done = LanguageHelper.shared.getLanguageText(by: "Common_Done")
-    private let lan_mymusic = LanguageHelper.shared.getLanguageText(by: "MyMusic_MyMusic")
-    
     /// 编辑按钮
     private lazy var editButton:UIButton = {
         let _editButton = UIButton(type: .custom)
@@ -53,14 +48,14 @@ private class TitleView : UIView {
     private func setup() {
         
         /// 按钮
-        editButton.setTitle(lan_edit, for: .normal)
+        editButton.setTitle(Lang_Common_Edit, for: .normal)
         editButton.setTitleColor(COLOR_ABABAB, for: .normal)
         editButton.setTitleColor(COLOR_69EDC8, for: .highlighted)
         editButton.addTarget(self, action: #selector(onEditButtonClicked), for: .touchUpInside)
         
         /// 标题
         let titleLabel = UILabel(frame: CGRect.zero)
-        titleLabel.text = lan_mymusic
+        titleLabel.text = Lang_MyMusic
         titleLabel.textColor = UIColor.white
         titleLabel.font = ARIAL_FONT_19
         addSubview(titleLabel)
@@ -80,11 +75,11 @@ private class TitleView : UIView {
     
     @objc private func onEditButtonClicked(sender:UIButton) {
         var type = TitleButtonType.edit
-        if sender.currentTitle! == lan_edit {
-            editButton.setTitle(lan_done, for: .normal)
+        if sender.currentTitle! == Lang_Common_Edit {
+            editButton.setTitle(Lang_Common_Done, for: .normal)
             type = .finished
         } else {
-            editButton.setTitle(lan_edit, for: .normal)
+            editButton.setTitle(Lang_Common_Edit, for: .normal)
         }
         editButtonClickedClosure?(type)
     }

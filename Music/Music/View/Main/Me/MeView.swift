@@ -87,7 +87,7 @@ class MeView: UIView {
     private func setup() {
         
         // 标题
-        titleView.setup(title: LanguageHelper.shared.getLanguageText(by: "Me_Me"))
+        titleView.setup(title: Lang_Me)
         
         /// 列表视图
         tableView.register(UINib(nibName: "MeTableViewCell", bundle: nil), forCellReuseIdentifier: "kMeTableViewCell")

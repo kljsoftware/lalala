@@ -18,10 +18,10 @@ enum SettingModeType : Int {
 }
 
 /// 内容字典
-private var dic = [SettingModeType.last_select_channel:LanguageHelper.shared.getLanguageText(by: "Setting_LastSelectedChannel"),
-                   SettingModeType.auto_play:LanguageHelper.shared.getLanguageText(by: "Setting_AutoPlay"),
-                   SettingModeType.current_language:LanguageHelper.shared.getLanguageText(by: "Setting_CurrentDisplayLanguage"),
-                   SettingModeType.version:LanguageHelper.shared.getLanguageText(by: "Setting_CurrentVersion")]
+private var dic = [SettingModeType.last_select_channel:Lang_Setting_LastSelectedChannel,
+                   SettingModeType.auto_play:Lang_Setting_AutoPlay,
+                   SettingModeType.current_language:Lang_Setting_CurrentDisplayLanguage,
+                   SettingModeType.version:Lang_Setting_CurrentVersion]
 
 /// 设置视图
 class MeSettingView: UIView {
@@ -34,7 +34,7 @@ class MeSettingView: UIView {
     
     // MARK: - override methods
     override func awakeFromNib() {
-        titleLabel.text = LanguageHelper.shared.getLanguageText(by: "Setting_Setting")
+        titleLabel.text = Lang_Setting_Setting
         tableView.register(UINib(nibName: "MeSettingType0Cell", bundle: nil), forCellReuseIdentifier: "kMeSettingType0Cell")
         tableView.register(UINib(nibName: "MeSettingType1Cell", bundle: nil), forCellReuseIdentifier: "kMeSettingType1Cell")
     }

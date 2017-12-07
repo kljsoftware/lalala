@@ -8,8 +8,8 @@
 
 import UIKit
 
-private let nameDic = [0:LanguageHelper.shared.getLanguageText(by: "Discover_Rank"),
-                       1:LanguageHelper.shared.getLanguageText(by: "Discover_PopularPlaylist")]
+private let nameDic = [0:Lang_Discover_Rank,
+                       1:Lang_Discover_PopularPlaylist]
 
 /// 分区视图
 class DiscoverCollectionSectionView: UICollectionReusableView {

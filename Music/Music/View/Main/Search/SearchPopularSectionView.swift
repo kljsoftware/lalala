@@ -7,8 +7,8 @@
 //
 
 /// 标签字典
-private let nameDic = [0:LanguageHelper.shared.getLanguageText(by: "Query_PopularSearches"),
-                       1:LanguageHelper.shared.getLanguageText(by: "Query_SearchHistory")]
+private let nameDic = [0:Lang_Query_PopularSearches,
+                       1:Lang_Query_SearchHistory]
 
 class SearchPopularSectionView: UICollectionReusableView {
 

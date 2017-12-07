@@ -18,10 +18,10 @@ private let iconDict = [MeTableCellType.amount:UIImage(named:"mine_ic_amount")!,
                         MeTableCellType.share:UIImage(named:"mine_ic_share")!]
 
 /// 内容字典
-private let contentDict = [MeTableCellType.amount:LanguageHelper.shared.getLanguageText(by: "Setting_TodayRemainingDownloads"),
-                           MeTableCellType.sleepMode:LanguageHelper.shared.getLanguageText(by: "Setting_SleepMode"),
-                           MeTableCellType.setting:LanguageHelper.shared.getLanguageText(by: "Setting_Setting"),
-                           MeTableCellType.share:LanguageHelper.shared.getLanguageText(by: "Setting_ShareThisApp")]
+private let contentDict = [MeTableCellType.amount:Lang_Setting_TodayRemainingDownloads,
+                           MeTableCellType.sleepMode:Lang_Setting_SleepMode,
+                           MeTableCellType.setting:Lang_Setting_Setting,
+                           MeTableCellType.share:Lang_Setting_ShareThisApp]
 
 class MeTableViewCell: UITableViewCell {
 

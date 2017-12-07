@@ -7,14 +7,13 @@
 //
 
 /// 内容字典
-private let lan_timer_str = LanguageHelper.shared.getLanguageText(by: "Setting_Timer")
-private var dic = [SleepModeType.disbleTimer:LanguageHelper.shared.getLanguageText(by: "Setting_DisableTimer"),
-                   SleepModeType.after15mins:String(format: lan_timer_str, "15"),
-                   SleepModeType.after30mins:String(format: lan_timer_str, "30"),
-                   SleepModeType.after60mins:String(format: lan_timer_str, "60"),
-                   SleepModeType.after90mins:String(format: lan_timer_str, "90"),
-                   SleepModeType.after120mins:String(format: lan_timer_str, "120"),
-                   SleepModeType.custom:LanguageHelper.shared.getLanguageText(by: "Setting_Customize")]
+private var dic = [SleepModeType.disbleTimer:Lang_Setting_DisableTimer,
+                   SleepModeType.after15mins:String(format: Lang_Setting_NumberMinutesLater, "15"),
+                   SleepModeType.after30mins:String(format: Lang_Setting_NumberMinutesLater, "30"),
+                   SleepModeType.after60mins:String(format: Lang_Setting_NumberMinutesLater, "60"),
+                   SleepModeType.after90mins:String(format: Lang_Setting_NumberMinutesLater, "90"),
+                   SleepModeType.after120mins:String(format: Lang_Setting_NumberMinutesLater, "120"),
+                   SleepModeType.custom:Lang_Setting_Customize]
 
 /// 休眠模式单元
 class MeSleepModeCell: UITableViewCell {

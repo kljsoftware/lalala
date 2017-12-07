@@ -34,7 +34,7 @@ class MeSleepModeView: UIView {
     
     // MARK: - override methods
     override func awakeFromNib() {
-        titleLabel.text = LanguageHelper.shared.getLanguageText(by: "Setting_SleepMode")
+        titleLabel.text = Lang_Setting_SleepMode
         tableView.register(UINib(nibName: "MeSleepModeCell", bundle: nil), forCellReuseIdentifier: "kMeSleepModeCell")
     }
     
