@@ -6,14 +6,69 @@
   Copyright © 2017年 demo. All rights reserved.
 */
 
-"fm"       = "FM";       
-"myMusic"  = "My Music"; 
-"discover" = "発見";
-"search"   = "検索";
-"me"       = "本人";
-
+/// 首页
 "FM_FM"       = "FM";
 "MyMusic_MyMusic"  = "My Music";
 "Discover_Discover" = "発見";
 "Query_Search"   = "検索";
 "Me_Me"       = "本人";
+
+///  FM
+"FM_RefreshTracks"         = "曲目変更";
+/// 我的音乐
+"MyMusic_Favorite"         = "お気に入り";
+"MyMusic_MyDownload"       = "ダウンロード";
+"MyMusic_OwnedPlaylists"   = "作成したプレイリスト";
+"MyMusic_CreatePlaylist"   = "プレイリストを作成";
+"MyMusic_Downloaded"       = "ダウンロード済み";
+"MyMusic_Downloading"      = "ダウンロード中";
+"MyMusic_AddToPlaylist"    = "リストに追加";
+"MyMusic_SelectAll"        = "全部";
+"MyMusic_NumberSeclected"  = "選択した";
+"MyMusic_EditPlaylistNameDescription" = "重複しない名前を入力してください";
+"MyMusic_TrackArtistAlbum"            = "曲、歌手、アルバム";
+
+/// 发现
+"Discover_Rank"              = "ランキング";
+"Discover_PopularPlaylist"   = "ヒットプレイリスト";
+
+/// 搜索
+"Query_PopularSearches"     = "人気検索";
+"Query_NoResults"           = "検索結果がありません";
+"Query_ClearSearchHistory"  = "検索履歴をクリアします";
+"Query_SearchHistory"       = "検索履歴";
+
+/// 我
+"Setting_TodayRemainingDownloads" = "本日の残りダウンロード回数:";
+"Setting_SleepMode"          = "スリープタイマー";
+"Setting_Setting"            = "設定";
+"Setting_ShareThisApp"       = "アプリを共有します";
+"Setting_DisableTimer"       = "タイマーなし";
+"Setting_NumberMinutesLater"              = "%@分後";
+"Setting_MusicWillPauseAt"         = "%@に再生が終了します";
+"Setting_Customize"          = "設定する";
+"Setting_LastSelectedChannel" = "前回のFMチャンネルを記憶";
+"Setting_AutoPlay"            = "自動再生";
+"Setting_CurrentDisplayLanguage" = "現在の言語：日本語";
+"Setting_SelectLanguage"         = "言語選択"; /// 四种语言字串 日本語 English 简体 繁體
+"Setting_CurrentVersion"         = "バージョン";
+"Setting_SwitchingLanguage"         = "言語設定中";
+
+/// 通用
+"Common_Edit"           = "編集";
+"Common_Done"           = "完了";
+"Common_Share"          = "シェア";
+"Common_Delete"         = "削除";
+"Common_Cancel"         = "キャンセル";
+"Common_SelectTrack"    = "曲の選択";
+"Common_Playlist"       = "プレイリスト";
+"Common_Download"       = "ダウンロード";
+"Common_Close"          = "閉じる";
+
+/// 提示
+"Tip_SequentialModeActivated" = "連続再生モードに変更";
+"Tip_ShuffleModeActivated"    = "シャッフルモードに変更";
+"Tip_SingleLoopActivated"     = "リピートモードに変更";
+"Tip_AddedToFavorites"        = "お気に入りに追加しました";
+"Tip_RemovedFromFavorites"    = "お気に入りから削除されました";
+"Tip_NoUpdateAvailable"       = "すでに最新バージョンです。";

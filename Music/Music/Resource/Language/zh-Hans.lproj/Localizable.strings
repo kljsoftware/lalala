@@ -6,6 +6,7 @@
   Copyright © 2017年 demo. All rights reserved.
 */
 
+/// 首页
 "FM_FM"             = "电台";
 "MyMusic_MyMusic"   = "我的音乐";
 "Discover_Discover" = "发现";
@@ -18,8 +19,6 @@
 "MyMusic_Favorite"         = "我喜欢的音乐";
 "MyMusic_MyDownload"       = "我的下载";
 "MyMusic_OwnedPlaylists"   = "创建的歌单";
-"MyMusic_CreatePlaylist"   = "新建歌单";
-"MyMusic_CreatePlaylist"   = "新建歌单";
 "MyMusic_CreatePlaylist"   = "新建歌单";
 "MyMusic_Downloaded"       = "已下载";
 "MyMusic_Downloading"      = "下载中";
@@ -45,14 +44,15 @@
 "Setting_Setting"            = "设置";
 "Setting_ShareThisApp"       = "分享此应用";
 "Setting_DisableTimer"       = "不开启定时";
-"Setting_Timer"              = "%@分钟后";
-"Setting_SleepTimer"         = "音乐将于%@暂停播放";
+"Setting_NumberMinutesLater"              = "%@分钟后";
+"Setting_MusicWillPauseAt"         = "音乐将于%@暂停播放";
 "Setting_Customize"          = "自定义";
 "Setting_LastSelectedChannel" = "记住上次选中频道";
 "Setting_AutoPlay"            = "自动播放";
 "Setting_CurrentDisplayLanguage" = "当前界面语言：简体";
 "Setting_SelectLanguage"         = "选择语言"; /// 四种语言字串 日本語 English 简体 繁體
 "Setting_CurrentVersion"         = "当前版本";
+"Setting_SwitchingLanguage"         = "语言切换中";
 
 /// 通用
 "Common_Edit"           = "编辑";

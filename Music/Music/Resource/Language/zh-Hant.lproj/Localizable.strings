@@ -6,14 +6,69 @@
   Copyright © 2017年 demo. All rights reserved.
 */
 
-"fm"       = "電台";
-"myMusic"  = "我的音樂";
-"discover" = "發現";
-"search"   = "搜索";
-"me"       = "我";
-
+/// 首页
 "FM_FM"       = "電台";
 "MyMusic_MyMusic"  = "我的音樂";
 "Discover_Discover" = "發現";
 "Query_Search"   = "搜索";
 "Me_Me"       = "我";
+
+///  FM
+"FM_RefreshTracks"         = "換一批歌曲";
+/// 我的音乐
+"MyMusic_Favorite"         = "我喜歡的音樂";
+"MyMusic_MyDownload"       = "我的下載";
+"MyMusic_OwnedPlaylists"   = "創建的歌單";
+"MyMusic_CreatePlaylist"   = "新建歌單";
+"MyMusic_Downloaded"       = "已下載";
+"MyMusic_Downloading"      = "下載中";
+"MyMusic_AddToPlaylist"    = "添加到歌單";
+"MyMusic_SelectAll"        = "全部";
+"MyMusic_NumberSeclected"  = "已選擇：";
+"MyMusic_EditPlaylistNameDescription" = "請編輯歌單的名稱，不能與已有歌單重複。";
+"MyMusic_TrackArtistAlbum"            = "歌曲，歌手，專輯";
+
+/// 发现
+"Discover_Rank"              = "排行榜";
+"Discover_PopularPlaylist"   = "熱門歌單";
+
+/// 搜索
+"Query_PopularSearches"     = "熱門搜索";
+"Query_NoResults"           = "暫無結果";
+"Query_ClearSearchHistory"  = "清空搜索歷史";
+"Query_SearchHistory"       = "搜索歷史";
+
+/// 我
+"Setting_TodayRemainingDownloads" = "今日剩餘下載數：";
+"Setting_SleepMode"          = "休眠模式";
+"Setting_Setting"            = "設置";
+"Setting_ShareThisApp"       = "分享此應用";
+"Setting_DisableTimer"       = "不開啟定時";
+"Setting_NumberMinutesLater"              = "%@分鐘後";
+"Setting_MusicWillPauseAt"         = "音樂將於%@暫停播放";
+"Setting_Customize"          = "自定義";
+"Setting_LastSelectedChannel" = "記住上次選中頻道";
+"Setting_AutoPlay"            = "自動播放";
+"Setting_CurrentDisplayLanguage" = "當前界面語言：繁體";
+"Setting_SelectLanguage"         = "選擇語言"; /// 四种语言字串 日本語 English 简体 繁體
+"Setting_CurrentVersion"         = "當前版本";
+"Setting_SwitchingLanguage"         = "語言切換中";
+
+/// 通用
+"Common_Edit"           = "編輯";
+"Common_Done"           = "完成";
+"Common_Share"          = "分享";
+"Common_Delete"         = "刪除";
+"Common_Cancel"         = "取消";
+"Common_SelectTrack"    = "選擇歌曲";
+"Common_Playlist"       = "歌單";
+"Common_Download"       = "下載";
+"Common_Close"          = "關閉";
+
+/// 提示
+"Tip_SequentialModeActivated" = "已切換至順序播放";
+"Tip_ShuffleModeActivated"    = "已切換至隨機播放";
+"Tip_SingleLoopActivated"     = "已切換至單曲循環";
+"Tip_AddedToFavorites"        = "已添加到我喜歡的音樂";
+"Tip_RemovedFromFavorites"    = "已從我喜歡的音樂移除";
+"Tip_NoUpdateAvailable"       = "已是最新版本";
