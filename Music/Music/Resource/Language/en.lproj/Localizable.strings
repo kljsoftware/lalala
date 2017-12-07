@@ -6,14 +6,69 @@
   Copyright © 2017年 demo. All rights reserved.
 */
 
-"fm"       = "FM";
-"myMusic"  = "My Music";
-"discover" = "Discover";
-"search"   = "Search";
-"me"       = "Me";
-
+/// 首页
 "FM_FM"       = "FM";
 "MyMusic_MyMusic"  = "My Music";
 "Discover_Discover" = "Discover";
 "Query_Search"   = "Search";
 "Me_Me"       = "Me";
+
+///  FM
+"FM_RefreshTracks"         = "Refresh Tracks";
+/// 我的音乐
+"MyMusic_Favorite"         = "Favorites";
+"MyMusic_MyDownload"       = "My Downloads";
+"MyMusic_OwnedPlaylists"   = "Owned Playlists";
+"MyMusic_CreatePlaylist"   = "Create Playlist";
+"MyMusic_Downloaded"       = "Downloaded";
+"MyMusic_Downloading"      = "Downloading";
+"MyMusic_AddToPlaylist"    = "Add to Playlist";
+"MyMusic_SelectAll"        = "All";
+"MyMusic_NumberSeclected"  = "Selected";
+"MyMusic_EditPlaylistNameDescription" = "Edit playlist name. Cannot be the same as existing ones.";
+"MyMusic_TrackArtistAlbum"            = "Tracks, Artists, Albums";
+
+/// 发现
+"Discover_Rank"              = "Rank";
+"Discover_PopularPlaylist"   = "Popular Playlist";
+
+/// 搜索
+"Query_PopularSearches"     = "Popular Searches";
+"Query_NoResults"           = "No Results";
+"Query_ClearSearchHistory"  = "Clear Search History";
+"Query_SearchHistory"       = "History";
+
+/// 我
+"Setting_TodayRemainingDownloads" = "Remaining Downloads:";
+"Setting_SleepMode"          = "Sleep Mode";
+"Setting_Setting"            = "Setting";
+"Setting_ShareThisApp"       = "Share this App";
+"Setting_DisableTimer"       = "Disable Timer";
+"Setting_NumberMinutesLater" = "%@ Minutes Later";
+"Setting_MusicWillPauseAt"         = "Music will pause at %@";
+"Setting_Customize"          = "Customize";
+"Setting_LastSelectedChannel" = "Last Selected Channel";
+"Setting_AutoPlay"            = "Auto Play";
+"Setting_CurrentDisplayLanguage" = "Current Display Language: English";
+"Setting_SelectLanguage"         = "Select Language"; /// 四种语言字串 日本語 English 简体 繁體
+"Setting_CurrentVersion"         = "Current Version";
+"Setting_SwitchingLanguage"         = "Switching Language";
+
+/// 通用
+"Common_Edit"           = "Edit";
+"Common_Done"           = "Done";
+"Common_Share"          = "Share";
+"Common_Delete"         = "Delete";
+"Common_Cancel"         = "Cancel";
+"Common_SelectTrack"    = "Select Track";
+"Common_Playlist"       = "Playlist";
+"Common_Download"       = "Download";
+"Common_Close"          = "Close";
+
+/// 提示
+"Tip_SequentialModeActivated" = "Sequential Mode Activated";
+"Tip_ShuffleModeActivated"    = "Shuffle Mode Activated";
+"Tip_SingleLoopActivated"     = "Single Loop Activated";
+"Tip_AddedToFavorites"        = "Added to Favorites";
+"Tip_RemovedFromFavorites"    = "Removed from Favorites";
+"Tip_NoUpdateAvailable"       = "No Update Available";
