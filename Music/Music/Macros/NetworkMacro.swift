@@ -51,7 +51,7 @@ class BaseInfo {
                                                "model": "ull_arm64-v8a_armeabi-v7a_armeabi"]
     
     var generalParams:String {
-        return "channel_lang=\(LanguageHelper.shared.language)\(GENERAL_PARAMS_DICT.urlParamsString())"
+        return "channel_lang=\(LanguageHelper.shared.type.rawValue)\(GENERAL_PARAMS_DICT.urlParamsString())"
     }
 }
 

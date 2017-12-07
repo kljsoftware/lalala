@@ -29,7 +29,5 @@ class MeSelectLanguageCell: UITableViewCell {
     /// 更新单元
     func update(type:LanguageType) {
         languageLabel.text = dic[type]
-        checkedImageView.isHidden = !(LanguageHelper.shared.language == type.rawValue)
     }
-    
 }

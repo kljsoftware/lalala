@@ -12,7 +12,7 @@ class FMViewModel: BaseViewModel {
     // MARK: - public methods
     /// 获取频道列表
     func getChannelList() {
-        let url = NetworkURL.FMChannelList(language: LanguageHelper.shared.language).url
+        let url = NetworkURL.FMChannelList(language: LanguageHelper.shared.type.rawValue).url
         Log.e("request = \(url)")
         HttpRequest.get(url, success: { (result) in
             Log.e("reponse = \(String(describing: result))")

@@ -17,16 +17,29 @@ class MeSelectLanguageView: UIView {
     
     /// 列表视图
     @IBOutlet weak var tableView: UITableView!
+    
+    /// 当前选择语言类型
+    fileprivate var type = LanguageHelper.shared.type
 
     // MARK: - override methods
     override func awakeFromNib() {
+       
         titleLabel.text = LanguageKey.Setting_SelectLanguage.value
         tableView.register(UINib(nibName: "MeSelectLanguageCell", bundle: nil), forCellReuseIdentifier: "kMeSelectLanguageCell")
+       
+        /// 默认显示当前语言
+        tableView.reloadData()
+        let indexPath = IndexPath(row: type.hashValue, section: 0)
+        tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
     }
     
     /// 点击返回按钮
     @IBAction func onBackButtonClicked(_ sender: UIButton) {
-        AppUI.pop(self)
+        if type != LanguageHelper.shared.type {
+            AppUI.change(type)
+        } else {
+            AppUI.pop(self)
+        }
     }
 }
 
@@ -52,7 +65,6 @@ extension MeSelectLanguageView :  UITableViewDataSource, UITableViewDelegate {
     
     /// 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.setSelected(true, animated: false)
-        AppUI.change(LanguageDic[indexPath.row]!)
+        self.type = LanguageDic[indexPath.row]!
     }
 }
