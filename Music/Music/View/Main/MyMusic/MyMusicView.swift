@@ -117,9 +117,6 @@ class MyMusicView: UIView {
     // MARK: - private methods
     private func setup() {
         
-        /// 模糊图
-        addSubview(UIView.blurViewWithRect(self.bounds, style:.dark))
-        
         /// 标题视图
         titleView.editButtonClickedClosure = { (type) in
             

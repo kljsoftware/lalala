@@ -54,7 +54,7 @@
                     <constraint firstItem="Fv6-Wu-Oqd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="c1i-W6-ZNG"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="arrowImageView" destination="Fv6-Wu-Oqd" id="1RV-0D-gj0"/>
                 <outlet property="contentLabel" destination="HsT-HS-7pW" id="Q2v-0Q-kad"/>

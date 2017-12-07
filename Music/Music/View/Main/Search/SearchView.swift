@@ -68,9 +68,6 @@ class SearchView: UIView {
     // MARK: - private methods
     private func setup() {
         
-        /// 模糊图
-        addSubview(UIView.blurViewWithRect(self.bounds, style:.dark))
-        
         /// 搜索控制视图
         searchControlView.setup(searchBeginCloure: { [weak self] in
             self?.artistTableView.isHidden = true

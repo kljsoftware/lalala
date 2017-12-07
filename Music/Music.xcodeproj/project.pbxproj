@@ -159,6 +159,12 @@
 		3CA541251FD8BEAE0064764A /* MeSleepModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA541231FD8BEAE0064764A /* MeSleepModeCell.swift */; };
 		3CA541261FD8BEAE0064764A /* MeSleepModeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA541241FD8BEAE0064764A /* MeSleepModeCell.xib */; };
 		3CA541281FD8CE010064764A /* img_language_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CA541271FD8CE000064764A /* img_language_check.png */; };
+		3CA5412A1FD8DDAF0064764A /* MeSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA541291FD8DDAF0064764A /* MeSettingView.xib */; };
+		3CA5412C1FD8DE740064764A /* MeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5412B1FD8DE740064764A /* MeSettingView.swift */; };
+		3CA5412F1FD8E0610064764A /* MeSettingType0Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5412D1FD8E0610064764A /* MeSettingType0Cell.swift */; };
+		3CA541301FD8E0610064764A /* MeSettingType0Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA5412E1FD8E0610064764A /* MeSettingType0Cell.xib */; };
+		3CA541331FD8E0720064764A /* MeSettingType1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA541311FD8E0720064764A /* MeSettingType1Cell.swift */; };
+		3CA541341FD8E0720064764A /* MeSettingType1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA541321FD8E0720064764A /* MeSettingType1Cell.xib */; };
 		3CA712AD1FD54B2E004F0490 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712AC1FD54B2E004F0490 /* ActionSheet.swift */; };
 		3CA712AF1FD56966004F0490 /* MyMusicTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA712AE1FD56966004F0490 /* MyMusicTableView.xib */; };
 		3CA712B11FD5697C004F0490 /* MyMusicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712B01FD5697C004F0490 /* MyMusicTableView.swift */; };
@@ -349,6 +355,12 @@
 		3CA541231FD8BEAE0064764A /* MeSleepModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSleepModeCell.swift; sourceTree = "<group>"; };
 		3CA541241FD8BEAE0064764A /* MeSleepModeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSleepModeCell.xib; sourceTree = "<group>"; };
 		3CA541271FD8CE000064764A /* img_language_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_language_check.png; sourceTree = "<group>"; };
+		3CA541291FD8DDAF0064764A /* MeSettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSettingView.xib; sourceTree = "<group>"; };
+		3CA5412B1FD8DE740064764A /* MeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingView.swift; sourceTree = "<group>"; };
+		3CA5412D1FD8E0610064764A /* MeSettingType0Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingType0Cell.swift; sourceTree = "<group>"; };
+		3CA5412E1FD8E0610064764A /* MeSettingType0Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSettingType0Cell.xib; sourceTree = "<group>"; };
+		3CA541311FD8E0720064764A /* MeSettingType1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingType1Cell.swift; sourceTree = "<group>"; };
+		3CA541321FD8E0720064764A /* MeSettingType1Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSettingType1Cell.xib; sourceTree = "<group>"; };
 		3CA712AC1FD54B2E004F0490 /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		3CA712AE1FD56966004F0490 /* MyMusicTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicTableView.xib; sourceTree = "<group>"; };
 		3CA712B01FD5697C004F0490 /* MyMusicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicTableView.swift; sourceTree = "<group>"; };
@@ -841,6 +853,12 @@
 				3CA541211FD83C3D0064764A /* MeSleepModeView.xib */,
 				3CA541231FD8BEAE0064764A /* MeSleepModeCell.swift */,
 				3CA541241FD8BEAE0064764A /* MeSleepModeCell.xib */,
+				3CA541291FD8DDAF0064764A /* MeSettingView.xib */,
+				3CA5412B1FD8DE740064764A /* MeSettingView.swift */,
+				3CA5412D1FD8E0610064764A /* MeSettingType0Cell.swift */,
+				3CA5412E1FD8E0610064764A /* MeSettingType0Cell.xib */,
+				3CA541311FD8E0720064764A /* MeSettingType1Cell.swift */,
+				3CA541321FD8E0720064764A /* MeSettingType1Cell.xib */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -1087,6 +1105,7 @@
 				3C0EBE811FD231220047B1E1 /* immersion_player_btn_cycle_random_normal.png in Resources */,
 				3CA541221FD83C3D0064764A /* MeSleepModeView.xib in Resources */,
 				3CA541261FD8BEAE0064764A /* MeSleepModeCell.xib in Resources */,
+				3CA541301FD8E0610064764A /* MeSettingType0Cell.xib in Resources */,
 				3C322AC81FD1040B00961348 /* bg.png in Resources */,
 				3C0EBE7E1FD231220047B1E1 /* immersion_btn_share_normal.png in Resources */,
 				3C16B8C61FCE4E7A00FAABCA /* fm_player_btn_more_pressed.png in Resources */,
@@ -1097,6 +1116,7 @@
 				3C3AFAB11FD77FFD003FFCE3 /* playlist_ic_play_count.png in Resources */,
 				3C0EBE7C1FD231220047B1E1 /* immersion_player_btn_download_normal.png in Resources */,
 				3C3AFA911FD6B3B9003FFCE3 /* SearchPopularCell.xib in Resources */,
+				3CA5412A1FD8DDAF0064764A /* MeSettingView.xib in Resources */,
 				3C0EBE961FD232F90047B1E1 /* common_btn_back_pressed.png in Resources */,
 				3CD05F651FCAA85800FEC161 /* tab_music_selected.png in Resources */,
 				3C0EBE771FD231220047B1E1 /* immersion_player_btn_prev_normal.png in Resources */,
@@ -1114,6 +1134,7 @@
 				3C58CFD81FC9B41F00045BA9 /* test.lrc in Resources */,
 				3C5D4BFD1FD7E24B002C8590 /* common_btn_delete.png in Resources */,
 				3C16B8C71FCE4E7A00FAABCA /* fm_player_btn_play_pressed.png in Resources */,
+				3CA541341FD8E0720064764A /* MeSettingType1Cell.xib in Resources */,
 				3C0EBE831FD231220047B1E1 /* immersion_player_btn_more_normal.png in Resources */,
 				3C3AFA9A1FD6C476003FFCE3 /* DiscoverCollectionView.xib in Resources */,
 				3C16B8C51FCE4E7A00FAABCA /* fm_player_btn_prev_normal.png in Resources */,
@@ -1244,6 +1265,7 @@
 				3C3AFA9C1FD6C4EF003FFCE3 /* DiscoverCollectionView.swift in Sources */,
 				3C16B8DA1FCE917E00FAABCA /* SliderView.swift in Sources */,
 				3CD05F6B1FCAAA2B00FEC161 /* TabView.swift in Sources */,
+				3CA5412C1FD8DE740064764A /* MeSettingView.swift in Sources */,
 				3C16B8D61FCE837E00FAABCA /* UIImage+Extension.swift in Sources */,
 				377C54091FD13CC200618A9F /* SearchSongResultModel.swift in Sources */,
 				3763B2421FD12611001433D4 /* DiscoveryMainResultModel.swift in Sources */,
@@ -1267,6 +1289,8 @@
 				3C7C72631FC90AFA008793E6 /* MainViewController.swift in Sources */,
 				3C3AFA901FD6B3B9003FFCE3 /* SearchPopularCell.swift in Sources */,
 				3C04078B1FC4001E00080935 /* NetworkMacro.swift in Sources */,
+				3CA5412F1FD8E0610064764A /* MeSettingType0Cell.swift in Sources */,
+				3CA541331FD8E0720064764A /* MeSettingType1Cell.swift in Sources */,
 				3CD05F4C1FCA9DC900FEC161 /* MyMusicView.swift in Sources */,
 				3C0EBE571FD22D780047B1E1 /* ImmersionPlayerView.swift in Sources */,
 				3CA541251FD8BEAE0064764A /* MeSleepModeCell.swift in Sources */,

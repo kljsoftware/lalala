@@ -85,9 +85,6 @@ class MeView: UIView {
     
     /// 初始化
     private func setup() {
-       
-        /// 模糊图
-        addSubview(UIView.blurViewWithRect(self.bounds, style:.dark))
         
         // 标题
         titleView.setup(title: LanguageHelper.shared.getLanguageText(by: "Me_Me"))
@@ -128,7 +125,8 @@ extension MeView :  UITableViewDataSource, UITableViewDelegate {
             let sleepModeView = Bundle.main.loadNibNamed("MeSleepModeView", owner: nil, options: nil)?[0] as! MeSleepModeView
             AppUI.push(to: sleepModeView, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
         case .setting:
-            break
+            let settingView = Bundle.main.loadNibNamed("MeSettingView", owner: nil, options: nil)?[0] as! MeSettingView
+            AppUI.push(to: settingView, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
         case .share:
             break
         }

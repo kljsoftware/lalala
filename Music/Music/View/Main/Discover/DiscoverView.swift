@@ -79,9 +79,6 @@ class DiscoverView: UIView {
     // MARK: - private methods
     private func setup() {
         
-        /// 模糊图
-        addSubview(UIView.blurViewWithRect(self.bounds, style:.dark))
-        
         // 标题
         titleView.setup(title: LanguageHelper.shared.getLanguageText(by: "Discover_Discover"))
         

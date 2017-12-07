@@ -6,17 +6,6 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-/// 休眠模式类型
-enum SleepModeType : Int {
-    case disbleTimer  // 不开启定时/关闭
-    case after15mins  // 15分钟后休眠
-    case after30mins  // 30分钟后休眠
-    case after60mins  // 60分钟后休眠
-    case after90mins  // 90分钟后休眠
-    case after120mins // 120分钟后休眠
-    case custom       // 自定义时间休眠
-}
-
 /// 内容字典
 private let lan_timer_str = LanguageHelper.shared.getLanguageText(by: "Setting_Timer")
 private var dic = [SleepModeType.disbleTimer:LanguageHelper.shared.getLanguageText(by: "Setting_DisableTimer"),
@@ -40,6 +29,9 @@ class MeSleepModeCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         checkedImageView.isHidden = !isSelected
+        if selected {
+            // TODO: 更新当前选择模式
+        }
     }
     
     /// 更新单元

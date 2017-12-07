@@ -18,14 +18,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="AJw-eA-fdO">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D97-IY-qCW">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jaL-fh-cbf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                    <blurEffect style="dark"/>
-                </visualEffectView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHc-nr-qel">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <subviews>
@@ -93,26 +85,22 @@
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x1d-cx-lkd">
                     <rect key="frame" x="0.0" y="124" width="375" height="543"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="1m6-zH-JJ5"/>
                         <outlet property="delegate" destination="iN0-l3-epB" id="uCg-hg-s8k"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="D97-IY-qCW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0HG-FW-iFc"/>
                 <constraint firstItem="AJw-eA-fdO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6KB-6J-8yw"/>
                 <constraint firstItem="SHc-nr-qel" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="71v-9B-7bj"/>
-                <constraint firstAttribute="trailing" secondItem="D97-IY-qCW" secondAttribute="trailing" id="8es-iX-VbT"/>
                 <constraint firstAttribute="trailing" secondItem="AJw-eA-fdO" secondAttribute="trailing" id="9jR-v5-81v"/>
-                <constraint firstItem="D97-IY-qCW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DtE-IU-Rx2"/>
                 <constraint firstItem="x1d-cx-lkd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Dx9-bB-Uh8"/>
                 <constraint firstItem="abi-3y-aoZ" firstAttribute="top" secondItem="SHc-nr-qel" secondAttribute="bottom" id="Hxs-Ea-iLF"/>
                 <constraint firstAttribute="trailing" secondItem="x1d-cx-lkd" secondAttribute="trailing" id="KDV-4c-fYo"/>
                 <constraint firstItem="SHc-nr-qel" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R4y-0d-BZt"/>
-                <constraint firstAttribute="bottom" secondItem="D97-IY-qCW" secondAttribute="bottom" id="STf-Cr-KKl"/>
                 <constraint firstAttribute="bottom" secondItem="x1d-cx-lkd" secondAttribute="bottom" id="Xao-8I-ohP"/>
                 <constraint firstItem="x1d-cx-lkd" firstAttribute="top" secondItem="abi-3y-aoZ" secondAttribute="bottom" id="Ygs-QX-wlp"/>
                 <constraint firstAttribute="trailing" secondItem="abi-3y-aoZ" secondAttribute="trailing" id="csi-5e-VhZ"/>
@@ -130,7 +118,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg.png" width="640" height="960"/>
+        <image name="bg.png" width="1080" height="1920"/>
         <image name="common_btn_back_normal.png" width="90" height="90"/>
     </resources>
 </document>
