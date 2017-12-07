@@ -158,6 +158,7 @@
 		3CA541221FD83C3D0064764A /* MeSleepModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA541211FD83C3D0064764A /* MeSleepModeView.xib */; };
 		3CA541251FD8BEAE0064764A /* MeSleepModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA541231FD8BEAE0064764A /* MeSleepModeCell.swift */; };
 		3CA541261FD8BEAE0064764A /* MeSleepModeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA541241FD8BEAE0064764A /* MeSleepModeCell.xib */; };
+		3CA541281FD8CE010064764A /* img_language_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CA541271FD8CE000064764A /* img_language_check.png */; };
 		3CA712AD1FD54B2E004F0490 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712AC1FD54B2E004F0490 /* ActionSheet.swift */; };
 		3CA712AF1FD56966004F0490 /* MyMusicTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA712AE1FD56966004F0490 /* MyMusicTableView.xib */; };
 		3CA712B11FD5697C004F0490 /* MyMusicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712B01FD5697C004F0490 /* MyMusicTableView.swift */; };
@@ -347,6 +348,7 @@
 		3CA541211FD83C3D0064764A /* MeSleepModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSleepModeView.xib; sourceTree = "<group>"; };
 		3CA541231FD8BEAE0064764A /* MeSleepModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSleepModeCell.swift; sourceTree = "<group>"; };
 		3CA541241FD8BEAE0064764A /* MeSleepModeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSleepModeCell.xib; sourceTree = "<group>"; };
+		3CA541271FD8CE000064764A /* img_language_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_language_check.png; sourceTree = "<group>"; };
 		3CA712AC1FD54B2E004F0490 /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		3CA712AE1FD56966004F0490 /* MyMusicTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicTableView.xib; sourceTree = "<group>"; };
 		3CA712B01FD5697C004F0490 /* MyMusicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicTableView.swift; sourceTree = "<group>"; };
@@ -586,6 +588,7 @@
 		3C1427BC1FD5966800D15105 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				3CA541271FD8CE000064764A /* img_language_check.png */,
 				3C1427BD1FD5966800D15105 /* mine_ic_share.png */,
 				3C1427BE1FD5966800D15105 /* mine_ic_copyright.png */,
 				3C1427BF1FD5966800D15105 /* mine_ic_setting.png */,
@@ -1087,6 +1090,7 @@
 				3C322AC81FD1040B00961348 /* bg.png in Resources */,
 				3C0EBE7E1FD231220047B1E1 /* immersion_btn_share_normal.png in Resources */,
 				3C16B8C61FCE4E7A00FAABCA /* fm_player_btn_more_pressed.png in Resources */,
+				3CA541281FD8CE010064764A /* img_language_check.png in Resources */,
 				3C1F3E5F1FD5768300BEACAE /* playlist_btn_delete.png in Resources */,
 				3CA712C11FD56B38004F0490 /* MyMusicNewSongOrderCell.xib in Resources */,
 				3C04077E1FC3F5A800080935 /* LaunchScreen.storyboard in Resources */,

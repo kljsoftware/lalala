@@ -34,16 +34,7 @@ class MeTableViewCell: UITableViewCell {
     /// 箭头
     @IBOutlet weak var arrowImageView: UIImageView!
     
-    // MARK: - override methods
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    // MARK: - public methods
+    /// 更新单元
     func update(type:MeTableCellType) {
         iconImageView.image = iconDict[type]
         contentLabel.text = contentDict[type]

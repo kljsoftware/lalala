@@ -46,7 +46,7 @@
 "Setting_ShareThisApp"       = "分享此应用";
 "Setting_DisableTimer"       = "不开启定时";
 "Setting_Timer"              = "%@分钟后";
-"Setting_SleepTimer"         = "音乐将于%@暂停播放"
+"Setting_SleepTimer"         = "音乐将于%@暂停播放";
 "Setting_Customize"          = "自定义";
 "Setting_LastSelectedChannel" = "记住上次选中频道";
 "Setting_AutoPlay"            = "自动播放";
