@@ -8,8 +8,10 @@
 
 import UIKit
 
-private let nameDic = [0:"排行榜", 1:"热门歌单"]
+private let nameDic = [0:LanguageHelper.shared.getLanguageText(by: "Discover_Rank"),
+                       1:LanguageHelper.shared.getLanguageText(by: "Discover_PopularPlaylist")]
 
+/// 分区视图
 class DiscoverCollectionSectionView: UICollectionReusableView {
    
     /// 名称
@@ -27,6 +29,5 @@ class DiscoverCollectionSectionView: UICollectionReusableView {
     
 }
 
-class DiscoverCollectionEmptyView : UICollectionReusableView {
-    
-}
+/// 空的分区视图
+class DiscoverCollectionEmptyView : UICollectionReusableView {}

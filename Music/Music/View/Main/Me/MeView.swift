@@ -11,6 +11,9 @@ import UIKit
 /// '我'控制高度
 private let meTitleHeight:CGFloat = 44
 
+/// 单元高度及个数
+private let cellHeight:CGFloat = 44, numberOfRowsInSection = 4
+
 /// 标题视图
 private class TitleView : UIView {
     
@@ -87,7 +90,7 @@ class MeView: UIView {
         addSubview(UIView.blurViewWithRect(self.bounds, style:.dark))
         
         // 标题
-        titleView.setup(title: "我")
+        titleView.setup(title: LanguageHelper.shared.getLanguageText(by: "Me_Me"))
         
         /// 列表视图
         tableView.register(UINib(nibName: "MeTableViewCell", bundle: nil), forCellReuseIdentifier: "kMeTableViewCell")
@@ -98,31 +101,36 @@ class MeView: UIView {
 extension MeView :  UITableViewDataSource, UITableViewDelegate {
     
     // MARK:  UITableViewDataSource
-    // 分区(Section)个数
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     // 各个分区的单元(Cell)个数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return numberOfRowsInSection
     }
     
     // 单元(cell)视图
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "kMeTableViewCell", for: indexPath) as! MeTableViewCell
-        cell.update(type: MyTableCellType(rawValue: indexPath.row)!)
+        cell.update(type: MeTableCellType(rawValue: indexPath.row)!)
         return cell
     }
     
     // MARK: UITableViewDelegate
     // 单元(cell)的高度
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return cellHeight
     }
     
     // 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        switch MeTableCellType(rawValue: indexPath.row)! {
+        case .amount:
+            break
+        case .sleepMode:
+            let sleepModeView = Bundle.main.loadNibNamed("MeSleepModeView", owner: nil, options: nil)?[0] as! MeSleepModeView
+            AppUI.push(to: sleepModeView, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
+        case .setting:
+            break
+        case .share:
+            break
+        }
     }
 }

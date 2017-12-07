@@ -255,6 +255,6 @@ class ImmersionPlayerView: UIView {
     }
     
     @IBAction func onBackButtonClicked(_ sender: UIButton) {
-        pop()
+        AppUI.pop(self)
     }
 }

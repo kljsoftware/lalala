@@ -7,23 +7,21 @@
 //
 
 /// 按钮类型
-enum MyTableCellType:Int {
-    case amount, sleepMode, copyRight, setting, share
+enum MeTableCellType:Int {
+    case amount, sleepMode, setting, share
 }
 
 /// 图标字典
-private let iconDict = [MyTableCellType.amount:UIImage(named:"mine_ic_amount")!,
-                        MyTableCellType.sleepMode:UIImage(named:"mine_ic_sleep_mode")!,
-                        MyTableCellType.copyRight:UIImage(named:"mine_ic_copyright")!,
-                        MyTableCellType.setting:UIImage(named:"mine_ic_setting")!,
-                        MyTableCellType.share:UIImage(named:"mine_ic_share")!]
+private let iconDict = [MeTableCellType.amount:UIImage(named:"mine_ic_amount")!,
+                        MeTableCellType.sleepMode:UIImage(named:"mine_ic_sleep_mode")!,
+                        MeTableCellType.setting:UIImage(named:"mine_ic_setting")!,
+                        MeTableCellType.share:UIImage(named:"mine_ic_share")!]
 
 /// 内容字典
-private let contentDict = [MyTableCellType.amount:"今日剩余下载数",
-                           MyTableCellType.sleepMode:"休眠模式",
-                           MyTableCellType.copyRight:"版权声明",
-                           MyTableCellType.setting:"设置",
-                           MyTableCellType.share:"分享此应用"]
+private let contentDict = [MeTableCellType.amount:LanguageHelper.shared.getLanguageText(by: "Setting_TodayRemainingDownloads"),
+                           MeTableCellType.sleepMode:LanguageHelper.shared.getLanguageText(by: "Setting_SleepMode"),
+                           MeTableCellType.setting:LanguageHelper.shared.getLanguageText(by: "Setting_Setting"),
+                           MeTableCellType.share:LanguageHelper.shared.getLanguageText(by: "Setting_ShareThisApp")]
 
 class MeTableViewCell: UITableViewCell {
 
@@ -46,11 +44,11 @@ class MeTableViewCell: UITableViewCell {
     }
     
     // MARK: - public methods
-    func update(type:MyTableCellType) {
+    func update(type:MeTableCellType) {
         iconImageView.image = iconDict[type]
         contentLabel.text = contentDict[type]
         if type == .amount {
-            contentLabel.text = "\(contentDict[type]!) :  20"
+            contentLabel.text = "\(contentDict[type]!)20"
         }
         arrowImageView.isHidden = (type == .amount)
     }

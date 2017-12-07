@@ -9,6 +9,21 @@
 import UIKit
 import AVFoundation
 
+/// 界面压栈出栈工具类
+class AppUI {
+    
+    /// 压栈
+    class func push(to view:UIView, with size:CGSize) {
+        let window = (UIApplication.shared.delegate as! AppDelegate).window
+        window?.push(view: view, size: size)
+    }
+    
+    /// 出栈
+    class func pop(_ view:UIView) {
+        view.pop()
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

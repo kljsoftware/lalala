@@ -47,6 +47,7 @@ class SearchControlView: UIView {
     
     // MARK: - override methods
     override func awakeFromNib() {
+        searchTextField.placeholder = LanguageHelper.shared.getLanguageText(by: "MyMusic_TrackArtistAlbum")
         collectionView.register(UINib(nibName: "SearchPopularCell", bundle: nil), forCellWithReuseIdentifier: "kSearchPopularCell")
         collectionView.register(UINib(nibName: "SearchHistoryCell", bundle: nil), forCellWithReuseIdentifier: "kSearchHistoryCell")
         collectionView.register(UINib(nibName: "SearchPopularSectionView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "kSearchPopularSectionView")

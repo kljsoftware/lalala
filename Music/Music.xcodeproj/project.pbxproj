@@ -154,6 +154,10 @@
 		3C7C72631FC90AFA008793E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C72621FC90AFA008793E6 /* MainViewController.swift */; };
 		3C7C72651FC91B87008793E6 /* NotificationMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C72641FC91B87008793E6 /* NotificationMacro.swift */; };
 		3C7C72671FC924D6008793E6 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C72661FC924D6008793E6 /* Double+Extension.swift */; };
+		3CA541201FD838410064764A /* MeSleepModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5411F1FD838410064764A /* MeSleepModeView.swift */; };
+		3CA541221FD83C3D0064764A /* MeSleepModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA541211FD83C3D0064764A /* MeSleepModeView.xib */; };
+		3CA541251FD8BEAE0064764A /* MeSleepModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA541231FD8BEAE0064764A /* MeSleepModeCell.swift */; };
+		3CA541261FD8BEAE0064764A /* MeSleepModeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA541241FD8BEAE0064764A /* MeSleepModeCell.xib */; };
 		3CA712AD1FD54B2E004F0490 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712AC1FD54B2E004F0490 /* ActionSheet.swift */; };
 		3CA712AF1FD56966004F0490 /* MyMusicTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA712AE1FD56966004F0490 /* MyMusicTableView.xib */; };
 		3CA712B11FD5697C004F0490 /* MyMusicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712B01FD5697C004F0490 /* MyMusicTableView.swift */; };
@@ -339,6 +343,10 @@
 		3C7C72621FC90AFA008793E6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3C7C72641FC91B87008793E6 /* NotificationMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMacro.swift; sourceTree = "<group>"; };
 		3C7C72661FC924D6008793E6 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		3CA5411F1FD838410064764A /* MeSleepModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSleepModeView.swift; sourceTree = "<group>"; };
+		3CA541211FD83C3D0064764A /* MeSleepModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSleepModeView.xib; sourceTree = "<group>"; };
+		3CA541231FD8BEAE0064764A /* MeSleepModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSleepModeCell.swift; sourceTree = "<group>"; };
+		3CA541241FD8BEAE0064764A /* MeSleepModeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSleepModeCell.xib; sourceTree = "<group>"; };
 		3CA712AC1FD54B2E004F0490 /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		3CA712AE1FD56966004F0490 /* MyMusicTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicTableView.xib; sourceTree = "<group>"; };
 		3CA712B01FD5697C004F0490 /* MyMusicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicTableView.swift; sourceTree = "<group>"; };
@@ -826,6 +834,10 @@
 				3CD05F511FCA9DF100FEC161 /* MeView.swift */,
 				3C1427C71FD596D800D15105 /* MeTableViewCell.swift */,
 				3C1427C81FD596D800D15105 /* MeTableViewCell.xib */,
+				3CA5411F1FD838410064764A /* MeSleepModeView.swift */,
+				3CA541211FD83C3D0064764A /* MeSleepModeView.xib */,
+				3CA541231FD8BEAE0064764A /* MeSleepModeCell.swift */,
+				3CA541241FD8BEAE0064764A /* MeSleepModeCell.xib */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -1070,6 +1082,8 @@
 				3C16B8D81FCE85CD00FAABCA /* common_seek_img_thumb.png in Resources */,
 				3C16B8A91FCC68A000FAABCA /* common_btn_cd_normal.png in Resources */,
 				3C0EBE811FD231220047B1E1 /* immersion_player_btn_cycle_random_normal.png in Resources */,
+				3CA541221FD83C3D0064764A /* MeSleepModeView.xib in Resources */,
+				3CA541261FD8BEAE0064764A /* MeSleepModeCell.xib in Resources */,
 				3C322AC81FD1040B00961348 /* bg.png in Resources */,
 				3C0EBE7E1FD231220047B1E1 /* immersion_btn_share_normal.png in Resources */,
 				3C16B8C61FCE4E7A00FAABCA /* fm_player_btn_more_pressed.png in Resources */,
@@ -1183,6 +1197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CA541201FD838410064764A /* MeSleepModeView.swift in Sources */,
 				3C16B8B11FCE3CFE00FAABCA /* UIView+Extension.swift in Sources */,
 				3763B2441FD12DA6001433D4 /* DiscoveryLoadSonglistResultModel.swift in Sources */,
 				3C3AFAA71FD6F009003FFCE3 /* DiscoverEnterCell.swift in Sources */,
@@ -1250,6 +1265,7 @@
 				3C04078B1FC4001E00080935 /* NetworkMacro.swift in Sources */,
 				3CD05F4C1FCA9DC900FEC161 /* MyMusicView.swift in Sources */,
 				3C0EBE571FD22D780047B1E1 /* ImmersionPlayerView.swift in Sources */,
+				3CA541251FD8BEAE0064764A /* MeSleepModeCell.swift in Sources */,
 				3C16B8AF1FCDA95100FAABCA /* LoopPageView.swift in Sources */,
 				3C3AFAAD1FD6FAB4003FFCE3 /* DiscoverPlaylistCell.swift in Sources */,
 				3C3AFABA1FD7CC8D003FFCE3 /* RealmHelper.swift in Sources */,

@@ -98,7 +98,7 @@ class MainViewController: UIViewController {
     /// 点击播放
     @IBAction func onCDButtonClicked(_ sender: UIButton) {
         let immersionPlayerView = Bundle.main.loadNibNamed("ImmersionPlayerView", owner: nil, options: nil)?[0] as! ImmersionPlayerView
-        view.push(view: immersionPlayerView, size: CGSize(width: DEVICE_SCREEN_WIDTH, height: DEVICE_SCREEN_HEIGHT - TOP_AD_HEIGHT - DEVICE_STATUS_BAR_HEIGHT))
+        AppUI.push(to: immersionPlayerView, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
     }
     
     override func remoteControlReceived(with event: UIEvent?) {

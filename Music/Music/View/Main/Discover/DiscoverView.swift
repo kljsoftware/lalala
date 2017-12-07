@@ -17,7 +17,6 @@ private class TitleView : UIView {
         let _titleLabel = UILabel(frame: self.bounds)
         _titleLabel.textColor = UIColor.white
         _titleLabel.font = ARIAL_FONT_19
-        _titleLabel.text = LanguageHelper.shared.getLanguageText(by: "Discover_Discover")
         _titleLabel.textAlignment = .center
         self.addSubview(_titleLabel)
         return _titleLabel
@@ -56,7 +55,6 @@ class DiscoverView: UIView {
     /// 标题视图
     private lazy var titleView : TitleView = {
         let _titleView = TitleView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: discoverTitleHeight))
-        _titleView.backgroundColor = UIColor.clear
         self.addSubview(_titleView)
         return _titleView
     }()
@@ -85,7 +83,7 @@ class DiscoverView: UIView {
         addSubview(UIView.blurViewWithRect(self.bounds, style:.dark))
         
         // 标题
-        titleView.setup(title: "发现")
+        titleView.setup(title: LanguageHelper.shared.getLanguageText(by: "Discover_Discover"))
         
         /// 更多加载更多开始闭包
         collectionView.beginFooterRefreshingClosure = { [weak self](page) in
