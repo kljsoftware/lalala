@@ -48,14 +48,14 @@ private class TitleView : UIView {
     private func setup() {
         
         /// 按钮
-        editButton.setTitle(Lang_Common_Edit, for: .normal)
+        editButton.setTitle(LanguageKey.Lang_Common_Edit.value, for: .normal)
         editButton.setTitleColor(COLOR_ABABAB, for: .normal)
         editButton.setTitleColor(COLOR_69EDC8, for: .highlighted)
         editButton.addTarget(self, action: #selector(onEditButtonClicked), for: .touchUpInside)
         
         /// 标题
         let titleLabel = UILabel(frame: CGRect.zero)
-        titleLabel.text = Lang_MyMusic
+        titleLabel.text = LanguageKey.Lang_MyMusic.value
         titleLabel.textColor = UIColor.white
         titleLabel.font = ARIAL_FONT_19
         addSubview(titleLabel)
@@ -75,11 +75,11 @@ private class TitleView : UIView {
     
     @objc private func onEditButtonClicked(sender:UIButton) {
         var type = TitleButtonType.edit
-        if sender.currentTitle! == Lang_Common_Edit {
-            editButton.setTitle(Lang_Common_Done, for: .normal)
+        if sender.currentTitle! == LanguageKey.Lang_Common_Edit.value {
+            editButton.setTitle(LanguageKey.Lang_Common_Done.value, for: .normal)
             type = .finished
         } else {
-            editButton.setTitle(Lang_Common_Edit, for: .normal)
+            editButton.setTitle(LanguageKey.Lang_Common_Edit.value, for: .normal)
         }
         editButtonClickedClosure?(type)
     }

@@ -166,6 +166,10 @@
 		3CA541331FD8E0720064764A /* MeSettingType1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA541311FD8E0720064764A /* MeSettingType1Cell.swift */; };
 		3CA541341FD8E0720064764A /* MeSettingType1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA541321FD8E0720064764A /* MeSettingType1Cell.xib */; };
 		3CA541361FD8ED830064764A /* LanguageMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA541351FD8ED830064764A /* LanguageMacro.swift */; };
+		3CA541381FD911F60064764A /* MeSelectLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA541371FD911F60064764A /* MeSelectLanguageView.swift */; };
+		3CA5413A1FD912160064764A /* MeSelectLanguageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA541391FD912160064764A /* MeSelectLanguageView.xib */; };
+		3CA5413D1FD912CE0064764A /* MeSelectLanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5413B1FD912CE0064764A /* MeSelectLanguageCell.swift */; };
+		3CA5413E1FD912CE0064764A /* MeSelectLanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA5413C1FD912CE0064764A /* MeSelectLanguageCell.xib */; };
 		3CA712AD1FD54B2E004F0490 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712AC1FD54B2E004F0490 /* ActionSheet.swift */; };
 		3CA712AF1FD56966004F0490 /* MyMusicTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA712AE1FD56966004F0490 /* MyMusicTableView.xib */; };
 		3CA712B11FD5697C004F0490 /* MyMusicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA712B01FD5697C004F0490 /* MyMusicTableView.swift */; };
@@ -363,6 +367,10 @@
 		3CA541311FD8E0720064764A /* MeSettingType1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingType1Cell.swift; sourceTree = "<group>"; };
 		3CA541321FD8E0720064764A /* MeSettingType1Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSettingType1Cell.xib; sourceTree = "<group>"; };
 		3CA541351FD8ED830064764A /* LanguageMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageMacro.swift; sourceTree = "<group>"; };
+		3CA541371FD911F60064764A /* MeSelectLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSelectLanguageView.swift; sourceTree = "<group>"; };
+		3CA541391FD912160064764A /* MeSelectLanguageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSelectLanguageView.xib; sourceTree = "<group>"; };
+		3CA5413B1FD912CE0064764A /* MeSelectLanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSelectLanguageCell.swift; sourceTree = "<group>"; };
+		3CA5413C1FD912CE0064764A /* MeSelectLanguageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSelectLanguageCell.xib; sourceTree = "<group>"; };
 		3CA712AC1FD54B2E004F0490 /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		3CA712AE1FD56966004F0490 /* MyMusicTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicTableView.xib; sourceTree = "<group>"; };
 		3CA712B01FD5697C004F0490 /* MyMusicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicTableView.swift; sourceTree = "<group>"; };
@@ -862,6 +870,10 @@
 				3CA5412E1FD8E0610064764A /* MeSettingType0Cell.xib */,
 				3CA541311FD8E0720064764A /* MeSettingType1Cell.swift */,
 				3CA541321FD8E0720064764A /* MeSettingType1Cell.xib */,
+				3CA541371FD911F60064764A /* MeSelectLanguageView.swift */,
+				3CA541391FD912160064764A /* MeSelectLanguageView.xib */,
+				3CA5413B1FD912CE0064764A /* MeSelectLanguageCell.swift */,
+				3CA5413C1FD912CE0064764A /* MeSelectLanguageCell.xib */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -1053,6 +1065,7 @@
 				3CD05F541FCA9F8800FEC161 /* TabView.xib in Resources */,
 				3C0EBE801FD231220047B1E1 /* immersion_btn_download.png in Resources */,
 				3C16B8CD1FCE4E7A00FAABCA /* fm_player_btn_play_loading.png in Resources */,
+				3CA5413A1FD912160064764A /* MeSelectLanguageView.xib in Resources */,
 				3C16B8B51FCE497D00FAABCA /* FMPlayerView.xib in Resources */,
 				3CD05F611FCAA85800FEC161 /* tab_search_normal.png in Resources */,
 				3C16B8C41FCE4E7A00FAABCA /* fm_player_btn_stop_pressed.png in Resources */,
@@ -1131,6 +1144,7 @@
 				3C16B8CB1FCE4E7A00FAABCA /* fm_player_btn_next_pressed.png in Resources */,
 				3C0EBE921FD231220047B1E1 /* immersion_player_btn_add_normal.png in Resources */,
 				3C1427C21FD5966800D15105 /* mine_ic_share.png in Resources */,
+				3CA5413E1FD912CE0064764A /* MeSelectLanguageCell.xib in Resources */,
 				3C16B8C81FCE4E7A00FAABCA /* fm_player_btn_more_normal.png in Resources */,
 				3C0EBE911FD231220047B1E1 /* immersion_player_btn_more_pressed.png in Resources */,
 				3C1427CC1FD5A05800D15105 /* SearchControlView.xib in Resources */,
@@ -1289,10 +1303,12 @@
 				3C3AFA9F1FD6D870003FFCE3 /* DiscoverCollectionSectionView.swift in Sources */,
 				3C5D4BF71FD7DFC3002C8590 /* SearchHistoryCell.swift in Sources */,
 				3C0EBE991FD29A9D0047B1E1 /* UIButton+Extension.swift in Sources */,
+				3CA541381FD911F60064764A /* MeSelectLanguageView.swift in Sources */,
 				3C7C72631FC90AFA008793E6 /* MainViewController.swift in Sources */,
 				3C3AFA901FD6B3B9003FFCE3 /* SearchPopularCell.swift in Sources */,
 				3C04078B1FC4001E00080935 /* NetworkMacro.swift in Sources */,
 				3CA5412F1FD8E0610064764A /* MeSettingType0Cell.swift in Sources */,
+				3CA5413D1FD912CE0064764A /* MeSelectLanguageCell.swift in Sources */,
 				3CA541361FD8ED830064764A /* LanguageMacro.swift in Sources */,
 				3CA541331FD8E0720064764A /* MeSettingType1Cell.swift in Sources */,
 				3CD05F4C1FCA9DC900FEC161 /* MyMusicView.swift in Sources */,

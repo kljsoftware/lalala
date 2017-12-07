@@ -6,11 +6,6 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-import UIKit
-
-private let nameDic = [0:Lang_Discover_Rank,
-                       1:Lang_Discover_PopularPlaylist]
-
 /// 分区视图
 class DiscoverCollectionSectionView: UICollectionReusableView {
    
@@ -23,7 +18,7 @@ class DiscoverCollectionSectionView: UICollectionReusableView {
     // MARK: - public methods
     /// 更新 type: 0表示排行榜  1表示热门歌单
     func update(key:Int) {
-        nameLabel.text = nameDic[key]
+        nameLabel.text = key == 0 ? LanguageKey.Lang_Discover_Rank.value : LanguageKey.Lang_Discover_PopularPlaylist.value
         arrowImageView.isHidden = key != 0
     }
     

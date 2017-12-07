@@ -6,15 +6,6 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-/// 内容字典
-private var dic = [SleepModeType.disbleTimer:Lang_Setting_DisableTimer,
-                   SleepModeType.after15mins:String(format: Lang_Setting_NumberMinutesLater, "15"),
-                   SleepModeType.after30mins:String(format: Lang_Setting_NumberMinutesLater, "30"),
-                   SleepModeType.after60mins:String(format: Lang_Setting_NumberMinutesLater, "60"),
-                   SleepModeType.after90mins:String(format: Lang_Setting_NumberMinutesLater, "90"),
-                   SleepModeType.after120mins:String(format: Lang_Setting_NumberMinutesLater, "120"),
-                   SleepModeType.custom:Lang_Setting_Customize]
-
 /// 休眠模式单元
 class MeSleepModeCell: UITableViewCell {
 
@@ -33,8 +24,28 @@ class MeSleepModeCell: UITableViewCell {
         }
     }
     
+    /// 获取内容
+    private func getContent(_ type:SleepModeType) -> String {
+        switch type {
+        case .disbleTimer:
+            return LanguageKey.Lang_Setting_DisableTimer.value
+        case .after15mins:
+            return String(format: LanguageKey.Lang_Setting_NumberMinutesLater.value, "15")
+        case .after30mins:
+            return String(format: LanguageKey.Lang_Setting_NumberMinutesLater.value, "30")
+        case .after60mins:
+            return String(format: LanguageKey.Lang_Setting_NumberMinutesLater.value, "60")
+        case .after90mins:
+            return String(format: LanguageKey.Lang_Setting_NumberMinutesLater.value, "90")
+        case .after120mins:
+            return String(format: LanguageKey.Lang_Setting_NumberMinutesLater.value, "120")
+        case .custom:
+            return LanguageKey.Lang_Setting_Customize.value
+        }
+    }
+    
     /// 更新单元
     func update(type:SleepModeType) {
-        modeLabel.text = dic[type]
+        modeLabel.text = getContent(type)
     }
 }

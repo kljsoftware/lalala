@@ -1,41 +1,35 @@
 //
-//  MeSleepModeView.swift
+//  MeSelectLanguageView.swift
 //  Music
 //
-//  Created by hzg on 2017/12/6.
+//  Created by hzg on 2017/12/7.
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
 /// 单元高度及个数
-private let cellHeight:CGFloat = 44, numberOfRowsInSection = 7
+private let cellHeight:CGFloat = 44, numberOfRowsInSection = 4
 
-/// 休眠模式类型
-enum SleepModeType : Int {
-    case disbleTimer  // 不开启定时/关闭
-    case after15mins  // 15分钟后休眠
-    case after30mins  // 30分钟后休眠
-    case after60mins  // 60分钟后休眠
-    case after90mins  // 90分钟后休眠
-    case after120mins // 120分钟后休眠
-    case custom       // 自定义时间休眠
+/// 选择语言类型
+enum SelectLanguageType : Int {
+    case ja            // 日本語
+    case en            // English
+    case zhHans        // 简体
+    case zhHant        // 繁體
 }
 
-/// 休眠模式
-class MeSleepModeView: UIView {
-    
+/// 选择语言
+class MeSelectLanguageView: UIView {
+
     /// 标题
     @IBOutlet weak var titleLabel: UILabel!
     
-    /// 定时模式
-    @IBOutlet weak var modelLabel: UILabel!
-    
     /// 列表视图
     @IBOutlet weak var tableView: UITableView!
-    
+
     // MARK: - override methods
     override func awakeFromNib() {
-        titleLabel.text = LanguageKey.Lang_Setting_SleepMode.value
-        tableView.register(UINib(nibName: "MeSleepModeCell", bundle: nil), forCellReuseIdentifier: "kMeSleepModeCell")
+        titleLabel.text = LanguageKey.Lang_Setting_SelectLanguage.value
+        tableView.register(UINib(nibName: "MeSelectLanguageCell", bundle: nil), forCellReuseIdentifier: "kMeSelectLanguageCell")
     }
     
     /// 点击返回按钮
@@ -45,7 +39,7 @@ class MeSleepModeView: UIView {
 }
 
 // MARK: - UITableViewDataSource & UITableViewDelegate
-extension MeSleepModeView :  UITableViewDataSource, UITableViewDelegate {
+extension MeSelectLanguageView :  UITableViewDataSource, UITableViewDelegate {
     
     /// 各个分区的单元(Cell)个数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,8 +48,8 @@ extension MeSleepModeView :  UITableViewDataSource, UITableViewDelegate {
     
     /// 单元(cell)视图
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "kMeSleepModeCell", for: indexPath) as! MeSleepModeCell
-        cell.update(type: SleepModeType(rawValue: indexPath.row)!)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "kMeSelectLanguageCell", for: indexPath) as! MeSelectLanguageCell
+        cell.update(type: SelectLanguageType(rawValue: indexPath.row)!)
         return cell
     }
     
@@ -67,10 +61,15 @@ extension MeSleepModeView :  UITableViewDataSource, UITableViewDelegate {
     /// 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.setSelected(true, animated: false)
-      
-        // TODO: 自定义设置休眠时间
-        if SleepModeType(rawValue: indexPath.row)! == .custom {
-            
+        switch SelectLanguageType(rawValue: indexPath.row)! {
+        case .ja:
+            AppUI.change(.ja)
+        case .en:
+            AppUI.change(.en)
+        case .zhHans:
+            AppUI.change(.zhHans)
+        case .zhHant:
+            AppUI.change(.zhHant)
         }
     }
 }

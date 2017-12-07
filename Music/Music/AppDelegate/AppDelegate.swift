@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-/// 界面压栈出栈工具类
+/// 界面工具类
 class AppUI {
     
     /// 压栈
@@ -21,6 +21,13 @@ class AppUI {
     /// 出栈
     class func pop(_ view:UIView) {
         view.pop()
+    }
+    
+    /// 切换语言
+    class func change(_ languageType:LanguageType) {
+        LanguageHelper.shared.setLanguage(type: languageType)
+        let window = (UIApplication.shared.delegate as! AppDelegate).window
+        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "kMainVC")
     }
 }
 

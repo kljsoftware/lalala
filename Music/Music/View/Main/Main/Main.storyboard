@@ -12,7 +12,7 @@
         <!--Main View Controller-->
         <scene sceneID="zCW-fO-yks">
             <objects>
-                <viewController id="4Fr-1Q-gi4" customClass="MainViewController" customModule="Music" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kMainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Fr-1Q-gi4" customClass="MainViewController" customModule="Music" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hZ6-K4-fq2"/>
                         <viewControllerLayoutGuide type="bottom" id="N9j-ET-IvY"/>
@@ -100,7 +100,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg.png" width="640" height="960"/>
+        <image name="bg.png" width="1080" height="1920"/>
         <image name="common_btn_cd_activated.png" width="69" height="69"/>
         <image name="common_btn_cd_normal.png" width="69" height="69"/>
         <image name="default_ad_banner.png" width="2150" height="296"/>

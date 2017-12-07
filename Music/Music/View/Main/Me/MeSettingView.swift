@@ -17,12 +17,6 @@ enum SettingModeType : Int {
     case version              // 当前版本
 }
 
-/// 内容字典
-private var dic = [SettingModeType.last_select_channel:Lang_Setting_LastSelectedChannel,
-                   SettingModeType.auto_play:Lang_Setting_AutoPlay,
-                   SettingModeType.current_language:Lang_Setting_CurrentDisplayLanguage,
-                   SettingModeType.version:Lang_Setting_CurrentVersion]
-
 /// 设置视图
 class MeSettingView: UIView {
 
@@ -34,9 +28,23 @@ class MeSettingView: UIView {
     
     // MARK: - override methods
     override func awakeFromNib() {
-        titleLabel.text = Lang_Setting_Setting
+        titleLabel.text = LanguageKey.Lang_Setting_Setting.value
         tableView.register(UINib(nibName: "MeSettingType0Cell", bundle: nil), forCellReuseIdentifier: "kMeSettingType0Cell")
         tableView.register(UINib(nibName: "MeSettingType1Cell", bundle: nil), forCellReuseIdentifier: "kMeSettingType1Cell")
+    }
+    
+    // MARK: - private methods
+    fileprivate func getContent(type:SettingModeType) -> String {
+        switch type {
+        case .last_select_channel:
+            return LanguageKey.Lang_Setting_LastSelectedChannel.value
+        case .auto_play:
+            return LanguageKey.Lang_Setting_AutoPlay.value
+        case .current_language:
+            return LanguageKey.Lang_Setting_CurrentDisplayLanguage.value
+        case .version:
+            return LanguageKey.Lang_Setting_CurrentVersion.value
+        }
     }
     
     /// 点击返回按钮
@@ -56,14 +64,15 @@ extension MeSettingView :  UITableViewDataSource, UITableViewDelegate {
     /// 单元(cell)视图
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let type = SettingModeType(rawValue: indexPath.row)!
+        let content = getContent(type: type)
         switch type {
         case .last_select_channel, .auto_play:
             let cell = tableView.dequeueReusableCell(withIdentifier: "kMeSettingType0Cell", for: indexPath) as! MeSettingType0Cell
-            cell.update(text: dic[type])
+            cell.update(text: content)
             return cell
         case .current_language, .version:
             let cell = tableView.dequeueReusableCell(withIdentifier: "kMeSettingType1Cell", for: indexPath) as! MeSettingType1Cell
-            cell.update(text: dic[type])
+            cell.update(text: content)
             return cell
         }
     }
@@ -75,6 +84,16 @@ extension MeSettingView :  UITableViewDataSource, UITableViewDelegate {
     
     /// 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        switch SettingModeType(rawValue: indexPath.row)! {
+        case .last_select_channel:
+            break
+        case .auto_play:
+            break
+        case .current_language:
+            let view = Bundle.main.loadNibNamed("MeSelectLanguageView", owner: nil, options: nil)?[0] as! MeSelectLanguageView
+            AppUI.push(to: view, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
+        case .version:
+            break
+        }
     }
 }

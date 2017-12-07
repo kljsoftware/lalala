@@ -6,10 +6,6 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-/// 标签字典
-private let nameDic = [0:Lang_Query_PopularSearches,
-                       1:Lang_Query_SearchHistory]
-
 class SearchPopularSectionView: UICollectionReusableView {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,7 +16,7 @@ class SearchPopularSectionView: UICollectionReusableView {
     }
     
     func update(type:Int) {
-        titleLabel.text = nameDic[type]
+        titleLabel.text = type == 0 ? LanguageKey.Lang_Query_PopularSearches.value : LanguageKey.Lang_Query_SearchHistory.value
     }
     
 }

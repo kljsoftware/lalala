@@ -87,7 +87,7 @@ class MeView: UIView {
     private func setup() {
         
         // 标题
-        titleView.setup(title: Lang_Me)
+        titleView.setup(title: LanguageKey.Lang_Me.value)
         
         /// 列表视图
         tableView.register(UINib(nibName: "MeTableViewCell", bundle: nil), forCellReuseIdentifier: "kMeTableViewCell")
@@ -122,11 +122,11 @@ extension MeView :  UITableViewDataSource, UITableViewDelegate {
         case .amount:
             break
         case .sleepMode:
-            let sleepModeView = Bundle.main.loadNibNamed("MeSleepModeView", owner: nil, options: nil)?[0] as! MeSleepModeView
-            AppUI.push(to: sleepModeView, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
+            let view = Bundle.main.loadNibNamed("MeSleepModeView", owner: nil, options: nil)?[0] as! MeSleepModeView
+            AppUI.push(to: view, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
         case .setting:
-            let settingView = Bundle.main.loadNibNamed("MeSettingView", owner: nil, options: nil)?[0] as! MeSettingView
-            AppUI.push(to: settingView, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
+            let view = Bundle.main.loadNibNamed("MeSettingView", owner: nil, options: nil)?[0] as! MeSettingView
+            AppUI.push(to: view, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
         case .share:
             break
         }

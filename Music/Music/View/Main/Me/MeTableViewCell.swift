@@ -17,12 +17,6 @@ private let iconDict = [MeTableCellType.amount:UIImage(named:"mine_ic_amount")!,
                         MeTableCellType.setting:UIImage(named:"mine_ic_setting")!,
                         MeTableCellType.share:UIImage(named:"mine_ic_share")!]
 
-/// 内容字典
-private let contentDict = [MeTableCellType.amount:Lang_Setting_TodayRemainingDownloads,
-                           MeTableCellType.sleepMode:Lang_Setting_SleepMode,
-                           MeTableCellType.setting:Lang_Setting_Setting,
-                           MeTableCellType.share:Lang_Setting_ShareThisApp]
-
 class MeTableViewCell: UITableViewCell {
 
     /// 图标
@@ -34,13 +28,29 @@ class MeTableViewCell: UITableViewCell {
     /// 箭头
     @IBOutlet weak var arrowImageView: UIImageView!
     
+    /// 获取内容
+    private func getContent(_ type:MeTableCellType) -> String {
+        switch type {
+        case .amount:
+            return LanguageKey.Lang_Setting_TodayRemainingDownloads.value
+        case .sleepMode:
+            return LanguageKey.Lang_Setting_SleepMode.value
+        case .setting:
+            return LanguageKey.Lang_Setting_Setting.value
+        case .share:
+            return LanguageKey.Lang_Setting_ShareThisApp.value
+        }
+    }
+    
     /// 更新单元
     func update(type:MeTableCellType) {
         iconImageView.image = iconDict[type]
-        contentLabel.text = contentDict[type]
+        contentLabel.text = getContent(type)
         if type == .amount {
-            contentLabel.text = "\(contentDict[type]!)20"
+            contentLabel.text = "\(contentLabel.text!)20"
         }
         arrowImageView.isHidden = (type == .amount)
     }
 }
+
+
