@@ -27,7 +27,9 @@
 "MyMusic_NumberSeclected"  = "Selected";
 "MyMusic_EditPlaylistNameDescription" = "Edit playlist name. Cannot be the same as existing ones.";
 "MyMusic_TrackArtistAlbum"            = "Tracks, Artists, Albums";
-
+"MyMusic_PauseAll"            = "Pause All";
+"MyMusic_ContinueAll"            = "Continue All";
+"MyMusic_EditPlaylistNameDescription"            = "Edit playlist name. Cannot be the same as existing ones.";
 /// 发现
 "Discover_Rank"              = "Rank";
 "Discover_PopularPlaylist"   = "Popular Playlist";
@@ -72,3 +74,6 @@
 "Tip_AddedToFavorites"        = "Added to Favorites";
 "Tip_RemovedFromFavorites"    = "Removed from Favorites";
 "Tip_NoUpdateAvailable"       = "No Update Available";
+"Tip_DownloadTrackSuccess"       = "%@ has been added to downloading list, %@ more tracks available for download today.";
+"Tip_DownloadTrackNoCredit"       = "Download limit reached. Try again tomorrow.";
+"Tip_PlaylistExisted"       = "Playlist Existed";

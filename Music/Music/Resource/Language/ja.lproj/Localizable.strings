@@ -27,7 +27,9 @@
 "MyMusic_NumberSeclected"  = "選択した";
 "MyMusic_EditPlaylistNameDescription" = "重複しない名前を入力してください";
 "MyMusic_TrackArtistAlbum"            = "曲、歌手、アルバム";
-
+"MyMusic_PauseAll"            = "全部停止する";
+"MyMusic_ContinueAll"            = "全部続ける";
+"MyMusic_EditPlaylistNameDescription"            = "重複しない名前を入力してください";
 /// 发现
 "Discover_Rank"              = "ランキング";
 "Discover_PopularPlaylist"   = "ヒットプレイリスト";
@@ -72,3 +74,6 @@
 "Tip_AddedToFavorites"        = "お気に入りに追加しました";
 "Tip_RemovedFromFavorites"    = "お気に入りから削除されました";
 "Tip_NoUpdateAvailable"       = "すでに最新バージョンです。";
+"Tip_DownloadTrackSuccess"       = "『%@』をダウンロードリストに追加しました。 今日はダウンロード可能%@曲";
+"Tip_DownloadTrackNoCredit"       = "ダウンロード制限を超えました。明日またお試しください。";
+"Tip_PlaylistExisted"       = "プレイリストが既に存在します";
