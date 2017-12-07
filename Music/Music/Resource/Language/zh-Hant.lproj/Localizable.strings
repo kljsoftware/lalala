@@ -76,3 +76,5 @@
 "Tip_NoUpdateAvailable"       = "已是最新版本";
 "Tip_DownloadTrackNoCredit"       = "您已超出今天下載限制，明天再試試吧。";
 "Tip_PlaylistExisted"       = "歌單已存在";
+"Tip_AddingComplete"       = "添加成功";
+"Tip_AddingFail"       = "添加失敗";

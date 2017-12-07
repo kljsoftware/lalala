@@ -29,7 +29,7 @@
 "MyMusic_TrackArtistAlbum"            = "歌曲，歌手，专辑";
 "MyMusic_PauseAll"            = "全部暂停";
 "MyMusic_ContinueAll"            = "全部继续";
-"MyMusic_EditPlaylistNameDescription"            = "请编辑歌单的名称，不能与已有歌单重复。";
+
 /// 发现
 "Discover_Rank"              = "排行榜";
 "Discover_PopularPlaylist"   = "热门歌单";
@@ -77,5 +77,5 @@
 "Tip_DownloadTrackSuccess"       = "已将《%@》添加到下载列表，您今天还可以下载%@首歌。";
 "Tip_DownloadTrackNoCredit"       = "您已超出今天下载限制，明天再试试吧。";
 "Tip_PlaylistExisted"       = "歌单已存在";
-
-
+"Tip_AddingComplete"       = "添加成功";
+"Tip_AddingFail"       = "添加失败";

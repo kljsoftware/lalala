@@ -77,3 +77,5 @@
 "Tip_DownloadTrackSuccess"       = "%@ has been added to downloading list, %@ more tracks available for download today.";
 "Tip_DownloadTrackNoCredit"       = "Download limit reached. Try again tomorrow.";
 "Tip_PlaylistExisted"       = "Playlist Existed";
+"Tip_AddingComplete"       = "Adding Complete";
+"Tip_AddingFail"       = "Adding Fail";

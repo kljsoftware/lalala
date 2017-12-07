@@ -77,3 +77,5 @@
 "Tip_DownloadTrackSuccess"       = "『%@』をダウンロードリストに追加しました。 今日はダウンロード可能%@曲";
 "Tip_DownloadTrackNoCredit"       = "ダウンロード制限を超えました。明日またお試しください。";
 "Tip_PlaylistExisted"       = "プレイリストが既に存在します";
+"Tip_AddingComplete"       = "追加しました";
+"Tip_AddingFail"       = "追加に失敗しました";
