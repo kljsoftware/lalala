@@ -18,7 +18,7 @@ class DiscoverCollectionSectionView: UICollectionReusableView {
     // MARK: - public methods
     /// 更新 type: 0表示排行榜  1表示热门歌单
     func update(key:Int) {
-        nameLabel.text = key == 0 ? LanguageKey.Lang_Discover_Rank.value : LanguageKey.Lang_Discover_PopularPlaylist.value
+        nameLabel.text = key == 0 ? LanguageKey.Discover_Rank.value : LanguageKey.Discover_PopularPlaylist.value
         arrowImageView.isHidden = key != 0
     }
     

@@ -7,10 +7,10 @@
 //
 
 /// 内容字典
-private var dic = [SelectLanguageType.ja:"日本語",
-                   SelectLanguageType.en:"English",
-                   SelectLanguageType.zhHans:"简体",
-                   SelectLanguageType.zhHant:"繁體"]
+private var dic = [LanguageType.ja:"日本語",
+                   LanguageType.en:"English",
+                   LanguageType.zhHans:"简体",
+                   LanguageType.zhHant:"繁體"]
 
 class MeSelectLanguageCell: UITableViewCell {
 
@@ -27,8 +27,9 @@ class MeSelectLanguageCell: UITableViewCell {
     }
     
     /// 更新单元
-    func update(type:SelectLanguageType) {
+    func update(type:LanguageType) {
         languageLabel.text = dic[type]
+        checkedImageView.isHidden = !(LanguageHelper.shared.language == type.rawValue)
     }
     
 }

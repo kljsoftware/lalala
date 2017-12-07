@@ -16,7 +16,7 @@ class SearchPopularSectionView: UICollectionReusableView {
     }
     
     func update(type:Int) {
-        titleLabel.text = type == 0 ? LanguageKey.Lang_Query_PopularSearches.value : LanguageKey.Lang_Query_SearchHistory.value
+        titleLabel.text = type == 0 ? LanguageKey.Query_PopularSearches.value : LanguageKey.Query_SearchHistory.value
     }
     
 }

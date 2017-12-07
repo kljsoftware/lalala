@@ -32,13 +32,13 @@ class MeTableViewCell: UITableViewCell {
     private func getContent(_ type:MeTableCellType) -> String {
         switch type {
         case .amount:
-            return LanguageKey.Lang_Setting_TodayRemainingDownloads.value
+            return LanguageKey.Setting_TodayRemainingDownloads.value
         case .sleepMode:
-            return LanguageKey.Lang_Setting_SleepMode.value
+            return LanguageKey.Setting_SleepMode.value
         case .setting:
-            return LanguageKey.Lang_Setting_Setting.value
+            return LanguageKey.Setting_Setting.value
         case .share:
-            return LanguageKey.Lang_Setting_ShareThisApp.value
+            return LanguageKey.Setting_ShareThisApp.value
         }
     }
     

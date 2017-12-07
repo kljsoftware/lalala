@@ -8,13 +8,14 @@
 
 /// 语言类型
 enum LanguageType : String {
-    case base   = "Base"
-    case en     = "en"       // 英
     case ja     = "ja"       // 日
-    case ko     = "ko"       // 韩
+    case en     = "en"       // 英
     case zhHans = "zh-Hans"  // 简体汉
     case zhHant = "zh-Hant"  // 繁体汉
 }
+
+/// 索引-语言类型字典
+let LanguageDic = [0:LanguageType.ja, 1:LanguageType.en, 2:LanguageType.zhHans, 3:LanguageType.zhHant]
 
 /// 单例，多语言管理助手
 class LanguageHelper {
@@ -56,8 +57,6 @@ class LanguageHelper {
             type = .en
         } else if language.hasPrefix(LanguageType.ja.rawValue) {
             type = .ja
-        } else if language.hasPrefix(LanguageType.ko.rawValue) {
-            type = .ko
         } else if language.hasPrefix(LanguageType.zhHans.rawValue) {
             type = .zhHans
         } else if language.hasPrefix(LanguageType.zhHant.rawValue) {

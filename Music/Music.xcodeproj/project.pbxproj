@@ -384,7 +384,6 @@
 		3CA712BF1FD56B38004F0490 /* MyMusicNewSongOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicNewSongOrderCell.xib; sourceTree = "<group>"; };
 		3CD05F301FCA953D00FEC161 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3CD05F321FCA965900FEC161 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		3CD05F341FCA96B200FEC161 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3CD05F3E1FCA9C5A00FEC161 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3CD05F491FCA9DBB00FEC161 /* FMView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMView.swift; sourceTree = "<group>"; };
 		3CD05F4B1FCA9DC900FEC161 /* MyMusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicView.swift; sourceTree = "<group>"; };
@@ -1332,7 +1331,6 @@
 			children = (
 				3CD05F301FCA953D00FEC161 /* en */,
 				3CD05F321FCA965900FEC161 /* zh-Hans */,
-				3CD05F341FCA96B200FEC161 /* Base */,
 				370BA4F01FD13F3200C15428 /* ja */,
 				370BA4F11FD13F4600C15428 /* zh-Hant */,
 			);

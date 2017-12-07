@@ -28,7 +28,7 @@ class MeSettingView: UIView {
     
     // MARK: - override methods
     override func awakeFromNib() {
-        titleLabel.text = LanguageKey.Lang_Setting_Setting.value
+        titleLabel.text = LanguageKey.Setting_Setting.value
         tableView.register(UINib(nibName: "MeSettingType0Cell", bundle: nil), forCellReuseIdentifier: "kMeSettingType0Cell")
         tableView.register(UINib(nibName: "MeSettingType1Cell", bundle: nil), forCellReuseIdentifier: "kMeSettingType1Cell")
     }
@@ -37,13 +37,13 @@ class MeSettingView: UIView {
     fileprivate func getContent(type:SettingModeType) -> String {
         switch type {
         case .last_select_channel:
-            return LanguageKey.Lang_Setting_LastSelectedChannel.value
+            return LanguageKey.Setting_LastSelectedChannel.value
         case .auto_play:
-            return LanguageKey.Lang_Setting_AutoPlay.value
+            return LanguageKey.Setting_AutoPlay.value
         case .current_language:
-            return LanguageKey.Lang_Setting_CurrentDisplayLanguage.value
+            return LanguageKey.Setting_CurrentDisplayLanguage.value
         case .version:
-            return LanguageKey.Lang_Setting_CurrentVersion.value
+            return LanguageKey.Setting_CurrentVersion.value
         }
     }
     

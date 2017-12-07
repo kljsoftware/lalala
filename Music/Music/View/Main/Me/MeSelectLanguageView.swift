@@ -9,14 +9,6 @@
 /// 单元高度及个数
 private let cellHeight:CGFloat = 44, numberOfRowsInSection = 4
 
-/// 选择语言类型
-enum SelectLanguageType : Int {
-    case ja            // 日本語
-    case en            // English
-    case zhHans        // 简体
-    case zhHant        // 繁體
-}
-
 /// 选择语言
 class MeSelectLanguageView: UIView {
 
@@ -28,7 +20,7 @@ class MeSelectLanguageView: UIView {
 
     // MARK: - override methods
     override func awakeFromNib() {
-        titleLabel.text = LanguageKey.Lang_Setting_SelectLanguage.value
+        titleLabel.text = LanguageKey.Setting_SelectLanguage.value
         tableView.register(UINib(nibName: "MeSelectLanguageCell", bundle: nil), forCellReuseIdentifier: "kMeSelectLanguageCell")
     }
     
@@ -49,7 +41,7 @@ extension MeSelectLanguageView :  UITableViewDataSource, UITableViewDelegate {
     /// 单元(cell)视图
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "kMeSelectLanguageCell", for: indexPath) as! MeSelectLanguageCell
-        cell.update(type: SelectLanguageType(rawValue: indexPath.row)!)
+        cell.update(type: LanguageDic[indexPath.row]!)
         return cell
     }
     
@@ -61,15 +53,6 @@ extension MeSelectLanguageView :  UITableViewDataSource, UITableViewDelegate {
     /// 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.setSelected(true, animated: false)
-        switch SelectLanguageType(rawValue: indexPath.row)! {
-        case .ja:
-            AppUI.change(.ja)
-        case .en:
-            AppUI.change(.en)
-        case .zhHans:
-            AppUI.change(.zhHans)
-        case .zhHant:
-            AppUI.change(.zhHant)
-        }
+        AppUI.change(LanguageDic[indexPath.row]!)
     }
 }

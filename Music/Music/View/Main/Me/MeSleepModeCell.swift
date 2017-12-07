@@ -28,19 +28,19 @@ class MeSleepModeCell: UITableViewCell {
     private func getContent(_ type:SleepModeType) -> String {
         switch type {
         case .disbleTimer:
-            return LanguageKey.Lang_Setting_DisableTimer.value
+            return LanguageKey.Setting_DisableTimer.value
         case .after15mins:
-            return String(format: LanguageKey.Lang_Setting_NumberMinutesLater.value, "15")
+            return String(format: LanguageKey.Setting_NumberMinutesLater.value, "15")
         case .after30mins:
-            return String(format: LanguageKey.Lang_Setting_NumberMinutesLater.value, "30")
+            return String(format: LanguageKey.Setting_NumberMinutesLater.value, "30")
         case .after60mins:
-            return String(format: LanguageKey.Lang_Setting_NumberMinutesLater.value, "60")
+            return String(format: LanguageKey.Setting_NumberMinutesLater.value, "60")
         case .after90mins:
-            return String(format: LanguageKey.Lang_Setting_NumberMinutesLater.value, "90")
+            return String(format: LanguageKey.Setting_NumberMinutesLater.value, "90")
         case .after120mins:
-            return String(format: LanguageKey.Lang_Setting_NumberMinutesLater.value, "120")
+            return String(format: LanguageKey.Setting_NumberMinutesLater.value, "120")
         case .custom:
-            return LanguageKey.Lang_Setting_Customize.value
+            return LanguageKey.Setting_Customize.value
         }
     }
     

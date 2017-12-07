@@ -75,11 +75,11 @@ class TabView: UIView {
     
     /// 设置标签文字
     fileprivate func setLabelsText() {
-        fmLabel.text = LanguageKey.Lang_FM.value
-        musicLabel.text = LanguageKey.Lang_MyMusic.value
-        discoverLabel.text = LanguageKey.Lang_Discover.value
-        searchLabel.text = LanguageKey.Lang_Query_Search.value
-        meLabel.text = LanguageKey.Lang_Me.value
+        fmLabel.text = LanguageKey.FM.value
+        musicLabel.text = LanguageKey.MyMusic.value
+        discoverLabel.text = LanguageKey.Discover.value
+        searchLabel.text = LanguageKey.Query_Search.value
+        meLabel.text = LanguageKey.Me.value
     }
     
     // 取消指定项的选中状态
