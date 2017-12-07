@@ -72,7 +72,9 @@ enum LanguageKey : String {
     case Common_Playlist       =  "Common_Playlist"
     case Common_Download       =  "Common_Download"
     case Common_Close          =  "Common_Close"
-    
+    case Common_NoContent = "Common_NoContent"
+    case MyMusic_NoTask = "MyMusic_NoTask"
+
     /// 提示
     case Tip_SequentialModeActivated =  "Tip_SequentialModeActivated"
     case Tip_ShuffleModeActivated    =  "Tip_ShuffleModeActivated"

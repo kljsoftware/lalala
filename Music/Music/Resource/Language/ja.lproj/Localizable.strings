@@ -66,6 +66,8 @@
 "Common_Playlist"       = "プレイリスト";
 "Common_Download"       = "ダウンロード";
 "Common_Close"          = "閉じる";
+"Common_NoContent"          = "内容なし";
+"MyMusic_NoTask"          = "ダウンロード中なし";
 
 /// 提示
 "Tip_SequentialModeActivated" = "連続再生モードに変更";

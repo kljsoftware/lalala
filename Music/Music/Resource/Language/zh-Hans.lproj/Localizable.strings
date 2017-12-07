@@ -66,6 +66,8 @@
 "Common_Playlist"       = "歌单";
 "Common_Download"       = "下载";
 "Common_Close"          = "关闭";
+"Common_NoContent"          = "暂无内容";
+"MyMusic_NoTask"          = "暂无任务";
 
 /// 提示
 "Tip_SequentialModeActivated" = "已切换至顺序播放";

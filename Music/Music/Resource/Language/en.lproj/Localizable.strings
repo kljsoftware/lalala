@@ -66,6 +66,8 @@
 "Common_Playlist"       = "Playlist";
 "Common_Download"       = "Download";
 "Common_Close"          = "Close";
+"Common_NoContent"          = "No Content";
+"MyMusic_NoTask"          = "No Task";
 
 /// 提示
 "Tip_SequentialModeActivated" = "Sequential Mode Activated";
