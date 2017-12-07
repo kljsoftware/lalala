@@ -6,7 +6,7 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-/// 多语言键值常量设置
+/// 多语言常量设置
 
 /// 首页
 let Lang_FM            = LanguageHelper.shared.getLanguageText(by: "FM_FM")
