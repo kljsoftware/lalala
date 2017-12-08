@@ -63,13 +63,24 @@ class MyMusicTableView : UIView {
     /// 重新加载本地歌单
     fileprivate func reloadSonglists() {
         let results = RealmHelper.shared.query(type: SonglistRealm.self)
-        songlists = results.sorted(by: {$0.0.date > $0.1.date})
+        songlists = results.sorted(by: {$0.0.date >= $0.1.date})
         tableView.reloadData()
     }
     
     // MARK: - public methods
+    /// 编辑或完成
     func setEditing(isEditing:Bool) {
+        
+        /// 设置编辑状态
         tableView.isEditing = isEditing
+        
+        /// 排序完成，更新本地数据库
+        if !isEditing {
+            for songlist in songlists.reversed() {
+                RealmHelper.shared.insert(obj: SonglistRealm(value: [songlist.type, songlist.name, Date()]), filter: NSPredicate(format: "name = %@", songlist.name))
+            }
+            reloadSonglists()
+        }
     }
 }
 
@@ -159,7 +170,8 @@ extension MyMusicTableView :  UITableViewDataSource, UITableViewDelegate {
             let view = Bundle.main.loadNibNamed("MyMusicDownloadView", owner: nil, options: nil)?[0] as! MyMusicDownloadView
             AppUI.push(from: self, to: view, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
         case .owned:
-            break
+            let view = Bundle.main.loadNibNamed("MyMusicSonglistView", owner: nil, options: nil)?[0] as! MyMusicSonglistView
+            AppUI.push(from: self, to: view, with: APP_SIZE)
         case .new:
             break
         }
@@ -204,6 +216,16 @@ extension MyMusicTableView :  UITableViewDataSource, UITableViewDelegate {
             let data  = songlists[sourceIndexPath.row-1]
             songlists.remove(at: sourceIndexPath.row-1)
             songlists.insert(data, at: destinationIndexPath.row-1)
+        }
+    }
+    
+    /// 删除操作
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let songlist = songlists[indexPath.row - 1]
+            RealmHelper.shared.delete(obj: songlist)
+            songlists.remove(at: indexPath.row - 1)
+            tableView.deleteRows(at: [indexPath], with: .none)
         }
     }
 }
