@@ -21,6 +21,7 @@ class MyMusicNewSongOrderCell: UITableViewCell {
 
     /// 点击新建歌单按钮
     @IBAction func onButtonClicked(_ sender: UIButton) {
-        
+        let view = Bundle.main.loadNibNamed("MyMusicSonglistView", owner: nil, options: nil)?[0] as! MyMusicSonglistView
+        AppUI.push(to: view, with: APP_SIZE)
     }
 }

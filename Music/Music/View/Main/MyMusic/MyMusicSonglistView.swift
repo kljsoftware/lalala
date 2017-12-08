@@ -18,7 +18,13 @@ class MyMusicSonglistView: UIView {
     @IBOutlet weak var doneButton: UIButton!
     
     /// 歌单名
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    // MARK: - override methods
+    override func awakeFromNib() {
+        titleLabel.text = LanguageKey.MyMusic_CreatePlaylist.value
+        nameTextField.attributedPlaceholder = NSAttributedString(string: LanguageKey.MyMusic_EditPlaylistNameDescription.value, attributes: [NSForegroundColorAttributeName : COLOR_ABABAB])
+    }
    
     // MARK: - IBAction methods
     /// 点击返回按钮
@@ -30,14 +36,34 @@ class MyMusicSonglistView: UIView {
     @IBAction func onDoneButtonClicked(_ sender: UIButton) {
         
         // 名称不能为空
-        guard let name = nameLabel.text else {
-           // makeToast(LanguageKey.My)
+        guard let name = nameTextField.text else {
+            makeToast(LanguageKey.Tip_PleaseEnterName.value)
             return
         }
         
         // 歌单已存在
+        let results = RealmHelper.shared.query(type: SonglistRealm.self, predicate: NSPredicate(format: "type = '1' AND name = %@", name))
+        if results.count > 0 {
+            makeToast(LanguageKey.Tip_PlaylistExisted.value)
+            return
+        }
         
-        // 创建成功返回
+        // 创建成功, 存入数据库并返回
+        RealmHelper.shared.insert(obj: SonglistRealm(value: [1, name]))
         AppUI.pop(self)
+    }
+}
+
+// MARK: UITextViewDelegate
+extension MyMusicSonglistView : UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.becomeFirstResponder()
+    }
+    
+    /// 点击软键盘Next、go处理
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

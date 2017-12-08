@@ -31,8 +31,8 @@ class RealmHelper {
     }
     
     // MARK：- public methods
-    /// 插入/更新 提示：format: "type == \(type)"
-    func insert<T:Object>(obj:T, predicate:NSPredicate? = nil) {
+    /// 插入/更新 
+    func insert<T:Object>(obj:T, filter predicate:NSPredicate? = nil) {
         
         /// 存储对象
         try! realm.write({
@@ -50,7 +50,10 @@ class RealmHelper {
     }
     
     /// 查询
-    func query<T:Object>(type:T.Type) -> Results<T> {
+    func query<T:Object>(type:T.Type, predicate:NSPredicate? = nil) -> Results<T> {
+        if predicate != nil {
+            return realm.objects(type).filter(predicate!)
+        }
         return realm.objects(type)
     }
     

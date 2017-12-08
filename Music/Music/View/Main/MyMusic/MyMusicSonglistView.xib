@@ -96,19 +96,23 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQN-1I-aOL">
                     <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9P-wf-npU">
-                            <rect key="frame" x="12" y="22.5" width="351" height="0.0"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4t9-Ls-LQ0">
+                            <rect key="frame" x="12" y="0.0" width="351" height="44"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                            <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="iN0-l3-epB" id="d34-Ad-Oo6"/>
+                            </connections>
+                        </textField>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="f9P-wf-npU" firstAttribute="leading" secondItem="RQN-1I-aOL" secondAttribute="leading" constant="12" id="5G3-Cm-TBe"/>
-                        <constraint firstItem="f9P-wf-npU" firstAttribute="centerY" secondItem="RQN-1I-aOL" secondAttribute="centerY" id="6D5-qr-u7p"/>
-                        <constraint firstAttribute="trailing" secondItem="f9P-wf-npU" secondAttribute="trailing" constant="12" id="7i5-uV-aOR"/>
+                        <constraint firstAttribute="trailing" secondItem="4t9-Ls-LQ0" secondAttribute="trailing" constant="12" id="9Mc-zZ-QwX"/>
+                        <constraint firstAttribute="bottom" secondItem="4t9-Ls-LQ0" secondAttribute="bottom" id="PNY-8F-ZCh"/>
+                        <constraint firstItem="4t9-Ls-LQ0" firstAttribute="leading" secondItem="RQN-1I-aOL" secondAttribute="leading" constant="12" id="RRz-KU-Nen"/>
                         <constraint firstAttribute="height" constant="44" id="eC7-Hy-9fG"/>
+                        <constraint firstItem="4t9-Ls-LQ0" firstAttribute="top" secondItem="RQN-1I-aOL" secondAttribute="top" id="od4-jX-NiF"/>
                     </constraints>
                 </view>
             </subviews>
@@ -131,7 +135,7 @@
             </constraints>
             <connections>
                 <outlet property="doneButton" destination="2T4-FA-DyH" id="deh-I8-4fB"/>
-                <outlet property="nameLabel" destination="f9P-wf-npU" id="shn-ip-Obd"/>
+                <outlet property="nameTextField" destination="4t9-Ls-LQ0" id="pMU-Rb-wRE"/>
                 <outlet property="titleLabel" destination="bmO-5J-rXl" id="Xmw-yB-wUz"/>
             </connections>
         </view>

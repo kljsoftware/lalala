@@ -60,7 +60,7 @@ class SearchControlView: UIView {
         searchCloure?(key, "song")
         
         /// 增加新的历史数据
-        RealmHelper.shared.insert(obj: HistoryRealm(value: [key, Date()]), predicate: NSPredicate(format: "name = %@", key))
+        RealmHelper.shared.insert(obj: HistoryRealm(value: [key, Date()]), filter: NSPredicate(format: "name = %@", key))
         
         /// 查询历史记录并按就近时间查询排序
         let history = RealmHelper.shared.query(type: HistoryRealm.self)

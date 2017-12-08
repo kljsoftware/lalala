@@ -11,26 +11,18 @@ import RealmSwift
 /// 歌单记录
 class SonglistRealm : Object {
     
-    /// 主键id
-    dynamic var id = 0
-    
     /// 歌单类型 0表示我喜爱的歌单，1表示其它
     dynamic var type = 0
     
     /// 歌单名
     dynamic var name = ""
-
-    /// 声明主键之后，对象将被允许查询，更新速度更加高效，并且要求每个对象保持唯一性
-    override static func primaryKey() -> String? {
-        return "id"
-    }
 }
 
 /// 歌曲
 class SongRealm : Object {
     
-    /// 对应歌单的主键id
-    dynamic var songlistid = 0
+    /// 对应歌单的id
+    dynamic var songlistName = ""
     
     /// 艺人名
     dynamic var artist = ""

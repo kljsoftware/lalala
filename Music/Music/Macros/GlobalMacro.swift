@@ -33,6 +33,9 @@ let BOTTOM_TAB_HEIGHT:CGFloat   = 48
 /// 应用界面距顶高度
 let APP_Y = DEVICE_STATUS_BAR_HEIGHT + TOP_AD_HEIGHT
 
+/// 应用界面的大小
+let APP_SIZE = CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT)
+
 /// 应用界面高度
 let APP_HEIGHT = DEVICE_SCREEN_HEIGHT - APP_Y
 
