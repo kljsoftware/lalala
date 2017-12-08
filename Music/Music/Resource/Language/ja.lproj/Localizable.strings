@@ -82,3 +82,6 @@
 "Tip_AddingComplete"       = "追加しました";
 "Tip_AddingFail"       = "追加に失敗しました";
 "Tip_PleaseEnterName"       = "名前を入力してください";
+"Tip_ConfirmToDeleteNumberTracks" = "%@曲をすべて削除しますか？"
+"Tip_ConfirmToDelete" = "『%@』削除しますか？"
+"Tip_ConfirmToDeltePlaylist" = "プレイリスト『%@』を削除しますか？"
