@@ -48,7 +48,7 @@ extension UIView {
     }
     
     /// 视图压栈
-    func push(view:UIView, size:CGSize) {
+    func push(to view:UIView, with size:CGSize) {
         self.isUserInteractionEnabled = false
         self.addSubview(view)
         view.snp.makeConstraints { (maker) in

@@ -43,7 +43,7 @@ class SearchControlView: UIView {
     /// 热门搜索/历史记录列表
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var popularKeys = [String]()
-    fileprivate var historys    = [SearchHistory]()
+    fileprivate var historys    = [HistoryRealm]()
     
     // MARK: - override methods
     override func awakeFromNib() {
@@ -60,10 +60,10 @@ class SearchControlView: UIView {
         searchCloure?(key, "song")
         
         /// 增加新的历史数据
-        RealmHelper.shared.insert(obj: SearchHistory(value: [key, Date()]), predicate: NSPredicate(format: "name = %@", key))
+        RealmHelper.shared.insert(obj: HistoryRealm(value: [key, Date()]), predicate: NSPredicate(format: "name = %@", key))
         
         /// 查询历史记录并按就近时间查询排序
-        let history = RealmHelper.shared.query(type: SearchHistory.self)
+        let history = RealmHelper.shared.query(type: HistoryRealm.self)
         historys = history.sorted(by: {$0.0.date > $0.1.date})
         collectionView.reloadData()
     }
@@ -98,7 +98,7 @@ class SearchControlView: UIView {
         }
         
         /// 查询历史记录并按就近时间查询排序
-        let history = RealmHelper.shared.query(type: SearchHistory.self)
+        let history = RealmHelper.shared.query(type: HistoryRealm.self)
         historys = history.sorted(by: {$0.0.date > $0.1.date})
 
         /// 刷新界面

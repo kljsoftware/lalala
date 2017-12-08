@@ -6,19 +6,13 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-import UIKit
-
+/// 我的下载单元
 class MyMusicDownloadCell: UITableViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        nameLabel.text = LanguageKey.MyMusic_MyDownload.value
     }
     
 }

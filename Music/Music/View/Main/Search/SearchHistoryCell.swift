@@ -16,10 +16,10 @@ class SearchHistoryCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     
     /// 模型
-    private var model:SearchHistory?
+    private var model:HistoryRealm?
     
     // MARK: - public methods
-    func update(model:SearchHistory) {
+    func update(model:HistoryRealm) {
         nameLabel.text = model.name
         self.model = model
     }

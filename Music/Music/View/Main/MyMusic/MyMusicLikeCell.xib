@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MyMusicLikeCell" customModule="Music" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="core_item_img_arrows.png" translatesAutoresizingMaskIntoConstraints="NO" id="BPH-3m-rFS">
+                        <rect key="frame" x="286" y="10" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="NQ5-Il-NF9"/>
+                            <constraint firstAttribute="width" constant="22" id="mWm-dW-32D"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playlist_ic_love.png" translatesAutoresizingMaskIntoConstraints="NO" id="DmV-SK-HAS">
+                        <rect key="frame" x="12" y="9" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="Jh6-H4-T6s"/>
+                            <constraint firstAttribute="width" constant="25" id="bmg-PS-CrA"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cE-6A-uhp">
+                        <rect key="frame" x="49" y="21" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ox-dZ-jQW">
+                        <rect key="frame" x="0.0" y="42" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="EPr-ez-L5q" customClass="OnePixelConstraint" customModule="Music" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="onePixelConstant">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="8cE-6A-uhp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="49S-wr-PuB"/>
+                    <constraint firstItem="8cE-6A-uhp" firstAttribute="leading" secondItem="DmV-SK-HAS" secondAttribute="trailing" constant="12" id="8c2-Zz-IMG"/>
+                    <constraint firstItem="DmV-SK-HAS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="K0O-Lx-6RL"/>
+                    <constraint firstItem="4Ox-dZ-jQW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Nr3-tR-fr6"/>
+                    <constraint firstAttribute="trailing" secondItem="4Ox-dZ-jQW" secondAttribute="trailing" id="ZId-20-ROW"/>
+                    <constraint firstAttribute="trailing" secondItem="BPH-3m-rFS" secondAttribute="trailing" constant="12" id="aNs-2H-EOx"/>
+                    <constraint firstItem="BPH-3m-rFS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hA3-Zn-cbV"/>
+                    <constraint firstItem="DmV-SK-HAS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="jth-lt-hnT"/>
+                    <constraint firstAttribute="bottom" secondItem="4Ox-dZ-jQW" secondAttribute="bottom" constant="0.5" id="qPl-fL-c8p"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="nameLabel" destination="8cE-6A-uhp" id="l89-UM-g2a"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="core_item_img_arrows.png" width="88" height="88"/>
+        <image name="playlist_ic_love.png" width="75" height="75"/>
+    </resources>
+</document>

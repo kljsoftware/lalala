@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Arial.ttf">
+            <string>ArialMT</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -18,22 +23,49 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjG-HE-mmj">
-                        <rect key="frame" x="12" y="24" width="296" height="19.5"/>
-                        <state key="normal" title="新建歌单">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </state>
-                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJy-Pd-wQY" customClass="BorderView" customModule="Music" customModuleProvider="target">
+                        <rect key="frame" x="12" y="1.5" width="296" height="40"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjG-HE-mmj">
+                                <rect key="frame" x="0.0" y="0.0" width="296" height="40"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.41176470588235292" green="0.92941176470588238" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9ew-Nj-Gwg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NjG-HE-mmj" firstAttribute="leading" secondItem="jJy-Pd-wQY" secondAttribute="leading" id="0Mg-o9-JW5"/>
+                            <constraint firstAttribute="bottom" secondItem="NjG-HE-mmj" secondAttribute="bottom" id="2D3-y0-9Vv"/>
+                            <constraint firstItem="NjG-HE-mmj" firstAttribute="top" secondItem="jJy-Pd-wQY" secondAttribute="top" id="LfF-tl-RVx"/>
+                            <constraint firstAttribute="height" constant="40" id="SLc-Gl-Ak7"/>
+                            <constraint firstAttribute="trailing" secondItem="NjG-HE-mmj" secondAttribute="trailing" id="TiC-je-1jH"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="fill">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="NjG-HE-mmj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="067-hS-5g7"/>
-                    <constraint firstAttribute="bottom" secondItem="NjG-HE-mmj" secondAttribute="bottom" id="JKr-ZN-URC"/>
-                    <constraint firstAttribute="trailing" secondItem="NjG-HE-mmj" secondAttribute="trailing" constant="12" id="ZpC-0r-68z"/>
-                    <constraint firstItem="NjG-HE-mmj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="tUD-zD-MOV"/>
+                    <constraint firstItem="jJy-Pd-wQY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Kt7-JE-bTu"/>
+                    <constraint firstItem="jJy-Pd-wQY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="q75-qw-HTd"/>
+                    <constraint firstAttribute="trailing" secondItem="jJy-Pd-wQY" secondAttribute="trailing" constant="12" id="ryr-ay-hRe"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="button" destination="NjG-HE-mmj" id="Qcl-IJ-K6R"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

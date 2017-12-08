@@ -9,7 +9,7 @@
 import UIKit
 
 // 标签按钮类型
-enum TabButtonType : Int {
+enum TabType : Int {
     case none = -1
     case fm
     case music
@@ -21,10 +21,10 @@ enum TabButtonType : Int {
 class TabView: UIView {
    
     /// 标签点击回调
-    var selectedClosure:((TabButtonType) -> Void)?
+    var selectedClosure:((TabType) -> Void)?
     
     // 当前选中项的按钮类型
-    fileprivate var tabType:TabButtonType = .none
+    fileprivate var tabType:TabType = .none
     
     // 按钮数组&按钮名数组
     fileprivate var buttonArray:[UIButton]!
@@ -83,8 +83,8 @@ class TabView: UIView {
     }
     
     // 取消指定项的选中状态
-    fileprivate func unSelectedButtonWithButtonType(_ tabType:TabButtonType) {
-        if tabType == TabButtonType.none {
+    fileprivate func unSelectedButtonWithButtonType(_ tabType:TabType) {
+        if tabType == TabType.none {
             return
         }
         
@@ -95,7 +95,7 @@ class TabView: UIView {
     }
     
     /// 指定按钮为选中状态
-    fileprivate func selectedButtonWithButtonType(_ tabType:TabButtonType) {
+    fileprivate func selectedButtonWithButtonType(_ tabType:TabType) {
         
         // 取消上个按钮的选中状态
         unSelectedButtonWithButtonType(self.tabType)
@@ -111,7 +111,7 @@ class TabView: UIView {
     }
     
     // 点击切换
-    fileprivate func didSelectedButtonAtButtonType(_ tabType:TabButtonType) {
+    fileprivate func didSelectedButtonAtButtonType(_ tabType:TabType) {
         
         // 重复选中
         if tabType == self.tabType {

@@ -26,6 +26,7 @@ PODS:
     - SDWebImage/Core (= 4.2.2)
   - SDWebImage/Core (4.2.2)
   - SnapKit (3.2.0)
+  - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
   - AFNetworking (= 3.1.0)
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - RealmSwift (= 3.0.2)
   - SDWebImage (= 4.2.2)
   - SnapKit (= 3.2.0)
+  - Toast-Swift (= 3.0.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -45,7 +47,8 @@ SPEC CHECKSUMS:
   RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 92a8f40fedbc1d2c72d7954aae512dfddf9bdfa3
+PODFILE CHECKSUM: 0fdaed0974cb062375c2280602e0d435c0b0e24b
 
 COCOAPODS: 1.4.0.beta.2

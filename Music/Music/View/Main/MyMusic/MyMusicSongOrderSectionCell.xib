@@ -23,28 +23,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创建的歌单(1)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-nz-txG">
-                        <rect key="frame" x="12" y="13.5" width="93.5" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-nz-txG">
+                        <rect key="frame" x="12" y="22" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                         <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playlist_btn_add.png" translatesAutoresizingMaskIntoConstraints="NO" id="n5e-4i-Zcb">
-                        <rect key="frame" x="288" y="12" width="20" height="20"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7b-91-Jig">
+                        <rect key="frame" x="288" y="11" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="5DT-xu-pbu"/>
-                            <constraint firstAttribute="width" constant="20" id="EE4-St-Die"/>
+                            <constraint firstAttribute="height" constant="20" id="DHQ-M4-36p"/>
+                            <constraint firstAttribute="width" constant="20" id="t7R-IO-qaA"/>
                         </constraints>
-                    </imageView>
+                        <state key="normal" image="playlist_btn_add.png"/>
+                        <state key="highlighted" image="playlist_btn_add.png"/>
+                        <connections>
+                            <action selector="onAddButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2R3-t6-ntg"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="Hba-nz-txG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1t5-s5-Iue"/>
+                    <constraint firstItem="a7b-91-Jig" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="26k-rK-n29"/>
                     <constraint firstItem="Hba-nz-txG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="4AG-9L-sPu"/>
-                    <constraint firstAttribute="trailing" secondItem="n5e-4i-Zcb" secondAttribute="trailing" constant="12" id="e9P-eF-gQ3"/>
-                    <constraint firstItem="n5e-4i-Zcb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pUr-P4-IAC"/>
+                    <constraint firstAttribute="trailing" secondItem="a7b-91-Jig" secondAttribute="trailing" constant="12" id="FZT-dD-ceS"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="Hba-nz-txG" id="wba-8v-1lj"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

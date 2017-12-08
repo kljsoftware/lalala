@@ -12,10 +12,30 @@ import AVFoundation
 /// 界面工具类
 class AppUI {
     
-    /// 压栈
+    /// 压栈(栈顶)
     class func push(to view:UIView, with size:CGSize) {
         let window = (UIApplication.shared.delegate as! AppDelegate).window
-        window?.push(view: view, size: size)
+        window?.push(to: view, with: size)
+    }
+    
+    /// 压栈(对应子模块栈顶) 注：cuttentView表示当前视图，view表示要压栈的视图, size表示压栈视图的大小
+    class func push(from cuttentView:UIView, to view:UIView, with size:CGSize) {
+
+        /// 不断从父级寻找根视图查找对应子模块根视图
+        var rootView = cuttentView.superview
+        while (rootView != nil) {
+            if rootView!.isKind(of: FMView.self)
+                || rootView!.isKind(of: MyMusicView.self)
+                || rootView!.isKind(of: DiscoverView.self)
+                || rootView!.isKind(of: SearchView.self)
+                || rootView!.isKind(of: MeView.self) {
+                break
+            }
+            rootView = rootView?.superview
+        }
+        
+        /// 压入子模块栈顶
+        rootView?.push(to: view, with: size)
     }
     
     /// 出栈

@@ -8,17 +8,19 @@
 
 import UIKit
 
+/// 新建歌单单元
 class MyMusicNewSongOrderCell: UITableViewCell {
 
+    /// 新建歌单
+    @IBOutlet weak var button: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        button.setTitle(LanguageKey.MyMusic_CreatePlaylist.value, for: .normal)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    /// 点击新建歌单按钮
+    @IBAction func onButtonClicked(_ sender: UIButton) {
+        
     }
-    
 }

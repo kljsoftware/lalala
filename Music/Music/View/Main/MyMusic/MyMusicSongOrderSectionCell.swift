@@ -8,17 +8,19 @@
 
 import UIKit
 
+/// 创建的歌单分区单元
 class MyMusicSongOrderSectionCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    /// 创建的歌单
+    @IBOutlet weak var nameLabel: UILabel!
+   
+    /// 更新
+    func update(orderCount:Int) {
+        nameLabel.text = "\(LanguageKey.MyMusic_OwnedPlaylists.value)(\(orderCount))"
     }
     
+    /// 点击创建歌单按钮
+    @IBAction func onAddButtonClicked(_ sender: UIButton) {
+        
+    }
 }
