@@ -81,3 +81,4 @@
 "Tip_PlaylistExisted"       = "プレイリストが既に存在します";
 "Tip_AddingComplete"       = "追加しました";
 "Tip_AddingFail"       = "追加に失敗しました";
+"Tip_PleaseEnterName"       = "名前を入力してください";

@@ -80,3 +80,4 @@
 "Tip_PlaylistExisted"       = "歌單已存在";
 "Tip_AddingComplete"       = "添加成功";
 "Tip_AddingFail"       = "添加失敗";
+"Tip_PleaseEnterName"       = "名稱不能為空";
