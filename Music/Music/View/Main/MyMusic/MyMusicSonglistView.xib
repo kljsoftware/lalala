@@ -49,10 +49,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-FA-DyH">
-                            <rect key="frame" x="333" y="7" width="30" height="30"/>
+                            <rect key="frame" x="319" y="0.0" width="44" height="44"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="5tg-KG-iRO"/>
-                                <constraint firstAttribute="height" constant="30" id="mva-X7-nL1"/>
+                                <constraint firstAttribute="width" constant="44" id="5tg-KG-iRO"/>
+                                <constraint firstAttribute="height" constant="44" id="mva-X7-nL1"/>
                             </constraints>
                             <state key="normal">
                                 <color key="titleColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,7 +99,7 @@
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4t9-Ls-LQ0">
                             <rect key="frame" x="12" y="0.0" width="351" height="44"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             <connections>
                                 <outlet property="delegate" destination="iN0-l3-epB" id="d34-Ad-Oo6"/>

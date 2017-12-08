@@ -16,6 +16,9 @@ class SonglistRealm : Object {
     
     /// 歌单名
     dynamic var name = ""
+    
+    /// 创建时间
+    dynamic var date = Date()
 }
 
 /// 歌曲

@@ -22,18 +22,54 @@ class MyMusicTableView : UIView {
     /// 列表视图
     @IBOutlet weak var tableView: UITableView!
     
+    /// 本地歌单，除喜爱歌单外
+    fileprivate var songlists = [SonglistRealm]()
+    
     // MARK: - override methods
     override func awakeFromNib() {
-       
-        // 注册可复用的列表(tableview)头部单元
+        /// 注册可复用单元
         tableView.register(UINib(nibName: "MyMusicDownloadCell", bundle: nil), forCellReuseIdentifier: "kMyMusicDownloadCell")
         tableView.register(UINib(nibName: "MyMusicLikeCell", bundle: nil), forCellReuseIdentifier: "kMyMusicLikeCell")
         tableView.register(UINib(nibName: "MyMusicSongOrderCell", bundle: nil), forCellReuseIdentifier: "kMyMusicSongOrderCell")
         tableView.register(UINib(nibName: "MyMusicNewSongOrderCell", bundle: nil), forCellReuseIdentifier: "kMyMusicNewSongOrderCell")
-        tableView.mj_header = MJRefreshStateHeader(refreshingBlock: { [weak self] in
-            self?.tableView.mj_header.beginRefreshing()
-            self?.tableView.mj_header.endRefreshing()
-        })
+        
+        /// 加载本地歌单数据
+        reloadSonglists()
+        
+        /// 注册通知
+        registerNotification()
+    }
+    
+    deinit {
+        unregisterNotification()
+    }
+    
+    // MARK: - private methods
+    // 注册通知
+    fileprivate func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyCreateNewPlaylist), name: NoticationUpdateForCreateNewPlaylist, object: nil)
+    }
+    
+    // 销毁通知
+    fileprivate func unregisterNotification() {
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForCreateNewPlaylist, object: nil)
+    }
+    
+    /// 新建歌单消息
+    @objc private func notifyCreateNewPlaylist(_ sender:Notification) {
+        reloadSonglists()
+    }
+    
+    /// 重新加载本地歌单
+    fileprivate func reloadSonglists() {
+        let results = RealmHelper.shared.query(type: SonglistRealm.self)
+        songlists = results.sorted(by: {$0.0.date > $0.1.date})
+        tableView.reloadData()
+    }
+    
+    // MARK: - public methods
+    func setEditing(isEditing:Bool) {
+        tableView.isEditing = isEditing
     }
 }
 
@@ -52,7 +88,7 @@ extension MyMusicTableView :  UITableViewDataSource, UITableViewDelegate {
         case .downloads:
             return 1
         case .owned:
-            return 1
+            return songlists.count + 1
         case .new:
             return 1
         }
@@ -75,6 +111,7 @@ extension MyMusicTableView :  UITableViewDataSource, UITableViewDelegate {
             
             /// 其它歌单
             let cell = tableView.dequeueReusableCell(withIdentifier: "kMyMusicSongOrderCell", for: indexPath) as! MyMusicSongOrderCell
+            cell.update(model: songlists[indexPath.row-1])
             return cell
         case .new:
             let newSongOrderCell = tableView.dequeueReusableCell(withIdentifier: "kMyMusicNewSongOrderCell", for: indexPath) as! MyMusicNewSongOrderCell
@@ -108,7 +145,7 @@ extension MyMusicTableView :  UITableViewDataSource, UITableViewDelegate {
         switch MyMusicSectionType(rawValue:section)! {
         case .owned:
             let orderSectionCell = Bundle.main.loadNibNamed("MyMusicSongOrderSectionCell", owner: nil, options: nil)?[0] as! MyMusicSongOrderSectionCell
-            orderSectionCell.update(orderCount: 1)
+            orderSectionCell.update(orderCount: songlists.count+1)
             return orderSectionCell
         default:
             return nil
@@ -125,6 +162,48 @@ extension MyMusicTableView :  UITableViewDataSource, UITableViewDelegate {
             break
         case .new:
             break
+        }
+    }
+    
+    /// 是否显示删除按钮
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        let type = MyMusicSectionType(rawValue:indexPath.section)!
+        return (type == .owned) && indexPath.row != 0 ? .delete : .none
+    }
+    
+    /// 是否可以移动
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        let type = MyMusicSectionType(rawValue:indexPath.section)!
+        return (type == .owned) && indexPath.row != 0
+    }
+    
+    /*用户拖动某行sourceIndexPath经过目标行proposedDestinationIndexPath上方时，
+     调用此函数询问是否可以移动，若不能移动则返回一个新的目的indexPath，
+     否则直接返回proposedDestinationIndexPath,若无特别要求不需要实现*/
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+       
+        /// 可以移动
+        let type = MyMusicSectionType(rawValue:proposedDestinationIndexPath.section)!
+        if (type == .owned) && proposedDestinationIndexPath.row != 0 {
+            return proposedDestinationIndexPath
+        }
+        
+        /// 上方滑至第一个
+        if type == .new  {
+            return IndexPath(row: songlists.count, section: MyMusicSectionType.owned.rawValue)
+        }
+        
+        /// 下方滑至最后一个
+        return IndexPath(row: 1, section: MyMusicSectionType.owned.rawValue)
+    }
+    
+    /// 数据交换
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let type = MyMusicSectionType(rawValue:destinationIndexPath.section)!
+        if (type == .owned) && destinationIndexPath.row != 0 {
+            let data  = songlists[sourceIndexPath.row-1]
+            songlists.remove(at: sourceIndexPath.row-1)
+            songlists.insert(data, at: destinationIndexPath.row-1)
         }
     }
 }

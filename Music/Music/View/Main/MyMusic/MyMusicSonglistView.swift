@@ -22,6 +22,7 @@ class MyMusicSonglistView: UIView {
     
     // MARK: - override methods
     override func awakeFromNib() {
+        doneButton.setTitle(LanguageKey.Common_Done.value, for: .normal)
         titleLabel.text = LanguageKey.MyMusic_CreatePlaylist.value
         nameTextField.attributedPlaceholder = NSAttributedString(string: LanguageKey.MyMusic_EditPlaylistNameDescription.value, attributes: [NSForegroundColorAttributeName : COLOR_ABABAB])
     }
@@ -35,21 +36,28 @@ class MyMusicSonglistView: UIView {
     /// 点击完成按钮
     @IBAction func onDoneButtonClicked(_ sender: UIButton) {
         
-        // 名称不能为空
+        // 名称不能为nil
         guard let name = nameTextField.text else {
             makeToast(LanguageKey.Tip_PleaseEnterName.value)
             return
         }
         
-        // 歌单已存在
-        let results = RealmHelper.shared.query(type: SonglistRealm.self, predicate: NSPredicate(format: "type = '1' AND name = %@", name))
-        if results.count > 0 {
-            makeToast(LanguageKey.Tip_PlaylistExisted.value)
+        // 名称不能为空
+        if name.isEmpty {
+            makeToast(LanguageKey.Tip_PleaseEnterName.value, duration: 1, position: ToastPosition.center)
             return
         }
         
-        // 创建成功, 存入数据库并返回
-        RealmHelper.shared.insert(obj: SonglistRealm(value: [1, name]))
+        // 歌单已存在
+        let results = RealmHelper.shared.query(type: SonglistRealm.self, predicate: NSPredicate(format: "name = %@", name))
+        if results.count > 0 {
+            makeToast(LanguageKey.Tip_PlaylistExisted.value, duration: 1, position: ToastPosition.center)
+            return
+        }
+        
+        // 创建成功, 存入数据库, 通知并返回
+        RealmHelper.shared.insert(obj: SonglistRealm(value: [1, name, Date()]))
+        NotificationCenter.default.post(name: NoticationUpdateForCreateNewPlaylist, object: nil)
         AppUI.pop(self)
     }
 }

@@ -113,8 +113,11 @@ class MyMusicView: UIView {
     private func setup() {
         
         /// 标题视图
-        titleView.editButtonClickedClosure = { (type) in
-            
+        titleView.editButtonClickedClosure = {[weak self] (type) in
+            guard let weakself = self else {
+                return
+            }
+            weakself.tableView.setEditing(isEditing: type == .finished)
         }
         
         /// 列表视图

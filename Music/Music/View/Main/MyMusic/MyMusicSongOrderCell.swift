@@ -6,19 +6,23 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-import UIKit
-
+/// 其它歌单
 class MyMusicSongOrderCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    /// 歌单名
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    /// 箭头
+    @IBOutlet weak var arrowImageView: UIImageView!
+    
+    // MARK: - override methods
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        arrowImageView.isHidden = editing
     }
     
+    /// 更新
+    func update(model:SonglistRealm) {
+        nameLabel.text = model.name
+    }
 }

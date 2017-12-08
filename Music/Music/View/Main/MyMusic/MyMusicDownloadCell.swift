@@ -14,5 +14,4 @@ class MyMusicDownloadCell: UITableViewCell {
         super.awakeFromNib()
         nameLabel.text = LanguageKey.MyMusic_MyDownload.value
     }
-    
 }

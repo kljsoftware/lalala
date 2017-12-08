@@ -17,4 +17,7 @@ let NoticationUpdateForAudioStatusChanged = Notification.Name("NoticationUpdateF
 let NoticationUpdateForAudioProgressChanged = Notification.Name("NoticationUpdateForAudioProgressChanged")
 let NoticationUpdateForSongChanged = Notification.Name("NoticationUpdateForSongChanged")
 
+// 新建歌单通知
+let NoticationUpdateForCreateNewPlaylist = Notification.Name("NoticationUpdateForCreateNewPlaylist")
+
 
