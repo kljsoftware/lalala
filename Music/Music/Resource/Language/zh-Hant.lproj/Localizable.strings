@@ -27,7 +27,9 @@
 "MyMusic_NumberSeclected"  = "已選擇：";
 "MyMusic_EditPlaylistNameDescription" = "請編輯歌單的名稱，不能與已有歌單重複。";
 "MyMusic_TrackArtistAlbum"            = "歌曲，歌手，專輯";
-
+"MyMusic_PauseAll"            = "全部暫停";
+"MyMusic_ContinueAll"            = "全部繼續";
+"MyMusic_EditPlaylistNameDescription"            = "請編輯歌單的名稱，不能與已有歌單重複。";
 /// 发现
 "Discover_Rank"              = "排行榜";
 "Discover_PopularPlaylist"   = "熱門歌單";
@@ -64,6 +66,8 @@
 "Common_Playlist"       = "歌單";
 "Common_Download"       = "下載";
 "Common_Close"          = "關閉";
+"Common_NoContent"          = "暫無內容";
+"MyMusic_NoTask"          = "暫無任務";
 
 /// 提示
 "Tip_SequentialModeActivated" = "已切換至順序播放";
@@ -72,3 +76,7 @@
 "Tip_AddedToFavorites"        = "已添加到我喜歡的音樂";
 "Tip_RemovedFromFavorites"    = "已從我喜歡的音樂移除";
 "Tip_NoUpdateAvailable"       = "已是最新版本";
+"Tip_DownloadTrackNoCredit"       = "您已超出今天下載限制，明天再試試吧。";
+"Tip_PlaylistExisted"       = "歌單已存在";
+"Tip_AddingComplete"       = "添加成功";
+"Tip_AddingFail"       = "添加失敗";

@@ -33,7 +33,9 @@ enum LanguageKey : String {
     case MyMusic_NumberSeclected =  "MyMusic_NumberSeclected"
     case MyMusic_EditPlaylistNameDescription =  "MyMusic_EditPlaylistNameDescription"
     case MyMusic_TrackArtistAlbum            =  "MyMusic_TrackArtistAlbum"
-    
+    case MyMusic_PauseAll = "MyMusic_PauseAll"
+    case MyMusic_ContinueAll = "MyMusic_ContinueAll"
+   
     /// 发现
     case Discover_Rank              =  "Discover_Rank"
     case Discover_PopularPlaylist   =  "Discover_PopularPlaylist"
@@ -70,7 +72,9 @@ enum LanguageKey : String {
     case Common_Playlist       =  "Common_Playlist"
     case Common_Download       =  "Common_Download"
     case Common_Close          =  "Common_Close"
-    
+    case Common_NoContent = "Common_NoContent"
+    case MyMusic_NoTask = "MyMusic_NoTask"
+
     /// 提示
     case Tip_SequentialModeActivated =  "Tip_SequentialModeActivated"
     case Tip_ShuffleModeActivated    =  "Tip_ShuffleModeActivated"
@@ -78,6 +82,11 @@ enum LanguageKey : String {
     case Tip_AddedToFavorites        =  "Tip_AddedToFavorites"
     case Tip_RemovedFromFavorites    =  "Tip_RemovedFromFavorites"
     case Tip_NoUpdateAvailable       =  "Tip_NoUpdateAvailable"
+    case Tip_DownloadTrackSuccess = "Tip_DownloadTrackSuccess"
+    case Tip_DownloadTrackNoCredit = "Tip_DownloadTrackNoCredit"
+    case Tip_PlaylistExisted = "Tip_PlaylistExisted"
+    case Tip_AddingComplete = "Tip_AddingComplete"
+    case Tip_AddingFail = "Tip_AddingFail"
     
     /// 获取对应的语言字串
     var value : String {
