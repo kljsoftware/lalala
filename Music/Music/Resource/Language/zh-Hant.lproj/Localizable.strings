@@ -84,3 +84,7 @@
 "Tip_ConfirmToDeleteNumberTracks" = "確定刪除%@首歌曲？";
 "Tip_ConfirmToDelete" = "確認刪除《%@》？";
 "Tip_ConfirmToDeltePlaylist" = "確認刪除歌單《%@》？";
+
+/// 引导
+"Guide_EditPlaylistInfo" = "編輯歌單信息";
+"Guide_MultipleOperate" = "批量操作歌曲";

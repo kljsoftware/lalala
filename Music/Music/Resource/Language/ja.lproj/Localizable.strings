@@ -85,3 +85,7 @@
 "Tip_ConfirmToDeleteNumberTracks" = "%@曲をすべて削除しますか？";
 "Tip_ConfirmToDelete" = "『%@』削除しますか？";
 "Tip_ConfirmToDeltePlaylist" = "プレイリスト『%@』を削除しますか？";
+
+/// 引导
+"Guide_EditPlaylistInfo" = "プレイリスト情報編集";
+"Guide_MultipleOperate" = "曲をまとめて操作";
