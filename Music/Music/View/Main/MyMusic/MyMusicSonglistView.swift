@@ -6,11 +6,19 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
+private let cellHeight:CGFloat = 60
+
 /// 歌单视图
 class MyMusicSonglistView: UIView {
     
     /// 歌单名
-    var songlistName = ""
+    var songlistName:String? {
+        didSet {
+            if songlistName != nil {
+                setup()
+            }
+        }
+    }
 
     /// 标题
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,15 +29,27 @@ class MyMusicSonglistView: UIView {
     /// 列表头部视图
     fileprivate var songlistHeaderView:MyMusicSonglistHeaderView!
     
+    /// 歌曲模型列表
+    fileprivate var songlist = [SongRealm]()
+    
     // MARK: - override methods
     override func awakeFromNib() {
         titleLabel.text = LanguageKey.Common_Playlist.value
         tableView.tableHeaderView = tableViewHeaderView()
-//        let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "songlistName = %@", songlistName))
-        
+        tableView.register(UINib(nibName: "SearchResultCell", bundle: nil), forCellReuseIdentifier: "kSearchResultCell")
     }
     
     // MARK: - private methods
+    /// 初始化
+    private func setup() {
+        songlistHeaderView.update(name: songlistName!)
+        let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "songlistName = %@", songlistName!))
+        if results.count > 0 {
+            songlistHeaderView.update(imgurl: results.first!.coverURL)
+            songlist = Array(results)
+        }
+    }
+    
     /// 列表头部视图
     private func tableViewHeaderView() -> UIView {
         let containerView = UIView(frame:CGRect(x: 0, y: 0, width: DEVICE_SCREEN_WIDTH, height: 120))
@@ -52,5 +72,31 @@ class MyMusicSonglistView: UIView {
     /// 点击返回按钮
     @IBAction func onBackButtonClicked(_ sender: UIButton) {
         AppUI.pop(self)
+    }
+}
+
+// MARK: - UITableViewDataSource & UITableViewDelegate
+extension MyMusicSonglistView :  UITableViewDataSource, UITableViewDelegate {
+    
+    /// 各个分区的单元(Cell)个数
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return songlist.count
+    }
+    
+    /// 单元(cell)视图
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "kSearchResultCell", for: indexPath) as! SearchResultCell
+        cell.update(realmModel: songlist[indexPath.row])
+        return cell
+    }
+    
+    /// 单元(cell)的高度
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellHeight
+    }
+    
+    /// 单元(cell)选中事件
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }

@@ -23,10 +23,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="mlT-lv-jgP">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHc-7Z-x1y">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="0.5" colorSpace="calibratedRGB"/>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqK-Pl-I72">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <subviews>
@@ -119,14 +115,10 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="RQN-1I-aOL" secondAttribute="trailing" id="2Sf-mB-yxe"/>
-                <constraint firstItem="kHc-7Z-x1y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3QD-GZ-fMT"/>
                 <constraint firstAttribute="bottom" secondItem="mlT-lv-jgP" secondAttribute="bottom" id="WGK-rK-XiP"/>
                 <constraint firstAttribute="trailing" secondItem="mlT-lv-jgP" secondAttribute="trailing" id="aqk-9T-CF1"/>
                 <constraint firstItem="RQN-1I-aOL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bq4-u6-dAr"/>
-                <constraint firstAttribute="trailing" secondItem="kHc-7Z-x1y" secondAttribute="trailing" id="clX-FW-lya"/>
-                <constraint firstAttribute="bottom" secondItem="kHc-7Z-x1y" secondAttribute="bottom" id="g9z-il-EHK"/>
                 <constraint firstAttribute="trailing" secondItem="fqK-Pl-I72" secondAttribute="trailing" id="gPc-0M-0aH"/>
-                <constraint firstItem="kHc-7Z-x1y" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rhp-mV-apB"/>
                 <constraint firstItem="fqK-Pl-I72" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rmo-ri-PIk"/>
                 <constraint firstItem="mlT-lv-jgP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="t5v-R1-8Ns"/>
                 <constraint firstItem="fqK-Pl-I72" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wVq-lM-QTS"/>
@@ -141,7 +133,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg.png" width="1080" height="1920"/>
+        <image name="bg.png" width="1242" height="2208"/>
         <image name="common_btn_back_normal.png" width="90" height="90"/>
     </resources>
 </document>

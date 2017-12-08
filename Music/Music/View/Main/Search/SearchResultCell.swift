@@ -6,7 +6,7 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-/// 搜索结果单元
+/// 搜索结果/歌单 单元
 class SearchResultCell: UITableViewCell {
 
     /// 歌名
@@ -29,14 +29,33 @@ class SearchResultCell: UITableViewCell {
     
     // MARK: - IBAction
     @IBAction func onMoreButtonClicked(_ sender: UIButton) {
-        ActionSheet.show(items: ["添加到歌单", "下载", "分享"]) { (index) in
-            
+        ActionSheet.show(items: [LanguageKey.MyMusic_AddToPlaylist.value, LanguageKey.Common_Download.value, LanguageKey.Common_Share.value]) { [weak self](index) in
+//            guard let weakself = self else {
+//                return
+//            }
+            switch index {
+            case 0:
+                PlaylistSheet.show()
+            case 1:
+                break
+            case 2:
+                break
+            default:
+                break
+            }
         }
     }
     
     // MARK: - public methods
+    /// 更新
     func update(model:FMSongDataModel) {
         songNameLabel.text = model.title
         artistNameLabel.text = model.artist
+    }
+    
+    /// 更新
+    func update(realmModel:SongRealm) {
+        songNameLabel.text = realmModel.title
+        artistNameLabel.text = realmModel.artist
     }
 }

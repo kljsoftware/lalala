@@ -7,7 +7,7 @@
 //
 
 /// 搜索控制高度
-private let searchControlHeight:CGFloat = 44
+private let searchControlHeight:CGFloat = 44, cellHeight:CGFloat = 60
 
 /// 搜索视图模块
 class SearchView: UIView {
@@ -186,7 +186,7 @@ extension SearchView :  UITableViewDataSource, UITableViewDelegate {
     // MARK: UITableViewDelegate
     // 单元(cell)的高度
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return cellHeight
     }
     
     // 单元(cell)选中事件

@@ -14,8 +14,19 @@ class MyMusicSonglistHeaderView : UIView {
     
     @IBOutlet weak var nameLabel: UILabel!
    
+
     /// 点击视频按钮
     @IBAction func onVideoButtonClicked(_ sender: UIButton) {
+        
+    }
+    
+    /// 更新名字
+    func update(name:String) {
+        
+    }
+    
+    /// 更新图片
+    func update(imgurl:String) {
         
     }
 }

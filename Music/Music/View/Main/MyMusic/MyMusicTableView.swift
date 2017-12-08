@@ -163,20 +163,6 @@ extension MyMusicTableView :  UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    // 单元(cell)选中事件
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch MyMusicSectionType(rawValue:indexPath.section)! {
-        case .downloads:
-            let view = Bundle.main.loadNibNamed("MyMusicDownloadView", owner: nil, options: nil)?[0] as! MyMusicDownloadView
-            AppUI.push(from: self, to: view, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
-        case .owned:
-            let view = Bundle.main.loadNibNamed("MyMusicSonglistView", owner: nil, options: nil)?[0] as! MyMusicSonglistView
-            AppUI.push(from: self, to: view, with: APP_SIZE)
-        case .new:
-            break
-        }
-    }
-    
     /// 是否显示删除按钮
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         let type = MyMusicSectionType(rawValue:indexPath.section)!
@@ -226,6 +212,21 @@ extension MyMusicTableView :  UITableViewDataSource, UITableViewDelegate {
             RealmHelper.shared.delete(obj: songlist)
             songlists.remove(at: indexPath.row - 1)
             tableView.deleteRows(at: [indexPath], with: .none)
+        }
+    }
+    
+    // 单元(cell)选中事件
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch MyMusicSectionType(rawValue:indexPath.section)! {
+        case .downloads:
+            let view = Bundle.main.loadNibNamed("MyMusicDownloadView", owner: nil, options: nil)?[0] as! MyMusicDownloadView
+            AppUI.push(from: self, to: view, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
+        case .owned:
+            let view = Bundle.main.loadNibNamed("MyMusicSonglistView", owner: nil, options: nil)?[0] as! MyMusicSonglistView
+            view.songlistName = indexPath.row == 0 ? LanguageKey.MyMusic_Favorite.value : songlists[indexPath.row - 1].name
+            AppUI.push(from: self, to: view, with: APP_SIZE)
+        case .new:
+            break
         }
     }
 }
