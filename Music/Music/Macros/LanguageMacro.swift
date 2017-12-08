@@ -88,6 +88,9 @@ enum LanguageKey : String {
     case Tip_AddingComplete = "Tip_AddingComplete"
     case Tip_AddingFail = "Tip_AddingFail"
     case Tip_PleaseEnterName = "Tip_PleaseEnterName"
+    case Tip_ConfirmToDeleteNumberTracks = "Tip_ConfirmToDeleteNumberTracks"
+    case Tip_ConfirmToDelete = "Tip_ConfirmToDelete"
+    case Tip_ConfirmToDeltePlaylist = "Tip_ConfirmToDeltePlaylist"
     
     /// 获取对应的语言字串
     var value : String {
