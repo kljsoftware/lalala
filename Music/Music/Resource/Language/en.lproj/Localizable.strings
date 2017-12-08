@@ -85,3 +85,7 @@
 "Tip_ConfirmToDeleteNumberTracks" = "Confirm to delete %@ tracks?";
 "Tip_ConfirmToDelete" = "Confirm to delete %@?";
 "Tip_ConfirmToDeltePlaylist" = "Confirm to delete playlist %@?";
+
+/// 引导
+"Guide_EditPlaylistInfo" = "Edit playlist info";
+"Guide_MultipleOperate" = "Operating mutiple tracks";
