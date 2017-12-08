@@ -92,6 +92,10 @@ enum LanguageKey : String {
     case Tip_ConfirmToDelete = "Tip_ConfirmToDelete"
     case Tip_ConfirmToDeltePlaylist = "Tip_ConfirmToDeltePlaylist"
     
+    // 引导
+    case Guide_EditPlaylistInfo = "Guide_EditPlaylistInfo"
+    case Guide_MultipleOperate = "Guide_MultipleOperate"
+    
     /// 获取对应的语言字串
     var value : String {
         return LanguageHelper.shared.getLanguageText(by: self.rawValue)

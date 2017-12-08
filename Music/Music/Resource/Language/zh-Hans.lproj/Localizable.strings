@@ -82,6 +82,10 @@
 "Tip_AddingComplete"       = "添加成功";
 "Tip_AddingFail"       = "添加失败";
 "Tip_PleaseEnterName" = "名称不能为空";
-"Tip_ConfirmToDeleteNumberTracks" = "确定删除%@首歌曲？"
-"Tip_ConfirmToDelete" = "确认删除《%@》？"
-"Tip_ConfirmToDeltePlaylist" = "确认删除歌单《%@》？"
+"Tip_ConfirmToDeleteNumberTracks" = "确定删除%@首歌曲？";
+"Tip_ConfirmToDelete" = "确认删除《%@》？";
+"Tip_ConfirmToDeltePlaylist" = "确认删除歌单《%@》？";
+
+//========
+"Guide_EditPlaylistInfo" = "编辑歌单信息";
+"Guide_MultipleOperate" = "批量操作歌曲";

@@ -82,6 +82,6 @@
 "Tip_AddingComplete"       = "Adding Complete";
 "Tip_AddingFail"       = "Adding Fail";
 "Tip_PleaseEnterName"       = "Please Enter a Name";
-"Tip_ConfirmToDeleteNumberTracks" = "Confirm to delete %@ tracks?"
-"Tip_ConfirmToDelete" = "Confirm to delete %@?"
-"Tip_ConfirmToDeltePlaylist" = "Confirm to delete playlist %@?"
+"Tip_ConfirmToDeleteNumberTracks" = "Confirm to delete %@ tracks?";
+"Tip_ConfirmToDelete" = "Confirm to delete %@?";
+"Tip_ConfirmToDeltePlaylist" = "Confirm to delete playlist %@?";
