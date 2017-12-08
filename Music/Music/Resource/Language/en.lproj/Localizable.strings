@@ -81,3 +81,5 @@
 "Tip_PlaylistExisted"       = "Playlist Existed";
 "Tip_AddingComplete"       = "Adding Complete";
 "Tip_AddingFail"       = "Adding Fail";
+"Tip_PleaseEnterName"       = "Please Enter a Name";
+
