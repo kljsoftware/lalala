@@ -27,12 +27,17 @@ class PlaylistSheet: UIView {
     /// 列表居底约束
     @IBOutlet weak var bottomLayoutConstraint: NSLayoutConstraint!
     
-    /// 歌曲模型列表
+    /// 歌单模型列表
     fileprivate var songlist = [SonglistRealm]()
     
+    /// 要添加的歌曲数据
+    fileprivate var mode:SongRealm?
+    
     /// MARK: - class methods
-    class func show() {
+    /// 添加至歌单
+    class func addToPlaylist(mode:SongRealm) {
         let view = Bundle.main.loadNibNamed("PlaylistSheet", owner: nil, options: nil)?[0] as! PlaylistSheet
+        view.mode = mode
         let window = (UIApplication.shared.delegate as! AppDelegate).window!
         window.addSubview(view)
         view.snp.makeConstraints { (maker) in
@@ -48,11 +53,33 @@ class PlaylistSheet: UIView {
         }
     }
     
+    // MARK： - override methods
     /// 初始化
     override func awakeFromNib() {
         playlistAddLabel.text = LanguageKey.MyMusic_AddToPlaylist.value
         createPlaylistLabel.text = LanguageKey.MyMusic_CreatePlaylist.value
         tableView.register(UINib(nibName: "PlaylistSheetCell", bundle: nil), forCellReuseIdentifier: "kPlaylistSheetCell")
+        reloadSonglists()
+        registerNotification()
+    }
+    
+    deinit {
+        unregisterNotification()
+        Log.e("deinit")
+    }
+    
+    // 注册通知
+    fileprivate func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyCreateNewPlaylist), name: NoticationUpdateForCreateNewPlaylist, object: nil)
+    }
+    
+    // 销毁通知
+    fileprivate func unregisterNotification() {
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForCreateNewPlaylist, object: nil)
+    }
+    
+    /// 新建歌单消息
+    @objc private func notifyCreateNewPlaylist(_ sender:Notification) {
         reloadSonglists()
     }
     
@@ -88,13 +115,14 @@ extension PlaylistSheet :  UITableViewDataSource, UITableViewDelegate {
     
     /// 各个分区的单元(Cell)个数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songlist.count
+        return songlist.count+1
     }
     
     /// 单元(cell)视图
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let name = indexPath.row == 0 ? LanguageKey.MyMusic_Favorite.value : songlist[indexPath.row-1].name
         let cell = tableView.dequeueReusableCell(withIdentifier: "kPlaylistSheetCell", for: indexPath) as! PlaylistSheetCell
-        cell.update(name: songlist[indexPath.row].name)
+        cell.update(name: name)
         return cell
     }
     
@@ -105,6 +133,17 @@ extension PlaylistSheet :  UITableViewDataSource, UITableViewDelegate {
     
     /// 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let mode = mode else {
+            Log.e("mode == nil")
+            return
+        }
+        mode.songlistName = indexPath.row == 0 ? LanguageKey.MyMusic_Favorite.value : songlist[indexPath.row-1].name
+        let message = indexPath.row == 0 ? LanguageKey.Tip_AddedToFavorites.value : LanguageKey.Tip_AddingComplete.value
+        let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "sid = %d", mode.sid))
+        if results.count == 0 {
+            RealmHelper.shared.insert(obj: mode)
+        }
+        AppUI.tip(message)
         hide()
     }
 }

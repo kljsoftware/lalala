@@ -38,20 +38,20 @@ class MyMusicNewSonglistView: UIView {
         
         // 名称不能为nil
         guard let name = nameTextField.text else {
-            makeToast(LanguageKey.Tip_PleaseEnterName.value)
+            AppUI.tip(LanguageKey.Tip_PleaseEnterName.value)
             return
         }
         
         // 名称不能为空
         if name.isEmpty {
-            makeToast(LanguageKey.Tip_PleaseEnterName.value, duration: 1, position: ToastPosition.center)
+             AppUI.tip(LanguageKey.Tip_PleaseEnterName.value)
             return
         }
         
         // 歌单已存在
         let results = RealmHelper.shared.query(type: SonglistRealm.self, predicate: NSPredicate(format: "name = %@", name))
         if results.count > 0 {
-            makeToast(LanguageKey.Tip_PlaylistExisted.value, duration: 1, position: ToastPosition.center)
+             AppUI.tip(LanguageKey.Tip_PlaylistExisted.value)
             return
         }
         

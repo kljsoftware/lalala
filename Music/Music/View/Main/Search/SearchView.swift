@@ -24,7 +24,7 @@ class SearchView: UIView {
     fileprivate var searchPage = 0, hasMoreSearchResult:Bool = false, query:String = "", type:String = ""
 
     /// 搜索控制视图
-    private lazy var searchControlView:SearchControlView = {
+    fileprivate lazy var searchControlView:SearchControlView = {
         let _searchControlView = Bundle.main.loadNibNamed("SearchControlView", owner: nil, options: nil)?[0] as! SearchControlView
         _searchControlView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: APP_HEIGHT - BOTTOM_TAB_HEIGHT - DEVICE_INDICATOR_HEIGHT)
         self.addSubview(_searchControlView)
@@ -153,6 +153,7 @@ class SearchView: UIView {
         searchPage = page
         viewModel.requestSearchResult(query: query, type: type, page: page)
         resultTableView.isHidden = false
+        artistTableView.isHidden = true
     }
 }
 
@@ -192,5 +193,11 @@ extension SearchView :  UITableViewDataSource, UITableViewDelegate {
     // 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if tableView == artistTableView {
+            searchControlView.search(key: artists[indexPath.row].name)
+            return
+        }
+        
+        /// 
     }
 }

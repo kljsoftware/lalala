@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Toast_Swift
 
 /// 界面工具类
 class AppUI {
@@ -48,6 +49,12 @@ class AppUI {
         LanguageHelper.shared.setLanguage(type: languageType)
         let window = (UIApplication.shared.delegate as! AppDelegate).window
         window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "kMainVC")
+    }
+    
+    /// 提示
+    class func tip(_ message:String) {
+        let window = (UIApplication.shared.delegate as! AppDelegate).window
+        window?.makeToast(message, duration: 1, position: ToastPosition.center)
     }
 }
 

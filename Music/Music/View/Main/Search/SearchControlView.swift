@@ -53,8 +53,10 @@ class SearchControlView: UIView {
         collectionView.register(UINib(nibName: "SearchPopularSectionView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "kSearchPopularSectionView")
     }
     
+    // MARK: - public methods
     /// 搜索
-    fileprivate func search(key:String) {
+    func search(key:String) {
+        searchTextField.text = key
         searchTextField.resignFirstResponder()
         collectionView.isHidden = true
         searchCloure?(key, "song")
@@ -165,7 +167,6 @@ extension SearchControlView :  UICollectionViewDataSource, UICollectionViewDeleg
         case .history:
             content = historys[indexPath.row].name
         }
-        searchTextField.text = content
         search(key: content)
     }
     

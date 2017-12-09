@@ -48,14 +48,26 @@ class SongRealm : Object {
     /// 歌曲地址
     dynamic var url = ""
     
-    // 模型转换
-    func covertModel(model:FMSongDataModel) {
-        artist = model.artist
-        coverURL = model.coverURL
-        lyricURL = model.lyricURL
-        share_uri = model.share_uri
-        sid = model.sid
-        title = model.title
-        url = model.url
+//    // 模型转换
+//    func covertModel(model:FMSongDataModel) {
+//        artist = model.artist
+//        coverURL = model.coverURL
+//        lyricURL = model.lyricURL
+//        share_uri = model.share_uri
+//        sid = model.sid
+//        title = model.title
+//        url = model.url
+//    }
+    
+    class func getModel(with model:FMSongDataModel) -> SongRealm {
+        let songRealm = SongRealm()
+        songRealm.artist = model.artist
+        songRealm.coverURL = model.coverURL
+        songRealm.lyricURL = model.lyricURL
+        songRealm.share_uri = model.share_uri
+        songRealm.sid = model.sid
+        songRealm.title = model.title
+        songRealm.url = model.url
+        return songRealm
     }
 }

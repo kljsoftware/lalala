@@ -29,25 +29,31 @@
                         <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7b-91-Jig">
-                        <rect key="frame" x="288" y="11" width="20" height="20"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playlist_btn_add.png" translatesAutoresizingMaskIntoConstraints="NO" id="9LB-lr-5nH">
+                        <rect key="frame" x="288" y="12" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="DHQ-M4-36p"/>
-                            <constraint firstAttribute="width" constant="20" id="t7R-IO-qaA"/>
+                            <constraint firstAttribute="height" constant="20" id="TLL-FV-xgH"/>
+                            <constraint firstAttribute="width" constant="20" id="fht-eB-SpV"/>
                         </constraints>
-                        <state key="normal" image="playlist_btn_add.png"/>
-                        <state key="highlighted" image="playlist_btn_add.png"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKH-uE-Fc9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <connections>
-                            <action selector="onAddButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2R3-t6-ntg"/>
+                            <action selector="onAddButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mRf-p3-qEk"/>
                         </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="Hba-nz-txG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1t5-s5-Iue"/>
-                    <constraint firstItem="a7b-91-Jig" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="26k-rK-n29"/>
                     <constraint firstItem="Hba-nz-txG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="4AG-9L-sPu"/>
-                    <constraint firstAttribute="trailing" secondItem="a7b-91-Jig" secondAttribute="trailing" constant="12" id="FZT-dD-ceS"/>
+                    <constraint firstAttribute="trailing" secondItem="9LB-lr-5nH" secondAttribute="trailing" constant="12" id="5SU-Gu-wZV"/>
+                    <constraint firstItem="mKH-uE-Fc9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="6IZ-ye-RZ1"/>
+                    <constraint firstItem="9LB-lr-5nH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="E2a-jR-DUh"/>
+                    <constraint firstAttribute="trailing" secondItem="mKH-uE-Fc9" secondAttribute="trailing" id="Thb-AC-k9f"/>
+                    <constraint firstItem="mKH-uE-Fc9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ZGj-00-EYE"/>
+                    <constraint firstAttribute="bottom" secondItem="mKH-uE-Fc9" secondAttribute="bottom" id="zJt-KM-WeA"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
