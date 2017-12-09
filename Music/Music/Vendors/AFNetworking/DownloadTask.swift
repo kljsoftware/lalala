@@ -67,7 +67,10 @@ class DownloadTask {
             /// 拼接文件总长度
             self!.currentLength += Int64(data.count)
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+               
+                if nil == self {return}
+                
                 var progress:Float = 0
                 if self!.fileLength != 0 {
                     progress = Float(self!.currentLength) / Float(self!.fileLength)
@@ -82,7 +85,7 @@ class DownloadTask {
             self?.fileLength = 0
             self?.fileHandle?.closeFile()
             self?.fileHandle = nil
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 self?.downloadFinishedCallback?(self!.filePath)
                 Log.e("下载完成")
             }
