@@ -40,7 +40,7 @@ class SearchResultCell: UITableViewCell {
             case 0: // 添加至歌单
                 
                 if weakself.songRealm != nil {
-                    PlaylistSheet.addToPlaylist(mode: weakself.songRealm!)
+                    PlaylistSheet.addToPlaylist(mode: SongRealm(value: weakself.songRealm!))
                     return
                 }
                 

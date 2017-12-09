@@ -47,12 +47,22 @@
                             <action selector="onMoreButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OfQ-Rk-OpH"/>
                         </connections>
                     </button>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Usk-yl-CW0">
+                        <rect key="frame" x="0.0" y="0.0" width="4" height="59.5"/>
+                        <color key="backgroundColor" red="0.41176470588235292" green="0.92941176470588238" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="4" id="ZPr-ig-mXa"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="6or-pO-PLC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="5ua-T7-9aL"/>
+                    <constraint firstAttribute="bottom" secondItem="Usk-yl-CW0" secondAttribute="bottom" id="Gd0-LF-54m"/>
                     <constraint firstAttribute="bottom" secondItem="6or-pO-PLC" secondAttribute="bottom" constant="12" id="O0w-Od-l34"/>
                     <constraint firstItem="LiG-lg-ZCx" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PRF-3F-yWk"/>
+                    <constraint firstItem="Usk-yl-CW0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XTU-9J-7Wt"/>
+                    <constraint firstItem="Usk-yl-CW0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fdp-E4-A7U"/>
                     <constraint firstItem="xAP-yK-3ZN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="jOm-cX-SdZ"/>
                     <constraint firstItem="LiG-lg-ZCx" firstAttribute="leading" secondItem="xAP-yK-3ZN" secondAttribute="trailing" constant="12" id="mjk-ok-5Ms"/>
                     <constraint firstItem="xAP-yK-3ZN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="vFZ-UI-LaC"/>

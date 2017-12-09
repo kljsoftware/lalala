@@ -208,6 +208,13 @@ class PlayerHelper {
         }
     }
     
+    /// 更换歌单并播放当前歌曲
+    func changePlaylist(playlist:[FMSongDataModel], song:FMSongDataModel) {
+        self.songList = playlist
+        self.song = song
+        start()
+    }
+    
     /// 获取三张封面,没有给空串
     func getCoverList() -> [String] {
         var coverList = ["", "", ""]

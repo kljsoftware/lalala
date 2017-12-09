@@ -139,7 +139,7 @@ extension PlaylistSheet :  UITableViewDataSource, UITableViewDelegate {
         }
         mode.songlistName = indexPath.row == 0 ? LanguageKey.MyMusic_Favorite.value : songlist[indexPath.row-1].name
         let message = indexPath.row == 0 ? LanguageKey.Tip_AddedToFavorites.value : LanguageKey.Tip_AddingComplete.value
-        let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "sid = %d", mode.sid))
+        let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "songlistName = %@ AND sid = %d", mode.songlistName, mode.sid))
         if results.count == 0 {
             RealmHelper.shared.insert(obj: mode)
         }

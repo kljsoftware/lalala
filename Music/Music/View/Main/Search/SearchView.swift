@@ -153,7 +153,6 @@ class SearchView: UIView {
         searchPage = page
         viewModel.requestSearchResult(query: query, type: type, page: page)
         resultTableView.isHidden = false
-        artistTableView.isHidden = true
     }
 }
 
@@ -193,11 +192,14 @@ extension SearchView :  UITableViewDataSource, UITableViewDelegate {
     // 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        /// 根据歌手名搜索歌单
         if tableView == artistTableView {
+            artistTableView.isHidden = true
             searchControlView.search(key: artists[indexPath.row].name)
             return
         }
         
-        /// 
+        /// 添加至播放列表并播放
+        PlayerHelper.shared.changePlaylist(playlist: results, song: results[indexPath.row])
     }
 }
