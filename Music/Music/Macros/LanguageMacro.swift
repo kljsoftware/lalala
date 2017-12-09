@@ -35,6 +35,7 @@ enum LanguageKey : String {
     case MyMusic_TrackArtistAlbum            =  "MyMusic_TrackArtistAlbum"
     case MyMusic_PauseAll = "MyMusic_PauseAll"
     case MyMusic_ContinueAll = "MyMusic_ContinueAll"
+    case MyMusic_NoTask = "MyMusic_NoTask"
    
     /// 发现
     case Discover_Rank              =  "Discover_Rank"
@@ -73,7 +74,6 @@ enum LanguageKey : String {
     case Common_Download       =  "Common_Download"
     case Common_Close          =  "Common_Close"
     case Common_NoContent = "Common_NoContent"
-    case MyMusic_NoTask = "MyMusic_NoTask"
 
     /// 提示
     case Tip_SequentialModeActivated =  "Tip_SequentialModeActivated"

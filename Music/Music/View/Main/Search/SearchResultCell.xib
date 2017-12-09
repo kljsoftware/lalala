@@ -72,6 +72,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="artistNameLabel" destination="6or-pO-PLC" id="pVB-ZL-Pt3"/>
+                <outlet property="indicatorView" destination="Usk-yl-CW0" id="lL2-Zy-ocD"/>
                 <outlet property="moreButton" destination="LiG-lg-ZCx" id="Nmw-T5-yug"/>
                 <outlet property="songNameLabel" destination="xAP-yK-3ZN" id="tgC-qr-yXD"/>
             </connections>

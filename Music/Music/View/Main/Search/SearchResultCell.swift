@@ -18,16 +18,20 @@ class SearchResultCell: UITableViewCell {
     /// 更多按钮
     @IBOutlet weak var moreButton: UIButton!
     
+    /// 播放指示视图
+    @IBOutlet weak var indicatorView: UIView!
+    
     /// 歌曲数据
     private var songRealm:SongRealm?, songModel:FMSongDataModel?
     
     // MARK: - override methods
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
+    // 选中/未选中单元
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        indicatorView.isHidden = !isSelected
+        if selected {
+            // TODO: 更新当前选择模式
+        }
     }
     
     // MARK: - IBAction

@@ -200,6 +200,6 @@ extension SearchView :  UITableViewDataSource, UITableViewDelegate {
         }
         
         /// 添加至播放列表并播放
-        PlayerHelper.shared.changePlaylist(playlist: results, song: results[indexPath.row])
+        PlayerHelper.shared.changePlaylist(playlist: results, playIndex: indexPath.row)
     }
 }

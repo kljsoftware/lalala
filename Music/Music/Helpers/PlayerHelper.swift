@@ -11,9 +11,6 @@ enum PlayerState {
     case stop           // 默认停止
     case play           // 播放
     case pause          // 暂停
-    case channelChanged // 切换频道
-    case waitingPrev    // 等待上一首播放
-    case waitingNext    // 等待下一首播放
 }
 
 /// 播放器助手
@@ -169,27 +166,27 @@ class PlayerHelper {
     }
     
     /// 上一首
-    func prev() {
+    func prev() -> Bool {
         if let index = songIndex(song: song) {
             if index > 0 {
                 song = songList[index - 1]
                 start()
-                return
+                return true
             }
         }
-        // 请求歌曲列表
+        return false
     }
     
     /// 下一首
-    func next() {
+    func next() -> Bool {
         if let index = songIndex(song: song) {
             if index < songList.count - 1 {
                 song = songList[index + 1]
                 start()
-                return
+                return true
             }
         }
-        // 请求歌曲列表
+        return false
     }
     
     /// 清空歌曲列表
@@ -209,10 +206,12 @@ class PlayerHelper {
     }
     
     /// 更换歌单并播放当前歌曲
-    func changePlaylist(playlist:[FMSongDataModel], song:FMSongDataModel) {
+    func changePlaylist(playlist:[FMSongDataModel], playIndex:Int) {
         self.songList = playlist
-        self.song = song
-        start()
+        if playIndex >= 0 && playIndex < playlist.count {
+            self.song = playlist[playIndex]
+            start()
+        }
     }
     
     /// 获取三张封面,没有给空串

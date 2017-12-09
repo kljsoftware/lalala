@@ -97,6 +97,8 @@ extension MyMusicSonglistView :  UITableViewDataSource, UITableViewDelegate {
     
     /// 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.cellForRow(at: indexPath)?.setSelected(true, animated: false)
+        let playlist = FMSongDataModel.getModels(with: songlist)
+        PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: indexPath.row)
     }
 }

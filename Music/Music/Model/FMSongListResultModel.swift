@@ -73,6 +73,28 @@ class FMSongDataModel : NSObject {
     override class func mj_objectClassInArray() -> [AnyHashable: Any]! {
         return ["other_sources" : FMSongOtherSourceDataModel.self]
     }
+    
+    /// 模型转换
+    class func getModel(with model:SongRealm) -> FMSongDataModel {
+        let song = FMSongDataModel()
+        song.artist = model.artist
+        song.coverURL = model.coverURL
+        song.lyricURL = model.lyricURL
+        song.share_uri = model.share_uri
+        song.sid = model.sid
+        song.title = model.title
+        song.url = model.url
+        return song
+    }
+    
+    /// 模型列表转换
+    class func getModels(with models:[SongRealm]) -> [FMSongDataModel] {
+        var songlist = [FMSongDataModel]()
+        for model in models {
+            songlist.append(getModel(with: model))
+        }
+        return songlist
+    }
 }
 
 /// mv

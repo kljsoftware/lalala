@@ -79,16 +79,8 @@ class FMView: UIView {
         return _playerView
     }()
     
-//    /// 更多选项卡视图
-//    lazy var morePickView:CustomPickerView = {
-//        let _morePickView = CustomPickerView(frame: self.bounds)
-//        _morePickView.dataArray = [["换一批歌曲", "添加到歌单", "下载", "取消"]]
-//        self.addSubview(_morePickView)
-//        _morePickView.selectedIndexsClosure = { (indexs:[Int]) in
-//
-//        }
-//        return _morePickView
-//    }()
+    /// 当前频道id、当前播放列表、播放索引
+    private var channelId = 2048, playlist = [FMSongDataModel](), playIndex:Int = 0
     
     // MARK: - override methods
     override init(frame: CGRect) {
@@ -165,26 +157,27 @@ class FMView: UIView {
     /// 业务模块处理回调 (频道切换/歌曲数据回调)
     private func viewModelCallback() {
         viewModel.setCompletion(onSuccess: { [weak self](result) in
+            guard let wself = self else {
+                return
+            }
             if result.isKind(of: FMChannelListResultModel.self) {
-                self?.channelView.channelListDataModel = (result as! FMChannelListResultModel).data
+                wself.channelView.channelListDataModel = (result as! FMChannelListResultModel).data
             } else if result.isKind(of: FMSongListResultModel.self) {
-                let songList = (result as! FMSongListResultModel).data
-                switch PlayerHelper.shared.state {
-                case .channelChanged:
-                    fallthrough
-                case .waitingNext:
-                    PlayerHelper.shared.addSongList(songList: songList)
-                    PlayerHelper.shared.start()
-                    PlayerHelper.shared.state = .play
-                case .waitingPrev:
-                    PlayerHelper.shared.addSongList(songList: songList, isPreInsert: true)
-                    PlayerHelper.shared.start()
-                    PlayerHelper.shared.state = .play
-                default:
-                    PlayerHelper.shared.addSongList(songList: songList)
-                    break
+                // 歌曲列表
+                let playlist = (result as! FMSongListResultModel).data
+                if playlist.count == 0 {
+                    return
                 }
-                
+                // 若当前没有歌曲列表，则播放索引初始化0
+                if wself.playlist.count == 0 {
+                    wself.playIndex = 0
+                } else if wself.playIndex == 0 { // 若有歌曲列表，并且当前索引为0，说明是请求上一首操作，置索引为新歌曲列表尾
+                    wself.playIndex = playlist.count - 1
+                } else { // 若有歌曲列表，并且当前索引为末尾，说明是请求下一首操作，置索引为旧歌曲列表尾
+                    wself.playIndex = wself.playlist.count
+                }
+                wself.playlist.append(contentsOf: playlist)
+                PlayerHelper.shared.changePlaylist(playlist: wself.playlist, playIndex: wself.playIndex)
             }
         }) { (error) in
             Log.e("error = \(error)")
@@ -201,17 +194,20 @@ class FMView: UIView {
     /// 频道切换
     private func channelChangedCallBack() {
         channelView.selectedClosure = { [weak self](channelId:Int) in
-            self?.viewModel.getSongList(channelId: channelId)
-            PlayerHelper.shared.state = .channelChanged
+            guard let wself = self else {
+                return
+            }
+            wself.viewModel.getSongList(channelId: channelId)
+            wself.playlist.removeAll()
         }
     }
     
     /// 无限切换视图上一页、下一页切换、点击事件回调
     private func loopPageCallBack() {
-        loopPageView.setup(prev: {
-            PlayerHelper.shared.prev()
-        }, next: {
-            PlayerHelper.shared.next()
+        loopPageView.setup(prev: { [weak self] in
+            self?.prevSong()
+        }, next: { [weak self] in
+            self?.nextSong()
         }) { [weak self] in
             self?.lyricView.isHidden = false
         }
@@ -221,6 +217,24 @@ class FMView: UIView {
     private func playViewCallBack() {
         playerView.setupClosures { [weak self] in
 
+        }
+    }
+    
+    /// 上一首
+    private func prevSong() {
+        if PlayerHelper.shared.prev() {
+            playIndex -= 1
+        } else {
+            viewModel.getSongList(channelId: channelId)
+        }
+    }
+    
+    /// 下一首
+    private func nextSong() {
+        if PlayerHelper.shared.next() {
+            viewModel.getSongList(channelId: channelId)
+        } else {
+            playIndex += 1
         }
     }
     
