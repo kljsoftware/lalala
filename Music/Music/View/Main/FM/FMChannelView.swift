@@ -39,7 +39,7 @@ class FMChannelView: UIView {
             return
         }
         setupSubViews()
-        selectedButton(with: DataHelper.shared.channelId)
+        selectedButton(with: DataHelper.shared.channelId ?? 2048)
     }
     
     /// 初始化子视图

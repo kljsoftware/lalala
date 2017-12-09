@@ -77,7 +77,7 @@ class MyMusicTableView : UIView {
         /// 排序完成，更新本地数据库
         if !isEditing {
             for songlist in songlists.reversed() {
-                RealmHelper.shared.insert(obj: SonglistRealm(value: [songlist.type, songlist.name, Date()]), filter: NSPredicate(format: "name = %@", songlist.name))
+                RealmHelper.shared.insert(obj: SonglistRealm(value: [songlist.name, Date()]), filter: NSPredicate(format: "name = %@", songlist.name))
             }
             reloadSonglists()
         }

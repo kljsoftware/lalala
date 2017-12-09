@@ -11,6 +11,7 @@ enum PlayerState {
     case stop           // 默认停止
     case play           // 播放
     case pause          // 暂停
+    case buffering      // 缓冲
 }
 
 /// 播放器助手
@@ -106,7 +107,7 @@ class PlayerHelper {
         stopTimer()
         switch streamer.status {
         case .buffering:
-            break
+            state = .buffering
         case .playing:
             state = .play
             startTimer()
@@ -114,6 +115,7 @@ class PlayerHelper {
             state = .pause
         case .error:
             state = .stop
+            streamer.stop()
         case .idle:
             state = .stop
         case .finished:

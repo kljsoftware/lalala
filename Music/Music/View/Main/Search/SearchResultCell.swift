@@ -21,8 +21,12 @@ class SearchResultCell: UITableViewCell {
     /// 播放指示视图
     @IBOutlet weak var indicatorView: UIView!
     
+    /// 序号及宽度约束
+    @IBOutlet weak var serialLabel: UILabel!
+    @IBOutlet weak var serialWidthLayoutConstraint: NSLayoutConstraint!
+    
     /// 歌曲数据
-    private var songRealm:SongRealm?, songModel:FMSongDataModel?
+    private var model:SongRealm?
     
     // MARK: - override methods
     // 选中/未选中单元
@@ -43,15 +47,11 @@ class SearchResultCell: UITableViewCell {
             switch index {
             case 0: // 添加至歌单
                 
-                if weakself.songRealm != nil {
-                    PlaylistSheet.addToPlaylist(mode: SongRealm(value: weakself.songRealm!))
+                if weakself.model != nil {
+                    PlaylistSheet.addToPlaylist(mode: SongRealm(value: weakself.model!))
                     return
                 }
                 
-                if weakself.songModel != nil {
-                    PlaylistSheet.addToPlaylist(mode: SongRealm.getModel(with: weakself.songModel!))
-                    return
-                }
             case 1:
                 break
             case 2:
@@ -64,16 +64,18 @@ class SearchResultCell: UITableViewCell {
     
     // MARK: - public methods
     /// 更新
-    func update(model:FMSongDataModel) {
-        self.songModel = model
+    func update(model:SongRealm, serial:Int? = nil) {
+        self.model = model
         songNameLabel.text = model.title
         artistNameLabel.text = model.artist
-    }
-    
-    /// 更新
-    func update(realmModel:SongRealm) {
-        self.songRealm = realmModel
-        songNameLabel.text = realmModel.title
-        artistNameLabel.text = realmModel.artist
+        guard let serial = serial else {
+            serialWidthLayoutConstraint.constant = 0
+            serialLabel.isHidden = true
+            return
+        }
+        serialLabel.isHidden = false
+        serialWidthLayoutConstraint.constant = 24
+        serialLabel.text = "\(serial)"
+        serialLabel.textColor = serial <= 3 ? COLOR_69EDC8 : COLOR_ABABAB
     }
 }

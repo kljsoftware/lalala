@@ -50,7 +50,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="gIY-hz-UYw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4GZ-Ig-bz0"/>
                     <constraint firstItem="rmH-h9-wgI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CSt-PQ-8LJ"/>
@@ -61,7 +61,7 @@
                     <constraint firstAttribute="trailing" secondItem="VMg-6c-ult" secondAttribute="trailing" constant="12" id="uP5-yL-iH1"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="nameLabel" destination="rmH-h9-wgI" id="2eb-NL-wey"/>
             </connections>

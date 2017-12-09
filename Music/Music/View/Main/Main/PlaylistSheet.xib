@@ -52,7 +52,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="lLC-SI-QTH" firstAttribute="leading" secondItem="FhR-Fa-xwf" secondAttribute="leading" constant="12" id="E2m-3k-LMk"/>
                                 <constraint firstItem="5d2-En-OEG" firstAttribute="leading" secondItem="FhR-Fa-xwf" secondAttribute="leading" id="Yq6-rN-l7f"/>
@@ -99,7 +99,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="tES-IA-2lV" firstAttribute="leading" secondItem="RwR-F4-5LW" secondAttribute="leading" constant="12" id="2L5-ow-4yE"/>
                                 <constraint firstItem="tAe-0s-84R" firstAttribute="centerY" secondItem="tES-IA-2lV" secondAttribute="centerY" id="Akn-hc-wZt"/>
@@ -115,9 +115,9 @@
                                 <constraint firstAttribute="trailing" secondItem="Ohg-1a-FQY" secondAttribute="trailing" id="qYR-ak-gnr"/>
                             </constraints>
                         </view>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yMC-mC-IJU">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yMC-mC-IJU">
                             <rect key="frame" x="0.0" y="50" width="375" height="176"/>
-                            <color key="backgroundColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <outlet property="dataSource" destination="iN0-l3-epB" id="X1f-cg-EmR"/>
                                 <outlet property="delegate" destination="iN0-l3-epB" id="3QC-es-68n"/>

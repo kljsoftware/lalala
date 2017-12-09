@@ -6,12 +6,17 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-import UIKit
+/// 按钮类型
+enum FMPlayerViewButtonType {
+    case love, prev, play, pause, next, more
+}
+
 
 class FMPlayerView: UIView {
     
     /// 按钮回调
-    private var moreButtonClosure:(() -> Void)?
+    var selectButtonClosure:((FMPlayerViewButtonType) -> Void)?
+
     
     /// 播放暂停按钮图片资源
     private let playImages = [UIImage(named:"fm_player_btn_play_normal")!, UIImage(named:"fm_player_btn_play_pressed")!], pauseImages = [UIImage(named:"fm_player_btn_stop_normal")!, UIImage(named:"fm_player_btn_stop_pressed")!]
@@ -74,11 +79,12 @@ class FMPlayerView: UIView {
 
     // MARK: - IBAction methods
     @IBAction func onLoveButtonClicked(_ sender: UIButton) {
-        
+        sender.isSelected = !sender.isSelected
+        selectButtonClosure?(.love)
     }
     
     @IBAction func onPrevButtonClicked(_ sender: UIButton) {
-        PlayerHelper.shared.prev()
+        selectButtonClosure?(.prev)
     }
     
     @IBAction func onControlButtonClicked(_ sender: UIButton) {
@@ -122,8 +128,8 @@ class FMPlayerView: UIView {
     }
     
     // MARK: - public methods
-    func setupClosures(moreButtonClosure:(() -> Void)?) {
-        self.moreButtonClosure = moreButtonClosure
+    func setupClosures(selectButtonClosure:((FMPlayerViewButtonType) -> Void)?) {
+        self.selectButtonClosure = selectButtonClosure
     }
     
     /// 更新按钮状态

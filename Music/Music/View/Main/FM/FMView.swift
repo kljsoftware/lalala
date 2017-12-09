@@ -175,12 +175,14 @@ class FMView: UIView {
                 // 若当前没有歌曲列表，则播放索引初始化0
                 if wself.playlist.count == 0 {
                     wself.playIndex = 0
+                    wself.playlist.append(contentsOf: playlist)
                 } else if wself.playIndex == 0 { // 若有歌曲列表，并且当前索引为0，说明是请求上一首操作，置索引为新歌曲列表尾
                     wself.playIndex = playlist.count - 1
+                    wself.playlist.insert(contentsOf: playlist, at: 0)
                 } else { // 若有歌曲列表，并且当前索引为末尾，说明是请求下一首操作，置索引为旧歌曲列表尾
                     wself.playIndex = wself.playlist.count
+                    wself.playlist.append(contentsOf: playlist)
                 }
-                wself.playlist.append(contentsOf: playlist)
                 PlayerHelper.shared.changePlaylist(playlist: wself.playlist, playIndex: wself.playIndex, owner: wself)
             }
         }) { (error) in
@@ -219,8 +221,18 @@ class FMView: UIView {
     
     // 播放控制视图回调
     private func playViewCallBack() {
-        playerView.setupClosures { [weak self] in
-
+        playerView.setupClosures { [weak self](type) in
+            guard let wself = self else {
+                return
+            }
+            switch type {
+            case .love: /// 添加到我喜爱的歌单\从我喜爱的歌单里移除
+                if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
+                    PlaylistHelper.addOrRemoveFavorites(songModel: wself.playlist[wself.playIndex])
+                }
+            default:
+                break
+            }
         }
     }
     
@@ -237,6 +249,7 @@ class FMView: UIView {
             return
         }
         
+        /// 如果存在上一首，播放并使索引-1， 否则请求歌曲列表
         if PlayerHelper.shared.prev() {
             playIndex -= 1
         } else {
@@ -258,10 +271,11 @@ class FMView: UIView {
             return
         }
         
+        /// 如果存在下一首，播放并使索引+1， 否则请求歌曲列表
         if PlayerHelper.shared.next() {
-            viewModel.getSongList(channelId: channelId)
-        } else {
             playIndex += 1
+        } else {
+            viewModel.getSongList(channelId: channelId)
         }
     }
     

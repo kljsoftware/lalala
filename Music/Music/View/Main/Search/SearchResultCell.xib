@@ -23,30 +23,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAP-yK-3ZN">
-                        <rect key="frame" x="12" y="12" width="257" height="0.0"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6or-pO-PLC">
-                        <rect key="frame" x="12" y="47.5" width="0.0" height="0.0"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                        <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiG-lg-ZCx">
-                        <rect key="frame" x="281" y="16.5" width="27" height="27"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="27" id="DWO-SZ-gMk"/>
-                            <constraint firstAttribute="width" constant="27" id="UuK-2d-FZ7"/>
-                        </constraints>
-                        <state key="normal" image="common_btn_more.png"/>
-                        <state key="highlighted" image="common_btn_more.png"/>
-                        <connections>
-                            <action selector="onMoreButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OfQ-Rk-OpH"/>
-                        </connections>
-                    </button>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Usk-yl-CW0">
                         <rect key="frame" x="0.0" y="0.0" width="4" height="59.5"/>
                         <color key="backgroundColor" red="0.41176470588235292" green="0.92941176470588238" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,19 +30,66 @@
                             <constraint firstAttribute="width" constant="4" id="ZPr-ig-mXa"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q38-6S-B7b">
+                        <rect key="frame" x="4" y="29.5" width="0.0" height="0.0"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" id="Jv8-VJ-fes"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sm2-Vr-6g7">
+                        <rect key="frame" x="10" y="0.0" width="310" height="59.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAP-yK-3ZN">
+                                <rect key="frame" x="0.0" y="12" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6or-pO-PLC">
+                                <rect key="frame" x="0.0" y="47.5" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                                <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiG-lg-ZCx">
+                                <rect key="frame" x="271" y="16" width="27" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="DWO-SZ-gMk"/>
+                                    <constraint firstAttribute="width" constant="27" id="UuK-2d-FZ7"/>
+                                </constraints>
+                                <state key="normal" image="common_btn_more.png"/>
+                                <state key="highlighted" image="common_btn_more.png"/>
+                                <connections>
+                                    <action selector="onMoreButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OfQ-Rk-OpH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xAP-yK-3ZN" firstAttribute="leading" secondItem="Sm2-Vr-6g7" secondAttribute="leading" id="8TN-s8-lVx"/>
+                            <constraint firstItem="xAP-yK-3ZN" firstAttribute="top" secondItem="Sm2-Vr-6g7" secondAttribute="top" constant="12" id="K0R-Fe-Asg"/>
+                            <constraint firstItem="6or-pO-PLC" firstAttribute="leading" secondItem="Sm2-Vr-6g7" secondAttribute="leading" id="ORp-F1-f8K"/>
+                            <constraint firstAttribute="trailing" secondItem="LiG-lg-ZCx" secondAttribute="trailing" constant="12" id="W8v-fm-l29"/>
+                            <constraint firstItem="LiG-lg-ZCx" firstAttribute="centerY" secondItem="Sm2-Vr-6g7" secondAttribute="centerY" id="co9-DN-2lF"/>
+                            <constraint firstAttribute="bottom" secondItem="6or-pO-PLC" secondAttribute="bottom" constant="12" id="mps-Xv-LJI"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="6or-pO-PLC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="5ua-T7-9aL"/>
                     <constraint firstAttribute="bottom" secondItem="Usk-yl-CW0" secondAttribute="bottom" id="Gd0-LF-54m"/>
-                    <constraint firstAttribute="bottom" secondItem="6or-pO-PLC" secondAttribute="bottom" constant="12" id="O0w-Od-l34"/>
-                    <constraint firstItem="LiG-lg-ZCx" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PRF-3F-yWk"/>
+                    <constraint firstItem="Sm2-Vr-6g7" firstAttribute="leading" secondItem="Q38-6S-B7b" secondAttribute="trailing" constant="6" id="Ij9-3y-ZtJ"/>
+                    <constraint firstAttribute="trailing" secondItem="Sm2-Vr-6g7" secondAttribute="trailing" id="P5n-Lc-VJA"/>
+                    <constraint firstItem="Q38-6S-B7b" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TpX-Ir-7Un"/>
                     <constraint firstItem="Usk-yl-CW0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XTU-9J-7Wt"/>
+                    <constraint firstItem="Sm2-Vr-6g7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bVN-wf-xUp"/>
+                    <constraint firstItem="Q38-6S-B7b" firstAttribute="leading" secondItem="Usk-yl-CW0" secondAttribute="trailing" id="fVa-Of-cG4"/>
                     <constraint firstItem="Usk-yl-CW0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fdp-E4-A7U"/>
-                    <constraint firstItem="xAP-yK-3ZN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="jOm-cX-SdZ"/>
-                    <constraint firstItem="LiG-lg-ZCx" firstAttribute="leading" secondItem="xAP-yK-3ZN" secondAttribute="trailing" constant="12" id="mjk-ok-5Ms"/>
-                    <constraint firstItem="xAP-yK-3ZN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="vFZ-UI-LaC"/>
-                    <constraint firstAttribute="trailing" secondItem="LiG-lg-ZCx" secondAttribute="trailing" constant="12" id="wsA-Dd-EZM"/>
+                    <constraint firstAttribute="bottom" secondItem="Sm2-Vr-6g7" secondAttribute="bottom" id="odg-go-4s5"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -74,6 +97,8 @@
                 <outlet property="artistNameLabel" destination="6or-pO-PLC" id="pVB-ZL-Pt3"/>
                 <outlet property="indicatorView" destination="Usk-yl-CW0" id="lL2-Zy-ocD"/>
                 <outlet property="moreButton" destination="LiG-lg-ZCx" id="Nmw-T5-yug"/>
+                <outlet property="serialLabel" destination="Q38-6S-B7b" id="UqF-lP-Des"/>
+                <outlet property="serialWidthLayoutConstraint" destination="Jv8-VJ-fes" id="J4y-Wx-YXd"/>
                 <outlet property="songNameLabel" destination="xAP-yK-3ZN" id="tgC-qr-yXD"/>
             </connections>
         </tableViewCell>

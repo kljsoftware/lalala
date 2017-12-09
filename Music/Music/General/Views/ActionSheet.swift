@@ -70,7 +70,7 @@ class ActionSheet: UIView {
         tableView.rowHeight         = 48
         tableView.delegate          = self
         tableView.dataSource        = self
-        tableView.separatorColor    = UIColor.white
+        tableView.separatorColor    = COLOR_ABABAB
         tableView.separatorInset    = UIEdgeInsets.zero
         tableView.isScrollEnabled   = items.count > 5
         bottomView.addSubview(tableView)
@@ -79,10 +79,10 @@ class ActionSheet: UIView {
         if cancel != nil {
             let cancelBtn   = UIButton(type: .custom)
             cancelBtn.frame = CGRect(x: 0, y: (title != nil ? 32 : 0) + (items.count > 5 ? 240 : CGFloat(items.count)*48) + 12, width: bottomView.frame.width, height: 48)
-            cancelBtn.backgroundColor   = UIColor.white
+            cancelBtn.backgroundColor   = COLOR_464646
             cancelBtn.titleLabel?.font  = ARIAL_FONT_16
             cancelBtn.setTitle(cancel!, for: .normal)
-            cancelBtn.setTitleColor(UIColor.black, for: .normal)
+            cancelBtn.setTitleColor(UIColor.white, for: .normal)
             cancelBtn.addTarget(self, action: #selector(cancelClicked(sender:)), for: .touchUpInside)
             cancelBtn.addTarget(self, action: #selector(cancelDown(sender:)), for: .touchDown)
             bottomView.addSubview(cancelBtn)
@@ -139,12 +139,13 @@ extension ActionSheet: UITableViewDelegate, UITableViewDataSource {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+            cell?.backgroundColor = COLOR_464646
             cell?.selectedBackgroundView = UIView(frame: cell!.frame)
-            cell?.selectedBackgroundView?.backgroundColor = UIColor.hexToColor(0xebeced)
+            cell?.selectedBackgroundView?.backgroundColor = UIColor.clear
         }
         cell?.textLabel?.text           = items[indexPath.row]
         cell?.textLabel?.font           = ARIAL_FONT_16
-        cell?.textLabel?.textColor      = UIColor.black
+        cell?.textLabel?.textColor      = UIColor.white
         cell?.textLabel?.textAlignment  = .center
         return cell!
     }

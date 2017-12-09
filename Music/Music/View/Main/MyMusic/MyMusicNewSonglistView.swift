@@ -56,8 +56,7 @@ class MyMusicNewSonglistView: UIView {
         }
         
         // 创建成功, 存入数据库, 通知并返回
-        RealmHelper.shared.insert(obj: SonglistRealm(value: [1, name, Date()]))
-        NotificationCenter.default.post(name: NoticationUpdateForCreateNewPlaylist, object: nil)
+        PlaylistHelper.createPlaylist(name: name)
         AppUI.pop(self)
     }
 }

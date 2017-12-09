@@ -179,7 +179,7 @@ extension SearchView :  UITableViewDataSource, UITableViewDelegate {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "kSearchResultCell", for: indexPath) as! SearchResultCell
-        cell.update(model: results[indexPath.row])
+        cell.update(model: SongRealm.getModel(model: results[indexPath.row]))
         return cell
     }
     

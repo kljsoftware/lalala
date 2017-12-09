@@ -11,9 +11,6 @@ import RealmSwift
 /// 歌单记录
 class SonglistRealm : Object {
     
-    /// 歌单类型 0表示我喜爱的歌单，1表示其它
-    dynamic var type = 0
-    
     /// 歌单名
     dynamic var name = ""
     
@@ -47,19 +44,9 @@ class SongRealm : Object {
     
     /// 歌曲地址
     dynamic var url = ""
-    
-//    // 模型转换
-//    func covertModel(model:FMSongDataModel) {
-//        artist = model.artist
-//        coverURL = model.coverURL
-//        lyricURL = model.lyricURL
-//        share_uri = model.share_uri
-//        sid = model.sid
-//        title = model.title
-//        url = model.url
-//    }
-    
-    class func getModel(with model:FMSongDataModel) -> SongRealm {
+
+    /// 歌曲模型转换
+    class func getModel(model:FMSongDataModel) -> SongRealm {
         let songRealm = SongRealm()
         songRealm.artist = model.artist
         songRealm.coverURL = model.coverURL

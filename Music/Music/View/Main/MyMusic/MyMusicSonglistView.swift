@@ -37,17 +37,19 @@ class MyMusicSonglistView: UIView {
         titleLabel.text = LanguageKey.Common_Playlist.value
         tableView.tableHeaderView = tableViewHeaderView()
         tableView.register(UINib(nibName: "SearchResultCell", bundle: nil), forCellReuseIdentifier: "kSearchResultCell")
+        registerNotification()
+    }
+    
+    deinit {
+        unregisterNotification()
+        Log.e("deinit")
     }
     
     // MARK: - private methods
     /// 初始化
     private func setup() {
         songlistHeaderView.update(name: songlistName!)
-        let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "songlistName = %@", songlistName!))
-        if results.count > 0 {
-            songlistHeaderView.update(imgurl: results.first!.coverURL)
-            songlist = Array(results)
-        }
+        reloadSonglists()
     }
     
     /// 列表头部视图
@@ -59,7 +61,46 @@ class MyMusicSonglistView: UIView {
         songlistHeaderView.snp.makeConstraints { (maker) in
             maker.left.top.width.height.equalTo(containerView)
         }
+        songlistHeaderView.clickedClosure = { [weak self] in
+            guard let wself = self else {
+                return
+            }
+            /// 暂无内容
+            if wself.songlist.count == 0 {
+                AppUI.tip(LanguageKey.Common_NoContent.value)
+                return
+            }
+            /// 播放第一首歌
+            let playlist = FMSongDataModel.getModels(with: wself.songlist)
+            PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: 0, owner: wself)
+            wself.tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.setSelected(true, animated: false)
+        }
         return containerView
+    }
+    
+    /// 重新加载数据
+    fileprivate func reloadSonglists() {
+        let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "songlistName = %@", songlistName!))
+        if results.count > 0 {
+            songlistHeaderView.update(imgurl: results.first!.coverURL)
+            songlist = Array(results)
+        }
+        tableView.reloadData()
+    }
+    
+    /// 注册通知
+    fileprivate func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForPlaylistChanged, object: nil)
+    }
+    
+    /// 销毁通知
+    fileprivate func unregisterNotification() {
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForPlaylistChanged, object: nil)
+    }
+    
+    /// 新建歌单消息
+    @objc private func notifyPlaylistChanged(_ sender:Notification) {
+        reloadSonglists()
     }
     
     /// 点击编辑按钮
@@ -86,7 +127,7 @@ extension MyMusicSonglistView :  UITableViewDataSource, UITableViewDelegate {
     /// 单元(cell)视图
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "kSearchResultCell", for: indexPath) as! SearchResultCell
-        cell.update(realmModel: songlist[indexPath.row])
+        cell.update(model: songlist[indexPath.row])
         return cell
     }
     

@@ -222,7 +222,10 @@ class ImmersionPlayerView: UIView {
     
     // MARK: - IBAction methods
     @IBAction func onLoveButtonClicked(_ sender: UIButton) {
-        
+        if PlayerHelper.shared.song != nil {
+            sender.isSelected = !sender.isSelected
+            PlaylistHelper.addOrRemoveFavorites(songModel: PlayerHelper.shared.song!)
+        }
     }
     
     @IBAction func onPrevButtonClicked(_ sender: UIButton) {
