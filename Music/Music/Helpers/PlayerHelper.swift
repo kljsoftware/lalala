@@ -42,6 +42,9 @@ class PlayerHelper {
     // 当前播放器状态
     var state:PlayerState = .stop
     
+    /// 当前播放列表的拥有者
+    var owner:NSObject?
+    
     /// 当前音乐的总时长
     var duration:TimeInterval {
         return player.audioStreamer?.duration ?? 0
@@ -194,24 +197,19 @@ class PlayerHelper {
         songList.removeAll()
     }
     
-    /// 添加歌曲列表
-    func addSongList(songList:[FMSongDataModel], isPreInsert:Bool = false) {
-        if isPreInsert {
-            self.songList.insert(contentsOf: songList, at: 0)
-            song = songList.last
-        } else {
-            self.songList.append(contentsOf: songList)
-            song = songList.first
-        }
-    }
-    
-    /// 更换歌单并播放当前歌曲
-    func changePlaylist(playlist:[FMSongDataModel], playIndex:Int) {
+    /// 更换歌单并播放当前歌曲 注：owner表示列表拥有者
+    func changePlaylist(playlist:[FMSongDataModel], playIndex:Int, owner:NSObject) {
         self.songList = playlist
+        self.owner = owner
         if playIndex >= 0 && playIndex < playlist.count {
             self.song = playlist[playIndex]
             start()
         }
+    }
+    
+    /// 判断是否是当前播放列表的拥有者
+    func isOwner(owner:NSObject) -> Bool {
+        return self.owner != nil && self.owner! == owner
     }
     
     /// 获取三张封面,没有给空串
@@ -245,14 +243,4 @@ class PlayerHelper {
         stopTimer()
         player.clean()
     }
-}
-
-/// 后台业务处理
-class BackgroundViewModel : BaseViewModel {
-    
-    // 获取歌曲列表
-    
-    // 获取当前播放歌曲的封面
-    
-    
 }

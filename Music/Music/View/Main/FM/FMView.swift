@@ -114,22 +114,26 @@ class FMView: UIView {
     
     /// 通知相关音频控制更新
     @objc private func notifyUpdateForAudioStatusChanged(_ sender:Notification) {
-        playerView.updateByStatusChanged()
+        if PlayerHelper.shared.isOwner(owner: self) {
+            playerView.updateByStatusChanged()
+        } else {
+            
+        }
     }
     
     /// 通知进度更新
     @objc private func notifyUpdateForAudioProgressChanged(_ sender:Notification) {
-        
-        // 进度
-        playerView.updateByProgressChanged()
-      
-        // 歌词
-        lyricView.scrollByTime(currentTime: PlayerHelper.shared.current)
+        if PlayerHelper.shared.isOwner(owner: self) {
+            playerView.updateByProgressChanged()
+            lyricView.scrollByTime(currentTime: PlayerHelper.shared.current)
+        }
     }
     
     /// 通知歌曲更新
     @objc private func notifyUpdateForSongChanged(_ sender:Notification) {
-        updateBySongChanged()
+        if PlayerHelper.shared.isOwner(owner: self) {
+            updateBySongChanged()
+        }
     }
     
     /// 初始化/相关模块回调处理
@@ -177,7 +181,7 @@ class FMView: UIView {
                     wself.playIndex = wself.playlist.count
                 }
                 wself.playlist.append(contentsOf: playlist)
-                PlayerHelper.shared.changePlaylist(playlist: wself.playlist, playIndex: wself.playIndex)
+                PlayerHelper.shared.changePlaylist(playlist: wself.playlist, playIndex: wself.playIndex, owner: wself)
             }
         }) { (error) in
             Log.e("error = \(error)")
@@ -222,6 +226,17 @@ class FMView: UIView {
     
     /// 上一首
     private func prevSong() {
+        /// 如当前播放列表不是改界面拥有者，则需要切换列表
+        if !PlayerHelper.shared.isOwner(owner: self) {
+            if playIndex > 0 && playIndex < playlist.count {
+                playIndex -= 1
+                PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: playIndex, owner: self)
+            } else {
+                viewModel.getSongList(channelId: channelId)
+            }
+            return
+        }
+        
         if PlayerHelper.shared.prev() {
             playIndex -= 1
         } else {
@@ -231,6 +246,18 @@ class FMView: UIView {
     
     /// 下一首
     private func nextSong() {
+        
+        /// 如当前播放列表不是改界面拥有者，则需要切换列表
+        if !PlayerHelper.shared.isOwner(owner: self) {
+            if playIndex >= 0 && playIndex < playlist.count - 1 {
+                playIndex += 1
+                PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: playIndex, owner: self)
+            } else {
+                viewModel.getSongList(channelId: channelId)
+            }
+            return
+        }
+        
         if PlayerHelper.shared.next() {
             viewModel.getSongList(channelId: channelId)
         } else {

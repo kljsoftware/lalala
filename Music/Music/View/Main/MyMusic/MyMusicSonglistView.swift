@@ -99,6 +99,6 @@ extension MyMusicSonglistView :  UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.setSelected(true, animated: false)
         let playlist = FMSongDataModel.getModels(with: songlist)
-        PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: indexPath.row)
+        PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: indexPath.row, owner: self)
     }
 }
