@@ -41,13 +41,24 @@
                         <constraint firstAttribute="height" constant="22" id="u8J-km-v4p"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yc6-e3-Hjm">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <action selector="onButtonClicked:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="0cy-ek-R42"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="Yc6-e3-Hjm" secondAttribute="trailing" id="7ZK-MM-rsN"/>
                 <constraint firstItem="qDF-h9-cg6" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="12" id="B94-AH-dKd"/>
                 <constraint firstItem="9vM-sx-NVT" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="LHH-VN-AhA"/>
+                <constraint firstItem="Yc6-e3-Hjm" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="MyR-FA-xXw"/>
+                <constraint firstAttribute="bottom" secondItem="Yc6-e3-Hjm" secondAttribute="bottom" id="aZ1-Gq-KwS"/>
                 <constraint firstItem="T4h-ve-nU3" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="eL3-nt-5qy"/>
                 <constraint firstItem="T4h-ve-nU3" firstAttribute="leading" secondItem="qDF-h9-cg6" secondAttribute="trailing" constant="6" id="edC-3y-IVl"/>
+                <constraint firstItem="Yc6-e3-Hjm" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="gHJ-oN-2Ia"/>
                 <constraint firstItem="qDF-h9-cg6" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="hfo-5r-fH3"/>
                 <constraint firstAttribute="trailing" secondItem="9vM-sx-NVT" secondAttribute="trailing" constant="12" id="irp-2O-htb"/>
             </constraints>
