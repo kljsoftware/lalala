@@ -6,7 +6,7 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
-private let cellHeight:CGFloat = 60
+private let cellHeight:CGFloat = 60, sectionHeight:CGFloat = 40
 
 /// 歌单视图
 class MyMusicSonglistView: UIView {
@@ -164,6 +164,17 @@ extension MyMusicSonglistView :  UITableViewDataSource, UITableViewDelegate {
     /// 单元(cell)的高度
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeight
+    }
+    
+    // 分区(Section)视图高度
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return sectionHeight
+    }
+    
+    // 分区(Section)视图
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = Bundle.main.loadNibNamed("MyMusicSonglistSectionView", owner: nil, options: nil)?[0] as! MyMusicSonglistSectionView
+        return view
     }
     
     /// 单元(cell)选中事件

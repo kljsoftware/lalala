@@ -106,7 +106,6 @@
 		3C322AC81FD1040B00961348 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C322AC71FD1040B00961348 /* bg.png */; };
 		3C367A6D1FCF08FF00F6323F /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C367A6C1FCF08FF00F6323F /* UIImageView+Extension.swift */; };
 		3C3AFA761FD63B02003FFCE3 /* SearchControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA751FD63B02003FFCE3 /* SearchControlView.swift */; };
-		3C3AFA791FD66873003FFCE3 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA781FD66873003FFCE3 /* SearchViewModel.swift */; };
 		3C3AFA7C1FD66FDF003FFCE3 /* SearchArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA7A1FD66FDF003FFCE3 /* SearchArtistCell.swift */; };
 		3C3AFA7D1FD66FDF003FFCE3 /* SearchArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AFA7B1FD66FDF003FFCE3 /* SearchArtistCell.xib */; };
 		3C3AFA801FD67AB9003FFCE3 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA7E1FD67AB9003FFCE3 /* SearchResultCell.swift */; };
@@ -117,7 +116,6 @@
 		3C3AFA911FD6B3B9003FFCE3 /* SearchPopularCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AFA8F1FD6B3B9003FFCE3 /* SearchPopularCell.xib */; };
 		3C3AFA941FD6BD38003FFCE3 /* SearchPopularSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA921FD6BD38003FFCE3 /* SearchPopularSectionView.swift */; };
 		3C3AFA951FD6BD38003FFCE3 /* SearchPopularSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AFA931FD6BD38003FFCE3 /* SearchPopularSectionView.xib */; };
-		3C3AFA981FD6C10C003FFCE3 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA971FD6C10C003FFCE3 /* DiscoverViewModel.swift */; };
 		3C3AFA9A1FD6C476003FFCE3 /* DiscoverCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AFA991FD6C476003FFCE3 /* DiscoverCollectionView.xib */; };
 		3C3AFA9C1FD6C4EF003FFCE3 /* DiscoverCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA9B1FD6C4EF003FFCE3 /* DiscoverCollectionView.swift */; };
 		3C3AFA9F1FD6D870003FFCE3 /* DiscoverCollectionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AFA9D1FD6D870003FFCE3 /* DiscoverCollectionSectionView.swift */; };
@@ -147,8 +145,6 @@
 		3C48ACC51FCBB0FA00B8992A /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACC41FCBB0FA00B8992A /* Dictionary+Extension.swift */; };
 		3C48ACCA1FCBB69800B8992A /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACC91FCBB69800B8992A /* ResultModel.swift */; };
 		3C48ACCD1FCBB8D000B8992A /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACCC1FCBB8D000B8992A /* HttpRequest.swift */; };
-		3C48ACD11FCBBC3C00B8992A /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACD01FCBBC3C00B8992A /* BaseViewModel.swift */; };
-		3C48ACD31FCBBC7800B8992A /* FMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACD21FCBBC7800B8992A /* FMViewModel.swift */; };
 		3C48ACDE1FCBEABD00B8992A /* FMSongListResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACDC1FCBEABD00B8992A /* FMSongListResultModel.swift */; };
 		3C48ACDF1FCBEABD00B8992A /* FMChannelListResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACDD1FCBEABD00B8992A /* FMChannelListResultModel.swift */; };
 		3C48ACE11FCBEE7F00B8992A /* FMChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACE01FCBEE7F00B8992A /* FMChannelView.swift */; };
@@ -171,6 +167,12 @@
 		3C6FB5401FDCD1F5003315E0 /* DiscoverRankDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6FB53F1FDCD1F5003315E0 /* DiscoverRankDetailView.swift */; };
 		3C6FB5431FDCD3B9003315E0 /* DiscoverRankDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6FB5411FDCD3B9003315E0 /* DiscoverRankDetailCell.swift */; };
 		3C6FB5441FDCD3B9003315E0 /* DiscoverRankDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C6FB5421FDCD3B9003315E0 /* DiscoverRankDetailCell.xib */; };
+		3C6FB5461FDD204E003315E0 /* MyMusicSonglistSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C6FB5451FDD204E003315E0 /* MyMusicSonglistSectionView.xib */; };
+		3C6FB5481FDD2077003315E0 /* MyMusicSonglistSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6FB5471FDD2077003315E0 /* MyMusicSonglistSectionView.swift */; };
+		3C6FB54D1FDD271C003315E0 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6FB5491FDD271B003315E0 /* SearchViewModel.swift */; };
+		3C6FB54E1FDD271C003315E0 /* FMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6FB54A1FDD271B003315E0 /* FMViewModel.swift */; };
+		3C6FB54F1FDD271C003315E0 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6FB54B1FDD271B003315E0 /* BaseViewModel.swift */; };
+		3C6FB5501FDD271C003315E0 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6FB54C1FDD271C003315E0 /* DiscoverViewModel.swift */; };
 		3C7C72631FC90AFA008793E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C72621FC90AFA008793E6 /* MainViewController.swift */; };
 		3C7C72651FC91B87008793E6 /* NotificationMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C72641FC91B87008793E6 /* NotificationMacro.swift */; };
 		3C7C72671FC924D6008793E6 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C72661FC924D6008793E6 /* Double+Extension.swift */; };
@@ -339,7 +341,6 @@
 		3C322AC71FD1040B00961348 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		3C367A6C1FCF08FF00F6323F /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		3C3AFA751FD63B02003FFCE3 /* SearchControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControlView.swift; sourceTree = "<group>"; };
-		3C3AFA781FD66873003FFCE3 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		3C3AFA7A1FD66FDF003FFCE3 /* SearchArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArtistCell.swift; sourceTree = "<group>"; };
 		3C3AFA7B1FD66FDF003FFCE3 /* SearchArtistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchArtistCell.xib; sourceTree = "<group>"; };
 		3C3AFA7E1FD67AB9003FFCE3 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -350,7 +351,6 @@
 		3C3AFA8F1FD6B3B9003FFCE3 /* SearchPopularCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPopularCell.xib; sourceTree = "<group>"; };
 		3C3AFA921FD6BD38003FFCE3 /* SearchPopularSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopularSectionView.swift; sourceTree = "<group>"; };
 		3C3AFA931FD6BD38003FFCE3 /* SearchPopularSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPopularSectionView.xib; sourceTree = "<group>"; };
-		3C3AFA971FD6C10C003FFCE3 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
 		3C3AFA991FD6C476003FFCE3 /* DiscoverCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverCollectionView.xib; sourceTree = "<group>"; };
 		3C3AFA9B1FD6C4EF003FFCE3 /* DiscoverCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCollectionView.swift; sourceTree = "<group>"; };
 		3C3AFA9D1FD6D870003FFCE3 /* DiscoverCollectionSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCollectionSectionView.swift; sourceTree = "<group>"; };
@@ -380,8 +380,6 @@
 		3C48ACC41FCBB0FA00B8992A /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		3C48ACC91FCBB69800B8992A /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		3C48ACCC1FCBB8D000B8992A /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
-		3C48ACD01FCBBC3C00B8992A /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		3C48ACD21FCBBC7800B8992A /* FMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMViewModel.swift; sourceTree = "<group>"; };
 		3C48ACDC1FCBEABD00B8992A /* FMSongListResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSongListResultModel.swift; sourceTree = "<group>"; };
 		3C48ACDD1FCBEABD00B8992A /* FMChannelListResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMChannelListResultModel.swift; sourceTree = "<group>"; };
 		3C48ACE01FCBEE7F00B8992A /* FMChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMChannelView.swift; sourceTree = "<group>"; };
@@ -404,6 +402,12 @@
 		3C6FB53F1FDCD1F5003315E0 /* DiscoverRankDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverRankDetailView.swift; sourceTree = "<group>"; };
 		3C6FB5411FDCD3B9003315E0 /* DiscoverRankDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverRankDetailCell.swift; sourceTree = "<group>"; };
 		3C6FB5421FDCD3B9003315E0 /* DiscoverRankDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverRankDetailCell.xib; sourceTree = "<group>"; };
+		3C6FB5451FDD204E003315E0 /* MyMusicSonglistSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicSonglistSectionView.xib; sourceTree = "<group>"; };
+		3C6FB5471FDD2077003315E0 /* MyMusicSonglistSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicSonglistSectionView.swift; sourceTree = "<group>"; };
+		3C6FB5491FDD271B003315E0 /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		3C6FB54A1FDD271B003315E0 /* FMViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMViewModel.swift; sourceTree = "<group>"; };
+		3C6FB54B1FDD271B003315E0 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		3C6FB54C1FDD271C003315E0 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
 		3C7C72621FC90AFA008793E6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3C7C72641FC91B87008793E6 /* NotificationMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMacro.swift; sourceTree = "<group>"; };
 		3C7C72661FC924D6008793E6 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
@@ -654,10 +658,10 @@
 		3C04077B1FC3F5A800080935 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				3C48ACCF1FCBBC0800B8992A /* Base */,
-				3C48ACCE1FCBBBC600B8992A /* FM */,
-				3C3AFA771FD66826003FFCE3 /* Search */,
-				3C3AFA961FD6C0CF003FFCE3 /* Discover */,
+				3C6FB54B1FDD271B003315E0 /* BaseViewModel.swift */,
+				3C6FB54A1FDD271B003315E0 /* FMViewModel.swift */,
+				3C6FB54C1FDD271C003315E0 /* DiscoverViewModel.swift */,
+				3C6FB5491FDD271B003315E0 /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -756,22 +760,6 @@
 			path = MyMusic;
 			sourceTree = "<group>";
 		};
-		3C3AFA771FD66826003FFCE3 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				3C3AFA781FD66873003FFCE3 /* SearchViewModel.swift */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		3C3AFA961FD6C0CF003FFCE3 /* Discover */ = {
-			isa = PBXGroup;
-			children = (
-				3C3AFA971FD6C10C003FFCE3 /* DiscoverViewModel.swift */,
-			);
-			path = Discover;
-			sourceTree = "<group>";
-		};
 		3C3AFAAF1FD77FFD003FFCE3 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
@@ -795,22 +783,6 @@
 				3C322AC51FD0EAAB00961348 /* DownloadTask.swift */,
 			);
 			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		3C48ACCE1FCBBBC600B8992A /* FM */ = {
-			isa = PBXGroup;
-			children = (
-				3C48ACD21FCBBC7800B8992A /* FMViewModel.swift */,
-			);
-			path = FM;
-			sourceTree = "<group>";
-		};
-		3C48ACCF1FCBBC0800B8992A /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				3C48ACD01FCBBC3C00B8992A /* BaseViewModel.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		3C48FE591FC852BF00EF6891 /* Views */ = {
@@ -1011,6 +983,8 @@
 				3C0784E91FDA3927003CF405 /* MyMusicNewSonglistView.swift */,
 				3C3BE5911FDA96A0002D140B /* MyMusicSonglistView.xib */,
 				3C3BE5931FDA9949002D140B /* MyMusicSonglistView.swift */,
+				3C6FB5471FDD2077003315E0 /* MyMusicSonglistSectionView.swift */,
+				3C6FB5451FDD204E003315E0 /* MyMusicSonglistSectionView.xib */,
 				3C3BE5951FDAA5DD002D140B /* MyMusicSonglistHeaderView.xib */,
 				3C3BE59F1FDAAA9B002D140B /* MyMusicSonglistHeaderView.swift */,
 			);
@@ -1195,6 +1169,7 @@
 				3C3AFA951FD6BD38003FFCE3 /* SearchPopularSectionView.xib in Resources */,
 				3C0EBE8C1FD231220047B1E1 /* immersion_player_btn_cycle_all_pressed.png in Resources */,
 				3C6FB53E1FDCD1D9003315E0 /* DiscoverRankDetailView.xib in Resources */,
+				3C6FB5461FDD204E003315E0 /* MyMusicSonglistSectionView.xib in Resources */,
 				3C16B8D01FCE4E7A00FAABCA /* fm_player_btn_stop_normal.png in Resources */,
 				3C3AFAA01FD6D870003FFCE3 /* DiscoverCollectionSectionView.xib in Resources */,
 				3CD05F2F1FCA953D00FEC161 /* Localizable.strings in Resources */,
@@ -1360,19 +1335,18 @@
 				3C16B8B11FCE3CFE00FAABCA /* UIView+Extension.swift in Sources */,
 				3763B2441FD12DA6001433D4 /* DiscoveryLoadSonglistResultModel.swift in Sources */,
 				3C3AFAA71FD6F009003FFCE3 /* DiscoverEnterCell.swift in Sources */,
+				3C6FB54E1FDD271C003315E0 /* FMViewModel.swift in Sources */,
 				3C3AFA761FD63B02003FFCE3 /* SearchControlView.swift in Sources */,
 				3CC22A551FDC35CD003EA6BF /* DiscoverRankView.swift in Sources */,
 				3C16B8D21FCE5B7000FAABCA /* FMPlayerView.swift in Sources */,
 				3C1EF0081FD7D4890061742F /* HistoryRealm.swift in Sources */,
 				3C48ACDF1FCBEABD00B8992A /* FMChannelListResultModel.swift in Sources */,
-				3C3AFA791FD66873003FFCE3 /* SearchViewModel.swift in Sources */,
-				3C48ACD31FCBBC7800B8992A /* FMViewModel.swift in Sources */,
 				3CD05F521FCA9DF100FEC161 /* MeView.swift in Sources */,
 				3CD05F4E1FCA9DD900FEC161 /* DiscoverView.swift in Sources */,
 				3CD05F4A1FCA9DBB00FEC161 /* FMView.swift in Sources */,
 				3CA712BC1FD56AF2004F0490 /* MyMusicSongOrderSectionCell.swift in Sources */,
-				3C3AFA981FD6C10C003FFCE3 /* DiscoverViewModel.swift in Sources */,
 				3C04077C1FC3F5A800080935 /* AppDelegate.swift in Sources */,
+				3C6FB54D1FDD271C003315E0 /* SearchViewModel.swift in Sources */,
 				37DF3BAD1FD1394A006399E2 /* DiscoverRankDetailResultModel.swift in Sources */,
 				3C48ACCD1FCBB8D000B8992A /* HttpRequest.swift in Sources */,
 				37DF3BAF1FD139D9006399E2 /* DiscoverSongListResultModel.swift in Sources */,
@@ -1404,6 +1378,7 @@
 				3C3AFA9C1FD6C4EF003FFCE3 /* DiscoverCollectionView.swift in Sources */,
 				3C16B8DA1FCE917E00FAABCA /* SliderView.swift in Sources */,
 				3CD05F6B1FCAAA2B00FEC161 /* TabView.swift in Sources */,
+				3C6FB5481FDD2077003315E0 /* MyMusicSonglistSectionView.swift in Sources */,
 				3CA5412C1FD8DE740064764A /* MeSettingView.swift in Sources */,
 				3C16B8D61FCE837E00FAABCA /* UIImage+Extension.swift in Sources */,
 				377C54091FD13CC200618A9F /* SearchSongResultModel.swift in Sources */,
@@ -1413,7 +1388,6 @@
 				3C7C72651FC91B87008793E6 /* NotificationMacro.swift in Sources */,
 				3C0784E41FDA2AD8003CF405 /* SonglistRealm.swift in Sources */,
 				3C6FB5431FDCD3B9003315E0 /* DiscoverRankDetailCell.swift in Sources */,
-				3C48ACD11FCBBC3C00B8992A /* BaseViewModel.swift in Sources */,
 				3CD05F501FCA9DE500FEC161 /* SearchView.swift in Sources */,
 				3C58CFD31FC9A86700045BA9 /* String+Extension.swift in Sources */,
 				3C3AFAAA1FD6F0E5003FFCE3 /* BorderView.swift in Sources */,
@@ -1429,6 +1403,7 @@
 				3C58CFC61FC9525300045BA9 /* DataHelper.swift in Sources */,
 				3C3AFA9F1FD6D870003FFCE3 /* DiscoverCollectionSectionView.swift in Sources */,
 				3C5D4BF71FD7DFC3002C8590 /* SearchHistoryCell.swift in Sources */,
+				3C6FB5501FDD271C003315E0 /* DiscoverViewModel.swift in Sources */,
 				3C0EBE991FD29A9D0047B1E1 /* UIButton+Extension.swift in Sources */,
 				3CA541381FD911F60064764A /* MeSelectLanguageView.swift in Sources */,
 				3C7C72631FC90AFA008793E6 /* MainViewController.swift in Sources */,
@@ -1442,6 +1417,7 @@
 				3CD05F4C1FCA9DC900FEC161 /* MyMusicView.swift in Sources */,
 				3CC22A481FDB837B003EA6BF /* PlaylistSheet.swift in Sources */,
 				3C0EBE571FD22D780047B1E1 /* ImmersionPlayerView.swift in Sources */,
+				3C6FB54F1FDD271C003315E0 /* BaseViewModel.swift in Sources */,
 				3CA541251FD8BEAE0064764A /* MeSleepModeCell.swift in Sources */,
 				3C16B8AF1FCDA95100FAABCA /* LoopPageView.swift in Sources */,
 				3C3AFAAD1FD6FAB4003FFCE3 /* DiscoverPlaylistCell.swift in Sources */,

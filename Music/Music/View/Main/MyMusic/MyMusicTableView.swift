@@ -141,7 +141,7 @@ extension MyMusicTableView :  UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    // 头部分区(Section)视图高度
+    // 分区(Section)视图高度
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch MyMusicSectionType(rawValue:section)! {
         case .owned:
@@ -151,7 +151,7 @@ extension MyMusicTableView :  UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    // 头部分区(Section)视图
+    // 分区(Section)视图
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch MyMusicSectionType(rawValue:section)! {
         case .owned:
