@@ -15,6 +15,7 @@ class MyMusicSonglistView: UIView {
     var songlistName:String? {
         didSet {
             if songlistName != nil {
+                isLocalSonglist = true
                 setup()
             }
         }
@@ -23,10 +24,14 @@ class MyMusicSonglistView: UIView {
     /// 网络歌单信息
     var playlistInfo:PlaylistInfoModel? {
         didSet {
-            
+            isLocalSonglist = false
+            setupViewModel()
         }
     }
-
+    
+    /// 判断是否是本地歌曲
+    private var isLocalSonglist = false
+    
     /// 标题
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -56,12 +61,25 @@ class MyMusicSonglistView: UIView {
     /// 初始化
     private func setup() {
         songlistHeaderView.update(name: songlistName!)
-        reloadSonglists()
+        reloadLocalSonglist()
     }
     
     /// 初始化业务模块
     private func setupViewModel() {
-        
+        let viewModel = DiscoverViewModel()
+        viewModel.requestDiscoverSonglistDetail(songlistId: playlistInfo!.song_list_id)
+        viewModel.setCompletion(onSuccess: { [weak self](resultModel) in
+            guard let wself = self else {
+                return
+            }
+            let playlist = (resultModel as! DiscoverSongListResultModel).data.songs
+            wself.songlist = SongRealm.getModels(models:playlist)
+            wself.songlistHeaderView.update(name: wself.playlistInfo!.song_list_name)
+            wself.songlistHeaderView.update(imgurl: wself.playlistInfo!.song_list_cover)
+            wself.tableView.reloadData()
+        }) { (error) in
+            Log.e("error = \(error)")
+        }
     }
     
     /// 列表头部视图
@@ -91,7 +109,7 @@ class MyMusicSonglistView: UIView {
     }
     
     /// 重新加载数据
-    fileprivate func reloadSonglists() {
+    fileprivate func reloadLocalSonglist() {
         let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "songlistName = %@", songlistName!))
         if results.count > 0 {
             songlistHeaderView.update(imgurl: results.first!.coverURL)
@@ -112,7 +130,7 @@ class MyMusicSonglistView: UIView {
     
     /// 新建歌单消息
     @objc private func notifyPlaylistChanged(_ sender:Notification) {
-        reloadSonglists()
+        reloadLocalSonglist()
     }
     
     /// 点击编辑按钮

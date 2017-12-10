@@ -78,5 +78,19 @@ class DiscoverViewModel: BaseViewModel {
     }
     
     /// 获取热门歌单列表
-   // func 
+    func requestDiscoverSonglistDetail(songlistId:String) {
+        let url = NetworkURL.DiscoverSonglistDetail(song_list_id: songlistId).url
+        Log.e("url = \(url)")
+        HttpRequest.get(url, success: { (result) in
+            Log.e("reponse = \(String(describing: result))")
+            let resultModel = DiscoverSongListResultModel.mj_object(withKeyValues: result)
+            if resultModel != nil && resultModel!.status == 1 {
+                self.successCallback?(resultModel!)
+            } else {
+                self.failureCallback?("服务器内部错误")
+            }
+        }) { (error) in
+            self.failureCallback?(error.localizedDescription)
+        }
+    }
 }

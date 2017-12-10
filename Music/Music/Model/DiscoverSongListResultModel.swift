@@ -1,13 +1,18 @@
 //
-//  SongListDataModel.swift
+//  DiscoverSongListDataModel.swift
 //  Music
 //
 //  Created by 孔令杰 on 2017/12/1.
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
+/// 获取歌单内容
+class DiscoverSongListResultModel: ResultModel {
+    var data = DiscoverSongListDataModel()
+}
+
 /// 歌单数据
-class SongListDataModel: NSObject{
+class DiscoverSongListDataModel: NSObject{
     
     /// 歌单id
     var song_list_id = 0
@@ -50,7 +55,12 @@ class SongListDataModel: NSObject{
     
     /// 分享链接
     var share_link = ""
-
+    
     /// 歌曲列表
     var songs = [FMSongDataModel]()
+    
+    /// 指定数组元素类型
+    override class func mj_objectClassInArray() -> [AnyHashable: Any]! {
+        return ["songs" : FMSongDataModel.self]
+    }
 }

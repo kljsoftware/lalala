@@ -57,4 +57,13 @@ class SongRealm : Object {
         songRealm.url = model.url
         return songRealm
     }
+    
+    /// 歌曲列表模型转换
+    class func getModels(models:[FMSongDataModel]) -> [SongRealm] {
+        var songRealms = [SongRealm]()
+        for model in models {
+            songRealms.append(getModel(model:model))
+        }
+        return songRealms
+    }
 }

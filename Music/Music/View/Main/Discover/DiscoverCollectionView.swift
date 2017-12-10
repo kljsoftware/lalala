@@ -196,7 +196,9 @@ extension DiscoverCollectionView :  UICollectionViewDataSource, UICollectionView
             view.rankInfo = model!.enter[indexPath.row]
             AppUI.push(from: self, to: view, with: APP_SIZE)
         case .playlist:
-            break
+            let view = Bundle.main.loadNibNamed("MyMusicSonglistView", owner: nil, options: nil)?.first as! MyMusicSonglistView
+            view.playlistInfo = playlist[indexPath.row]
+            AppUI.push(from: self, to: view, with: APP_SIZE)
         }
     }
 }
