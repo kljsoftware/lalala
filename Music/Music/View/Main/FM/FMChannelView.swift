@@ -35,11 +35,11 @@ class FMChannelView: UIView {
     
     /// 布局初始化
     func setup() {
-        if channelListDataModel == nil {
+        if channelListDataModel == nil && channelListDataModel!.channels.count == 0 {
             return
         }
         setupSubViews()
-        selectedButton(with: DataHelper.shared.channelId ?? 2048)
+        selectedButton(with: DataHelper.shared.channelId ?? channelListDataModel!.channels.first!.id)
     }
     
     /// 初始化子视图
