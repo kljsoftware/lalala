@@ -24,7 +24,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="103" height="174"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x8a-FH-MoC">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x8a-FH-MoC">
                         <rect key="frame" x="0.0" y="0.0" width="103" height="103"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="x8a-FH-MoC" secondAttribute="height" multiplier="1:1" id="SgX-Ap-eb1"/>
@@ -37,17 +37,17 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkT-FU-F7u" customClass="BorderView" customModule="Music" customModuleProvider="target">
-                        <rect key="frame" x="51" y="12" width="40" height="20"/>
+                        <rect key="frame" x="55" y="12" width="36" height="20"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playlist_ic_play_count.png" translatesAutoresizingMaskIntoConstraints="NO" id="POS-pu-ASK">
-                                <rect key="frame" x="12" y="5" width="10" height="10"/>
+                                <rect key="frame" x="10" y="5" width="10" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="10" id="3Ia-v5-aES"/>
                                     <constraint firstAttribute="height" constant="10" id="pd6-J8-qX2"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYF-mU-AYm">
-                                <rect key="frame" x="28" y="10" width="0.0" height="0.0"/>
+                                <rect key="frame" x="26" y="10" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -59,8 +59,9 @@
                             <constraint firstItem="GYF-mU-AYm" firstAttribute="centerX" secondItem="gkT-FU-F7u" secondAttribute="centerX" constant="8" id="KZ1-96-OEn"/>
                             <constraint firstItem="GYF-mU-AYm" firstAttribute="leading" secondItem="POS-pu-ASK" secondAttribute="trailing" constant="6" id="UU6-2Q-CMU"/>
                             <constraint firstItem="GYF-mU-AYm" firstAttribute="centerY" secondItem="gkT-FU-F7u" secondAttribute="centerY" id="Uku-r2-eGz"/>
-                            <constraint firstAttribute="width" constant="40" id="jKn-cX-EdW"/>
+                            <constraint firstItem="POS-pu-ASK" firstAttribute="leading" secondItem="gkT-FU-F7u" secondAttribute="leading" constant="10" id="b0c-uy-IVS"/>
                             <constraint firstItem="POS-pu-ASK" firstAttribute="centerY" secondItem="gkT-FU-F7u" secondAttribute="centerY" id="qhe-cG-zxE"/>
+                            <constraint firstAttribute="trailing" secondItem="GYF-mU-AYm" secondAttribute="trailing" constant="10" id="vNt-8q-09X"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="fill">
