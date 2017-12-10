@@ -15,6 +15,12 @@ class DiscoverCollectionSectionView: UICollectionReusableView {
     /// 箭头
     @IBOutlet weak var arrowImageView: UIImageView!
     
+    /// 按钮点击
+    @IBAction func onButtonClicked(_ sender: UIButton) {
+        let view = Bundle.main.loadNibNamed("DiscoverRankDetailView", owner: nil, options: nil)?.first as! DiscoverRankDetailView
+        AppUI.push(from: self, to: view, with: APP_SIZE)
+    }
+    
     // MARK: - public methods
     /// 更新 type: 0表示排行榜  1表示热门歌单
     func update(key:Int) {

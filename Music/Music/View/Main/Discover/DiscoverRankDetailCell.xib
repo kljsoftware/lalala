@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Arial.ttf">
+            <string>ArialMT</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="DiscoverRankDetailCell" customModule="Music" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8aq-HX-qWy">
+                        <rect key="frame" x="12" y="11" width="56" height="56"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="56" id="UCe-xH-j40"/>
+                            <constraint firstAttribute="width" constant="56" id="kBC-S6-WBL"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZC-ok-SIl">
+                        <rect key="frame" x="80" y="15" width="228" height="0.0"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S95-uR-m1v">
+                        <rect key="frame" x="80" y="61" width="228" height="0.0"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
+                        <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7l-UJ-tnh">
+                        <rect key="frame" x="80" y="63" width="228" height="0.0"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                        <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNp-17-Q4D">
+                        <rect key="frame" x="80" y="78" width="240" height="1"/>
+                        <color key="backgroundColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="3oq-54-8j7" customClass="OnePixelConstraint" customModule="Music" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="onePixelConstant">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="8aq-HX-qWy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="7xL-O9-GWM"/>
+                    <constraint firstAttribute="trailing" secondItem="S95-uR-m1v" secondAttribute="trailing" constant="12" id="HjT-nd-w8f"/>
+                    <constraint firstItem="xZC-ok-SIl" firstAttribute="top" secondItem="8aq-HX-qWy" secondAttribute="top" constant="4" id="IJe-T4-3dy"/>
+                    <constraint firstAttribute="trailing" secondItem="xZC-ok-SIl" secondAttribute="trailing" constant="12" id="KtI-Ej-uJH"/>
+                    <constraint firstItem="p7l-UJ-tnh" firstAttribute="top" secondItem="S95-uR-m1v" secondAttribute="bottom" constant="2" id="Q4B-JH-WBp"/>
+                    <constraint firstItem="p7l-UJ-tnh" firstAttribute="bottom" secondItem="8aq-HX-qWy" secondAttribute="bottom" constant="-4" id="RxE-dL-Xoj"/>
+                    <constraint firstAttribute="trailing" secondItem="p7l-UJ-tnh" secondAttribute="trailing" constant="12" id="YqK-Tb-S6r"/>
+                    <constraint firstAttribute="trailing" secondItem="LNp-17-Q4D" secondAttribute="trailing" id="dAl-hS-O91"/>
+                    <constraint firstItem="xZC-ok-SIl" firstAttribute="leading" secondItem="8aq-HX-qWy" secondAttribute="trailing" constant="12" id="h4b-to-RHd"/>
+                    <constraint firstItem="p7l-UJ-tnh" firstAttribute="leading" secondItem="8aq-HX-qWy" secondAttribute="trailing" constant="12" id="kdd-aW-JSi"/>
+                    <constraint firstAttribute="bottom" secondItem="LNp-17-Q4D" secondAttribute="bottom" constant="0.5" id="qOn-mP-bd5"/>
+                    <constraint firstItem="8aq-HX-qWy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qx8-il-ppK"/>
+                    <constraint firstItem="S95-uR-m1v" firstAttribute="leading" secondItem="8aq-HX-qWy" secondAttribute="trailing" constant="12" id="shD-2q-1Jl"/>
+                    <constraint firstItem="LNp-17-Q4D" firstAttribute="leading" secondItem="8aq-HX-qWy" secondAttribute="trailing" constant="12" id="ypf-A8-Sjk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="coverImageView" destination="8aq-HX-qWy" id="0rx-CI-enB"/>
+                <outlet property="sourceLabel" destination="S95-uR-m1v" id="p03-Zp-IEI"/>
+                <outlet property="subTitleLabel" destination="p7l-UJ-tnh" id="vf6-QT-MB6"/>
+                <outlet property="titleLabel" destination="xZC-ok-SIl" id="MV2-yb-xtr"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
