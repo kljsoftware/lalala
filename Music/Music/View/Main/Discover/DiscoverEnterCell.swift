@@ -21,7 +21,7 @@ class DiscoverEnterCell: UICollectionViewCell {
     
     // MARK: - public methods
     /// 更新
-    func update(model:EnterDataModel) {
+    func update(model:RankInfoModel) {
         let color = UIColor.hexStringToColor(model.color)
         borderView.setup(color)
         iconImageView.setImage(urlStr: model.icon, placeholderStr: "", radius: 0)

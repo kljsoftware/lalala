@@ -136,11 +136,12 @@ extension DiscoverCollectionView :  UICollectionViewDataSource, UICollectionView
 
     }
     
+    /// 分区单元
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch DiscoverCollectionType(rawValue:indexPath.section)! {
         case .rank:
             let sectionCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "kDiscoverCollectionSectionView", for: indexPath) as! DiscoverCollectionSectionView
-            sectionCell.update(key: 0)
+            sectionCell.update(type: 0)
             return sectionCell
         case .enter:
             let sectionCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "kDiscoverCollectionEmptyView", for: indexPath) as! DiscoverCollectionEmptyView
@@ -148,7 +149,7 @@ extension DiscoverCollectionView :  UICollectionViewDataSource, UICollectionView
             return sectionCell
         case .playlist:
             let sectionCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "kDiscoverCollectionSectionView", for: indexPath) as! DiscoverCollectionSectionView
-            sectionCell.update(key: 1)
+            sectionCell.update(type: 1)
             return sectionCell
         }
     }
@@ -178,7 +179,24 @@ extension DiscoverCollectionView :  UICollectionViewDataSource, UICollectionView
         }
     }
     
+    /// 单元之前的间隔
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return blank
+    }
+    
+    /// 点击单元
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch DiscoverCollectionType(rawValue:indexPath.section)! {
+        case .rank:
+            let view = Bundle.main.loadNibNamed("DiscoverRankView", owner: nil, options: nil)?.first as! DiscoverRankView
+            view.rankInfo = model!.rank[indexPath.row]
+            AppUI.push(from: self, to: view, with: APP_SIZE)
+        case .enter:
+            let view = Bundle.main.loadNibNamed("DiscoverRankView", owner: nil, options: nil)?.first as! DiscoverRankView
+            view.rankInfo = model!.enter[indexPath.row]
+            AppUI.push(from: self, to: view, with: APP_SIZE)
+        case .playlist:
+            break
+        }
     }
 }

@@ -13,7 +13,7 @@ private let cellHeight:CGFloat = 80
 class DiscoverRankDetailView: UIView {
     
     /// 业务模块
-    let viewModel = DiscoverViewModel()
+    private let viewModel = DiscoverViewModel()
 
     /// 标题
     @IBOutlet weak var titleLabel: UILabel!
@@ -38,7 +38,7 @@ class DiscoverRankDetailView: UIView {
             guard let wself = self else {
                 return
             }
-            wself.ranklist.append(contentsOf: (resultModel as! DiscoverRankDetailResultModel).data)
+            wself.ranklist = (resultModel as! DiscoverRankDetailResultModel).data
             wself.tableView.reloadData()
         }) { (error) in
             Log.e("\(error)")
@@ -80,6 +80,7 @@ extension DiscoverRankDetailView :  UITableViewDataSource, UITableViewDelegate {
     /// 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let view = Bundle.main.loadNibNamed("DiscoverRankView", owner: nil, options: nil)?.first as! DiscoverRankView
+        view.rankInfo = ranklist[indexPath.row]
         AppUI.push(from: self, to: view, with: APP_SIZE)
     }
 }

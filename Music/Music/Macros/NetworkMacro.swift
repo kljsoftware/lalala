@@ -63,7 +63,7 @@ enum NetworkURL {
     case DiscoverRankLoadSongLists(page:Int)  // 获取更多热门歌曲
     case DiscoverRank(rank_id:Int)        // 获取排行榜内容列表 （歌曲排行榜id拼接 如果rank_id为空 从open_url 取抽取rank_id）
     case DiscoverRankDetail               // 获取排行榜列表
-    case DiscoverSongOtherDetail(song_list_id:Int)   // 获取歌单内容
+    case DiscoverSonglistDetail(song_list_id:Int)   // 获取歌单内容
     case SearchTopArtists(page:Int)       // 热门歌手列表
     case SearchV2(query:String, type:String, page:Int)  // 搜索结果返回
     case SearchPopular                    // 获取热门搜索
@@ -84,7 +84,7 @@ enum NetworkURL {
             api = "/myfm/rank/\(rank_id)/?"
         case .DiscoverRankDetail:
             api = "/myfm/rank/detail/?"
-        case let .DiscoverSongOtherDetail(song_list_id):
+        case let .DiscoverSonglistDetail(song_list_id):
             api = "/myfm/songlist/other_detail/?song_list_id=\(song_list_id)&"
         case let .SearchTopArtists(page):
             api = "/myfm/list/topartists/\(page)/?"

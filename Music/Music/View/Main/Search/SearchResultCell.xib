@@ -36,7 +36,7 @@
                         <constraints>
                             <constraint firstAttribute="width" id="Jv8-VJ-fes"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -44,7 +44,7 @@
                         <rect key="frame" x="10" y="0.0" width="310" height="59.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAP-yK-3ZN">
-                                <rect key="frame" x="0.0" y="12" width="0.0" height="0.0"/>
+                                <rect key="frame" x="0.0" y="12" width="259" height="0.0"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -67,14 +67,31 @@
                                     <action selector="onMoreButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OfQ-Rk-OpH"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pck-gD-wsO">
+                                <rect key="frame" x="0.0" y="58" width="310" height="1"/>
+                                <color key="backgroundColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="eJ8-ca-bnV" customClass="OnePixelConstraint" customModule="Music" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="onePixelConstant">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="LiG-lg-ZCx" firstAttribute="leading" secondItem="xAP-yK-3ZN" secondAttribute="trailing" constant="12" id="2GW-Oj-BVW"/>
+                            <constraint firstAttribute="bottom" secondItem="Pck-gD-wsO" secondAttribute="bottom" constant="0.5" id="3wq-eu-jbV"/>
                             <constraint firstItem="xAP-yK-3ZN" firstAttribute="leading" secondItem="Sm2-Vr-6g7" secondAttribute="leading" id="8TN-s8-lVx"/>
                             <constraint firstItem="xAP-yK-3ZN" firstAttribute="top" secondItem="Sm2-Vr-6g7" secondAttribute="top" constant="12" id="K0R-Fe-Asg"/>
                             <constraint firstItem="6or-pO-PLC" firstAttribute="leading" secondItem="Sm2-Vr-6g7" secondAttribute="leading" id="ORp-F1-f8K"/>
                             <constraint firstAttribute="trailing" secondItem="LiG-lg-ZCx" secondAttribute="trailing" constant="12" id="W8v-fm-l29"/>
+                            <constraint firstAttribute="trailing" secondItem="Pck-gD-wsO" secondAttribute="trailing" id="XVV-yi-TU8"/>
                             <constraint firstItem="LiG-lg-ZCx" firstAttribute="centerY" secondItem="Sm2-Vr-6g7" secondAttribute="centerY" id="co9-DN-2lF"/>
+                            <constraint firstItem="Pck-gD-wsO" firstAttribute="leading" secondItem="Sm2-Vr-6g7" secondAttribute="leading" id="kJQ-Tb-whQ"/>
                             <constraint firstAttribute="bottom" secondItem="6or-pO-PLC" secondAttribute="bottom" constant="12" id="mps-Xv-LJI"/>
                         </constraints>
                     </view>

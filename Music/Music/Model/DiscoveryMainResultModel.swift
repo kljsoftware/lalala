@@ -18,43 +18,19 @@ class DiscoveryMainModel : NSObject {
     var rank = [RankInfoModel]()
     
     /// 重点排行数组
-    var enter = [EnterDataModel]()
+    var enter = [RankInfoModel]()
     
     /// 流行歌单信息数组
     var playlist = [PlaylistInfoModel]()
     
     /// 指定数组元素类型
     override class func mj_objectClassInArray() -> [AnyHashable: Any]! {
-        return ["rank" : RankInfoModel.self, "enter" : EnterDataModel.self, "playlist" : PlaylistInfoModel.self]
+        return ["rank" : RankInfoModel.self, "enter" : RankInfoModel.self, "playlist" : PlaylistInfoModel.self]
     }
 }
 
 /// 排行榜
 class RankInfoModel : NSObject {
-    
-    /// 排行榜id
-    var rank_id = 0
-    
-    /// 标题
-    var title = ""
-    
-    /// 时间戳
-    var timestamp = ""
-    
-    /// 子标题
-    var sub_title = ""
-    
-    /// 封面图片
-    var cover_url = ""
-
-    ///
-    var source_tip = ""
-    
-    ///
-    var type = 0
-}
-/// 重点排行模块
-class EnterDataModel : NSObject {
     
     /// 重点排行id
     var rank_id = 0
@@ -77,7 +53,7 @@ class EnterDataModel : NSObject {
     ///
     var type = 0
     
-    /// 
+    ///
     var open_url = ""
     
     /// 图标
@@ -86,6 +62,7 @@ class EnterDataModel : NSObject {
     ///
     var color = ""
 }
+
 /// 歌单信息模块
 class PlaylistInfoModel : NSObject {
     

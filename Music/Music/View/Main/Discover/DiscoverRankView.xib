@@ -15,6 +15,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-at-4uJ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZ0-R4-IhB">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <subviews>
@@ -36,12 +39,28 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eM5-uQ-zxK">
+                            <rect key="frame" x="0.0" y="42.5" width="375" height="1"/>
+                            <color key="backgroundColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="0.5" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="plf-mI-EyM" customClass="OnePixelConstraint" customModule="Music" customModuleProvider="target">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="onePixelConstant">
+                                            <integer key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="fUi-et-BHH" firstAttribute="centerY" secondItem="PZ0-R4-IhB" secondAttribute="centerY" id="5Wc-Kg-SL2"/>
                         <constraint firstAttribute="height" constant="44" id="Bjr-hS-8ov"/>
+                        <constraint firstAttribute="bottom" secondItem="eM5-uQ-zxK" secondAttribute="bottom" constant="0.5" id="Lax-3A-oV8"/>
+                        <constraint firstAttribute="trailing" secondItem="eM5-uQ-zxK" secondAttribute="trailing" id="Lvu-9n-zXl"/>
+                        <constraint firstItem="eM5-uQ-zxK" firstAttribute="leading" secondItem="PZ0-R4-IhB" secondAttribute="leading" id="Qv8-5z-mPS"/>
                         <constraint firstItem="Bfx-F5-62k" firstAttribute="leading" secondItem="PZ0-R4-IhB" secondAttribute="leading" constant="12" id="acu-sN-zTX"/>
                         <constraint firstItem="fUi-et-BHH" firstAttribute="centerX" secondItem="PZ0-R4-IhB" secondAttribute="centerX" id="mZE-Dw-PfI"/>
                         <constraint firstItem="Bfx-F5-62k" firstAttribute="centerY" secondItem="PZ0-R4-IhB" secondAttribute="centerY" id="t0R-A5-bhs"/>
@@ -60,9 +79,13 @@
             <constraints>
                 <constraint firstItem="PZ0-R4-IhB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0tw-jv-rGG"/>
                 <constraint firstItem="5Xr-qv-8Mg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4B1-gd-4Hb"/>
+                <constraint firstAttribute="trailing" secondItem="j6m-at-4uJ" secondAttribute="trailing" id="4O5-y0-HJ4"/>
+                <constraint firstItem="j6m-at-4uJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7GN-IC-fkP"/>
+                <constraint firstItem="j6m-at-4uJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ch8-lI-l6m"/>
                 <constraint firstAttribute="trailing" secondItem="5Xr-qv-8Mg" secondAttribute="trailing" id="VEV-xE-M8J"/>
                 <constraint firstItem="5Xr-qv-8Mg" firstAttribute="top" secondItem="PZ0-R4-IhB" secondAttribute="bottom" id="Z8d-AT-Lkd"/>
                 <constraint firstAttribute="trailing" secondItem="PZ0-R4-IhB" secondAttribute="trailing" id="fdi-ra-PHj"/>
+                <constraint firstAttribute="bottom" secondItem="j6m-at-4uJ" secondAttribute="bottom" id="njq-xI-W8k"/>
                 <constraint firstAttribute="bottom" secondItem="5Xr-qv-8Mg" secondAttribute="bottom" constant="48" id="pNX-qh-kkx"/>
                 <constraint firstItem="PZ0-R4-IhB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zal-4r-wxm"/>
             </constraints>
@@ -73,6 +96,7 @@
         </view>
     </objects>
     <resources>
+        <image name="bg.png" width="1242" height="2208"/>
         <image name="common_btn_back_normal.png" width="90" height="90"/>
     </resources>
 </document>

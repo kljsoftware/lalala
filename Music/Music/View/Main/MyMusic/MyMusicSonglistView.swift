@@ -19,6 +19,13 @@ class MyMusicSonglistView: UIView {
             }
         }
     }
+    
+    /// 网络歌单信息
+    var playlistInfo:PlaylistInfoModel? {
+        didSet {
+            
+        }
+    }
 
     /// 标题
     @IBOutlet weak var titleLabel: UILabel!
@@ -50,6 +57,11 @@ class MyMusicSonglistView: UIView {
     private func setup() {
         songlistHeaderView.update(name: songlistName!)
         reloadSonglists()
+    }
+    
+    /// 初始化业务模块
+    private func setupViewModel() {
+        
     }
     
     /// 列表头部视图

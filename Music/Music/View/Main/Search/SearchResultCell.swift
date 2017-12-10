@@ -74,7 +74,7 @@ class SearchResultCell: UITableViewCell {
             return
         }
         serialLabel.isHidden = false
-        serialWidthLayoutConstraint.constant = 24
+        serialWidthLayoutConstraint.constant = 30
         serialLabel.text = "\(serial)"
         serialLabel.textColor = serial <= 3 ? COLOR_69EDC8 : COLOR_ABABAB
     }
