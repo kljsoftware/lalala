@@ -89,3 +89,6 @@
 /// 引导
 "Guide_EditPlaylistInfo" = "Edit playlist info";
 "Guide_MultipleOperate" = "Operating mutiple tracks";
+
+//  歌词
+"Lyric_NoLyrics" = "No lyrics";

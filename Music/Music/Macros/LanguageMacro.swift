@@ -96,6 +96,8 @@ enum LanguageKey : String {
     case Guide_EditPlaylistInfo = "Guide_EditPlaylistInfo"
     case Guide_MultipleOperate = "Guide_MultipleOperate"
     
+    // 歌词
+    case Lyric_NoLyrics = "Lyric_NoLyrics"
     /// 获取对应的语言字串
     var value : String {
         return LanguageHelper.shared.getLanguageText(by: self.rawValue)
