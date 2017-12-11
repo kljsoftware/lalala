@@ -12,8 +12,8 @@ class RotateAnimation {
     /// 动画间隔时间
     private let timeInterval:TimeInterval = 0.1
     
-    /// 每次旋转幅度
-    private let step:CGFloat = 2
+    /// 每次旋转幅度 来回缩放范围：【0.66， 1】
+    private var step:CGFloat = 2, scaleValue:CGFloat = 0.01
     
     /// 动画视图
     private var animationView:UIView?
@@ -21,12 +21,22 @@ class RotateAnimation {
     /// 计时器
     private var timer:Timer?
     
-    // 角度
-    fileprivate var angle: CGFloat = 0
+    // 角度、缩放值、缩放方向
+    fileprivate var angle: CGFloat = 0, scale:CGFloat = 0, directionValue:CGFloat = -1
+    
+    // 是否缩放
+    fileprivate var isScaled = false
     
     /// 构造
     init(animationView:UIView) {
         self.animationView = animationView
+    }
+    
+    /// 设置动画参数
+    func setup(isScaled:Bool = false, step:CGFloat = 2, scaleValue:CGFloat = 0.01) {
+        self.isScaled = isScaled
+        self.step = step
+        self.scaleValue = scaleValue
     }
     
     // MARK: - private methods
@@ -40,7 +50,21 @@ class RotateAnimation {
     /// 计时
     @objc private func fire() {
         angle += step
-        animationView?.transform = CGAffineTransform(rotationAngle: angle*CGFloat(Double.pi/180.0))
+        var transform = CGAffineTransform(rotationAngle: angle*CGFloat(Double.pi/180.0))
+        if isScaled {
+            var scale = self.scale + (directionValue*scaleValue)
+            if directionValue > 0 && scale >= 1.0 {
+                directionValue = -1
+                scale = 1.0
+            }
+            if directionValue < 0 && scale <= 0.66 {
+                directionValue = 1
+                scale = 0.66
+            }
+            self.scale = scale
+            transform = transform.scaledBy(x: scale, y: scale)
+        }
+        animationView?.transform = transform
     }
     
     /// 停止计时

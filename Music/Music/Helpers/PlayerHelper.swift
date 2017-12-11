@@ -207,6 +207,7 @@ class PlayerHelper {
             self.song = playlist[playIndex]
             start()
         }
+        NotificationCenter.default.post(name: NoticationUpdateForChangePlaylist, object: nil)
     }
     
     /// 判断是否是当前播放列表的拥有者
