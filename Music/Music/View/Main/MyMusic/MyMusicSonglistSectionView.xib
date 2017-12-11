@@ -37,7 +37,7 @@
                         <action selector="onCycleButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="xJA-lg-oit"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGb-Nf-N0v">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGb-Nf-N0v">
                     <rect key="frame" x="341" y="22" width="22" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="Vwh-ez-nSb"/>

@@ -6,29 +6,27 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
+typealias DownloadBeginCallback = () -> Void
 typealias DownloadFinishedCallback = (_ filePath:String) -> Void
 typealias DownloadProgressCallBack = (_ progres: Float) -> Void
 
 ///  下载任务类，基于第三方AFNetworking封装
-class DownloadTask {
+class DownloadTask : NSObject {
+    
+    /// 开始下载
+    var downloadBeginCallBack:DownloadBeginCallback?
     
     /// 下载完成
-    private var downloadFinishedCallback:DownloadFinishedCallback?
+    var downloadFinishedCallback:DownloadFinishedCallback?
     
     /// 当前下载进度
-    private var downloadProgressCallback:DownloadProgressCallBack?
+    var downloadProgressCallback:DownloadProgressCallBack?
     
     /// 下载任务
     private var task:URLSessionTask?
     
     /// 文件句柄
     private var fileHandle:FileHandle?
-    
-    /// 文件总长度
-    private var fileLength:Int64 = 0
-    
-    /// 当前文件长度
-    private var currentLength:Int64 = 0
     
     /// 会话管理
     private lazy var manager:AFURLSessionManager = {
@@ -47,6 +45,13 @@ class DownloadTask {
             
             /// 创建文件句柄
             self!.fileHandle = FileHandle(forWritingAtPath: self!.filePath)
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                if nil == self {return}
+                
+                self!.downloadBeginCallBack?()
+            }
             
             // 允许处理服务器的响应，才会继续接收服务器返回的数据
             return URLSession.ResponseDisposition.allow
@@ -112,26 +117,22 @@ class DownloadTask {
         return dir
     }()
     
-    /// 文件路径
-    private var filePath = ""
+    /// 下载地址
+    var urlString:String?
     
-    // MARK: - private methods
-    /// 获取已下载的文件大小
-    private func fileLength(path:String) -> Int64 {
-        let manager = FileManager.default
-        var fileSize:Int64 = 0
-        do {
-            let attr = try manager.attributesOfItem(atPath: path)
-            fileSize = (attr[FileAttributeKey.size] as? Int64) ?? 0
-        } catch {
-            dump(error)
-        }
-        return fileSize
-    }
+    /// 文件路径
+    var filePath = ""
+    
+    /// 文件总长度
+    var fileLength:Int64 = 0
+    
+    /// 当前文件长度
+    var currentLength:Int64 = 0
     
     // MARK: - init/public methods
     /// 创建下载任务
     init(urlString:String?) {
+        super.init()
         
         /// 地址为空
         if urlString == nil || urlString!.isEmpty {
@@ -143,6 +144,8 @@ class DownloadTask {
             // 无效url
             return
         }
+        
+        self.urlString = urlString
         
         /// 下载请求
         var request = URLRequest(url: url)
@@ -164,12 +167,6 @@ class DownloadTask {
         task = manager.dataTask(with: request, completionHandler: nil)
     }
     
-    /// 设置回调闭包
-    func setup(downloadProgressCallback:DownloadProgressCallBack?, downloadFinishedCallback:DownloadFinishedCallback?) {
-        self.downloadProgressCallback = downloadProgressCallback
-        self.downloadFinishedCallback = downloadFinishedCallback
-    }
-    
     /// 任务开始/继续
     func resume() {
         task?.resume()
@@ -180,10 +177,16 @@ class DownloadTask {
         task?.suspend()
     }
     
+    /// 任务是否正在下载
+    func isRunning() -> Bool {
+        return task != nil && task!.state == .running
+    }
+    
     /// 停止下载
     func stop() {
         task?.cancel()
         task = nil
+        clean()
     }
     
     /// 清理下载文件
@@ -191,5 +194,18 @@ class DownloadTask {
         if FileManager.default.fileExists(atPath: filePath) {
             try? FileManager.default.removeItem(atPath: filePath)
         }
+    }
+    
+    /// 获取已下载的文件大小
+    func fileLength(path:String) -> Int64 {
+        let manager = FileManager.default
+        var fileSize:Int64 = 0
+        do {
+            let attr = try manager.attributesOfItem(atPath: path)
+            fileSize = (attr[FileAttributeKey.size] as? Int64) ?? 0
+        } catch {
+            dump(error)
+        }
+        return fileSize
     }
 }

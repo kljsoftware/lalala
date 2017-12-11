@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Arial.ttf">
+            <string>ArialMT</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="MyMusicDownloadingCell" customModule="Music" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2uc-mc-Vzl">
+                        <rect key="frame" x="12" y="0.0" width="308" height="43.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXZ-wV-uSr">
+                                <rect key="frame" x="0.0" y="12" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zae-fr-8OP">
+                                <rect key="frame" x="262" y="39.5" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TUr-gL-HkQ">
+                                <rect key="frame" x="0.0" y="38.5" width="250" height="2"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVD-bt-cK1">
+                                <rect key="frame" x="274" y="11" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="Bta-Wk-73W"/>
+                                    <constraint firstAttribute="height" constant="22" id="wD9-O9-90o"/>
+                                </constraints>
+                                <state key="normal" image="download_btn_start.png"/>
+                                <connections>
+                                    <action selector="onControlButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3IR-Pc-47M"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dVD-bt-cK1" secondAttribute="trailing" constant="12" id="7U2-5p-4db"/>
+                            <constraint firstItem="zae-fr-8OP" firstAttribute="leading" secondItem="TUr-gL-HkQ" secondAttribute="trailing" constant="12" id="Cam-wh-eo5"/>
+                            <constraint firstItem="CXZ-wV-uSr" firstAttribute="leading" secondItem="2uc-mc-Vzl" secondAttribute="leading" id="DlO-jV-qbL"/>
+                            <constraint firstAttribute="bottom" secondItem="zae-fr-8OP" secondAttribute="bottom" constant="4" id="E3B-aR-MHT"/>
+                            <constraint firstItem="dVD-bt-cK1" firstAttribute="centerY" secondItem="2uc-mc-Vzl" secondAttribute="centerY" id="WVi-Ey-VMh"/>
+                            <constraint firstItem="TUr-gL-HkQ" firstAttribute="centerY" secondItem="zae-fr-8OP" secondAttribute="centerY" id="fXU-WR-S4v"/>
+                            <constraint firstItem="CXZ-wV-uSr" firstAttribute="top" secondItem="2uc-mc-Vzl" secondAttribute="top" constant="12" id="rCG-dI-Jxi"/>
+                            <constraint firstItem="TUr-gL-HkQ" firstAttribute="leading" secondItem="2uc-mc-Vzl" secondAttribute="leading" id="sLp-Wd-9d5"/>
+                            <constraint firstItem="dVD-bt-cK1" firstAttribute="leading" secondItem="zae-fr-8OP" secondAttribute="trailing" constant="12" id="zmu-TO-gzh"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="2uc-mc-Vzl" secondAttribute="bottom" id="I3D-im-Uhz"/>
+                    <constraint firstItem="2uc-mc-Vzl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Lzi-hR-gaU"/>
+                    <constraint firstAttribute="trailing" secondItem="2uc-mc-Vzl" secondAttribute="trailing" id="U3e-9l-2WZ"/>
+                    <constraint firstItem="2uc-mc-Vzl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gal-oX-hW0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="controlButton" destination="dVD-bt-cK1" id="pDL-uT-h0A"/>
+                <outlet property="downloadSizeLabel" destination="zae-fr-8OP" id="LYX-6s-Yh4"/>
+                <outlet property="progressView" destination="TUr-gL-HkQ" id="eOu-H3-Olh"/>
+                <outlet property="titleLabel" destination="CXZ-wV-uSr" id="UTP-Lv-Uxh"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="download_btn_start.png" width="66" height="66"/>
+    </resources>
+</document>

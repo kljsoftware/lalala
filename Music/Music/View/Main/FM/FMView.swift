@@ -272,7 +272,9 @@ class FMView: UIView {
                             PlaylistSheet.addToPlaylist(mode: SongRealm.getModel(model: wself.playlist[wself.playIndex]))
                         }
                     case 2: // 下载
-                        break
+                        if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
+                            DownloadTaskHelper.shared.addSongTask(model: SongRealm.getModel(model: wself.playlist[wself.playIndex]))
+                        }
                     case 3: // 取消
                         break
                     default:

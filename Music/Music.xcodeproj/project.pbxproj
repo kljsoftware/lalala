@@ -234,6 +234,11 @@
 		3CD05F681FCAA85800FEC161 /* tab_discover_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CD05F5E1FCAA85800FEC161 /* tab_discover_normal.png */; };
 		3CD05F691FCAA85800FEC161 /* tab_search_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CD05F5F1FCAA85800FEC161 /* tab_search_selected.png */; };
 		3CD05F6B1FCAAA2B00FEC161 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD05F6A1FCAAA2B00FEC161 /* TabView.swift */; };
+		3CF3AE2B1FDE76FE00BDE940 /* DownloadTaskHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF3AE2A1FDE76FE00BDE940 /* DownloadTaskHelper.swift */; };
+		3CF3AE2E1FDE956600BDE940 /* MyMusicDownloadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF3AE2C1FDE956600BDE940 /* MyMusicDownloadingCell.swift */; };
+		3CF3AE2F1FDE956600BDE940 /* MyMusicDownloadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF3AE2D1FDE956600BDE940 /* MyMusicDownloadingCell.xib */; };
+		3CF3AE321FDE968D00BDE940 /* download_btn_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CF3AE301FDE968C00BDE940 /* download_btn_start.png */; };
+		3CF3AE331FDE968D00BDE940 /* download_btn_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CF3AE311FDE968D00BDE940 /* download_btn_pause.png */; };
 		D1D73325D29EC0C73C0B9539 /* Pods_Music.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBFA9D0E44BFE7E7146AF3D /* Pods_Music.framework */; };
 /* End PBXBuildFile section */
 
@@ -470,6 +475,11 @@
 		3CD05F5E1FCAA85800FEC161 /* tab_discover_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_discover_normal.png; sourceTree = "<group>"; };
 		3CD05F5F1FCAA85800FEC161 /* tab_search_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_search_selected.png; sourceTree = "<group>"; };
 		3CD05F6A1FCAAA2B00FEC161 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		3CF3AE2A1FDE76FE00BDE940 /* DownloadTaskHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTaskHelper.swift; sourceTree = "<group>"; };
+		3CF3AE2C1FDE956600BDE940 /* MyMusicDownloadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicDownloadingCell.swift; sourceTree = "<group>"; };
+		3CF3AE2D1FDE956600BDE940 /* MyMusicDownloadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicDownloadingCell.xib; sourceTree = "<group>"; };
+		3CF3AE301FDE968C00BDE940 /* download_btn_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download_btn_start.png; sourceTree = "<group>"; };
+		3CF3AE311FDE968D00BDE940 /* download_btn_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download_btn_pause.png; sourceTree = "<group>"; };
 		B89383485B72D4E971086CE2 /* Pods-Music.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music.release.xcconfig"; path = "Pods/Target Support Files/Pods-Music/Pods-Music.release.xcconfig"; sourceTree = "<group>"; };
 		F005EDEA8A1B070A812A7290 /* Pods-Music.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Music/Pods-Music.debug.xcconfig"; sourceTree = "<group>"; };
 		FCBFA9D0E44BFE7E7146AF3D /* Pods_Music.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -747,6 +757,8 @@
 		3C1F3E561FD5768300BEACAE /* MyMusic */ = {
 			isa = PBXGroup;
 			children = (
+				3CF3AE311FDE968D00BDE940 /* download_btn_pause.png */,
+				3CF3AE301FDE968C00BDE940 /* download_btn_start.png */,
 				3C3BE5971FDAAA2B002D140B /* ic_placeholder.png */,
 				3C3BE5991FDAAA2C002D140B /* ic_video_play.png */,
 				3C3BE5981FDAAA2C002D140B /* playlist_control_btn_add.png */,
@@ -840,6 +852,7 @@
 				3C16B8DC1FCEA62F00FAABCA /* PlayerHelper.swift */,
 				3C3AFAB91FD7CC8D003FFCE3 /* RealmHelper.swift */,
 				3CC22A4E1FDC17AA003EA6BF /* PlaylistHelper.swift */,
+				3CF3AE2A1FDE76FE00BDE940 /* DownloadTaskHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -977,12 +990,14 @@
 				3CA712B71FD56AB8004F0490 /* MyMusicSongOrderCell.xib */,
 				3CA712BE1FD56B38004F0490 /* MyMusicNewSongOrderCell.swift */,
 				3CA712BF1FD56B38004F0490 /* MyMusicNewSongOrderCell.xib */,
-				3CA5413F1FD93BEB0064764A /* MyMusicDownloadView.xib */,
 				3CA541451FD9445B0064764A /* MyMusicDownloadView.swift */,
+				3CA5413F1FD93BEB0064764A /* MyMusicDownloadView.xib */,
+				3CF3AE2C1FDE956600BDE940 /* MyMusicDownloadingCell.swift */,
+				3CF3AE2D1FDE956600BDE940 /* MyMusicDownloadingCell.xib */,
 				3C0784E71FDA390C003CF405 /* MyMusicNewSonglistView.xib */,
 				3C0784E91FDA3927003CF405 /* MyMusicNewSonglistView.swift */,
-				3C3BE5911FDA96A0002D140B /* MyMusicSonglistView.xib */,
 				3C3BE5931FDA9949002D140B /* MyMusicSonglistView.swift */,
+				3C3BE5911FDA96A0002D140B /* MyMusicSonglistView.xib */,
 				3C6FB5471FDD2077003315E0 /* MyMusicSonglistSectionView.swift */,
 				3C6FB5451FDD204E003315E0 /* MyMusicSonglistSectionView.xib */,
 				3C3BE5951FDAA5DD002D140B /* MyMusicSonglistHeaderView.xib */,
@@ -1160,6 +1175,7 @@
 				3C3BE59C1FDAAA2C002D140B /* playlist_control_btn_add.png in Resources */,
 				3C0EBE821FD231220047B1E1 /* immersion_player_btn_stop_normal.png in Resources */,
 				3CD05F641FCAA85800FEC161 /* tab_fm_normal.png in Resources */,
+				3CF3AE2F1FDE956600BDE940 /* MyMusicDownloadingCell.xib in Resources */,
 				3C0EBE8B1FD231220047B1E1 /* immersion_player_btn_love_normal.png in Resources */,
 				3C5D4BF81FD7DFC3002C8590 /* SearchHistoryCell.xib in Resources */,
 				3C0EBE971FD232F90047B1E1 /* common_btn_back_normal.png in Resources */,
@@ -1228,12 +1244,14 @@
 				3CD05F691FCAA85800FEC161 /* tab_search_selected.png in Resources */,
 				3C526F731FD029B80093B837 /* default_ad_banner.png in Resources */,
 				3C1F3E621FD5768300BEACAE /* playlist_ic_download.png in Resources */,
+				3CF3AE331FDE968D00BDE940 /* download_btn_pause.png in Resources */,
 				3CD05F601FCAA85800FEC161 /* tab_mine_normal.png in Resources */,
 				3C3BE5A81FDAB9AE002D140B /* common_btn_cycle_all.png in Resources */,
 				3CA712B91FD56AB8004F0490 /* MyMusicSongOrderCell.xib in Resources */,
 				3C16B8CB1FCE4E7A00FAABCA /* fm_player_btn_next_pressed.png in Resources */,
 				3C0EBE921FD231220047B1E1 /* immersion_player_btn_add_normal.png in Resources */,
 				3C3BE5961FDAA5DD002D140B /* MyMusicSonglistHeaderView.xib in Resources */,
+				3CF3AE321FDE968D00BDE940 /* download_btn_start.png in Resources */,
 				3C1427C21FD5966800D15105 /* mine_ic_share.png in Resources */,
 				3CA5413E1FD912CE0064764A /* MeSelectLanguageCell.xib in Resources */,
 				3C16B8C81FCE4E7A00FAABCA /* fm_player_btn_more_normal.png in Resources */,
@@ -1352,6 +1370,7 @@
 				3C48ACCD1FCBB8D000B8992A /* HttpRequest.swift in Sources */,
 				37DF3BAF1FD139D9006399E2 /* DiscoverSongListResultModel.swift in Sources */,
 				377C54071FD13BE700618A9F /* SearchArtistsResultModel.swift in Sources */,
+				3CF3AE2E1FDE956600BDE940 /* MyMusicDownloadingCell.swift in Sources */,
 				3CC22A4F1FDC17AA003EA6BF /* PlaylistHelper.swift in Sources */,
 				3C6203F51FC5AA6C003D2309 /* AudioPlayer.swift in Sources */,
 				3C58CFC31FC94F1800045BA9 /* Log.swift in Sources */,
@@ -1384,6 +1403,7 @@
 				3C16B8D61FCE837E00FAABCA /* UIImage+Extension.swift in Sources */,
 				377C54091FD13CC200618A9F /* SearchSongResultModel.swift in Sources */,
 				3C0784E11FDA22B6003CF405 /* MyMusicLikeCell.swift in Sources */,
+				3CF3AE2B1FDE76FE00BDE940 /* DownloadTaskHelper.swift in Sources */,
 				3763B2421FD12611001433D4 /* DiscoveryMainResultModel.swift in Sources */,
 				3C7C72651FC91B87008793E6 /* NotificationMacro.swift in Sources */,
 				3C0784E41FDA2AD8003CF405 /* SonglistRealm.swift in Sources */,

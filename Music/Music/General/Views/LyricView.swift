@@ -141,9 +141,9 @@ class LyricView: UIView {
         index = 0
         download = nil
         download = DownloadTask(urlString: lyricUrl)
-        download?.setup(downloadProgressCallback: nil, downloadFinishedCallback: { [weak self](lrcPath) in
+        download?.downloadFinishedCallback = {[weak self](lrcPath) in
             self?.addLyricView(lrcPath: lrcPath)
-        })
+        }
         download?.resume()
     }
     

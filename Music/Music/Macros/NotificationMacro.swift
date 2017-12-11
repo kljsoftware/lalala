@@ -23,3 +23,6 @@ let NoticationUpdateForPlaylistChanged = Notification.Name("NoticationUpdateForP
 
 /// 歌单切换通知
 let NoticationUpdateForChangePlaylist = Notification.Name("NoticationUpdateForChangePlaylist")
+
+/// 下载开始/完成，通知我的下载界面更新
+let NoticationUpdateForSongDownload = Notification.Name("NoticationUpdateForSongDownload")

@@ -44,6 +44,12 @@ class SongRealm : Object {
     
     /// 歌曲地址
     dynamic var url = ""
+    
+    /// 下载状态 0 表示未下载， 1表示正在下载， 2表示已下载
+    dynamic var downloadFlag = 0
+    
+    /// 下载文件的总长度
+    dynamic var downloadFileLength:Int64 = 0
 
     /// 歌曲模型转换
     class func getModel(model:FMSongDataModel) -> SongRealm {

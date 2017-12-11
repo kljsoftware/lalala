@@ -53,7 +53,7 @@ class SearchResultCell: UITableViewCell {
                 }
                 
             case 1:
-                break
+                DownloadTaskHelper.shared.addSongTask(model: SongRealm(value: weakself.model!))
             case 2:
                 break
             default:
