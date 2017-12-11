@@ -48,6 +48,10 @@ class FMPlayerView: UIView {
     /// 播放进度条
     @IBOutlet weak var slider: SliderView!
     
+    /// 动画
+    @IBOutlet weak var animImageView: UIImageView!
+    var animation:RotateAnimation?
+    
     // MARK: - override methods
     override func awakeFromNib() {
         setup()
@@ -56,12 +60,12 @@ class FMPlayerView: UIView {
     // MARK: - private methods
     /// 初始化
     private func setup() {
-        setupProgressView()
-        setupButtons()
-    }
-    
-    /// 进度初始化设置
-    private func setupProgressView() {
+        
+        // 动画设置
+        animation = RotateAnimation(animationView: animImageView)
+        animation?.setup(isScaled: true, step: 10, scaleValue: 0.1)
+        
+        // 进度初始化设置
         slider.setThumbImage("common_seek_img_thumb")
         slider.touchBeganClousre = { [weak self] in
             self?.sliderTouchBegin()
@@ -69,15 +73,20 @@ class FMPlayerView: UIView {
         slider.touchEndClousre = { [weak self] in
             self?.sliderTouchEnd()
         }
-    }
-    
-    /// 按钮初始化设置
-    private func setupButtons() {
+        
+        // 按钮初始化设置
         loveButton.isExclusiveTouch = true
         prevButton.isExclusiveTouch = true
         controlButton.isExclusiveTouch = true
         nextButton.isExclusiveTouch = true
         moreButton.isExclusiveTouch = true
+    }
+    
+    /// 更新动画状态
+    private func updateAnimationStatus(isStopped:Bool) {
+        controlButton.isHidden = !isStopped
+        animImageView.isHidden = isStopped
+        isStopped ? animation?.stop() : animation?.start()
     }
 
     // MARK: - IBAction methods
@@ -99,6 +108,7 @@ class FMPlayerView: UIView {
             controlButton.setImage(nor: playImages[0], dwn: playImages[1])
         }
         isPaused = !isPaused
+        updateAnimationStatus(isStopped:isPaused)
     }
     
     @IBAction func onNextButtonClicked(_ sender: UIButton) {
@@ -137,6 +147,7 @@ class FMPlayerView: UIView {
     func setupPaused() {
         isPaused = true
         controlButton.setImage(nor: playImages[0], dwn: playImages[1])
+        updateAnimationStatus(isStopped: true)
     }
     
     /// 更新按钮状态
@@ -149,6 +160,7 @@ class FMPlayerView: UIView {
             isPaused = true
         }
         durationLabel.text = PlayerHelper.shared.duration.transferFormat()
+        updateAnimationStatus(isStopped: PlayerHelper.shared.state != .buffering)
     }
     
     /// 更新进度
@@ -161,5 +173,6 @@ class FMPlayerView: UIView {
         /// 时间
         let current = PlayerHelper.shared.current
         currentLabel.text = current.transferFormat()
+        updateAnimationStatus(isStopped: PlayerHelper.shared.state != .buffering)
     }
 }

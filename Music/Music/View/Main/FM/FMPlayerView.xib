@@ -65,6 +65,32 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UmN-3C-Eyz">
                             <rect key="frame" x="150" y="0.0" width="75" height="76"/>
                             <subviews>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mwp-Ca-49J">
+                                    <rect key="frame" x="11" y="12" width="52" height="52"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="immersion_player_btn_play_loading.png" translatesAutoresizingMaskIntoConstraints="NO" id="G1s-fT-r4r">
+                                            <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
+                                        </imageView>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="core_img_loading.png" translatesAutoresizingMaskIntoConstraints="NO" id="fHb-aQ-NzW">
+                                            <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="52" id="WDW-Xw-Hfv"/>
+                                                <constraint firstAttribute="height" constant="52" id="xMF-5z-eN8"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="52" id="218-eh-oCH"/>
+                                        <constraint firstAttribute="bottom" secondItem="G1s-fT-r4r" secondAttribute="bottom" id="OhK-tR-VrE"/>
+                                        <constraint firstItem="fHb-aQ-NzW" firstAttribute="centerY" secondItem="mwp-Ca-49J" secondAttribute="centerY" id="Wbf-hg-Ob7"/>
+                                        <constraint firstItem="G1s-fT-r4r" firstAttribute="leading" secondItem="mwp-Ca-49J" secondAttribute="leading" id="f3A-iN-4FA"/>
+                                        <constraint firstAttribute="height" constant="52" id="n1X-nX-yfn"/>
+                                        <constraint firstItem="fHb-aQ-NzW" firstAttribute="centerX" secondItem="mwp-Ca-49J" secondAttribute="centerX" id="rhp-Rf-RbY"/>
+                                        <constraint firstAttribute="trailing" secondItem="G1s-fT-r4r" secondAttribute="trailing" id="y6O-kN-7iw"/>
+                                        <constraint firstItem="G1s-fT-r4r" firstAttribute="top" secondItem="mwp-Ca-49J" secondAttribute="top" id="yGg-t9-iwf"/>
+                                    </constraints>
+                                </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7O9-ZV-Pko">
                                     <rect key="frame" x="11" y="12" width="52" height="52"/>
                                     <constraints>
@@ -81,7 +107,9 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="7O9-ZV-Pko" firstAttribute="centerY" secondItem="UmN-3C-Eyz" secondAttribute="centerY" id="18i-6C-rov"/>
+                                <constraint firstItem="mwp-Ca-49J" firstAttribute="centerY" secondItem="UmN-3C-Eyz" secondAttribute="centerY" id="Rt0-Vr-ldq"/>
                                 <constraint firstItem="7O9-ZV-Pko" firstAttribute="centerX" secondItem="UmN-3C-Eyz" secondAttribute="centerX" id="aIN-ea-wOR"/>
+                                <constraint firstItem="mwp-Ca-49J" firstAttribute="centerX" secondItem="UmN-3C-Eyz" secondAttribute="centerX" id="bde-Kr-fyS"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ep3-If-kkd">
@@ -203,6 +231,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="animImageView" destination="fHb-aQ-NzW" id="sVw-ta-VhE"/>
                 <outlet property="controlButton" destination="7O9-ZV-Pko" id="z4a-cD-Q7A"/>
                 <outlet property="currentLabel" destination="txa-Kq-Gqa" id="EmC-RA-QNf"/>
                 <outlet property="durationLabel" destination="lwy-m9-xee" id="Rbc-lW-rQn"/>
@@ -216,6 +245,7 @@
         </view>
     </objects>
     <resources>
+        <image name="core_img_loading.png" width="156" height="156"/>
         <image name="fm_player_btn_love_normal.png" width="66" height="66"/>
         <image name="fm_player_btn_love_selected.png" width="66" height="66"/>
         <image name="fm_player_btn_more_normal.png" width="66" height="66"/>
@@ -226,5 +256,6 @@
         <image name="fm_player_btn_play_pressed.png" width="156" height="156"/>
         <image name="fm_player_btn_prev_normal.png" width="120" height="120"/>
         <image name="fm_player_btn_prev_pressed.png" width="120" height="120"/>
+        <image name="immersion_player_btn_play_loading.png" width="156" height="156"/>
     </resources>
 </document>
