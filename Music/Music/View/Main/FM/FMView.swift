@@ -250,8 +250,26 @@ class FMView: UIView {
             case .next:
                 wself.nextSong()
             case .more: /// 点击更多按钮
-                ActionSheet.show(items: ["换一批歌曲", "添加到歌单", "下载", "取消"], selectedIndex: { (index) in
-                    
+                ActionSheet.show(items: [LanguageKey.FM_RefreshTracks.value, LanguageKey.MyMusic_AddToPlaylist.value, LanguageKey.Common_Download.value, LanguageKey.Common_Cancel.value], selectedIndex: {[weak self] (index) in
+                    guard let wself = self else {
+                        return
+                    }
+                    switch index {
+                    case 0: // 换一批歌
+                        wself.playIndex = 0
+                        wself.playlist.removeAll()
+                        wself.viewModel.getSongList(channelId: wself.channelId)
+                    case 1: // 添加至歌单
+                        if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
+                            PlaylistSheet.addToPlaylist(mode: SongRealm.getModel(model: wself.playlist[wself.playIndex]))
+                        }
+                    case 2: // 下载
+                        break
+                    case 3: // 取消
+                        break
+                    default:
+                        break
+                    }
                 })
             }
         }

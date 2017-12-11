@@ -43,4 +43,12 @@ class PlaylistHelper {
         AppUI.tip(message)
         NotificationCenter.default.post(name: NoticationUpdateForPlaylistChanged, object: nil)
     }
+    
+    ///  判断歌曲是否是我喜爱的歌曲
+    class func isMyFavritesSong(songModel:FMSongDataModel) -> Bool {
+        let songRealm = SongRealm.getModel(model: songModel)
+        songRealm.songlistName = LanguageKey.MyMusic_Favorite.value
+        let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "songlistName = %@ AND sid = %d", songRealm.songlistName, songRealm.sid))
+        return results.count != 0
+    }
 }
