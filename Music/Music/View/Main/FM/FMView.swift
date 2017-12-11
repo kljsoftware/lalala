@@ -103,6 +103,7 @@ class FMView: UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioProgressChanged), name: NoticationUpdateForAudioProgressChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForSongChanged), name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForChangePlaylist), name: NoticationUpdateForChangePlaylist, object: nil)
     }
     
     /// 销毁通知
@@ -110,14 +111,13 @@ class FMView: UIView {
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioStatusChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioProgressChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForChangePlaylist, object: nil)
     }
     
     /// 通知相关音频控制更新
     @objc private func notifyUpdateForAudioStatusChanged(_ sender:Notification) {
         if PlayerHelper.shared.isOwner(owner: self) {
             playerView.updateByStatusChanged()
-        } else {
-            
         }
     }
     
@@ -136,6 +136,13 @@ class FMView: UIView {
         }
     }
     
+    /// 通知歌单切换
+    @objc private func notifyUpdateForChangePlaylist(_ sender:Notification) {
+        if !PlayerHelper.shared.isOwner(owner: self) {
+            playerView.setupPaused()
+        }
+    }
+
     /// 初始化/相关模块回调处理
     private func setup() {
         
@@ -230,8 +237,22 @@ class FMView: UIView {
                 if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
                     PlaylistHelper.addOrRemoveFavorites(songModel: wself.playlist[wself.playIndex])
                 }
-            default:
-                break
+            case .prev:
+                wself.prevSong()
+            case .play:
+                if PlayerHelper.shared.isOwner(owner: wself) {
+                    PlayerHelper.shared.resume()
+                } else {
+                    PlayerHelper.shared.changePlaylist(playlist: wself.playlist, playIndex: wself.playIndex, owner: wself)
+                }
+            case .pause:
+                PlayerHelper.shared.pause()
+            case .next:
+                wself.nextSong()
+            case .more: /// 点击更多按钮
+                ActionSheet.show(items: ["换一批歌曲", "添加到歌单", "下载", "取消"], selectedIndex: { (index) in
+                    
+                })
             }
         }
     }

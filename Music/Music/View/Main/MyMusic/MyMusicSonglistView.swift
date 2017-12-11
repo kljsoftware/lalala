@@ -121,11 +121,13 @@ class MyMusicSonglistView: UIView {
     /// 注册通知
     fileprivate func registerNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForPlaylistChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForChangePlaylist, object: nil)
     }
     
     /// 销毁通知
     fileprivate func unregisterNotification() {
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForPlaylistChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForChangePlaylist, object: nil)
     }
     
     /// 新建歌单消息

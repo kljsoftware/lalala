@@ -118,6 +118,32 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W75-oy-GA5">
                                     <rect key="frame" x="150" y="0.0" width="75" height="96"/>
                                     <subviews>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYy-L5-NgE">
+                                            <rect key="frame" x="11" y="22" width="52" height="52"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="immersion_player_btn_play_loading.png" translatesAutoresizingMaskIntoConstraints="NO" id="cOQ-M4-Ths">
+                                                    <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
+                                                </imageView>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="core_img_loading.png" translatesAutoresizingMaskIntoConstraints="NO" id="4NS-Mj-v5P">
+                                                    <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="52" id="JRM-vk-hNE"/>
+                                                        <constraint firstAttribute="height" constant="52" id="O09-yK-GC3"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="cOQ-M4-Ths" secondAttribute="trailing" id="37Q-IN-h58"/>
+                                                <constraint firstAttribute="height" constant="52" id="3MC-pC-aFa"/>
+                                                <constraint firstItem="cOQ-M4-Ths" firstAttribute="top" secondItem="tYy-L5-NgE" secondAttribute="top" id="GnJ-XQ-zVh"/>
+                                                <constraint firstAttribute="width" constant="52" id="Hkk-SZ-pS3"/>
+                                                <constraint firstItem="4NS-Mj-v5P" firstAttribute="centerY" secondItem="tYy-L5-NgE" secondAttribute="centerY" id="LWv-tJ-y6D"/>
+                                                <constraint firstItem="4NS-Mj-v5P" firstAttribute="centerX" secondItem="tYy-L5-NgE" secondAttribute="centerX" id="Qke-Mx-CyZ"/>
+                                                <constraint firstItem="cOQ-M4-Ths" firstAttribute="leading" secondItem="tYy-L5-NgE" secondAttribute="leading" id="dL6-hy-XAs"/>
+                                                <constraint firstAttribute="bottom" secondItem="cOQ-M4-Ths" secondAttribute="bottom" id="lb2-QX-vVR"/>
+                                            </constraints>
+                                        </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOE-cB-WCi">
                                             <rect key="frame" x="11" y="22" width="52" height="52"/>
                                             <constraints>
@@ -133,7 +159,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="tYy-L5-NgE" firstAttribute="centerY" secondItem="W75-oy-GA5" secondAttribute="centerY" id="D9c-qW-6pO"/>
                                         <constraint firstItem="TOE-cB-WCi" firstAttribute="centerY" secondItem="W75-oy-GA5" secondAttribute="centerY" id="JyJ-S8-FM0"/>
+                                        <constraint firstItem="tYy-L5-NgE" firstAttribute="centerX" secondItem="W75-oy-GA5" secondAttribute="centerX" id="len-4Y-dEW"/>
                                         <constraint firstItem="TOE-cB-WCi" firstAttribute="centerX" secondItem="W75-oy-GA5" secondAttribute="centerX" id="mrj-ZB-Nbc"/>
                                     </constraints>
                                 </view>
@@ -395,6 +423,7 @@
                 <constraint firstItem="96b-tP-Gid" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zht-wP-gle"/>
             </constraints>
             <connections>
+                <outlet property="animImageView" destination="4NS-Mj-v5P" id="ekY-Oz-VkP"/>
                 <outlet property="artistLabel" destination="1zy-qK-crR" id="ECU-bt-3Qp"/>
                 <outlet property="backImageView" destination="Fcx-OB-riB" id="UTf-E8-WOz"/>
                 <outlet property="bottomLayoutConstraint" destination="tmf-vQ-aR4" id="hhY-Na-84y"/>
@@ -412,6 +441,7 @@
     </objects>
     <resources>
         <image name="common_btn_back_normal.png" width="90" height="90"/>
+        <image name="core_img_loading.png" width="180" height="180"/>
         <image name="immersion_btn_share_normal.png" width="90" height="90"/>
         <image name="immersion_player_btn_add_normal.png" width="60" height="60"/>
         <image name="immersion_player_btn_add_pressed.png" width="66" height="66"/>
@@ -425,6 +455,7 @@
         <image name="immersion_player_btn_more_pressed.png" width="66" height="66"/>
         <image name="immersion_player_btn_next_normal.png" width="120" height="120"/>
         <image name="immersion_player_btn_next_pressed.png" width="120" height="120"/>
+        <image name="immersion_player_btn_play_loading.png" width="156" height="156"/>
         <image name="immersion_player_btn_play_normal.png" width="156" height="156"/>
         <image name="immersion_player_btn_play_pressed.png" width="156" height="156"/>
         <image name="immersion_player_btn_prev_normal.png" width="120" height="120"/>

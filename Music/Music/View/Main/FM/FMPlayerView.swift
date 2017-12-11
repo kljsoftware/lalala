@@ -20,6 +20,9 @@ class FMPlayerView: UIView {
     
     /// 播放暂停按钮图片资源
     private let playImages = [UIImage(named:"fm_player_btn_play_normal")!, UIImage(named:"fm_player_btn_play_pressed")!], pauseImages = [UIImage(named:"fm_player_btn_stop_normal")!, UIImage(named:"fm_player_btn_stop_pressed")!]
+    
+    /// 默认是暂停状态
+    private var isPaused:Bool = true
 
     /// 喜欢按钮
     @IBOutlet weak var loveButton: UIButton!
@@ -88,24 +91,22 @@ class FMPlayerView: UIView {
     }
     
     @IBAction func onControlButtonClicked(_ sender: UIButton) {
-        if PlayerHelper.shared.state == .play {
-            sender.setImage(nor: pauseImages[0], dwn: pauseImages[1])
-            PlayerHelper.shared.pause()
+        if isPaused {
+            selectButtonClosure?(.play)
+            controlButton.setImage(nor: pauseImages[0], dwn: pauseImages[1])
         } else {
-            sender.setImage(nor: playImages[0], dwn: playImages[1])
-            PlayerHelper.shared.resume()
+            selectButtonClosure?(.pause)
+            controlButton.setImage(nor: playImages[0], dwn: playImages[1])
         }
+        isPaused = !isPaused
     }
     
     @IBAction func onNextButtonClicked(_ sender: UIButton) {
-        PlayerHelper.shared.next()
+        selectButtonClosure?(.next)
     }
     
     @IBAction func onMoreButtonClicked(_ sender: UIButton) {
-       // moreButtonClosure?()
-        ActionSheet.show(items: ["换一批歌曲", "添加到歌单", "下载", "取消"], selectedIndex: { (index) in
-            
-        })
+        selectButtonClosure?(.more)
     }
     
     /// 进度条发生变化
@@ -132,16 +133,21 @@ class FMPlayerView: UIView {
         self.selectButtonClosure = selectButtonClosure
     }
     
+    /// 其他歌单处于播放状态
+    func setupPaused() {
+        isPaused = true
+        controlButton.setImage(nor: playImages[0], dwn: playImages[1])
+    }
+    
     /// 更新按钮状态
     func updateByStatusChanged() {
-        
-        /// 按钮状态
         if PlayerHelper.shared.state == .play {
             controlButton.setImage(nor: pauseImages[0], dwn: pauseImages[1])
+            isPaused = false
         } else {
             controlButton.setImage(nor: playImages[0], dwn: playImages[1])
+            isPaused = true
         }
-        
         durationLabel.text = PlayerHelper.shared.duration.transferFormat()
     }
     

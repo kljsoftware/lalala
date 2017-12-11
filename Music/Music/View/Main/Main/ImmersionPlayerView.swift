@@ -79,13 +79,14 @@ class ImmersionPlayerView: UIView {
         return _lyricView
     }()
     
-    /// 分享
+    /// 动画
+    @IBOutlet weak var animImageView: UIImageView!
+    var animation:RotateAnimation?
     
     // MARK: - init/override methods
     override func awakeFromNib() {
         registerNotification()
         setup()
-        Log.e(frame)
     }
     
     deinit {
@@ -99,6 +100,8 @@ class ImmersionPlayerView: UIView {
         
         /// 距底约束，适配iphoneX
         bottomLayoutConstraint.constant = DEVICE_INDICATOR_HEIGHT
+        animation = RotateAnimation(animationView: animImageView)
+        animation?.setup(isScaled: true, step: 10, scaleValue: 0.1)
        
         /// 更新歌曲信息、按钮状态与进度
         updateBySongChanged()
@@ -149,16 +152,19 @@ class ImmersionPlayerView: UIView {
     /// 通知相关音频控制更新
     @objc private func notifyUpdateForAudioStatusChanged(_ sender:Notification) {
         updateByStatusChanged()
+        udpateAnimation()
     }
     
     /// 通知进度更新
     @objc private func notifyUpdateForAudioProgressChanged(_ sender:Notification) {
         updateByProgressChanged()
+        udpateAnimation()
     }
     
     /// 通知歌曲更新
     @objc private func notifyUpdateForSongChanged(_ sender:Notification) {
         updateBySongChanged()
+        udpateAnimation()
     }
     
     /// 按钮初始化设置
@@ -172,6 +178,9 @@ class ImmersionPlayerView: UIView {
     
     /// 按下
     private func sliderTouchBegin() {
+        animation?.start()
+        animImageView.isHidden = false
+        controlButton.isHidden = true
         let current = TimeInterval(slider.value) * PlayerHelper.shared.duration
         PlayerHelper.shared.seekTo(time: current)
         currentLabel.text = current.transferFormat()
@@ -180,6 +189,19 @@ class ImmersionPlayerView: UIView {
     /// 抬起
     private func sliderTouchEnd() {
         
+    }
+    
+    /// 更新动画状态
+    private func udpateAnimation() {
+        if PlayerHelper.shared.state == .buffering {
+            animation?.start()
+            animImageView.isHidden = false
+            controlButton.isHidden = true
+        } else {
+            animation?.stop()
+            animImageView.isHidden = true
+            controlButton.isHidden = false
+        }
     }
     
     /// 更新歌曲相关信息
@@ -194,14 +216,11 @@ class ImmersionPlayerView: UIView {
     
     /// 更新按钮状态
     private func updateByStatusChanged() {
-        
-        /// 按钮状态
         if PlayerHelper.shared.state == .play {
             controlButton.setImage(nor: pauseImages[0], dwn: pauseImages[1])
         } else {
             controlButton.setImage(nor: playImages[0], dwn: playImages[1])
         }
-        
         durationLabel.text = PlayerHelper.shared.duration.transferFormat()
     }
     
@@ -239,6 +258,9 @@ class ImmersionPlayerView: UIView {
         } else {
             sender.setImage(nor: playImages[0], dwn: playImages[1])
             PlayerHelper.shared.resume()
+            animation?.start()
+            animImageView.isHidden = false
+            controlButton.isHidden = true
         }
     }
     

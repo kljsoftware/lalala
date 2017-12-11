@@ -41,6 +41,8 @@ class LanguageHelper {
             let systemLanguage = systemLanguages.firstObject as! String
             type = getSystemLanguage(systemLanguage)
             UserDefaults.standard.set(type.rawValue, forKey: UserDefaultLanguage)
+        } else {
+            type = getSystemLanguage(lang!)
         }
         guard let path = Bundle.main.path(forResource: type.rawValue, ofType: "lproj") else {
             Log.e("language \(type.rawValue) 不存在")
