@@ -121,7 +121,6 @@ class PlayerHelper {
         case .finished:
             state = .stop
         }
-    
         NotificationCenter.default.post(name: NoticationUpdateForAudioStatusChanged, object: nil)
     }
     

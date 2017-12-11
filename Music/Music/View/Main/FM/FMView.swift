@@ -104,6 +104,7 @@ class FMView: UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioProgressChanged), name: NoticationUpdateForAudioProgressChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForSongChanged), name: NoticationUpdateForSongChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForChangePlaylist), name: NoticationUpdateForChangePlaylist, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForPlaylistChanged), name: NoticationUpdateForPlaylistChanged, object: nil)
     }
     
     /// 销毁通知
@@ -112,6 +113,7 @@ class FMView: UIView {
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioProgressChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForChangePlaylist, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForPlaylistChanged, object: nil)
     }
     
     /// 通知相关音频控制更新
@@ -134,6 +136,7 @@ class FMView: UIView {
         if PlayerHelper.shared.isOwner(owner: self) {
             updateBySongChanged()
         }
+        updateLoveButtonStatus()
     }
     
     /// 通知歌单切换
@@ -141,6 +144,11 @@ class FMView: UIView {
         if !PlayerHelper.shared.isOwner(owner: self) {
             playerView.setupPaused()
         }
+    }
+    
+    /// 歌单发生变化
+    @objc private func notifyUpdateForPlaylistChanged(_ sender:Notification) {
+        updateLoveButtonStatus()
     }
 
     /// 初始化/相关模块回调处理
@@ -326,5 +334,20 @@ class FMView: UIView {
         let text = (song != nil) ? ("\(song!.title) / \(song!.artist)") : nil
         loopPageView.showLabel(text: text)
         lyricView.setup(lyricUrl: song?.lyricURL)
+    }
+    
+    /// 更新我喜爱按钮的状态
+    private func updateLoveButtonStatus() {
+        
+        if PlayerHelper.shared.isOwner(owner: self) {
+            if PlayerHelper.shared.song != nil {
+                playerView.loveButton.isSelected = PlaylistHelper.isMyFavritesSong(songModel: PlayerHelper.shared.song!)
+            }
+            return
+        }
+        
+        if playIndex >= 0 && playIndex < playlist.count - 1 {
+            playerView.loveButton.isSelected = PlaylistHelper.isMyFavritesSong(songModel: playlist[playIndex])
+        }
     }
 }

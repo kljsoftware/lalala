@@ -83,7 +83,11 @@ class FMPlayerView: UIView {
     }
     
     /// 更新动画状态
-    private func updateAnimationStatus(isStopped:Bool) {
+    private func updateAnimationStatus(_ isForceStopped:Bool = false) {
+        var isStopped = false
+        if isForceStopped || PlayerHelper.shared.state == .stop || PlayerHelper.shared.state == .pause || PlayerHelper.shared.buffer*PlayerHelper.shared.duration >= PlayerHelper.shared.current {
+            isStopped = true
+        }
         controlButton.isHidden = !isStopped
         animImageView.isHidden = isStopped
         isStopped ? animation?.stop() : animation?.start()
@@ -108,7 +112,7 @@ class FMPlayerView: UIView {
             controlButton.setImage(nor: playImages[0], dwn: playImages[1])
         }
         isPaused = !isPaused
-        updateAnimationStatus(isStopped:isPaused)
+        updateAnimationStatus()
     }
     
     @IBAction func onNextButtonClicked(_ sender: UIButton) {
@@ -147,20 +151,20 @@ class FMPlayerView: UIView {
     func setupPaused() {
         isPaused = true
         controlButton.setImage(nor: playImages[0], dwn: playImages[1])
-        updateAnimationStatus(isStopped: true)
+        updateAnimationStatus(true)
     }
     
     /// 更新按钮状态
     func updateByStatusChanged() {
-        if PlayerHelper.shared.state == .play {
-            controlButton.setImage(nor: pauseImages[0], dwn: pauseImages[1])
-            isPaused = false
-        } else {
+        if PlayerHelper.shared.state == .pause || PlayerHelper.shared.state == .stop {
             controlButton.setImage(nor: playImages[0], dwn: playImages[1])
             isPaused = true
+        } else {
+            controlButton.setImage(nor: pauseImages[0], dwn: pauseImages[1])
+            isPaused = false
         }
         durationLabel.text = PlayerHelper.shared.duration.transferFormat()
-        updateAnimationStatus(isStopped: PlayerHelper.shared.state != .buffering)
+        updateAnimationStatus()
     }
     
     /// 更新进度
@@ -173,6 +177,6 @@ class FMPlayerView: UIView {
         /// 时间
         let current = PlayerHelper.shared.current
         currentLabel.text = current.transferFormat()
-        updateAnimationStatus(isStopped: PlayerHelper.shared.state != .buffering)
+        updateAnimationStatus()
     }
 }

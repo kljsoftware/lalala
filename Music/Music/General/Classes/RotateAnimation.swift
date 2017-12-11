@@ -22,7 +22,7 @@ class RotateAnimation {
     private var timer:Timer?
     
     // 角度、缩放值、缩放方向
-    fileprivate var angle: CGFloat = 0, scale:CGFloat = 0, directionValue:CGFloat = -1
+    fileprivate var angle: CGFloat = 0, scale:CGFloat = 1.0, directionValue:CGFloat = 1
     
     // 是否缩放
     fileprivate var isScaled = false
@@ -93,6 +93,8 @@ class RotateAnimation {
         if isFire() {
             stopTimer()
             angle = 0
+            scale = 1.0
+            directionValue = 1
             animationView?.transform = CGAffineTransform.identity
         }
     }
