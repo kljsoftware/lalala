@@ -283,49 +283,6 @@ class FMView: UIView {
         }
     }
     
-    /// 上一首
-    private func prevSong() {
-        /// 如当前播放列表不是改界面拥有者，则需要切换列表
-        if !PlayerHelper.shared.isOwner(owner: self) {
-            if playIndex > 0 && playIndex < playlist.count {
-                playIndex -= 1
-                PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: playIndex, owner: self)
-            } else {
-                viewModel.getSongList(channelId: channelId)
-            }
-            return
-        }
-        
-        /// 如果存在上一首，播放并使索引-1， 否则请求歌曲列表
-        if PlayerHelper.shared.prev() {
-            playIndex -= 1
-        } else {
-            viewModel.getSongList(channelId: channelId)
-        }
-    }
-    
-    /// 下一首
-    private func nextSong() {
-        
-        /// 如当前播放列表不是改界面拥有者，则需要切换列表
-        if !PlayerHelper.shared.isOwner(owner: self) {
-            if playIndex >= 0 && playIndex < playlist.count - 1 {
-                playIndex += 1
-                PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: playIndex, owner: self)
-            } else {
-                viewModel.getSongList(channelId: channelId)
-            }
-            return
-        }
-        
-        /// 如果存在下一首，播放并使索引+1， 否则请求歌曲列表
-        if PlayerHelper.shared.next() {
-            playIndex += 1
-        } else {
-            viewModel.getSongList(channelId: channelId)
-        }
-    }
-    
     /// 歌曲发生改变，界面更新
     private func updateBySongChanged() {
         let song = PlayerHelper.shared.song
@@ -348,6 +305,50 @@ class FMView: UIView {
         
         if playIndex >= 0 && playIndex < playlist.count - 1 {
             playerView.loveButton.isSelected = PlaylistHelper.isMyFavritesSong(songModel: playlist[playIndex])
+        }
+    }
+    
+    // MAKR: - public methods
+    /// 上一首
+    func prevSong() {
+        /// 如当前播放列表不是改界面拥有者，则需要切换列表
+        if !PlayerHelper.shared.isOwner(owner: self) {
+            if playIndex > 0 && playIndex < playlist.count {
+                playIndex -= 1
+                PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: playIndex, owner: self)
+            } else {
+                viewModel.getSongList(channelId: channelId)
+            }
+            return
+        }
+        
+        /// 如果存在上一首，播放并使索引-1， 否则请求歌曲列表
+        if PlayerHelper.shared.prev() {
+            playIndex -= 1
+        } else {
+            viewModel.getSongList(channelId: channelId)
+        }
+    }
+    
+    /// 下一首
+    func nextSong() {
+        
+        /// 如当前播放列表不是改界面拥有者，则需要切换列表
+        if !PlayerHelper.shared.isOwner(owner: self) {
+            if playIndex >= 0 && playIndex < playlist.count - 1 {
+                playIndex += 1
+                PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: playIndex, owner: self)
+            } else {
+                viewModel.getSongList(channelId: channelId)
+            }
+            return
+        }
+        
+        /// 如果存在下一首，播放并使索引+1， 否则请求歌曲列表
+        if PlayerHelper.shared.next() {
+            playIndex += 1
+        } else {
+            viewModel.getSongList(channelId: channelId)
         }
     }
 }

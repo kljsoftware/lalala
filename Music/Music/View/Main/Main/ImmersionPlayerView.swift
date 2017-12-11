@@ -83,6 +83,9 @@ class ImmersionPlayerView: UIView {
     @IBOutlet weak var animImageView: UIImageView!
     var animation:RotateAnimation?
     
+    /// 默认是暂停状态
+    private var isPaused:Bool = true
+    
     // MARK: - init/override methods
     override func awakeFromNib() {
         registerNotification()
@@ -93,7 +96,7 @@ class ImmersionPlayerView: UIView {
         unregisterNotification()
         Log.e("deinit#")
     }
-    
+
     // MARK: - private methods
     /// 初始化
     private func setup() {
@@ -115,10 +118,10 @@ class ImmersionPlayerView: UIView {
         }
         
         /// 无限切换视图
-        loopPageView.setup(prev: {
-            PlayerHelper.shared.prev()
-        }, next: {
-            PlayerHelper.shared.next()
+        loopPageView.setup(prev: { [weak self] in
+            self?.prevSong()
+        }, next: { [weak self] in
+            self?.nextSong()
         }) { [weak self] in
             self?.lyricView.isHidden = false
         }
@@ -152,19 +155,19 @@ class ImmersionPlayerView: UIView {
     /// 通知相关音频控制更新
     @objc private func notifyUpdateForAudioStatusChanged(_ sender:Notification) {
         updateByStatusChanged()
-        udpateAnimation()
+        updateAnimationStatus()
     }
     
     /// 通知进度更新
     @objc private func notifyUpdateForAudioProgressChanged(_ sender:Notification) {
         updateByProgressChanged()
-        udpateAnimation()
+        updateAnimationStatus()
     }
     
     /// 通知歌曲更新
     @objc private func notifyUpdateForSongChanged(_ sender:Notification) {
         updateBySongChanged()
-        udpateAnimation()
+        updateAnimationStatus()
     }
     
     /// 按钮初始化设置
@@ -178,7 +181,6 @@ class ImmersionPlayerView: UIView {
     
     /// 按下
     private func sliderTouchBegin() {
-        animation?.start()
         animImageView.isHidden = false
         controlButton.isHidden = true
         let current = TimeInterval(slider.value) * PlayerHelper.shared.duration
@@ -192,16 +194,14 @@ class ImmersionPlayerView: UIView {
     }
     
     /// 更新动画状态
-    private func udpateAnimation() {
-        if PlayerHelper.shared.state == .buffering {
-            animation?.start()
-            animImageView.isHidden = false
-            controlButton.isHidden = true
-        } else {
-            animation?.stop()
-            animImageView.isHidden = true
-            controlButton.isHidden = false
+    private func updateAnimationStatus() {
+        var isStopped = false
+        if PlayerHelper.shared.state == .stop || PlayerHelper.shared.state == .pause || PlayerHelper.shared.buffer*PlayerHelper.shared.duration >= PlayerHelper.shared.current {
+            isStopped = true
         }
+        controlButton.isHidden = !isStopped
+        animImageView.isHidden = isStopped
+        isStopped ? animation?.stop() : animation?.start()
     }
     
     /// 更新歌曲相关信息
@@ -239,6 +239,32 @@ class ImmersionPlayerView: UIView {
         lyricView.scrollByTime(currentTime: current)
     }
     
+    /// 上一首 注：FM模块要特殊处理，是无限循环
+    private func prevSong() {
+        guard let owner = PlayerHelper.shared.owner else {
+            Log.e("owner = nil")
+            return
+        }
+        if owner.isKind(of: FMView.self) {
+            (owner as! FMView).prevSong()
+        } else {
+            _ = PlayerHelper.shared.prev()
+        }
+    }
+    
+    /// 下一首 注：FM模块要特殊处理，是无限循环
+    private func nextSong() {
+        guard let owner = PlayerHelper.shared.owner else {
+            Log.e("owner = nil")
+            return
+        }
+        if owner.isKind(of: FMView.self) {
+            (owner as! FMView).nextSong()
+        } else {
+            _ = PlayerHelper.shared.next()
+        }
+    }
+    
     // MARK: - IBAction methods
     @IBAction func onLoveButtonClicked(_ sender: UIButton) {
         if PlayerHelper.shared.song != nil {
@@ -248,7 +274,7 @@ class ImmersionPlayerView: UIView {
     }
     
     @IBAction func onPrevButtonClicked(_ sender: UIButton) {
-        PlayerHelper.shared.prev()
+        prevSong()
     }
     
     @IBAction func onControlButtonClicked(_ sender: UIButton) {
@@ -258,14 +284,12 @@ class ImmersionPlayerView: UIView {
         } else {
             sender.setImage(nor: playImages[0], dwn: playImages[1])
             PlayerHelper.shared.resume()
-            animation?.start()
-            animImageView.isHidden = false
-            controlButton.isHidden = true
         }
+        updateAnimationStatus()
     }
     
     @IBAction func onNextButtonClicked(_ sender: UIButton) {
-        PlayerHelper.shared.next()
+        nextSong()
     }
     
     @IBAction func onMoreButtonClicked(_ sender: UIButton) {
