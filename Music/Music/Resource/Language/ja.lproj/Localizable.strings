@@ -89,3 +89,6 @@
 /// 引导
 "Guide_EditPlaylistInfo" = "プレイリスト情報編集";
 "Guide_MultipleOperate" = "曲をまとめて操作";
+
+//  歌词
+"Lyric_NoLyrics" = "歌詞がありません";
