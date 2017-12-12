@@ -67,6 +67,7 @@ class MeView: UIView {
         let _tableView = UITableView(frame: CGRect(x: 0, y: meTitleHeight, width: self.frame.width, height: self.frame.height))
         _tableView.separatorColor = UIColor.clear
         _tableView.backgroundColor = UIColor.clear
+        _tableView.bounces = false
         _tableView.dataSource = self
         _tableView.delegate = self
         self.addSubview(_tableView)
@@ -156,7 +157,7 @@ extension MeView :  UITableViewDataSource, UITableViewDelegate {
                 if SleepHelper.shared.fireDate == nil {
                     wself.sleepModeText = LanguageKey.Common_Close.value
                 } else {
-                    wself.sleepModeText = SleepHelper.shared.fireDate!.getTime(format: "HH:mm:ss")
+                    wself.sleepModeText = String(format: LanguageKey.Setting_MusicWillPauseAt.value, SleepHelper.shared.fireDate!.getTime(format: "HH:mm:ss"))
                     SleepHelper.shared.start(fireDate: SleepHelper.shared.fireDate!, message: LanguageKey.Tip_TimeOffMusicStop.value)
                 }
                 wself.tableView.reloadData()

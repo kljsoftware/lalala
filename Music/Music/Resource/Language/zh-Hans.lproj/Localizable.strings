@@ -94,3 +94,9 @@
 //  歌词
 "Lyric_NoLyrics" = "暂无歌词";
 
+//========
+"Common_OK" = "确定";
+"Setting_MusicSleepDescription" = "请选择多久之后关闭";
+"Common_Hour" = "小时";
+"Common_Minute" = "分钟";
+

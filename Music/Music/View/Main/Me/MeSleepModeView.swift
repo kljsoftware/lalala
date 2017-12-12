@@ -99,6 +99,20 @@ extension MeSleepModeView :  UITableViewDataSource, UITableViewDelegate {
             fireDate = nowDate.addingTimeInterval(120*60)
         case .custom:
             isChangedSleepMode = false
+            PickerView.show(selectDataClosure: {[weak self] (values) in
+                guard let wself = self else {
+                    return
+                }
+                if values.count < 2 {
+                    return
+                }
+                let interval:TimeInterval = TimeInterval(values[0]*3600 + values[1]*60)
+                if interval > 0 {
+                    wself.fireDate = nowDate.addingTimeInterval(interval)
+                    wself.isChangedSleepMode = true
+                    wself.modelLabel.text = (wself.fireDate == nil ? LanguageKey.Common_Close.value : String(format: LanguageKey.Setting_MusicWillPauseAt.value, wself.fireDate!.getTime(format: "HH:mm:ss")))
+                }
+            })
         }
         
         modelLabel.text = (fireDate == nil ? LanguageKey.Common_Close.value : String(format: LanguageKey.Setting_MusicWillPauseAt.value, fireDate!.getTime(format: "HH:mm:ss")))

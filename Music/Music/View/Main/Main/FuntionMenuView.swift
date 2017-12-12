@@ -56,7 +56,6 @@ class FuntionMenuView: UIView {
         view.contentHeightLayoutConstraint.constant = view.contentHeight
         view.snp.makeConstraints { (maker) in
             maker.width.equalTo(APP_SIZE.width)
-            maker.height.equalTo(APP_SIZE.height)
             maker.bottom.equalTo(window)
             maker.top.equalTo(window).offset(-APP_Y)
         }

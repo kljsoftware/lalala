@@ -58,10 +58,11 @@ enum LanguageKey : String {
     case Setting_Customize          =  "Setting_Customize"
     case Setting_LastSelectedChannel =  "Setting_LastSelectedChannel"
     case Setting_AutoPlay            =  "Setting_AutoPlay"
-    case Setting_CurrentDisplayLanguage =  "Setting_CurrentDisplayLanguage"
-    case Setting_SelectLanguage         =  "Setting_SelectLanguage" /// 四种语言字串 日本語 English 简体 繁體
-    case Setting_CurrentVersion         =  "Setting_CurrentVersion"
-    case Setting_SwitchingLanguage      =  "Setting_SwitchingLanguage"
+    case Setting_CurrentDisplayLanguage = "Setting_CurrentDisplayLanguage"
+    case Setting_SelectLanguage         = "Setting_SelectLanguage" /// 四种语言字串 日本語 English 简体 繁體
+    case Setting_CurrentVersion         = "Setting_CurrentVersion"
+    case Setting_SwitchingLanguage      = "Setting_SwitchingLanguage"
+    case Setting_MusicSleepDescription  = "Setting_MusicSleepDescription"
     
     /// 通用
     case Common_Edit           =  "Common_Edit"
@@ -73,7 +74,10 @@ enum LanguageKey : String {
     case Common_Playlist       =  "Common_Playlist"
     case Common_Download       =  "Common_Download"
     case Common_Close          =  "Common_Close"
-    case Common_NoContent = "Common_NoContent"
+    case Common_NoContent      = "Common_NoContent"
+    case Common_OK             = "Common_OK"
+    case Common_Hour           = "Common_Hour"
+    case Common_Minute         = "Common_Minute"
 
     /// 提示
     case Tip_SequentialModeActivated =  "Tip_SequentialModeActivated"

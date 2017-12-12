@@ -157,6 +157,8 @@
 		3C58CFD31FC9A86700045BA9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFD21FC9A86700045BA9 /* String+Extension.swift */; };
 		3C58CFD81FC9B41F00045BA9 /* test.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 3C58CFD71FC9B41F00045BA9 /* test.lrc */; };
 		3C58CFDA1FC9B83600045BA9 /* Float+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFD91FC9B83600045BA9 /* Float+Extension.swift */; };
+		3C59CE8B1FE0012C00A4C69A /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C59CE8A1FE0012C00A4C69A /* PickerView.xib */; };
+		3C59CE8D1FE0058100A4C69A /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C59CE8C1FE0058100A4C69A /* PickerView.swift */; };
 		3C5D4BF71FD7DFC3002C8590 /* SearchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D4BF51FD7DFC3002C8590 /* SearchHistoryCell.swift */; };
 		3C5D4BF81FD7DFC3002C8590 /* SearchHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C5D4BF61FD7DFC3002C8590 /* SearchHistoryCell.xib */; };
 		3C5D4BFB1FD7E115002C8590 /* search_ic_history.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5D4BFA1FD7E115002C8590 /* search_ic_history.png */; };
@@ -409,6 +411,8 @@
 		3C58CFD21FC9A86700045BA9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		3C58CFD71FC9B41F00045BA9 /* test.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.lrc; sourceTree = "<group>"; };
 		3C58CFD91FC9B83600045BA9 /* Float+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Extension.swift"; sourceTree = "<group>"; };
+		3C59CE8A1FE0012C00A4C69A /* PickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerView.xib; sourceTree = "<group>"; };
+		3C59CE8C1FE0058100A4C69A /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		3C5D4BF51FD7DFC3002C8590 /* SearchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryCell.swift; sourceTree = "<group>"; };
 		3C5D4BF61FD7DFC3002C8590 /* SearchHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryCell.xib; sourceTree = "<group>"; };
 		3C5D4BFA1FD7E115002C8590 /* search_ic_history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_ic_history.png; sourceTree = "<group>"; };
@@ -840,6 +844,8 @@
 				3C16B8D91FCE917E00FAABCA /* SliderView.swift */,
 				3C526F681FCF95D80093B837 /* LyricView.swift */,
 				3C3AFAA91FD6F0E5003FFCE3 /* BorderView.swift */,
+				3C59CE8C1FE0058100A4C69A /* PickerView.swift */,
+				3C59CE8A1FE0012C00A4C69A /* PickerView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1271,6 +1277,7 @@
 				3C0EBE7E1FD231220047B1E1 /* immersion_btn_share_normal.png in Resources */,
 				3C16B8C61FCE4E7A00FAABCA /* fm_player_btn_more_pressed.png in Resources */,
 				3CA541281FD8CE010064764A /* img_language_check.png in Resources */,
+				3C59CE8B1FE0012C00A4C69A /* PickerView.xib in Resources */,
 				3C1F3E5F1FD5768300BEACAE /* playlist_btn_delete.png in Resources */,
 				3CA712C11FD56B38004F0490 /* MyMusicNewSongOrderCell.xib in Resources */,
 				3C04077E1FC3F5A800080935 /* LaunchScreen.storyboard in Resources */,
@@ -1419,6 +1426,7 @@
 				3CC22A4F1FDC17AA003EA6BF /* PlaylistHelper.swift in Sources */,
 				3C6203F51FC5AA6C003D2309 /* AudioPlayer.swift in Sources */,
 				3CFF1ED21FDFAFD5007C53EA /* Date+Extension.swift in Sources */,
+				3C59CE8D1FE0058100A4C69A /* PickerView.swift in Sources */,
 				3C58CFC31FC94F1800045BA9 /* Log.swift in Sources */,
 				3C0EE6761FCAE9AD00046C5A /* UserDefaultMacro.swift in Sources */,
 				3C3BE5A01FDAAA9B002D140B /* MyMusicSonglistHeaderView.swift in Sources */,
