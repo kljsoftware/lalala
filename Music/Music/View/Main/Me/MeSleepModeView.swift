@@ -41,7 +41,7 @@ class MeSleepModeView: UIView {
     // MARK: - override methods
     override func awakeFromNib() {
         titleLabel.text = LanguageKey.Setting_SleepMode.value
-        modelLabel.text = (DataHelper.shared.fireDate == nil ? LanguageKey.Common_Close.value : String(format: LanguageKey.Setting_MusicWillPauseAt.value, DataHelper.shared.fireDate!.getTime(format: "HH:mm:ss")))
+        modelLabel.text = (SleepHelper.shared.fireDate == nil ? LanguageKey.Common_Close.value : String(format: LanguageKey.Setting_MusicWillPauseAt.value, SleepHelper.shared.fireDate!.getTime(format: "HH:mm:ss")))
         tableView.register(UINib(nibName: "MeSleepModeCell", bundle: nil), forCellReuseIdentifier: "kMeSleepModeCell")
     }
     
@@ -52,7 +52,7 @@ class MeSleepModeView: UIView {
     /// 点击返回按钮
     @IBAction func onBackButtonClicked(_ sender: UIButton) {
         if isChangedSleepMode {
-            DataHelper.shared.fireDate = fireDate
+            SleepHelper.shared.fireDate = fireDate
             sleepModeClosure?()
         }
         AppUI.pop(self)

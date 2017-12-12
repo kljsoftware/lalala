@@ -54,6 +54,7 @@ class LyricView: UIView {
     /// 初始化
     private func setup() {
         scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(performTapGesture)))
+        addTipView(tip: LanguageKey.Lyric_NoLyrics.value)
 //        let topCoverView = UIView.gradientView(frame: CGRect(x: 0, y: 0, width: frame.width, height: gradientHeight), start: CGPoint.zero, end: CGPoint(x: 0, y: 1.0))
 //        let bottomCoverView = UIView.gradientView(frame: CGRect(x: 0, y: frame.height - gradientHeight, width: frame.width, height: gradientHeight), start: CGPoint(x: 0.0, y: 1.0), end: CGPoint.zero)
 //        addSubview(topCoverView)
@@ -81,7 +82,6 @@ class LyricView: UIView {
     /// 添加歌词视图
     private func addLyricView(lrcPath:String?) {
         guard let lyric = Lyric.parse(lrcPath: lrcPath), !lyric.sentences.isEmpty else {
-            addTipView(tip: LanguageKey.Lyric_NoLyrics.value)
             return
         }
         self.lyric = lyric

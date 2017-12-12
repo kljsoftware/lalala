@@ -152,12 +152,12 @@ extension MeView :  UITableViewDataSource, UITableViewDelegate {
                 guard let wself = self else {
                     return
                 }
-                
-                if DataHelper.shared.fireDate == nil {
+                SleepHelper.shared.stop()
+                if SleepHelper.shared.fireDate == nil {
                     wself.sleepModeText = LanguageKey.Common_Close.value
                 } else {
-                    wself.sleepModeText = DataHelper.shared.fireDate!.getTime(format: "HH:mm:ss")
-                    DataHelper.shared.sleepAlert(fireDate: DataHelper.shared.fireDate!, alertMessage: "")
+                    wself.sleepModeText = SleepHelper.shared.fireDate!.getTime(format: "HH:mm:ss")
+                    SleepHelper.shared.start(fireDate: SleepHelper.shared.fireDate!, message: LanguageKey.Tip_TimeOffMusicStop.value)
                 }
                 wself.tableView.reloadData()
             }
