@@ -13,7 +13,7 @@ class LyricView: UIView {
     var clickedClosure:(()->Void)?
     
     /// 歌词首尾距顶部、尾部边距、歌词上下空白、歌词左右屏幕边距、渐变区域高度
-    private let marginTopBottom:CGFloat = 30, blank:CGFloat = 12, marginLeftRight:CGFloat = 40, gradientHeight:CGFloat = 20
+    private let marginTopBottom:CGFloat = 30, blank:CGFloat = 12, marginLeftRight:CGFloat = 40, gradientHeight:CGFloat = 10
 
     /// 歌词
     private var lyric:Lyric?
@@ -67,9 +67,21 @@ class LyricView: UIView {
         }
     }
     
+    /// 暂无歌词界面
+    private func addTipView(tip:String) {
+        let label = UILabel()
+        label.text = tip
+        label.textColor = UIColor.white
+        label.font = ARIAL_FONT_16
+        scrollView.addSubview(label)
+        label.sizeToFit()
+        label.frame = CGRect(x: (frame.width - label.frame.width)/2, y: (frame.height - label.frame.height)/2, width: label.frame.width, height: label.frame.height)
+    }
+    
     /// 添加歌词视图
     private func addLyricView(lrcPath:String?) {
-        guard let lyric = Lyric.parse(lrcPath: lrcPath) else {
+        guard let lyric = Lyric.parse(lrcPath: lrcPath), !lyric.sentences.isEmpty else {
+            addTipView(tip: LanguageKey.Lyric_NoLyrics.value)
             return
         }
         self.lyric = lyric

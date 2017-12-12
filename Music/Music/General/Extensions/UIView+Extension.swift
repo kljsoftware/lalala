@@ -35,7 +35,7 @@ extension UIView {
     }
     
     /// 渐变视图
-    class func gradientView(frame:CGRect, start:CGPoint, end:CGPoint, color:UIColor = UIColor.black) -> UIView {
+    class func gradientView(frame:CGRect, start:CGPoint, end:CGPoint, color:UIColor = COLOR_464646) -> UIView {
         let view = UIView(frame: frame)
         view.backgroundColor = UIColor.clear
         let gradientLayer = CAGradientLayer()
