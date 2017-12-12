@@ -43,7 +43,7 @@ let APP_SIZE = CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT)
 let APP_HEIGHT = DEVICE_SCREEN_HEIGHT - APP_Y
 
 // 1px
-let ONE_PIXELS: CGFloat         = 1.0/UIScreen.main.scale
+let ONE_PIXELS: CGFloat = 1.0/UIScreen.main.scale
 
 /// 常用字体定义
 let ARIAL_FONT_12 = UIFont(name: "Arial", size: 12)!

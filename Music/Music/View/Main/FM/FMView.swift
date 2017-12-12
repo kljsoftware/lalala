@@ -258,7 +258,7 @@ class FMView: UIView {
             case .next:
                 wself.nextSong()
             case .more: /// 点击更多按钮
-                FuntionMenuView.show(items: [FunctionMenuType.refresh, FunctionMenuType.add, FunctionMenuType.download], selectedIndex: { [weak self] (type) in
+                FuntionMenuView.show(items: [FunctionMenuType.refresh, FunctionMenuType.add, FunctionMenuType.download, FunctionMenuType.share], selectedIndex: { [weak self] (type) in
                     guard let wself = self else {
                         return
                     }
@@ -275,6 +275,8 @@ class FMView: UIView {
                         if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
                             DownloadTaskHelper.shared.addSongTask(model: SongRealm.getModel(model: wself.playlist[wself.playIndex]))
                         }
+                    case .share: // 分享
+                        break
                     default:
                         break
                     }

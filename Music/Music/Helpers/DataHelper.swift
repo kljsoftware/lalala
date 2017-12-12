@@ -20,10 +20,12 @@ class DataHelper {
     
     /// 同步本地化数据
     func setup() {
+        
+        /// 轻量数据存储同步
         let standard = UserDefaults.standard
         channelId = standard.value(forKey: UserDefaultChannelId) as? Int
     }
-    
+
     /// 设置当前频道
     func setupChannel(channelId:Int) {
         self.channelId = channelId

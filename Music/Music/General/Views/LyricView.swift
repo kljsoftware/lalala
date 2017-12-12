@@ -54,10 +54,10 @@ class LyricView: UIView {
     /// 初始化
     private func setup() {
         scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(performTapGesture)))
-        let topCoverView = UIView.gradientView(frame: CGRect(x: 0, y: 0, width: frame.width, height: gradientHeight), start: CGPoint.zero, end: CGPoint(x: 0, y: 1.0))
-        let bottomCoverView = UIView.gradientView(frame: CGRect(x: 0, y: frame.height - gradientHeight, width: frame.width, height: gradientHeight), start: CGPoint(x: 0.0, y: 1.0), end: CGPoint.zero)
-        addSubview(topCoverView)
-        addSubview(bottomCoverView)
+//        let topCoverView = UIView.gradientView(frame: CGRect(x: 0, y: 0, width: frame.width, height: gradientHeight), start: CGPoint.zero, end: CGPoint(x: 0, y: 1.0))
+//        let bottomCoverView = UIView.gradientView(frame: CGRect(x: 0, y: frame.height - gradientHeight, width: frame.width, height: gradientHeight), start: CGPoint(x: 0.0, y: 1.0), end: CGPoint.zero)
+//        addSubview(topCoverView)
+//        addSubview(bottomCoverView)
     }
     
     /// 清除原有视图
