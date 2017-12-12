@@ -40,21 +40,21 @@ class SearchResultCell: UITableViewCell {
     
     // MARK: - IBAction
     @IBAction func onMoreButtonClicked(_ sender: UIButton) {
-        ActionSheet.show(items: [LanguageKey.MyMusic_AddToPlaylist.value, LanguageKey.Common_Download.value, LanguageKey.Common_Share.value]) { [weak self](index) in
+        FuntionMenuView.show(items: [FunctionMenuType.add, FunctionMenuType.download, FunctionMenuType.share]) { [weak self](type) in
             guard let weakself = self else {
                 return
             }
-            switch index {
-            case 0: // 添加至歌单
+            switch type {
+            case .add: // 添加至歌单
                 
                 if weakself.model != nil {
                     PlaylistSheet.addToPlaylist(mode: SongRealm(value: weakself.model!))
                     return
                 }
                 
-            case 1:
+            case .download:
                 DownloadTaskHelper.shared.addSongTask(model: SongRealm(value: weakself.model!))
-            case 2:
+            case .share:
                 break
             default:
                 break

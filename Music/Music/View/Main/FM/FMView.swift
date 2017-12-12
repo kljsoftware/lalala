@@ -258,25 +258,23 @@ class FMView: UIView {
             case .next:
                 wself.nextSong()
             case .more: /// 点击更多按钮
-                ActionSheet.show(items: [LanguageKey.FM_RefreshTracks.value, LanguageKey.MyMusic_AddToPlaylist.value, LanguageKey.Common_Download.value, LanguageKey.Common_Cancel.value], selectedIndex: {[weak self] (index) in
+                FuntionMenuView.show(items: [FunctionMenuType.refresh, FunctionMenuType.add, FunctionMenuType.download], selectedIndex: { [weak self] (type) in
                     guard let wself = self else {
                         return
                     }
-                    switch index {
-                    case 0: // 换一批歌
+                    switch type {
+                    case .refresh: // 换一批歌
                         wself.playIndex = 0
                         wself.playlist.removeAll()
                         wself.viewModel.getSongList(channelId: wself.channelId)
-                    case 1: // 添加至歌单
+                    case .add: // 添加至歌单
                         if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
                             PlaylistSheet.addToPlaylist(mode: SongRealm.getModel(model: wself.playlist[wself.playIndex]))
                         }
-                    case 2: // 下载
+                    case .download: // 下载
                         if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
                             DownloadTaskHelper.shared.addSongTask(model: SongRealm.getModel(model: wself.playlist[wself.playIndex]))
                         }
-                    case 3: // 取消
-                        break
                     default:
                         break
                     }

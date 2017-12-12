@@ -67,7 +67,7 @@ enum LanguageKey : String {
     case Common_Edit           =  "Common_Edit"
     case Common_Done           =  "Common_Done"
     case Common_Share          =  "Common_Share"
-    case Common_Decasee        =  "Common_Decasee"
+    case Common_Delete         =  "Common_Delete"
     case Common_Cancel         =  "Common_Cancel"
     case Common_SelectTrack    =  "Common_SelectTrack"
     case Common_Playlist       =  "Common_Playlist"
