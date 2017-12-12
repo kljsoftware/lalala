@@ -52,9 +52,9 @@ class AppUI {
     }
     
     /// 提示
-    class func tip(_ message:String) {
+    class func tip(_ message:String, position:ToastPosition = .center) {
         let window = (UIApplication.shared.delegate as! AppDelegate).window
-        window?.makeToast(message, duration: 1, position: ToastPosition.center)
+        window?.makeToast(message, duration: 1, position: position)
     }
 }
 

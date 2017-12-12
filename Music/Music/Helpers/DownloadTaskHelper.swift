@@ -6,6 +6,9 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
+/// 歌曲每天最大下载次数
+let DOWNLOAD_LIMIT_TIMES = 20
+
 /// 歌曲下载任务助手
 class DownloadTaskHelper {
     
@@ -31,13 +34,37 @@ class DownloadTaskHelper {
                 NotificationCenter.default.post(name: NoticationUpdateForSongDownload, object: nil)
             }
         }
+        
+        /// 数据库数据同步
+        let time = Date().todayTime()
+        let statistics = RealmHelper.shared.query(type: DownloadStatistics.self, predicate: NSPredicate(format: "time = %@", time))
+        if statistics.count > 0 {
+            amount = statistics.first!.amount
+        }
     }
     
     /// 正在下载数组
     private var downloadingTasks = [DownloadTask]()
     
+    /// 今日下载次数
+    var amount = 0
+    
     /// 添加歌曲任务
     func addSongTask(model:SongRealm) {
+        
+        /// 今日下载次数超限
+        if amount >= DOWNLOAD_LIMIT_TIMES {
+            AppUI.tip(LanguageKey.Tip_DownloadTrackNoCredit.value)
+            return
+        }
+        
+        /// 更新下载次数
+        amount += 1
+        let time = Date().todayTime()
+        RealmHelper.shared.insert(obj: DownloadStatistics(value: [time, amount]), filter: NSPredicate(format: "time = %@", time))
+        AppUI.tip(String(format: LanguageKey.Tip_DownloadTrackSuccess.value, model.title, "\(DOWNLOAD_LIMIT_TIMES - amount)"), position: .center)
+        
+        /// 创建下载任务
         let task = DownloadTask(urlString: model.url)
         downloadingTasks.append(task)
         task.resume()

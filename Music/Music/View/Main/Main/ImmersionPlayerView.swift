@@ -266,13 +266,6 @@ class ImmersionPlayerView: UIView {
     }
     
     // MARK: - IBAction methods
-    @IBAction func onLoveButtonClicked(_ sender: UIButton) {
-        if PlayerHelper.shared.song != nil {
-            sender.isSelected = !sender.isSelected
-            PlaylistHelper.addOrRemoveFavorites(songModel: PlayerHelper.shared.song!)
-        }
-    }
-    
     @IBAction func onPrevButtonClicked(_ sender: UIButton) {
         prevSong()
     }
@@ -290,6 +283,32 @@ class ImmersionPlayerView: UIView {
     
     @IBAction func onNextButtonClicked(_ sender: UIButton) {
         nextSong()
+    }
+    
+    /// 喜爱按钮
+    @IBAction func onLoveButtonClicked(_ sender: UIButton) {
+        if PlayerHelper.shared.song != nil {
+            sender.isSelected = !sender.isSelected
+            PlaylistHelper.addOrRemoveFavorites(songModel: PlayerHelper.shared.song!)
+        }
+    }
+    
+    /// 点击循环模式按钮
+    @IBAction func onCircleButtonClicked(_ sender: UIButton) {
+    }
+    
+    /// 点击下载按钮
+    @IBAction func onDownloadButtonClicked(_ sender: UIButton) {
+        if PlayerHelper.shared.song != nil {
+            DownloadTaskHelper.shared.addSongTask(model: SongRealm.getModel(model: PlayerHelper.shared.song!))
+        }
+    }
+    
+    /// 点击添加至歌单按钮
+    @IBAction func onAddPlaylistButtonClicked(_ sender: UIButton) {
+        if PlayerHelper.shared.song != nil {
+            PlaylistSheet.addToPlaylist(mode: SongRealm.getModel(model: PlayerHelper.shared.song!))
+        }
     }
     
     @IBAction func onMoreButtonClicked(_ sender: UIButton) {

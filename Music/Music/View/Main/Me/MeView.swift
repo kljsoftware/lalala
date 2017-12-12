@@ -83,6 +83,10 @@ class MeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        unregisterNotification()
+    }
+    
     /// 初始化
     private func setup() {
         
@@ -91,6 +95,24 @@ class MeView: UIView {
         
         /// 列表视图
         tableView.register(UINib(nibName: "MeTableViewCell", bundle: nil), forCellReuseIdentifier: "kMeTableViewCell")
+        
+        /// 注册通知
+        registerNotification()
+    }
+    
+    /// 注册通知
+    fileprivate func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownload), name: NoticationUpdateForSongDownload, object: nil)
+    }
+    
+    /// 销毁通知
+    fileprivate func unregisterNotification() {
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongDownload, object: nil)
+    }
+    
+    /// 新建歌单消息
+    @objc private func notifySongDownload(_ sender:Notification) {
+        tableView.reloadData()
     }
 }
 

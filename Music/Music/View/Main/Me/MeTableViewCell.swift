@@ -47,7 +47,7 @@ class MeTableViewCell: UITableViewCell {
         iconImageView.image = iconDict[type]
         contentLabel.text = getContent(type)
         if type == .amount {
-            contentLabel.text = "\(contentLabel.text!)20"
+            contentLabel.text = "\(contentLabel.text!)\(DOWNLOAD_LIMIT_TIMES - DownloadTaskHelper.shared.amount)"
         }
         arrowImageView.isHidden = (type == .amount)
     }

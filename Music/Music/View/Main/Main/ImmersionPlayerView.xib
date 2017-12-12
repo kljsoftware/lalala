@@ -290,6 +290,9 @@
                                             </constraints>
                                             <state key="normal" image="immersion_player_btn_cycle_all_normal.png"/>
                                             <state key="highlighted" image="immersion_player_btn_cycle_all_pressed.png"/>
+                                            <connections>
+                                                <action selector="onCircleButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Rpz-Kf-Ll8"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -309,6 +312,9 @@
                                             </constraints>
                                             <state key="normal" image="immersion_player_btn_download_normal.png"/>
                                             <state key="highlighted" image="immersion_player_btn_download_pressed.png"/>
+                                            <connections>
+                                                <action selector="onDownloadButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="tPr-fS-MHn"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -328,6 +334,9 @@
                                             </constraints>
                                             <state key="normal" image="immersion_player_btn_add_normal.png"/>
                                             <state key="highlighted" image="immersion_player_btn_add_pressed.png"/>
+                                            <connections>
+                                                <action selector="onAddPlaylistButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="y9S-2y-jpU"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -441,7 +450,7 @@
     </objects>
     <resources>
         <image name="common_btn_back_normal.png" width="90" height="90"/>
-        <image name="core_img_loading.png" width="180" height="180"/>
+        <image name="core_img_loading.png" width="156" height="156"/>
         <image name="immersion_btn_share_normal.png" width="90" height="90"/>
         <image name="immersion_player_btn_add_normal.png" width="60" height="60"/>
         <image name="immersion_player_btn_add_pressed.png" width="66" height="66"/>
