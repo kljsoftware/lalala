@@ -28,6 +28,9 @@ class MeTableViewCell: UITableViewCell {
     /// 箭头
     @IBOutlet weak var arrowImageView: UIImageView!
     
+    /// 模式对应的文字
+    @IBOutlet weak var modelLabel: UILabel!
+    
     /// 获取内容
     private func getContent(_ type:MeTableCellType) -> String {
         switch type {
@@ -43,13 +46,23 @@ class MeTableViewCell: UITableViewCell {
     }
     
     /// 更新单元
-    func update(type:MeTableCellType) {
+    func update(type:MeTableCellType, modeText:String? = nil) {
         iconImageView.image = iconDict[type]
         contentLabel.text = getContent(type)
+        
+        /// 剩余下载次数
         if type == .amount {
             contentLabel.text = "\(contentLabel.text!)\(DOWNLOAD_LIMIT_TIMES - DownloadTaskHelper.shared.amount)"
         }
         arrowImageView.isHidden = (type == .amount)
+        
+        /// 休眠模式
+        if type == .sleepMode {
+            modelLabel.isHidden = false
+            modelLabel.text = modeText
+        } else {
+            modelLabel.isHidden = true
+        }
     }
 }
 

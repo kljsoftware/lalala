@@ -18,6 +18,9 @@ class DataHelper {
     /// 当前电台频道id
     var channelId:Int?
     
+    /// 定时提醒日期
+    var fireDate:Date?
+    
     /// 同步本地化数据
     func setup() {
         
@@ -44,4 +47,12 @@ class DataHelper {
         MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle:"歌名", MPMediaItemPropertyArtist:"歌手名", MPMediaItemPropertyArtwork:artwork]
     }
     
+    /// 休眠提醒
+    func sleepAlert(fireDate:Date, alertMessage:String) {
+        let notification = UILocalNotification()
+        notification.fireDate = fireDate
+        notification.alertBody = alertMessage
+        notification.timeZone = TimeZone.current
+        UIApplication.shared.scheduleLocalNotification(notification)
+    }
 }

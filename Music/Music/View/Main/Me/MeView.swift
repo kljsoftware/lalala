@@ -63,7 +63,7 @@ class MeView: UIView {
     }()
     
     /// 列表视图
-    private lazy var tableView:UITableView = {
+    fileprivate lazy var tableView:UITableView = {
         let _tableView = UITableView(frame: CGRect(x: 0, y: meTitleHeight, width: self.frame.width, height: self.frame.height))
         _tableView.separatorColor = UIColor.clear
         _tableView.backgroundColor = UIColor.clear
@@ -72,6 +72,9 @@ class MeView: UIView {
         self.addSubview(_tableView)
         return _tableView
     }()
+    
+    /// 休眠提示文字
+    fileprivate var sleepModeText:String?
 
     // MARK: - init/override methods
     override init(frame: CGRect) {
@@ -128,7 +131,7 @@ extension MeView :  UITableViewDataSource, UITableViewDelegate {
     // 单元(cell)视图
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "kMeTableViewCell", for: indexPath) as! MeTableViewCell
-        cell.update(type: MeTableCellType(rawValue: indexPath.row)!)
+        cell.update(type: MeTableCellType(rawValue: indexPath.row)!, modeText: sleepModeText)
         return cell
     }
     
@@ -145,6 +148,19 @@ extension MeView :  UITableViewDataSource, UITableViewDelegate {
             break
         case .sleepMode:
             let view = Bundle.main.loadNibNamed("MeSleepModeView", owner: nil, options: nil)?[0] as! MeSleepModeView
+            view.sleepModeClosure = { [weak self] in
+                guard let wself = self else {
+                    return
+                }
+                
+                if DataHelper.shared.fireDate == nil {
+                    wself.sleepModeText = LanguageKey.Common_Close.value
+                } else {
+                    wself.sleepModeText = DataHelper.shared.fireDate!.getTime(format: "HH:mm:ss")
+                    DataHelper.shared.sleepAlert(fireDate: DataHelper.shared.fireDate!, alertMessage: "")
+                }
+                wself.tableView.reloadData()
+            }
             AppUI.push(to: view, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
         case .setting:
             let view = Bundle.main.loadNibNamed("MeSettingView", owner: nil, options: nil)?[0] as! MeSettingView

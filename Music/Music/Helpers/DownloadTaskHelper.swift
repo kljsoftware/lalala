@@ -36,7 +36,7 @@ class DownloadTaskHelper {
         }
         
         /// 数据库数据同步
-        let time = Date().todayTime()
+        let time = Date().getTime(format: "yyyy-MM-dd")
         let statistics = RealmHelper.shared.query(type: DownloadStatistics.self, predicate: NSPredicate(format: "time = %@", time))
         if statistics.count > 0 {
             amount = statistics.first!.amount
@@ -60,7 +60,7 @@ class DownloadTaskHelper {
         
         /// 更新下载次数
         amount += 1
-        let time = Date().todayTime()
+        let time = Date().getTime(format: "yyyy-MM-dd")
         RealmHelper.shared.insert(obj: DownloadStatistics(value: [time, amount]), filter: NSPredicate(format: "time = %@", time))
         AppUI.tip(String(format: LanguageKey.Tip_DownloadTrackSuccess.value, model.title, "\(DOWNLOAD_LIMIT_TIMES - amount)"), position: .center)
         

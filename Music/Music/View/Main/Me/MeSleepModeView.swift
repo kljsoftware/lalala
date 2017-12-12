@@ -23,6 +23,9 @@ enum SleepModeType : Int {
 /// 休眠模式
 class MeSleepModeView: UIView {
     
+    /// 休眠模式回调闭包
+    var sleepModeClosure:(()->Void)?
+    
     /// 标题
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -32,14 +35,26 @@ class MeSleepModeView: UIView {
     /// 列表视图
     @IBOutlet weak var tableView: UITableView!
     
+    /// 是否更改的休眠模式、定时日期
+    fileprivate var isChangedSleepMode = false, fireDate:Date?
+    
     // MARK: - override methods
     override func awakeFromNib() {
         titleLabel.text = LanguageKey.Setting_SleepMode.value
+        modelLabel.text = (DataHelper.shared.fireDate == nil ? LanguageKey.Common_Close.value : String(format: LanguageKey.Setting_MusicWillPauseAt.value, DataHelper.shared.fireDate!.getTime(format: "HH:mm:ss")))
         tableView.register(UINib(nibName: "MeSleepModeCell", bundle: nil), forCellReuseIdentifier: "kMeSleepModeCell")
+    }
+    
+    deinit {
+        Log.e("deinit")
     }
     
     /// 点击返回按钮
     @IBAction func onBackButtonClicked(_ sender: UIButton) {
+        if isChangedSleepMode {
+            DataHelper.shared.fireDate = fireDate
+            sleepModeClosure?()
+        }
         AppUI.pop(self)
     }
 }
@@ -67,10 +82,25 @@ extension MeSleepModeView :  UITableViewDataSource, UITableViewDelegate {
     /// 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.setSelected(true, animated: false)
-      
-        // TODO: 自定义设置休眠时间
-        if SleepModeType(rawValue: indexPath.row)! == .custom {
-            
+        isChangedSleepMode = true
+        let nowDate = Date()
+        switch SleepModeType(rawValue: indexPath.row)! {
+        case .disbleTimer:
+            fireDate = nil
+        case .after15mins:
+            fireDate = nowDate.addingTimeInterval(15*60)
+        case .after30mins:
+            fireDate = nowDate.addingTimeInterval(30*60)
+        case .after60mins:
+            fireDate = nowDate.addingTimeInterval(60*60)
+        case .after90mins:
+            fireDate = nowDate.addingTimeInterval(90*60)
+        case .after120mins:
+            fireDate = nowDate.addingTimeInterval(120*60)
+        case .custom:
+            isChangedSleepMode = false
         }
+        
+        modelLabel.text = (fireDate == nil ? LanguageKey.Common_Close.value : String(format: LanguageKey.Setting_MusicWillPauseAt.value, fireDate!.getTime(format: "HH:mm:ss")))
     }
 }

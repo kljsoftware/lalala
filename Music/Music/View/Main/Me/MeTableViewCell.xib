@@ -36,6 +36,12 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PK3-Ov-Ote">
+                        <rect key="frame" x="274" y="21.5" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                        <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="core_item_img_arrows.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fv6-Wu-Oqd">
                         <rect key="frame" x="286" y="11" width="22" height="22"/>
                         <constraints>
@@ -47,10 +53,12 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Fv6-Wu-Oqd" secondAttribute="trailing" constant="12" id="A3C-un-KTO"/>
+                    <constraint firstItem="PK3-Ov-Ote" firstAttribute="centerY" secondItem="Fv6-Wu-Oqd" secondAttribute="centerY" id="CcD-6u-Smc"/>
                     <constraint firstItem="HsT-HS-7pW" firstAttribute="leading" secondItem="QjK-MX-DWb" secondAttribute="trailing" constant="12" id="L7X-Et-usH"/>
                     <constraint firstItem="HsT-HS-7pW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Qe3-fl-0Xd"/>
                     <constraint firstItem="QjK-MX-DWb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="SX3-lQ-QbN"/>
                     <constraint firstItem="QjK-MX-DWb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="TUz-nB-VI3"/>
+                    <constraint firstItem="Fv6-Wu-Oqd" firstAttribute="leading" secondItem="PK3-Ov-Ote" secondAttribute="trailing" constant="12" id="VIA-E3-CVb"/>
                     <constraint firstItem="Fv6-Wu-Oqd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="c1i-W6-ZNG"/>
                 </constraints>
             </tableViewCellContentView>
@@ -59,6 +67,7 @@
                 <outlet property="arrowImageView" destination="Fv6-Wu-Oqd" id="1RV-0D-gj0"/>
                 <outlet property="contentLabel" destination="HsT-HS-7pW" id="Q2v-0Q-kad"/>
                 <outlet property="iconImageView" destination="QjK-MX-DWb" id="ePX-jN-SmM"/>
+                <outlet property="modelLabel" destination="PK3-Ov-Ote" id="h4c-Fo-C15"/>
             </connections>
         </tableViewCell>
     </objects>

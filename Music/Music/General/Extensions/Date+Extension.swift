@@ -9,10 +9,10 @@
 /// 日期
 extension Date {
     
-    /// 格式：时间格式yyyy-MM-dd
-    func todayTime() -> String {
+    /// 格式：例如：yyyy-MM-dd， HH:mm:ss
+    func getTime(format:String) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = format
         return formatter.string(from: self)
     }
 }
