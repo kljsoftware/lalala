@@ -85,6 +85,7 @@
 "Tip_ConfirmToDeleteNumberTracks" = "%@曲をすべて削除しますか？";
 "Tip_ConfirmToDelete" = "『%@』削除しますか？";
 "Tip_ConfirmToDeltePlaylist" = "プレイリスト『%@』を削除しますか？";
+"Tip_TimeOffMusicStop" = "タイマー設定時間になったため、再生が終了します。";
 
 /// 引导
 "Guide_EditPlaylistInfo" = "プレイリスト情報編集";

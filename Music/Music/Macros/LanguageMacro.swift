@@ -91,6 +91,7 @@ enum LanguageKey : String {
     case Tip_ConfirmToDeleteNumberTracks = "Tip_ConfirmToDeleteNumberTracks"
     case Tip_ConfirmToDelete = "Tip_ConfirmToDelete"
     case Tip_ConfirmToDeltePlaylist = "Tip_ConfirmToDeltePlaylist"
+    case Tip_TimeOffMusicStop = "Tip_TimeOffMusicStop"
     
     // 引导
     case Guide_EditPlaylistInfo = "Guide_EditPlaylistInfo"
