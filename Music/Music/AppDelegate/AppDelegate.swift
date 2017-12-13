@@ -60,6 +60,21 @@ class AppUI {
         let window = (UIApplication.shared.delegate as! AppDelegate).window
         window?.makeToast(message, duration: 1, position: position)
     }
+    
+    /// 分享
+    class func share(activityItems: [Any], applicationActivities: [UIActivity]? = nil) {
+        let window = (UIApplication.shared.delegate as! AppDelegate).window
+        let activity = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone {
+            window?.rootViewController?.present(activity, animated: true, completion: nil)
+        } else {
+            let popover = activity.popoverPresentationController
+            if popover != nil {
+                popover?.permittedArrowDirections = UIPopoverArrowDirection.down
+                window?.rootViewController?.present(activity, animated: true, completion: nil)
+            }
+        }
+    }
 }
 
 @UIApplicationMain

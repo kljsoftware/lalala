@@ -68,7 +68,7 @@ extension MeSettingView :  UITableViewDataSource, UITableViewDelegate {
         switch type {
         case .last_select_channel, .auto_play:
             let cell = tableView.dequeueReusableCell(withIdentifier: "kMeSettingType0Cell", for: indexPath) as! MeSettingType0Cell
-            cell.update(text: content)
+            cell.update(text: content, type: type)
             return cell
         case .current_language, .version:
             let cell = tableView.dequeueReusableCell(withIdentifier: "kMeSettingType1Cell", for: indexPath) as! MeSettingType1Cell
@@ -86,9 +86,15 @@ extension MeSettingView :  UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch SettingModeType(rawValue: indexPath.row)! {
         case .last_select_channel:
-            break
+            let cell = tableView.cellForRow(at: indexPath) as? MeSettingType0Cell
+            DataHelper.shared.isRememberLastChanneld = !DataHelper.shared.isRememberLastChanneld
+            cell?.switchButton.setOn(DataHelper.shared.isRememberLastChanneld, animated: true)
+            UserDefaults.standard.set(DataHelper.shared.isRememberLastChanneld, forKey: UserDefaultRememberLastChannel)
         case .auto_play:
-            break
+            let cell = tableView.cellForRow(at: indexPath) as? MeSettingType0Cell
+            DataHelper.shared.isAutoPlay = !DataHelper.shared.isAutoPlay
+            cell?.switchButton.setOn(DataHelper.shared.isAutoPlay, animated: true)
+            UserDefaults.standard.set(DataHelper.shared.isAutoPlay, forKey: UserDefaultAutoPlay)
         case .current_language:
             let view = Bundle.main.loadNibNamed("MeSelectLanguageView", owner: nil, options: nil)?[0] as! MeSelectLanguageView
             AppUI.push(to: view, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))

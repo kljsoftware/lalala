@@ -18,10 +18,16 @@ class MeSettingType0Cell: UITableViewCell {
     // MARK: - override methods
     override func awakeFromNib() {
         switchButton.transform =  CGAffineTransform(scaleX: 0.75, y: 0.75)
+        switchButton.isUserInteractionEnabled = false
     }
     
     /// 更新
-    func update(text:String?) {
+    func update(text:String?, type:SettingModeType) {
         nameLabel.text = text
+        if type == .auto_play {
+            switchButton.isOn = DataHelper.shared.isAutoPlay
+        } else if type == .last_select_channel {
+            switchButton.isOn = DataHelper.shared.isRememberLastChanneld
+        }
     }
 }

@@ -39,7 +39,29 @@ class FMChannelView: UIView {
             return
         }
         setupSubViews()
-        selectedButton(with: DataHelper.shared.channelId ?? channelListDataModel!.channels.first!.id)
+        selectedButton(with: getChannelId())
+    }
+    
+    /// 获取显示频道
+    private func getChannelId() -> Int {
+        
+        /// 默认第一个频道
+        var channelId = channelListDataModel!.channels.first!.id
+        
+        /// 若没有记录频道或记录频道的数据为空, 则默认显示第一个频道
+        if !DataHelper.shared.isRememberLastChanneld || DataHelper.shared.channelId == nil {
+            return channelId
+        }
+        
+        /// 遍历当前频道
+        for channel in channelListDataModel!.channels {
+            if channel.id == DataHelper.shared.channelId! {
+                channelId = channel.id
+                break
+            }
+        }
+        
+        return channelId
     }
     
     /// 初始化子视图
@@ -82,6 +104,7 @@ class FMChannelView: UIView {
         button.titleLabel?.font = ARIAL_FONT_21
         self.channelId = channelId
         scrollToHeader(distance: button.frame.minX - 8) // 第一项位置是居左8dp
+        DataHelper.shared.setupChannel(channelId: channelId)
         selectedClosure?(channelId)
     }
     

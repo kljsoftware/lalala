@@ -18,12 +18,18 @@ class DataHelper {
     /// 当前电台频道id
     var channelId:Int?
     
+    ///  记住上次选中的频道
+    var isRememberLastChanneld = true
+    
+    /// 自动播放
+    var isAutoPlay = true
+    
     /// 同步本地化数据
     func setup() {
-        
-        /// 轻量数据存储同步
         let standard = UserDefaults.standard
         channelId = standard.value(forKey: UserDefaultChannelId) as? Int
+        isRememberLastChanneld = standard.bool(forKey: UserDefaultRememberLastChannel)
+        isAutoPlay = standard.bool(forKey: UserDefaultAutoPlay)
     }
 
     /// 设置当前频道
