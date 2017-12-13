@@ -61,6 +61,9 @@
                                 <constraint firstAttribute="height" constant="30" id="gkI-gz-v8Z"/>
                             </constraints>
                             <state key="normal" image="immersion_btn_share_normal.png"/>
+                            <connections>
+                                <action selector="onShareButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="DcD-es-Q4r"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -434,6 +437,7 @@
             <connections>
                 <outlet property="animImageView" destination="4NS-Mj-v5P" id="ekY-Oz-VkP"/>
                 <outlet property="artistLabel" destination="1zy-qK-crR" id="ECU-bt-3Qp"/>
+                <outlet property="backButton" destination="tCi-pH-NuP" id="p91-p4-k8n"/>
                 <outlet property="backImageView" destination="Fcx-OB-riB" id="UTf-E8-WOz"/>
                 <outlet property="bottomLayoutConstraint" destination="tmf-vQ-aR4" id="hhY-Na-84y"/>
                 <outlet property="controlButton" destination="TOE-cB-WCi" id="Etf-gl-36U"/>
@@ -443,6 +447,7 @@
                 <outlet property="moreButton" destination="rdG-j1-KhP" id="Eq6-Um-QkS"/>
                 <outlet property="nextButton" destination="XoQ-8h-JlB" id="jmY-nL-tT9"/>
                 <outlet property="prevButton" destination="X01-Wk-LQX" id="vFV-WU-rUW"/>
+                <outlet property="shareButton" destination="H5E-sI-3qf" id="X2X-RT-HKs"/>
                 <outlet property="slider" destination="Scj-CP-fS0" id="wkz-0S-1gz"/>
                 <outlet property="titleLabel" destination="Dmd-41-3r5" id="Dlz-ng-5Nd"/>
             </connections>

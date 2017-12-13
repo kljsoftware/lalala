@@ -6,6 +6,9 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
+/// Appstore 地址， 上线地址
+let app_url = "https://itunes.apple.com/us/app/id466211510?mt=8"
+
 /// 音乐类信息服务器地址
 let SERVER_ADDRESS = "https://theinfoapps.com"
 

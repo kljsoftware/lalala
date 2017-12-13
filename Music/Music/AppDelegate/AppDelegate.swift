@@ -17,7 +17,7 @@ class AppUI {
     /// 压栈(栈顶)
     class func push(to view:UIView, with size:CGSize) {
         let window = (UIApplication.shared.delegate as! AppDelegate).window
-        window?.push(to: view, with: size)
+        window?.rootViewController?.view.push(to: view, with: size)
     }
     
     /// 压栈(对应子模块栈顶) 注：cuttentView表示当前视图，view表示要压栈的视图, size表示压栈视图的大小
@@ -62,7 +62,7 @@ class AppUI {
     }
     
     /// 分享
-    class func share(activityItems: [Any], applicationActivities: [UIActivity]? = nil) {
+    class func share(activityItems: [Any] = [String(format: LanguageKey.Share_AppContent.value, app_url)], applicationActivities: [UIActivity]? = nil) {
         let window = (UIApplication.shared.delegate as! AppDelegate).window
         let activity = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
         if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone {

@@ -23,6 +23,12 @@ class ImmersionPlayerView: UIView {
     /// 距底约束
     @IBOutlet weak var bottomLayoutConstraint: NSLayoutConstraint!
     
+    /// 返回按钮
+    @IBOutlet weak var backButton: UIButton!
+   
+    /// 分享按钮
+    @IBOutlet weak var shareButton: UIButton!
+    
     /// 喜欢按钮
     @IBOutlet weak var loveButton: UIButton!
     
@@ -177,6 +183,8 @@ class ImmersionPlayerView: UIView {
         controlButton.isExclusiveTouch = true
         nextButton.isExclusiveTouch = true
         moreButton.isExclusiveTouch = true
+        backButton.isExclusiveTouch = true
+        shareButton.isExclusiveTouch = true
     }
     
     /// 按下
@@ -321,7 +329,13 @@ class ImmersionPlayerView: UIView {
         PlayerHelper.shared.seekTo(time: current)
         currentLabel.text = current.transferFormat()
     }
+  
+    /// 点击分享按钮
+    @IBAction func onShareButtonClicked(_ sender: UIButton) {
+        AppUI.share()
+    }
     
+    /// 点击返回按钮
     @IBAction func onBackButtonClicked(_ sender: UIButton) {
         AppUI.pop(self)
     }

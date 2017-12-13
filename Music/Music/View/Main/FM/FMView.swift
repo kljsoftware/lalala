@@ -276,7 +276,7 @@ class FMView: UIView {
                             DownloadTaskHelper.shared.addSongTask(model: SongRealm.getModel(model: wself.playlist[wself.playIndex]))
                         }
                     case .share: // 分享
-                        break
+                        AppUI.share()
                     default:
                         break
                     }

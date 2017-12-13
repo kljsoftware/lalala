@@ -173,7 +173,7 @@ extension MeView :  UITableViewDataSource, UITableViewDelegate {
             let view = Bundle.main.loadNibNamed("MeSettingView", owner: nil, options: nil)?[0] as! MeSettingView
             AppUI.push(to: view, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
         case .share:
-            //AppUI.share(activityItems: <#T##[Any]#>)
+            AppUI.share()
             break
         }
     }
