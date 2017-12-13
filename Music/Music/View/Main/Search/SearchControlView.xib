@@ -33,10 +33,9 @@
                             </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIJ-Qj-Cz9">
-                            <rect key="frame" x="295" y="6" width="32" height="32"/>
+                            <rect key="frame" x="297" y="6" width="30" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="32" id="t8z-AB-O4b"/>
-                                <constraint firstAttribute="width" constant="32" id="uBa-Nd-41n"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                             <state key="highlighted">

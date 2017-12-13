@@ -47,9 +47,12 @@ class AppUI {
     
     /// 切换语言
     class func change(_ languageType:LanguageType) {
-        LanguageHelper.shared.setLanguage(type: languageType)
-        let window = (UIApplication.shared.delegate as! AppDelegate).window
-        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "kMainVC")
+        tip(LanguageKey.Setting_SwitchingLanguage.value)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+            LanguageHelper.shared.setLanguage(type: languageType)
+            let window = (UIApplication.shared.delegate as! AppDelegate).window
+            window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "kMainVC")
+        })
     }
     
     /// 提示
