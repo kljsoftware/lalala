@@ -30,6 +30,8 @@
 "MyMusic_PauseAll"            = "全部暫停";
 "MyMusic_ContinueAll"            = "全部繼續";
 "MyMusic_EditPlaylistNameDescription"            = "請編輯歌單的名稱，不能與已有歌單重複。";
+"MyMusic_NoTask"          = "暫無任務";
+
 /// 发现
 "Discover_Rank"              = "排行榜";
 "Discover_PopularPlaylist"   = "熱門歌單";
@@ -55,6 +57,7 @@
 "Setting_SelectLanguage"         = "選擇語言"; /// 四种语言字串 日本語 English 简体 繁體
 "Setting_CurrentVersion"         = "當前版本";
 "Setting_SwitchingLanguage"         = "語言切換中";
+"Setting_MusicSleepDescription" = "請選擇多久之後關閉";
 
 /// 通用
 "Common_Edit"           = "編輯";
@@ -67,7 +70,9 @@
 "Common_Download"       = "下載";
 "Common_Close"          = "關閉";
 "Common_NoContent"          = "暫無內容";
-"MyMusic_NoTask"          = "暫無任務";
+"Common_OK" = "確定";
+"Common_Hour" = "小時";
+"Common_Minute" = "分鐘";
 
 /// 提示
 "Tip_SequentialModeActivated" = "已切換至順序播放";
