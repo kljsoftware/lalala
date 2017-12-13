@@ -26,3 +26,6 @@ let NoticationUpdateForChangePlaylist = Notification.Name("NoticationUpdateForCh
 
 /// 下载开始/完成，通知我的下载界面更新
 let NoticationUpdateForSongDownload = Notification.Name("NoticationUpdateForSongDownload")
+
+/// 暂停定时时间到，通知界面更新, 并暂停后台音乐播放
+let NoticationUpdateForTimesup = Notification.Name("NoticationUpdateForTimesup")

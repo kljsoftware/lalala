@@ -107,15 +107,23 @@ class MeView: UIView {
     /// 注册通知
     fileprivate func registerNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownload), name: NoticationUpdateForSongDownload, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyTimesup), name: NoticationUpdateForTimesup, object: nil)
     }
     
     /// 销毁通知
     fileprivate func unregisterNotification() {
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongDownload, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForTimesup, object: nil)
     }
     
     /// 新建歌单消息
     @objc private func notifySongDownload(_ sender:Notification) {
+        tableView.reloadData()
+    }
+    
+    /// 定时时间到, 刷新界面
+    @objc private func notifyTimesup(_ sender:Notification) {
+        sleepModeText = LanguageKey.Common_Close.value
         tableView.reloadData()
     }
 }
@@ -158,7 +166,7 @@ extension MeView :  UITableViewDataSource, UITableViewDelegate {
                     wself.sleepModeText = LanguageKey.Common_Close.value
                 } else {
                     wself.sleepModeText = String(format: LanguageKey.Setting_MusicWillPauseAt.value, SleepHelper.shared.fireDate!.getTime(format: "HH:mm:ss"))
-                    SleepHelper.shared.start(fireDate: SleepHelper.shared.fireDate!, message: LanguageKey.Tip_TimeOffMusicStop.value)
+                    SleepHelper.shared.start(fireDate: SleepHelper.shared.fireDate!)
                 }
                 wself.tableView.reloadData()
             }

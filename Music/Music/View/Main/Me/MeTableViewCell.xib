@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PK3-Ov-Ote">
-                        <rect key="frame" x="274" y="21.5" width="0.0" height="0.0"/>
+                        <rect key="frame" x="280" y="21.5" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
                         <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                     <constraint firstItem="HsT-HS-7pW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Qe3-fl-0Xd"/>
                     <constraint firstItem="QjK-MX-DWb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="SX3-lQ-QbN"/>
                     <constraint firstItem="QjK-MX-DWb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="TUz-nB-VI3"/>
-                    <constraint firstItem="Fv6-Wu-Oqd" firstAttribute="leading" secondItem="PK3-Ov-Ote" secondAttribute="trailing" constant="12" id="VIA-E3-CVb"/>
+                    <constraint firstItem="Fv6-Wu-Oqd" firstAttribute="leading" secondItem="PK3-Ov-Ote" secondAttribute="trailing" constant="6" id="VIA-E3-CVb"/>
                     <constraint firstItem="Fv6-Wu-Oqd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="c1i-W6-ZNG"/>
                 </constraints>
             </tableViewCellContentView>

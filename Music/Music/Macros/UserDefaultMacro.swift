@@ -14,3 +14,9 @@ let UserDefaultLanguage = "language"
 /// 频道
 let UserDefaultChannelId = "ChannelId"
 
+/// 是否记住上次选择频道
+let UserDefaultRememberLastChannel = "UserDefaultRememberLastChannel"
+
+/// 是否自动播放
+let UserDefaultAutoPlay = "UserDefaultAutoPlay"
+

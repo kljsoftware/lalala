@@ -649,8 +649,8 @@
 			isa = PBXGroup;
 			children = (
 				3CD05F4F1FCA9DE500FEC161 /* SearchView.swift */,
-				3C1427CB1FD5A05800D15105 /* SearchControlView.xib */,
 				3C3AFA751FD63B02003FFCE3 /* SearchControlView.swift */,
+				3C1427CB1FD5A05800D15105 /* SearchControlView.xib */,
 				3C3AFA8E1FD6B3B9003FFCE3 /* SearchPopularCell.swift */,
 				3C3AFA8F1FD6B3B9003FFCE3 /* SearchPopularCell.xib */,
 				3C5D4BF51FD7DFC3002C8590 /* SearchHistoryCell.swift */,
@@ -1142,6 +1142,9 @@
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
 							};
 						};
 					};

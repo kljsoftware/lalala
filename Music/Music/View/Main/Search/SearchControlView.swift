@@ -47,6 +47,7 @@ class SearchControlView: UIView {
     
     // MARK: - override methods
     override func awakeFromNib() {
+        cancelButton.setTitle(LanguageKey.Common_Cancel.value, for: .normal)
         searchTextField.placeholder = LanguageKey.MyMusic_TrackArtistAlbum.value
         collectionView.register(UINib(nibName: "SearchPopularCell", bundle: nil), forCellWithReuseIdentifier: "kSearchPopularCell")
         collectionView.register(UINib(nibName: "SearchHistoryCell", bundle: nil), forCellWithReuseIdentifier: "kSearchHistoryCell")

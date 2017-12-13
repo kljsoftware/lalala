@@ -43,7 +43,7 @@ class MeSettingView: UIView {
         case .current_language:
             return LanguageKey.Setting_CurrentDisplayLanguage.value
         case .version:
-            return LanguageKey.Setting_CurrentVersion.value
+            return LanguageKey.Setting_CurrentVersion.value + ": \(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String ?? "0.9")"
         }
     }
     

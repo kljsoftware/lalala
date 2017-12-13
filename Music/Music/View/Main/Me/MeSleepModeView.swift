@@ -43,10 +43,27 @@ class MeSleepModeView: UIView {
         titleLabel.text = LanguageKey.Setting_SleepMode.value
         modelLabel.text = (SleepHelper.shared.fireDate == nil ? LanguageKey.Common_Close.value : String(format: LanguageKey.Setting_MusicWillPauseAt.value, SleepHelper.shared.fireDate!.getTime(format: "HH:mm:ss")))
         tableView.register(UINib(nibName: "MeSleepModeCell", bundle: nil), forCellReuseIdentifier: "kMeSleepModeCell")
+        registerNotification()
     }
     
     deinit {
+        unregisterNotification()
         Log.e("deinit")
+    }
+    
+    /// 注册通知
+    fileprivate func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyTimesup), name: NoticationUpdateForTimesup, object: nil)
+    }
+    
+    /// 销毁通知
+    fileprivate func unregisterNotification() {
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForTimesup, object: nil)
+    }
+    
+    /// 定时时间到, 刷新界面
+    @objc private func notifyTimesup(_ sender:Notification) {
+        modelLabel.text = LanguageKey.Common_Close.value
     }
     
     /// 点击返回按钮
@@ -84,7 +101,8 @@ extension MeSleepModeView :  UITableViewDataSource, UITableViewDelegate {
         tableView.cellForRow(at: indexPath)?.setSelected(true, animated: false)
         isChangedSleepMode = true
         let nowDate = Date()
-        switch SleepModeType(rawValue: indexPath.row)! {
+        let type = SleepModeType(rawValue: indexPath.row)!
+        switch type {
         case .disbleTimer:
             fireDate = nil
         case .after15mins:
@@ -115,6 +133,8 @@ extension MeSleepModeView :  UITableViewDataSource, UITableViewDelegate {
             })
         }
         
-        modelLabel.text = (fireDate == nil ? LanguageKey.Common_Close.value : String(format: LanguageKey.Setting_MusicWillPauseAt.value, fireDate!.getTime(format: "HH:mm:ss")))
+        if type != .custom {
+            modelLabel.text = (fireDate == nil ? LanguageKey.Common_Close.value : String(format: LanguageKey.Setting_MusicWillPauseAt.value, fireDate!.getTime(format: "HH:mm:ss")))
+        }
     }
 }
