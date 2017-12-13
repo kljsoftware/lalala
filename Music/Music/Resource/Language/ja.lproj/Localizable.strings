@@ -30,6 +30,8 @@
 "MyMusic_PauseAll"            = "全部停止する";
 "MyMusic_ContinueAll"            = "全部続ける";
 "MyMusic_EditPlaylistNameDescription"            = "重複しない名前を入力してください";
+"MyMusic_NoTask"          = "ダウンロード中なし";
+
 /// 发现
 "Discover_Rank"              = "ランキング";
 "Discover_PopularPlaylist"   = "ヒットプレイリスト";
@@ -55,6 +57,7 @@
 "Setting_SelectLanguage"         = "言語選択"; /// 四种语言字串 日本語 English 简体 繁體
 "Setting_CurrentVersion"         = "バージョン";
 "Setting_SwitchingLanguage"         = "言語設定中";
+"Setting_MusicSleepDescription" = "何時に停止するを選択してください";
 
 /// 通用
 "Common_Edit"           = "編集";
@@ -67,7 +70,9 @@
 "Common_Download"       = "ダウンロード";
 "Common_Close"          = "閉じる";
 "Common_NoContent"          = "内容なし";
-"MyMusic_NoTask"          = "ダウンロード中なし";
+"Common_OK" = "決定";
+"Common_Hour" = "時間";
+"Common_Minute" = "分";
 
 /// 提示
 "Tip_SequentialModeActivated" = "連続再生モードに変更";

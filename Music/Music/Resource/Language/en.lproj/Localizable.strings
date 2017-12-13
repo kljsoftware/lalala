@@ -30,6 +30,8 @@
 "MyMusic_PauseAll"            = "Pause All";
 "MyMusic_ContinueAll"            = "Continue All";
 "MyMusic_EditPlaylistNameDescription"            = "Edit playlist name. Cannot be the same as existing ones.";
+"MyMusic_NoTask"          = "No Task";
+
 /// 发现
 "Discover_Rank"              = "Rank";
 "Discover_PopularPlaylist"   = "Popular Playlist";
@@ -55,6 +57,7 @@
 "Setting_SelectLanguage"         = "Select Language"; /// 四种语言字串 日本語 English 简体 繁體
 "Setting_CurrentVersion"         = "Current Version";
 "Setting_SwitchingLanguage"         = "Switching Language";
+"Setting_MusicSleepDescription" = "Select the time you want to pause music.";
 
 /// 通用
 "Common_Edit"           = "Edit";
@@ -67,7 +70,9 @@
 "Common_Download"       = "Download";
 "Common_Close"          = "Close";
 "Common_NoContent"          = "No Content";
-"MyMusic_NoTask"          = "No Task";
+"Common_OK" = "OK";
+"Common_Hour" = "Hours";
+"Common_Minute" = "Min";
 
 /// 提示
 "Tip_SequentialModeActivated" = "Sequential Mode Activated";
