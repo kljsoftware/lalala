@@ -98,3 +98,6 @@
 
 //  歌词
 "Lyric_NoLyrics" = "No lyrics";
+
+//  分享
+"Share_AppContent" = "Download the latest version of Music FM. Go to %@";

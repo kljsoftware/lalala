@@ -103,6 +103,10 @@ enum LanguageKey : String {
     
     // 歌词
     case Lyric_NoLyrics = "Lyric_NoLyrics"
+    
+    // 分享
+    case Share_AppContent = "Share_AppContent"
+    
     /// 获取对应的语言字串
     var value : String {
         return LanguageHelper.shared.getLanguageText(by: self.rawValue)

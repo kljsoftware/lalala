@@ -97,3 +97,6 @@
 
 //  歌词
 "Lyric_NoLyrics" = "暫無歌詞";
+
+//  分享
+"Share_AppContent" = "下載最新版本Music FM，前往%@。";
