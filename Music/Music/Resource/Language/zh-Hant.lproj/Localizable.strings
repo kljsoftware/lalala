@@ -31,6 +31,8 @@
 "MyMusic_ContinueAll"            = "全部繼續";
 "MyMusic_EditPlaylistNameDescription"            = "請編輯歌單的名稱，不能與已有歌單重複。";
 "MyMusic_NoTask"          = "暫無任務";
+"MyMusic_PlaylistName"    = "歌單名稱";
+"MyMusic_EditPlaylistIntro" = "編輯歌單介紹";
 
 /// 发现
 "Discover_Rank"              = "排行榜";
@@ -90,6 +92,7 @@
 "Tip_ConfirmToDelete" = "確認刪除《%@》？";
 "Tip_ConfirmToDeltePlaylist" = "確認刪除歌單《%@》？";
 "Tip_TimeOffMusicStop" = "定時結束，停止播放音樂";
+"Tip_PlaylistDescription" = "請輸入歌單描述";
 
 /// 引导
 "Guide_EditPlaylistInfo" = "編輯歌單信息";

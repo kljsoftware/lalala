@@ -31,6 +31,8 @@
 "MyMusic_ContinueAll"            = "Continue All";
 "MyMusic_EditPlaylistNameDescription"            = "Edit playlist name. Cannot be the same as existing ones.";
 "MyMusic_NoTask"          = "No Task";
+"MyMusic_PlaylistName"    = "Playlist Name";
+"MyMusic_EditPlaylistIntro" = "Edit Introduction";
 
 /// 发现
 "Discover_Rank"              = "Rank";
@@ -91,6 +93,7 @@
 "Tip_ConfirmToDelete" = "Confirm to delete %@?";
 "Tip_ConfirmToDeltePlaylist" = "Confirm to delete playlist %@?";
 "Tip_TimeOffMusicStop" = "Time off, music has stopped";
+"Tip_PlaylistDescription" = "Please enter playlist description";
 
 /// 引导
 "Guide_EditPlaylistInfo" = "Edit playlist info";

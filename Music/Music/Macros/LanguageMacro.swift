@@ -36,7 +36,9 @@ enum LanguageKey : String {
     case MyMusic_PauseAll = "MyMusic_PauseAll"
     case MyMusic_ContinueAll = "MyMusic_ContinueAll"
     case MyMusic_NoTask = "MyMusic_NoTask"
-   
+    case MyMusic_PlaylistName = "MyMusic_PlaylistName"
+    case MyMusic_EditPlaylistIntro = "MyMusic_EditPlaylistIntro"
+    
     /// 发现
     case Discover_Rank              =  "Discover_Rank"
     case Discover_PopularPlaylist   =  "Discover_PopularPlaylist"
@@ -96,6 +98,7 @@ enum LanguageKey : String {
     case Tip_ConfirmToDelete = "Tip_ConfirmToDelete"
     case Tip_ConfirmToDeltePlaylist = "Tip_ConfirmToDeltePlaylist"
     case Tip_TimeOffMusicStop = "Tip_TimeOffMusicStop"
+    case Tip_PlaylistDescription = "Tip_PlaylistDescription"
     
     // 引导
     case Guide_EditPlaylistInfo = "Guide_EditPlaylistInfo"

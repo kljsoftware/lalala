@@ -31,6 +31,8 @@
 "MyMusic_ContinueAll"            = "全部続ける";
 "MyMusic_EditPlaylistNameDescription"            = "重複しない名前を入力してください";
 "MyMusic_NoTask"          = "ダウンロード中なし";
+"MyMusic_PlaylistName"    = "プレイリストの名前";
+"MyMusic_EditPlaylistIntro" = "プレイリストの説明を編集する";
 
 /// 发现
 "Discover_Rank"              = "ランキング";
@@ -91,6 +93,7 @@
 "Tip_ConfirmToDelete" = "『%@』削除しますか？";
 "Tip_ConfirmToDeltePlaylist" = "プレイリスト『%@』を削除しますか？";
 "Tip_TimeOffMusicStop" = "タイマー設定時間になったため、再生が終了します。";
+"Tip_PlaylistDescription" = "プレイリストへの説明を入力してください。";
 
 /// 引导
 "Guide_EditPlaylistInfo" = "プレイリスト情報編集";
