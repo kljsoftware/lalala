@@ -98,11 +98,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-    
-    /// ios8~ios10  本地通知消息会走这个方法
-    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
-        handleLocalNotification()
-    }
 
     func applicationWillTerminate(_ application: UIApplication) {
         UIApplication.shared.endReceivingRemoteControlEvents()
@@ -113,20 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - private methods
     /// 初始化设置
     private func setup() {
-        
-        /// 注册本地通知
-        if #available(iOS 10.0, *) {
-            let center = UNUserNotificationCenter.current()
-            center.delegate = self
-            let types10:UNAuthorizationOptions = [.alert]
-            center.requestAuthorization(options: types10, completionHandler: { (granted, error) in
-                // TODO:
-                Log.e(error ?? "")
-            })
-        } else {
-            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: .alert, categories: nil))
-        }
-        
+    
         /// 设置电池栏前景色
         UIApplication.shared.setStatusBarStyle(.lightContent, animated: false)
         
@@ -135,29 +117,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         /// 同步本地数据
         DataHelper.shared.setup()
-    }
-    
-    /// 处理本地消息
-    func handleLocalNotification() {
-        SleepHelper.shared.fireDate = nil
-        PlayerHelper.shared.pause()
-        AppUI.tip(LanguageKey.Tip_TimeOffMusicStop.value)
-        NotificationCenter.default.post(name: NoticationUpdateForTimesup, object: nil)
-    }
-}
-
-// MARK: - UNUserNotificationCenterDelegate
-extension AppDelegate : UNUserNotificationCenterDelegate {
-    // iOS10新增：处理前台收到通知的代理方法
-    @available(iOS 10.0, *)
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void) {
-        handleLocalNotification()
-    }
-    
-    //iOS10新增：处理后台点击通知的代理方法
-    @available(iOS 10.0, *)
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
-        handleLocalNotification()
     }
 }
 

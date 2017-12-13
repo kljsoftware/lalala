@@ -18,33 +18,28 @@ class SleepHelper {
     /// 定时提醒日期
     var fireDate:Date?
     
+    private var workItem:DispatchWorkItem?
+    
     /// 定时提醒
     func start(fireDate:Date) {
-        if #available(iOS 10.0, *) {
-            let content = UNMutableNotificationContent()
-            content.body = "test"
-            let interval = fireDate.timeIntervalSinceNow
-            Log.e(interval)
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
-            UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "RequestIdentifier", content: content, trigger: trigger), withCompletionHandler: { (error) in
-                if nil != error {
-                    Log.e(error!.localizedDescription)
-                }
+        stop()
+        let interval = fireDate.timeIntervalSinceNow
+        if interval > 0 {
+            workItem = DispatchWorkItem(block: {
+                SleepHelper.shared.fireDate = nil
+                PlayerHelper.shared.pause()
+                AppUI.tip(LanguageKey.Tip_TimeOffMusicStop.value)
+                NotificationCenter.default.post(name: NoticationUpdateForTimesup, object: nil)
             })
-        } else {
-            let notification = UILocalNotification()
-            notification.fireDate = fireDate
-            notification.timeZone = TimeZone.current
-            UIApplication.shared.scheduleLocalNotification(notification)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + interval, execute: workItem!)
         }
     }
 
     /// 停止提醒
     func stop() {
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        } else {
-            UIApplication.shared.cancelAllLocalNotifications()
+        if nil != workItem && !workItem!.isCancelled {
+            workItem?.cancel()
         }
+        workItem = nil
     }
 }

@@ -69,7 +69,6 @@ class MeSleepModeView: UIView {
     /// 点击返回按钮
     @IBAction func onBackButtonClicked(_ sender: UIButton) {
         if isChangedSleepMode {
-            SleepHelper.shared.fireDate = fireDate
             sleepModeClosure?()
         }
         AppUI.pop(self)
@@ -129,12 +128,14 @@ extension MeSleepModeView :  UITableViewDataSource, UITableViewDelegate {
                     wself.fireDate = nowDate.addingTimeInterval(interval)
                     wself.isChangedSleepMode = true
                     wself.modelLabel.text = (wself.fireDate == nil ? LanguageKey.Common_Close.value : String(format: LanguageKey.Setting_MusicWillPauseAt.value, wself.fireDate!.getTime(format: "HH:mm:ss")))
+                    SleepHelper.shared.start(fireDate: wself.fireDate!)
                 }
             })
         }
         
         if type != .custom {
             modelLabel.text = (fireDate == nil ? LanguageKey.Common_Close.value : String(format: LanguageKey.Setting_MusicWillPauseAt.value, fireDate!.getTime(format: "HH:mm:ss")))
+            SleepHelper.shared.start(fireDate: fireDate!)
         }
     }
 }
