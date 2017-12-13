@@ -176,6 +176,12 @@ extension MyMusicSonglistView :  UITableViewDataSource, UITableViewDelegate {
     // 分区(Section)视图
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = Bundle.main.loadNibNamed("MyMusicSonglistSectionView", owner: nil, options: nil)?[0] as! MyMusicSonglistSectionView
+        view.nextClosure = {
+            
+        }
+        view.cycleClosure = {
+            
+        }
         return view
     }
     
