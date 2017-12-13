@@ -51,7 +51,7 @@ class ActionSheet: UIView {
         
         // 标题和按钮背景视图
         bottomView                  = UIView(frame: CGRect(x: 0, y: APP_HEIGHT, width: DEVICE_SCREEN_WIDTH, height: bottomViewH))
-        bottomView.backgroundColor  = UIColor.black
+        bottomView.backgroundColor  = COLOR_464646
         self.addSubview(bottomView)
         
         // 标题
@@ -109,11 +109,11 @@ class ActionSheet: UIView {
     // MARK: - private methods
     // 选项按钮点击事件
     @objc private func cancelDown(sender: UIButton) {
-        sender.backgroundColor = UIColor.black
+        //sender.backgroundColor = UIColor.black
     }
     
     @objc private func cancelClicked(sender: UIButton) {
-        sender.backgroundColor = UIColor.white
+       // sender.backgroundColor = UIColor.white
         tapGesture()
     }
     

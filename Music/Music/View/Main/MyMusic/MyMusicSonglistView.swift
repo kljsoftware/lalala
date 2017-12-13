@@ -30,7 +30,7 @@ class MyMusicSonglistView: UIView {
     }
     
     /// 判断是否是本地歌曲
-    private var isLocalSonglist = false
+    fileprivate var isLocalSonglist = false
     
     /// 标题
     @IBOutlet weak var titleLabel: UILabel!
@@ -137,7 +137,7 @@ class MyMusicSonglistView: UIView {
     
     /// 点击编辑按钮
     @IBAction func onEditButtonClicked(_ sender: UIButton) {
-        ActionSheet.show(items: [LanguageKey.Guide_EditPlaylistInfo.value, LanguageKey.Guide_MultipleOperate.value, LanguageKey.Common_Cancel.value]) { (index) in
+        ActionSheet.show(items: [LanguageKey.Guide_EditPlaylistInfo.value, LanguageKey.Guide_MultipleOperate.value], cancel: LanguageKey.Common_Cancel.value) { (index) in
             
         }
     }
@@ -176,11 +176,32 @@ extension MyMusicSonglistView :  UITableViewDataSource, UITableViewDelegate {
     // 分区(Section)视图
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = Bundle.main.loadNibNamed("MyMusicSonglistSectionView", owner: nil, options: nil)?[0] as! MyMusicSonglistSectionView
+        view.update(isHiddenAdded: !(isLocalSonglist && songlistName != nil && songlistName! != LanguageKey.MyMusic_Favorite.value))
+        
+        /// 下一首
         view.nextClosure = {
             
         }
+        
+        /// 循环模式
         view.cycleClosure = {
             
+        }
+        
+        /// 添加歌曲到歌单，只有本地非喜爱歌单有这个功能
+        view.addClosure = {
+            ActionSheet.show(items: [LanguageKey.MyMusic_Favorite.value, LanguageKey.MyMusic_MyDownload.value], cancel:LanguageKey.Common_Cancel.value, selectedIndex: {(index) in
+                let view = Bundle.main.loadNibNamed("MyMusicSelectSongView", owner: nil, options: nil)?[0] as! MyMusicSelectSongView
+                view.setup(type: SelectSourceType(rawValue:index)!)
+                view.selectSonglistClosure = { [weak self](songlist) in
+                    guard let wself = self else {
+                        return
+                    }
+                    /// 只有本地非喜爱歌单有这个功能，所以songlistName肯定不为空
+                    PlaylistHelper.batchAddToPlaylist(modes: songlist, name: wself.songlistName!)
+                }
+                AppUI.push(to: view, with: APP_SIZE)
+            })
         }
         return view
     }

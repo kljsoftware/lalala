@@ -26,6 +26,11 @@ class MyMusicSonglistSectionView: UIView {
     
     /// 添加按钮, 默认不可见， 只有本地非喜爱歌单可见
     @IBOutlet weak var addButton: UIButton!
+    
+    /// 更新
+    func update(isHiddenAdded:Bool) {
+        addButton.isHidden = isHiddenAdded
+    }
 
     // MARK: - IBAction methods
     /// 点击下一首
