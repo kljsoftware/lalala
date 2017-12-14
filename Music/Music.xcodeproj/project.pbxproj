@@ -141,6 +141,8 @@
 		3C3BE5A61FDAB9AE002D140B /* common_btn_cycle_one.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3BE5A21FDAB9AE002D140B /* common_btn_cycle_one.png */; };
 		3C3BE5A71FDAB9AE002D140B /* common_btn_cycle_random.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3BE5A31FDAB9AE002D140B /* common_btn_cycle_random.png */; };
 		3C3BE5A81FDAB9AE002D140B /* common_btn_cycle_all.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3BE5A41FDAB9AE002D140B /* common_btn_cycle_all.png */; };
+		3C3F8FD11FE29463005FC29A /* batch_btn_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3F8FCF1FE29462005FC29A /* batch_btn_delete.png */; };
+		3C3F8FD21FE29463005FC29A /* batch_btn_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3F8FD01FE29463005FC29A /* batch_btn_add.png */; };
 		3C48ACC31FCB942A00B8992A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACC21FCB942A00B8992A /* UIColor+Extension.swift */; };
 		3C48ACC51FCBB0FA00B8992A /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACC41FCBB0FA00B8992A /* Dictionary+Extension.swift */; };
 		3C48ACCA1FCBB69800B8992A /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACC91FCBB69800B8992A /* ResultModel.swift */; };
@@ -408,6 +410,8 @@
 		3C3BE5A21FDAB9AE002D140B /* common_btn_cycle_one.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_btn_cycle_one.png; sourceTree = "<group>"; };
 		3C3BE5A31FDAB9AE002D140B /* common_btn_cycle_random.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_btn_cycle_random.png; sourceTree = "<group>"; };
 		3C3BE5A41FDAB9AE002D140B /* common_btn_cycle_all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_btn_cycle_all.png; sourceTree = "<group>"; };
+		3C3F8FCF1FE29462005FC29A /* batch_btn_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = batch_btn_delete.png; sourceTree = "<group>"; };
+		3C3F8FD01FE29463005FC29A /* batch_btn_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = batch_btn_add.png; sourceTree = "<group>"; };
 		3C48ACC21FCB942A00B8992A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3C48ACC41FCBB0FA00B8992A /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		3C48ACC91FCBB69800B8992A /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
@@ -764,6 +768,8 @@
 		3C16B8A51FCC68A000FAABCA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3C3F8FD01FE29463005FC29A /* batch_btn_add.png */,
+				3C3F8FCF1FE29462005FC29A /* batch_btn_delete.png */,
 				3CD6387A1FE274860010EF28 /* common_ic_downloaded.png */,
 				3C59CE971FE10FCE00A4C69A /* player_more_ic_downloaded.png */,
 				3CFF1EC51FDF7D6B007C53EA /* action_ic_add.png */,
@@ -1287,6 +1293,7 @@
 				3CFF1ECE1FDF7D6B007C53EA /* action_ic_share.png in Resources */,
 				3C6FB53E1FDCD1D9003315E0 /* DiscoverRankDetailView.xib in Resources */,
 				3C6FB5461FDD204E003315E0 /* MyMusicSonglistSectionView.xib in Resources */,
+				3C3F8FD11FE29463005FC29A /* batch_btn_delete.png in Resources */,
 				3C16B8D01FCE4E7A00FAABCA /* fm_player_btn_stop_normal.png in Resources */,
 				3C3AFAA01FD6D870003FFCE3 /* DiscoverCollectionSectionView.xib in Resources */,
 				3CD05F2F1FCA953D00FEC161 /* Localizable.strings in Resources */,
@@ -1365,6 +1372,7 @@
 				3CA5413E1FD912CE0064764A /* MeSelectLanguageCell.xib in Resources */,
 				3C16B8C81FCE4E7A00FAABCA /* fm_player_btn_more_normal.png in Resources */,
 				3C0EBE911FD231220047B1E1 /* immersion_player_btn_more_pressed.png in Resources */,
+				3C3F8FD21FE29463005FC29A /* batch_btn_add.png in Resources */,
 				3C1427CC1FD5A05800D15105 /* SearchControlView.xib in Resources */,
 				3C58CFD81FC9B41F00045BA9 /* test.lrc in Resources */,
 				3C5D4BFD1FD7E24B002C8590 /* common_btn_delete.png in Resources */,

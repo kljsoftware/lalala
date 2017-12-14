@@ -23,6 +23,9 @@ class DataHelper {
     /// 自动播放
     var isAutoPlay = true
     
+    /// 第一次播放标志
+    var isFirstPlay = true
+    
     /// 同步本地化数据
     func setup() {
         let standard = UserDefaults.standard

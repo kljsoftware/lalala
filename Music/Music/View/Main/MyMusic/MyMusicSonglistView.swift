@@ -229,7 +229,7 @@ class MyMusicSonglistView: UIView {
                     AppUI.push(to: view, with: APP_SIZE)
                 case 1: /// 批处理操作
                     let view = Bundle.main.loadNibNamed("MyMusicSelectSongView", owner: nil, options: nil)?[0] as! MyMusicSelectSongView
-                    view.setup(songlist: wself.songlist)
+                    view.setup(songlist: wself.songlist, type:.both)
                     AppUI.push(to: view, with: APP_SIZE)
                 default:
                     break
@@ -237,7 +237,8 @@ class MyMusicSonglistView: UIView {
             }
         } else {
             let view = Bundle.main.loadNibNamed("MyMusicSelectSongView", owner: nil, options: nil)?[0] as! MyMusicSelectSongView
-            view.setup(songlist: songlist)
+            let type = isLocalSonglist ? BottomViewSelectType.both : BottomViewSelectType.add
+            view.setup(songlist: songlist, type: type)
             AppUI.push(to: view, with: APP_SIZE)
         }
     }
@@ -313,7 +314,7 @@ extension MyMusicSonglistView :  UITableViewDataSource, UITableViewDelegate {
                         songlist = Array(results)
                     }
                 }
-                view.setup(songlist: songlist)
+                view.setup(songlist: songlist, type: .none)
                 view.selectSonglistClosure = { [weak self](songlist) in
                     guard let wself = self else {
                         return

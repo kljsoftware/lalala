@@ -45,6 +45,7 @@ class MyMusicDownloadView : UIView {
     /// 注册通知
     fileprivate func registerNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownloaded), name: NoticationUpdateForSongDownload, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownloaded), name: NoticationUpdateForPlaylistChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownloaded), name: NoticationUpdateForChangePlaylist, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownloaded), name: NoticationUpdateForSongChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifyAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
@@ -53,6 +54,7 @@ class MyMusicDownloadView : UIView {
     /// 销毁通知
     fileprivate func unregisterNotification() {
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongDownload, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForPlaylistChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForChangePlaylist, object: nil)
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioStatusChanged, object: nil)
@@ -184,7 +186,7 @@ class MyMusicDownloadView : UIView {
     @IBAction func onEditButtonClicked(_ sender: UIButton) {
         if downloadedButton.isSelected {
             let view = Bundle.main.loadNibNamed("MyMusicSelectSongView", owner: nil, options: nil)?[0] as! MyMusicSelectSongView
-            view.setup(songlist: downloadedSonglist)
+            view.setup(songlist: downloadedSonglist, type: .both)
             AppUI.push(to: view, with: APP_SIZE)
         } else {
             if isDownloadingEditing {

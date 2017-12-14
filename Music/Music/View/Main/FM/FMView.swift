@@ -203,7 +203,10 @@ class FMView: UIView {
                     wself.playIndex = wself.playlist.count
                     wself.playlist.append(contentsOf: playlist)
                 }
-                PlayerHelper.shared.changePlaylist(playlist: wself.playlist, playIndex: wself.playIndex, owner: wself)
+                
+                let playing = DataHelper.shared.isAutoPlay || !DataHelper.shared.isFirstPlay
+                DataHelper.shared.isFirstPlay = false
+                PlayerHelper.shared.changePlaylist(playlist: wself.playlist, playIndex: wself.playIndex, owner: wself, playing: playing)
             }
         }) { (error) in
             Log.e("error = \(error)")
@@ -276,7 +279,7 @@ class FMView: UIView {
                             wself.viewModel.getSongList(channelId: wself.channelId)
                         case .add: // 添加至歌单
                             if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
-                                PlaylistSheet.addToPlaylist(mode: SongRealm.getModel(model: wself.playlist[wself.playIndex]))
+                                PlaylistSheet.addToPlaylist(modes: [SongRealm.getModel(model: wself.playlist[wself.playIndex])])
                             }
                         case .download: // 下载
                             if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {

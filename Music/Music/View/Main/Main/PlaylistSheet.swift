@@ -31,13 +31,13 @@ class PlaylistSheet: UIView {
     fileprivate var songlist = [SonglistRealm]()
     
     /// 要添加的歌曲数据
-    fileprivate var mode:SongRealm?
+    fileprivate var modes:[SongRealm]?
     
     /// MARK: - class methods
     /// 添加至歌单
-    class func addToPlaylist(mode:SongRealm) {
+    class func addToPlaylist(modes:[SongRealm]) {
         let view = Bundle.main.loadNibNamed("PlaylistSheet", owner: nil, options: nil)?[0] as! PlaylistSheet
-        view.mode = mode
+        view.modes = modes
         let window = (UIApplication.shared.delegate as! AppDelegate).window!
         window.addSubview(view)
         view.snp.makeConstraints { (maker) in
@@ -134,12 +134,12 @@ extension PlaylistSheet :  UITableViewDataSource, UITableViewDelegate {
     
     /// 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let mode = mode else {
+        guard let modes = modes else {
             Log.e("mode == nil")
             return
         }
         let songlistName = indexPath.row == 0 ? LanguageKey.MyMusic_Favorite.value : songlist[indexPath.row-1].name
-        PlaylistHelper.addToPlaylist(mode: mode, name: songlistName)
+        PlaylistHelper.batchAddToPlaylist(modes: modes, name: songlistName, showTip: true)
         hide()
     }
 }

@@ -41,7 +41,7 @@
                             <rect key="frame" x="107.5" y="7" width="160" height="30"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rt3-PM-ffX">
-                                    <rect key="frame" x="1" y="1" width="79" height="28"/>
+                                    <rect key="frame" x="2" y="2" width="79" height="26"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="79" id="NPa-W1-wct"/>
@@ -61,7 +61,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOP-Jc-zvM">
-                                    <rect key="frame" x="80" y="1" width="79" height="28"/>
+                                    <rect key="frame" x="79" y="2" width="79" height="26"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="79" id="C0v-zX-yFW"/>
@@ -83,14 +83,14 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="nOP-Jc-zvM" secondAttribute="trailing" constant="1" id="0bv-VT-j4K"/>
-                                <constraint firstAttribute="bottom" secondItem="nOP-Jc-zvM" secondAttribute="bottom" constant="1" id="3Hj-jT-CkD"/>
-                                <constraint firstItem="nOP-Jc-zvM" firstAttribute="top" secondItem="yh0-vF-sgc" secondAttribute="top" constant="1" id="ECt-Ri-BGC"/>
+                                <constraint firstAttribute="trailing" secondItem="nOP-Jc-zvM" secondAttribute="trailing" constant="2" id="0bv-VT-j4K"/>
+                                <constraint firstAttribute="bottom" secondItem="nOP-Jc-zvM" secondAttribute="bottom" constant="2" id="3Hj-jT-CkD"/>
+                                <constraint firstItem="nOP-Jc-zvM" firstAttribute="top" secondItem="yh0-vF-sgc" secondAttribute="top" constant="2" id="ECt-Ri-BGC"/>
                                 <constraint firstAttribute="height" constant="30" id="FXI-FO-P0R"/>
                                 <constraint firstAttribute="width" constant="160" id="Twn-YR-ESI"/>
-                                <constraint firstAttribute="bottom" secondItem="Rt3-PM-ffX" secondAttribute="bottom" constant="1" id="Usq-it-WI6"/>
-                                <constraint firstItem="Rt3-PM-ffX" firstAttribute="leading" secondItem="yh0-vF-sgc" secondAttribute="leading" constant="1" id="YzW-s4-eax"/>
-                                <constraint firstItem="Rt3-PM-ffX" firstAttribute="top" secondItem="yh0-vF-sgc" secondAttribute="top" constant="1" id="tLH-8d-CgY"/>
+                                <constraint firstAttribute="bottom" secondItem="Rt3-PM-ffX" secondAttribute="bottom" constant="2" id="Usq-it-WI6"/>
+                                <constraint firstItem="Rt3-PM-ffX" firstAttribute="leading" secondItem="yh0-vF-sgc" secondAttribute="leading" constant="2" id="YzW-s4-eax"/>
+                                <constraint firstItem="Rt3-PM-ffX" firstAttribute="top" secondItem="yh0-vF-sgc" secondAttribute="top" constant="2" id="tLH-8d-CgY"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="fill">

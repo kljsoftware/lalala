@@ -75,6 +75,20 @@ class AppUI {
             }
         }
     }
+    
+    /// 警告提示框
+    class func showAlert(title:String? = nil, message:String?, okClosure:(()->Void)?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: LanguageKey.Common_Cancel.value, style: .cancel, handler: nil)
+        let okAction=UIAlertAction(title: LanguageKey.Common_OK.value, style: .default, handler:
+            {(alerts: UIAlertAction!) ->Void in
+            okClosure?()
+        })
+        alertController .addAction(cancelAction)
+        alertController.addAction(okAction)
+        let window = (UIApplication.shared.delegate as! AppDelegate).window
+        window?.rootViewController?.present(alertController,animated:true,completion:nil)
+    }
 }
 
 @UIApplicationMain

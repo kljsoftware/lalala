@@ -347,7 +347,7 @@ class ImmersionPlayerView: UIView {
     /// 点击添加至歌单按钮
     @IBAction func onAddPlaylistButtonClicked(_ sender: UIButton) {
         if PlayerHelper.shared.song != nil {
-            PlaylistSheet.addToPlaylist(mode: SongRealm.getModel(model: PlayerHelper.shared.song!))
+            PlaylistSheet.addToPlaylist(modes: [SongRealm.getModel(model: PlayerHelper.shared.song!)])
         }
     }
     

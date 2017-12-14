@@ -47,7 +47,7 @@ class SearchResultCell: UITableViewCell {
             switch type {
             case .add: // 添加至歌单
                 if weakself.model != nil {
-                    PlaylistSheet.addToPlaylist(mode: SongRealm(value: weakself.model!))
+                    PlaylistSheet.addToPlaylist(modes: [SongRealm(value: weakself.model!)])
                     return
                 }
             case .download:
