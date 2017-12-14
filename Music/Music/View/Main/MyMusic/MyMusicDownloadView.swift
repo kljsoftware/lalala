@@ -47,7 +47,7 @@ class MyMusicDownloadView : UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownloaded), name: NoticationUpdateForSongDownload, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownloaded), name: NoticationUpdateForChangePlaylist, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownloaded), name: NoticationUpdateForSongChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownloaded), name: NoticationUpdateForAudioStatusChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
     }
     
     /// 销毁通知
@@ -61,6 +61,27 @@ class MyMusicDownloadView : UIView {
     /// 新建歌单消息
     @objc private func notifySongDownloaded(_ sender:Notification) {
         reloadSonglist()
+    }
+    
+    /// 歌曲状态发生改变
+    @objc private func notifyAudioStatusChanged(_ sender:Notification) {
+        if PlayerHelper.shared.isOwner(owner: self) {
+            if PlayerHelper.shared.state == .stop {
+                switch PlayerHelper.shared.playMode {
+                case .all:
+                    _ = PlayerHelper.shared.next()
+                case .one:
+                    PlayerHelper.shared.start()
+                case .random:
+                    let count = downloadingSonglist.count
+                    if count > 0 {
+                        let row = Int(arc4random() % UInt32(count))
+                        PlayerHelper.shared.song = FMSongDataModel.getModel(with: downloadingSonglist[row])
+                        PlayerHelper.shared.start()
+                    }
+                }
+            }
+        }
     }
     
     private func reloadSonglist() {

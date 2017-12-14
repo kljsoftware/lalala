@@ -127,7 +127,7 @@ class MyMusicSonglistView: UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForPlaylistChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForChangePlaylist, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForSongChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
     }
     
     /// 销毁通知
@@ -141,26 +141,46 @@ class MyMusicSonglistView: UIView {
     /// 新建歌单消息
     @objc private func notifyPlaylistChanged(_ sender:Notification) {
         reloadLocalSonglist()
-        if PlayerHelper.shared.isOwner(owner: self) {
-            setSelectedSong()
-        } else {
+        if !setSelectedSong() {
             setunSelectedIndex(indexPath: playIndex)
         }
     }
     
+    /// 歌曲状态发生改变
+    @objc private func notifyAudioStatusChanged(_ sender:Notification) {
+        if PlayerHelper.shared.isOwner(owner: self) {
+            if PlayerHelper.shared.state == .stop {
+                switch PlayerHelper.shared.playMode {
+                case .all:
+                    _ = PlayerHelper.shared.next()
+                case .one:
+                    PlayerHelper.shared.start()
+                case .random:
+                    let count = songlist.count
+                    if count > 0 {
+                        let row = Int(arc4random() % UInt32(count))
+                        PlayerHelper.shared.song = FMSongDataModel.getModel(with: songlist[row])
+                        PlayerHelper.shared.start()
+                    }
+                }
+            }
+        }
+    }
+    
     /// 设置当前播放歌曲为选中状态
-    fileprivate func setSelectedSong() {
+    fileprivate func setSelectedSong() -> Bool {
         guard let song = PlayerHelper.shared.song else {
-            return
+            return false
         }
         if songlist.count > 0 {
             for i in 0..<songlist.count {
                 if song.sid == songlist[i].sid {
                     setSelectedIndex(indexPath: IndexPath(row: i, section: 0))
-                    break
+                    return true
                 }
             }
         }
+        return false
     }
     
     /// 设置选中索引值

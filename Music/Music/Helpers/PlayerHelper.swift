@@ -6,6 +6,8 @@
 //  Copyright © 2017年 demo. All rights reserved.
 //
 
+import MediaPlayer
+
 /// 播放器状态类型
 enum PlayerState {
     case stop           // 默认停止
@@ -134,6 +136,7 @@ class PlayerHelper {
         case .finished:
             state = .stop
         }
+        setPlayingInfo()
         NotificationCenter.default.post(name: NoticationUpdateForAudioStatusChanged, object: nil)
     }
     
@@ -272,5 +275,14 @@ class PlayerHelper {
     func clean() {
         stopTimer()
         player.clean()
+    }
+    
+    /// 设置锁屏界面显示的信息
+    func setPlayingInfo() {
+        guard let song = song else {
+            return
+        }
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle:song.title, MPMediaItemPropertyArtist:song.artist, MPMediaItemPropertyPlaybackDuration:NSNumber(value: duration)]
     }
 }

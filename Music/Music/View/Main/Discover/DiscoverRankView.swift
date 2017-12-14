@@ -33,7 +33,7 @@ class DiscoverRankView: UIView {
     @IBOutlet weak var tableView: UITableView!
     
     /// 歌曲数据
-    fileprivate var songlist = [FMSongDataModel]()
+    fileprivate var playlist = [FMSongDataModel](), checks = [Bool](), playIndex:IndexPath?
     
     /// MARK: - override methods
     override func awakeFromNib() {
@@ -42,16 +42,113 @@ class DiscoverRankView: UIView {
             guard let wself = self else {
                 return
             }
-            wself.songlist = (resultModel as! DiscoverRankResultModel).data.songs
+            wself.playlist = (resultModel as! DiscoverRankResultModel).data.songs
+            wself.checks = [Bool](repeating: false, count: wself.playlist.count)
             wself.tableView.reloadData()
         }) { (error) in
             Log.e(error)
         }
+        registerNotification()
+    }
+    
+    deinit {
+        unregisterNotification()
+        Log.e("deinit")
     }
     
     /// 点击返回按钮
     @IBAction func onBackButtonClicked(_ sender: UIButton) {
         AppUI.pop(self)
+    }
+    
+    // MARK: - private methods
+    /// 注册通知
+    fileprivate func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForChangePlaylist, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifySongChanged), name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
+    }
+    
+    /// 销毁通知
+    fileprivate func unregisterNotification() {
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForChangePlaylist, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioStatusChanged, object: nil)
+    }
+    
+    /// 切换歌单消息
+    @objc private func notifyPlaylistChanged(_ sender:Notification) {
+        if !PlayerHelper.shared.isOwner(owner: self) {
+            setunSelectedIndex(indexPath: playIndex)
+        }
+    }
+    
+    /// 歌曲发生改变
+    @objc private func notifySongChanged(_ sender:Notification) {
+        if !setSelectedSong() {
+            setunSelectedIndex(indexPath: playIndex)
+        }
+    }
+    
+    /// 歌曲状态发生改变
+    @objc private func notifyAudioStatusChanged(_ sender:Notification) {
+        if PlayerHelper.shared.isOwner(owner: self) {
+            if PlayerHelper.shared.state == .stop {
+                switch PlayerHelper.shared.playMode {
+                case .all:
+                    _ = PlayerHelper.shared.next()
+                case .one:
+                    PlayerHelper.shared.start()
+                case .random:
+                    let count = playlist.count
+                    if count > 0 {
+                        let row = Int(arc4random() % UInt32(count))
+                        PlayerHelper.shared.song = playlist[row]
+                        PlayerHelper.shared.start()
+                    }
+                }
+            }
+        }
+    }
+    
+    /// 设置当前播放歌曲为选中状态
+    fileprivate func setSelectedSong() -> Bool {
+        guard let song = PlayerHelper.shared.song else {
+            return false
+        }
+        if playlist.count > 0 {
+            for i in 0..<playlist.count {
+                if song.sid == playlist[i].sid {
+                    setSelectedIndex(indexPath: IndexPath(row: i, section: 0))
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    /// 设置选中索引值
+    fileprivate func setSelectedIndex(indexPath:IndexPath?) {
+        setunSelectedIndex(indexPath: playIndex)
+        guard let indexPath = indexPath else {
+            return
+        }
+        if indexPath.row >= 0 && indexPath.row < checks.count {
+            checks[indexPath.row] = true
+        }
+        playIndex = indexPath
+        (tableView.cellForRow(at: indexPath) as? SearchResultCell)?.setChecked(isChecked: true)
+    }
+    
+    /// 设置未选中索引值
+    fileprivate func setunSelectedIndex(indexPath:IndexPath?) {
+        guard let indexPath = indexPath else {
+            return
+        }
+        if indexPath.row >= 0 && indexPath.row < checks.count {
+            checks[indexPath.row] = false
+        }
+        (tableView.cellForRow(at: indexPath) as? SearchResultCell)?.setChecked(isChecked: false)
     }
 }
 
@@ -60,13 +157,14 @@ extension DiscoverRankView :  UITableViewDataSource, UITableViewDelegate {
     
     /// 各个分区的单元(Cell)个数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songlist.count
+        return playlist.count
     }
     
     /// 单元(cell)视图
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "kSearchResultCell", for: indexPath) as! SearchResultCell
-        cell.update(model: SongRealm.getModel(model: songlist[indexPath.row]), serial: indexPath.row+1)
+        cell.update(model: SongRealm.getModel(model: playlist[indexPath.row]), serial: indexPath.row+1)
+        cell.setChecked(isChecked: checks[indexPath.row])
         return cell
     }
     
@@ -77,6 +175,12 @@ extension DiscoverRankView :  UITableViewDataSource, UITableViewDelegate {
     
     /// 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        PlayerHelper.shared.changePlaylist(playlist: songlist, playIndex: indexPath.row, owner: self)
+        setSelectedIndex(indexPath: indexPath)
+        if PlayerHelper.shared.isOwner(owner: self) {
+            PlayerHelper.shared.song = playlist[playIndex!.row]
+            PlayerHelper.shared.start()
+        } else {
+            PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: playIndex!.row, owner: self)
+        }
     }
 }
