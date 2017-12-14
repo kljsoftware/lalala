@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class MainViewController: UIViewController {
+class MainViewController: PortraitViewController {
     
     @IBOutlet weak var cdButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!

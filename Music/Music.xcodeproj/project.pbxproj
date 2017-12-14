@@ -151,6 +151,7 @@
 		3C526F691FCF95D80093B837 /* LyricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C526F681FCF95D80093B837 /* LyricView.swift */; };
 		3C526F731FD029B80093B837 /* default_ad_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C526F721FD029B80093B837 /* default_ad_banner.png */; };
 		3C526F7A1FD030580093B837 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C526F791FD030580093B837 /* launch.png */; };
+		3C58ABA41FE16D7D00C7D91C /* PortraitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58ABA31FE16D7D00C7D91C /* PortraitViewController.swift */; };
 		3C58CFC31FC94F1800045BA9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFC21FC94F1800045BA9 /* Log.swift */; };
 		3C58CFC61FC9525300045BA9 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFC51FC9525300045BA9 /* DataHelper.swift */; };
 		3C58CFC91FC96AD800045BA9 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C58CFC81FC96AD700045BA9 /* test.png */; };
@@ -412,6 +413,7 @@
 		3C526F681FCF95D80093B837 /* LyricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricView.swift; sourceTree = "<group>"; };
 		3C526F721FD029B80093B837 /* default_ad_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_ad_banner.png; sourceTree = "<group>"; };
 		3C526F791FD030580093B837 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
+		3C58ABA31FE16D7D00C7D91C /* PortraitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortraitViewController.swift; sourceTree = "<group>"; };
 		3C58CFC21FC94F1800045BA9 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		3C58CFC51FC9525300045BA9 /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		3C58CFC81FC96AD700045BA9 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
@@ -873,6 +875,7 @@
 				3C58CFC21FC94F1800045BA9 /* Log.swift */,
 				3C0EBE9A1FD2D8F80047B1E1 /* RotateAnimation.swift */,
 				3C1427BA1FD592F000D15105 /* OnePixelConstraint.swift */,
+				3C58ABA31FE16D7D00C7D91C /* PortraitViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1518,6 +1521,7 @@
 				3C04078B1FC4001E00080935 /* NetworkMacro.swift in Sources */,
 				3CA5412F1FD8E0610064764A /* MeSettingType0Cell.swift in Sources */,
 				3CA5413D1FD912CE0064764A /* MeSelectLanguageCell.swift in Sources */,
+				3C58ABA41FE16D7D00C7D91C /* PortraitViewController.swift in Sources */,
 				3CA541361FD8ED830064764A /* LanguageMacro.swift in Sources */,
 				3CA541331FD8E0720064764A /* MeSettingType1Cell.swift in Sources */,
 				3CD05F4C1FCA9DC900FEC161 /* MyMusicView.swift in Sources */,

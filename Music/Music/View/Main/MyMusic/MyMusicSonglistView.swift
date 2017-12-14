@@ -110,10 +110,12 @@ class MyMusicSonglistView: UIView {
     
     /// 重新加载数据
     fileprivate func reloadLocalSonglist() {
-        let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "songlistName = %@", songlistName!))
-        if results.count > 0 {
-            songlistHeaderView.update(imgurl: results.first!.coverURL)
-            songlist = Array(results)
+        if isLocalSonglist {
+            let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "songlistName = %@", songlistName!))
+            if results.count > 0 {
+                songlistHeaderView.update(imgurl: results.first!.coverURL)
+                songlist = Array(results)
+            }
         }
         tableView.reloadData()
     }
@@ -137,8 +139,36 @@ class MyMusicSonglistView: UIView {
     
     /// 点击编辑按钮
     @IBAction func onEditButtonClicked(_ sender: UIButton) {
-        ActionSheet.show(items: [LanguageKey.Guide_EditPlaylistInfo.value, LanguageKey.Guide_MultipleOperate.value], cancel: LanguageKey.Common_Cancel.value) { (index) in
-            
+        
+        if isLocalSonglist && songlistName! != LanguageKey.MyMusic_Favorite.value {
+            ActionSheet.show(items: [LanguageKey.Guide_EditPlaylistInfo.value, LanguageKey.Guide_MultipleOperate.value], cancel: LanguageKey.Common_Cancel.value) { [weak self](index) in
+                guard let wself = self else {
+                    return
+                }
+                switch index {
+                case 0: /// 编辑歌单信息
+                    let view = Bundle.main.loadNibNamed("MyMusicNewSonglistView", owner: nil, options: nil)?[0] as! MyMusicNewSonglistView
+                    view.setup(type: 1, songlistName: wself.songlistName!)
+                    view.editClosure = {[weak self](songlistname) in
+                        guard let wself = self else {
+                            return
+                        }
+                        wself.songlistName = songlistname
+                        wself.songlistHeaderView.update(name: songlistname)
+                    }
+                    AppUI.push(to: view, with: APP_SIZE)
+                case 1: /// 批处理操作
+                    let view = Bundle.main.loadNibNamed("MyMusicSelectSongView", owner: nil, options: nil)?[0] as! MyMusicSelectSongView
+                    view.setup(songlist: wself.songlist)
+                    AppUI.push(to: view, with: APP_SIZE)
+                default:
+                    break
+                }
+            }
+        } else {
+            let view = Bundle.main.loadNibNamed("MyMusicSelectSongView", owner: nil, options: nil)?[0] as! MyMusicSelectSongView
+            view.setup(songlist: songlist)
+            AppUI.push(to: view, with: APP_SIZE)
         }
     }
     
@@ -192,7 +222,20 @@ extension MyMusicSonglistView :  UITableViewDataSource, UITableViewDelegate {
         view.addClosure = {
             ActionSheet.show(items: [LanguageKey.MyMusic_Favorite.value, LanguageKey.MyMusic_MyDownload.value], cancel:LanguageKey.Common_Cancel.value, selectedIndex: {(index) in
                 let view = Bundle.main.loadNibNamed("MyMusicSelectSongView", owner: nil, options: nil)?[0] as! MyMusicSelectSongView
-                view.setup(type: SelectSourceType(rawValue:index)!)
+                var songlist = [SongRealm]()
+                switch SelectSourceType(rawValue:index)! {
+                case .favorite:
+                    let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "songlistName = %@", LanguageKey.MyMusic_Favorite.value))
+                    if results.count > 0 {
+                        songlist = Array(results)
+                    }
+                case .download:
+                    let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "downloadFlag = %d", 2))
+                    if results.count > 0 {
+                        songlist = Array(results)
+                    }
+                }
+                view.setup(songlist: songlist)
                 view.selectSonglistClosure = { [weak self](songlist) in
                     guard let wself = self else {
                         return

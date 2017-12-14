@@ -21,6 +21,8 @@ class MyMusicDownloadView : UIView {
     /// 已下载、正在下载歌曲列表
     fileprivate var downloadedSonglist = [SongRealm]()
     fileprivate var downloadingSonglist = [SongRealm]()
+    fileprivate let downloadingEditImage = UIImage(named:"common_btn_edit")!, downloadingEditDoneImage = UIImage(named:"common_btn_edit_done")!
+    fileprivate var isDownloadingEditing = true
     
     // MARK: - override methods
     override func awakeFromNib() {
@@ -82,6 +84,7 @@ class MyMusicDownloadView : UIView {
             sender.isSelected = true
             downloadingButton.isSelected = false
             downloadingButton.backgroundColor = UIColor.clear
+            editButton.setImage(downloadingEditImage, for: .normal)
             reloadSonglist()
         }
     }
@@ -93,13 +96,29 @@ class MyMusicDownloadView : UIView {
             sender.isSelected = true
             downloadedButton.isSelected = false
             downloadedButton.backgroundColor = UIColor.clear
+            if isDownloadingEditing {
+                editButton.setImage(downloadingEditImage, for: .normal)
+            } else {
+                editButton.setImage(downloadingEditDoneImage, for: .normal)
+            }
             reloadSonglist()
         }
     }
     
     /// 点击编辑按钮
     @IBAction func onEditButtonClicked(_ sender: UIButton) {
-        
+        if downloadedButton.isSelected {
+            let view = Bundle.main.loadNibNamed("MyMusicSelectSongView", owner: nil, options: nil)?[0] as! MyMusicSelectSongView
+            view.setup(songlist: downloadedSonglist)
+            AppUI.push(to: view, with: APP_SIZE)
+        } else {
+            if isDownloadingEditing {
+                editButton.setImage(downloadingEditDoneImage, for: .normal)
+            } else {
+                editButton.setImage(downloadingEditImage, for: .normal)
+            }
+            isDownloadingEditing = !isDownloadingEditing
+        }
     }
     
     /// 点击返回按钮

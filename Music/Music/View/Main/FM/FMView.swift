@@ -120,6 +120,11 @@ class FMView: UIView {
     @objc private func notifyUpdateForAudioStatusChanged(_ sender:Notification) {
         if PlayerHelper.shared.isOwner(owner: self) {
             playerView.updateByStatusChanged()
+            
+            /// 播放结束
+            if PlayerHelper.shared.state == .stop {
+                nextSong(isAutoStopped: true)
+            }
         }
     }
     
@@ -333,7 +338,7 @@ class FMView: UIView {
     }
     
     /// 下一首
-    func nextSong() {
+    func nextSong(isAutoStopped:Bool = false) {
         
         /// 如当前播放列表不是改界面拥有者，则需要切换列表
         if !PlayerHelper.shared.isOwner(owner: self) {
@@ -344,6 +349,24 @@ class FMView: UIView {
                 viewModel.getSongList(channelId: channelId)
             }
             return
+        }
+        
+        if isAutoStopped {
+            switch PlayerHelper.shared.playMode {
+            case .all:
+                break
+            case .one:
+                PlayerHelper.shared.start()
+                return
+            case .random:
+                let count = playlist.count
+                if count > 0 {
+                    playIndex = Int(arc4random() % UInt32(count))
+                    PlayerHelper.shared.song = playlist[playIndex]
+                    PlayerHelper.shared.start()
+                }
+                return
+            }
         }
         
         /// 如果存在下一首，播放并使索引+1， 否则请求歌曲列表

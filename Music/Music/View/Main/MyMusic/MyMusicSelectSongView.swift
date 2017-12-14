@@ -74,19 +74,8 @@ class MyMusicSelectSongView: UIView {
     }
     
     /// 设置数据
-    func setup(type:SelectSourceType) {
-        switch type {
-        case .favorite:
-            let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "songlistName = %@", LanguageKey.MyMusic_Favorite.value))
-            if results.count > 0 {
-                songlist = Array(results)
-            }
-        case .download:
-            let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "downloadFlag = %d", 2))
-            if results.count > 0 {
-                songlist = Array(results)
-            }
-        }
+    func setup(songlist:[SongRealm]) {
+        self.songlist = songlist
         checks = [Bool](repeating: false, count: songlist.count)
         tableView.reloadData()
     }

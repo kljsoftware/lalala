@@ -59,12 +59,7 @@ class FuntionMenuView: UIView {
             maker.bottom.equalTo(window)
             maker.top.equalTo(window).offset(-APP_Y)
         }
-        
-        view.contentBottomLayoutConstraint.constant = 0
-        UIView.animate(withDuration: duration) {
-            view.layoutIfNeeded()
-            view.coverButton.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
-        }
+        view.show()
     }
     
     /// 初始化
@@ -79,6 +74,19 @@ class FuntionMenuView: UIView {
     }
     
     // MARK: - private methods
+    fileprivate func show() {
+        self.perform(#selector(delayAnim), with: nil, afterDelay: 0.1)
+    }
+    
+    /// 延迟动画，不做延迟，动画会斜着出来 [暂时不知道原因]
+    @objc private func delayAnim() {
+        contentBottomLayoutConstraint.constant = 0
+        UIView.animate(withDuration: duration) { [weak self] in
+            self?.layoutIfNeeded()
+            self?.coverButton.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
+        }
+    }
+    
     /// 隐藏
     fileprivate func hide() {
         contentBottomLayoutConstraint.constant = -contentHeight

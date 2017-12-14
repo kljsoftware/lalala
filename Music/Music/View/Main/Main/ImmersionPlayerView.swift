@@ -14,6 +14,10 @@ private let loopPageViewHeight:CGFloat = DEVICE_SCREEN_HEIGHT - loopPageViewTopM
 private let cdBackWH:CGFloat = 1080, cdWH:CGFloat = 702 // 光碟背景和光碟的原始宽高尺寸
 private let loopPageImageBlank:CGFloat = 120 // 光碟与背景光圈的距离，这个需要根据比例变化
 
+/// 播放模式按钮
+private let playModeNormalDict = [PlayCircleMode.all:UIImage(named:"immersion_player_btn_cycle_all_normal")!, PlayCircleMode.one:UIImage(named:"immersion_player_btn_cycle_one_normal")!, PlayCircleMode.random:UIImage(named:"immersion_player_btn_cycle_random_normal")!]
+private let playModePressedDict = [PlayCircleMode.all:UIImage(named:"immersion_player_btn_cycle_all_pressed")!, PlayCircleMode.one:UIImage(named:"immersion_player_btn_cycle_one_pressed")!, PlayCircleMode.random:UIImage(named:"immersion_player_btn_cycle_random_pressed")!]
+
 /// 播放器界面
 class ImmersionPlayerView: UIView {
     
@@ -31,6 +35,9 @@ class ImmersionPlayerView: UIView {
     
     /// 喜欢按钮
     @IBOutlet weak var loveButton: UIButton!
+    
+    /// 循环按钮
+    @IBOutlet weak var circleButton: UIButton!
     
     /// 上一首
     @IBOutlet weak var prevButton: UIButton!
@@ -185,6 +192,7 @@ class ImmersionPlayerView: UIView {
         moreButton.isExclusiveTouch = true
         backButton.isExclusiveTouch = true
         shareButton.isExclusiveTouch = true
+        circleButton.isExclusiveTouch = true
     }
     
     /// 按下
@@ -303,6 +311,15 @@ class ImmersionPlayerView: UIView {
     
     /// 点击循环模式按钮
     @IBAction func onCircleButtonClicked(_ sender: UIButton) {
+        switch PlayerHelper.shared.playMode {
+        case .all:
+            PlayerHelper.shared.playMode = .one
+        case .one:
+            PlayerHelper.shared.playMode = .random
+        case .random:
+            PlayerHelper.shared.playMode = .all
+        }
+        sender.setImage(nor: playModeNormalDict[PlayerHelper.shared.playMode], dwn: playModePressedDict[PlayerHelper.shared.playMode])
     }
     
     /// 点击下载按钮

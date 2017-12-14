@@ -14,6 +14,16 @@ enum PlayerState {
     case buffering      // 缓冲
 }
 
+/// 循环播放模式
+enum PlayCircleMode {
+    case all    /// 顺序循环播放
+    case one    /// 单曲循环播放
+    case random /// 随机播放
+}
+
+///// 循环播放模式图片资源
+//let circleModeDict = [PlayCircleMode.all:UIImage(named:"common_btn_cycle_all")!, PlayCircleMode.one:UIImage(named:"common_btn_cycle_one")!, PlayCircleMode.random:UIImage(named:"common_btn_cycle_random")!]
+
 /// 播放器助手
 class PlayerHelper {
     
@@ -45,6 +55,9 @@ class PlayerHelper {
     
     /// 当前播放列表的拥有者
     var owner:NSObject?
+    
+    /// 播放模式
+    var playMode:PlayCircleMode = .all
     
     /// 当前音乐的总时长
     var duration:TimeInterval {
