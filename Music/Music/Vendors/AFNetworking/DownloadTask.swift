@@ -9,6 +9,7 @@
 typealias DownloadBeginCallback = () -> Void
 typealias DownloadFinishedCallback = (_ filePath:String) -> Void
 typealias DownloadProgressCallBack = (_ progres: Float) -> Void
+typealias DownloadFailCallback = () -> Void
 
 ///  下载任务类，基于第三方AFNetworking封装
 class DownloadTask : NSObject {
@@ -131,17 +132,19 @@ class DownloadTask : NSObject {
     
     // MARK: - init/public methods
     /// 创建下载任务
-    init(urlString:String?) {
+    init(urlString:String?, downloadFailCallback:DownloadFailCallback? = nil) {
         super.init()
         
         /// 地址为空
         if urlString == nil || urlString!.isEmpty {
+            downloadFailCallback?()
             return
         }
         
         /// 下载URL
         guard let url = URL(string: urlString!) else {
             // 无效url
+            downloadFailCallback?()
             return
         }
         

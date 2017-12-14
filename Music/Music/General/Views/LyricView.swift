@@ -82,6 +82,7 @@ class LyricView: UIView {
     /// 添加歌词视图
     private func addLyricView(lrcPath:String?) {
         guard let lyric = Lyric.parse(lrcPath: lrcPath), !lyric.sentences.isEmpty else {
+            addTipView(tip: LanguageKey.Lyric_NoLyrics.value)
             return
         }
         self.lyric = lyric
@@ -152,7 +153,9 @@ class LyricView: UIView {
         removeSubViews()
         index = 0
         download = nil
-        download = DownloadTask(urlString: lyricUrl)
+        download = DownloadTask(urlString: lyricUrl, downloadFailCallback: { [weak self] in
+            self?.addTipView(tip: LanguageKey.Lyric_NoLyrics.value)
+        })
         download?.downloadFinishedCallback = {[weak self](lrcPath) in
             self?.addLyricView(lrcPath: lrcPath)
         }
