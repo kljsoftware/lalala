@@ -210,6 +210,12 @@ class PlayerHelper {
                 return true
             }
         }
+        /// 若不是fm模块，循环播放
+        if !(owner != nil && owner!.isKind(of: FMView.self)) {
+            song = songList.first
+            start()
+            return true
+        }
         return false
     }
     
