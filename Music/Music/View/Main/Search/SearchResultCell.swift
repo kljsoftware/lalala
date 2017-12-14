@@ -28,16 +28,6 @@ class SearchResultCell: UITableViewCell {
     /// 歌曲数据
     private var model:SongRealm?
     
-    // MARK: - override methods
-    // 选中/未选中单元
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        indicatorView.isHidden = !isSelected
-        if selected {
-            // TODO: 更新当前选择模式
-        }
-    }
-    
     // MARK: - IBAction
     @IBAction func onMoreButtonClicked(_ sender: UIButton) {
         FuntionMenuView.show(items: [FunctionMenuType.add, FunctionMenuType.download, FunctionMenuType.share]) { [weak self](type) in
@@ -77,5 +67,10 @@ class SearchResultCell: UITableViewCell {
         serialWidthLayoutConstraint.constant = 30
         serialLabel.text = "\(serial)"
         serialLabel.textColor = serial <= 3 ? COLOR_69EDC8 : COLOR_ABABAB
+    }
+    
+    /// 设置选中状态
+    func setChecked(isChecked:Bool) {
+        indicatorView.isHidden = !isChecked
     }
 }

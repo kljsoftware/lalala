@@ -277,7 +277,7 @@ class ImmersionPlayerView: UIView {
         if owner.isKind(of: FMView.self) {
             (owner as! FMView).nextSong()
         } else {
-            _ = PlayerHelper.shared.next()
+             PlayerHelper.shared.next()
         }
     }
     

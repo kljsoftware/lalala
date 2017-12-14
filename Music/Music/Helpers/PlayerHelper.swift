@@ -191,6 +191,13 @@ class PlayerHelper {
                 return true
             }
         }
+        
+        /// 若不是fm模块，循环播放
+        if !(owner != nil && owner!.isKind(of: FMView.self)) {
+            song = songList.last
+            start()
+            return true
+        }
         return false
     }
     
@@ -211,13 +218,15 @@ class PlayerHelper {
         songList.removeAll()
     }
     
-    /// 更换歌单并播放当前歌曲 注：owner表示列表拥有者
-    func changePlaylist(playlist:[FMSongDataModel], playIndex:Int, owner:NSObject) {
+    /// 更换歌单并默认播放当前歌曲 注：owner表示列表拥有者
+    func changePlaylist(playlist:[FMSongDataModel], playIndex:Int, owner:NSObject, playing:Bool = true) {
         self.songList = playlist
         self.owner = owner
         if playIndex >= 0 && playIndex < playlist.count {
             self.song = playlist[playIndex]
-            start()
+            if playing {
+                start()
+            }
         }
         NotificationCenter.default.post(name: NoticationUpdateForChangePlaylist, object: nil)
     }

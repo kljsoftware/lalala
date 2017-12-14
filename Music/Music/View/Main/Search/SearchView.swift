@@ -19,8 +19,8 @@ class SearchView: UIView {
     fileprivate var artists = [ArtistDataModel]()
     fileprivate var page = 0, hasMore:Bool = false
     
-    /// 搜索结果数据
-    fileprivate var results = [FMSongDataModel]()
+    /// 搜索结果数据:  播放列表、列表歌曲选中状态、当前播放索引
+    fileprivate var playlist = [FMSongDataModel](), checks = [Bool](), playIndex:IndexPath?
     fileprivate var searchPage = 0, hasMoreSearchResult:Bool = false, query:String = "", type:String = ""
 
     /// 搜索控制视图
@@ -59,13 +59,67 @@ class SearchView: UIView {
         super.init(frame: frame)
         setupViewModel()
         setup()
+        registerNotification()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        unregisterNotification()
+    }
+    
     // MARK: - private methods
+    /// 注册通知
+    fileprivate func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForChangePlaylist, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifySongChanged), name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
+    }
+    
+    /// 销毁通知
+    fileprivate func unregisterNotification() {
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForChangePlaylist, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioStatusChanged, object: nil)
+    }
+    
+    /// 切换歌单消息
+    @objc private func notifyPlaylistChanged(_ sender:Notification) {
+        if !PlayerHelper.shared.isOwner(owner: self) {
+            setunSelectedIndex(indexPath: playIndex)
+        }
+    }
+    
+    /// 歌曲发生改变
+    @objc private func notifySongChanged(_ sender:Notification) {
+        if PlayerHelper.shared.isOwner(owner: self) {
+            setSelectedSong()
+        }
+    }
+    
+    /// 歌曲状态发生改变
+    @objc private func notifyAudioStatusChanged(_ sender:Notification) {
+        if PlayerHelper.shared.isOwner(owner: self) {
+            if PlayerHelper.shared.state == .stop {
+                switch PlayerHelper.shared.playMode {
+                case .all:
+                    _ = PlayerHelper.shared.next()
+                case .one:
+                    PlayerHelper.shared.start()
+                case .random:
+                    let count = playlist.count
+                    if count > 0 {
+                        let row = Int(arc4random() % UInt32(count))
+                        PlayerHelper.shared.song = playlist[row]
+                        PlayerHelper.shared.start()
+                    }
+                }
+            }
+        }
+    }
+    
     private func setup() {
         
         /// 搜索控制视图
@@ -126,7 +180,15 @@ class SearchView: UIView {
             } else if resultModel.isKind(of: SearchSongResultModel.self){
                 let songResultModel = resultModel as! SearchSongResultModel
                 weakself.hasMoreSearchResult = songResultModel.data.has_more
-                weakself.results.append(contentsOf: songResultModel.data.items)
+                weakself.playlist.append(contentsOf: songResultModel.data.items)
+                let count = songResultModel.data.items.count
+                if count > 0 {
+                    weakself.checks.append(contentsOf: [Bool](repeating: false, count: count))
+                }
+                if weakself.playlist.count > 0 {
+                    let index = weakself.playIndex == nil ? 0 : weakself.playIndex!.row
+                    PlayerHelper.shared.changePlaylist(playlist: weakself.playlist, playIndex: index, owner: weakself, playing:false)
+                }
                 weakself.resultTableView.reloadData()
                 weakself.resultTableView.mj_footer.endRefreshing()
             } else {
@@ -146,13 +208,54 @@ class SearchView: UIView {
     /// 请求搜索结果
     private func requestSearchResult(query:String, type:String, page:Int) {
         if page == 0 {
-            results.removeAll()
+            playIndex = nil
+            playlist.removeAll()
+            checks.removeAll()
         }
         self.query = query
         self.type = type
         searchPage = page
         viewModel.requestSearchResult(query: query, type: type, page: page)
         resultTableView.isHidden = false
+    }
+    
+    /// 设置当前播放歌曲为选中状态
+    fileprivate func setSelectedSong() {
+        guard let song = PlayerHelper.shared.song else {
+            return
+        }
+        if playlist.count > 0 {
+            for i in 0..<playlist.count {
+                if song.sid == playlist[i].sid {
+                    setSelectedIndex(indexPath: IndexPath(row: i, section: 0))
+                    break
+                }
+            }
+        }
+    }
+    
+    /// 设置选中索引值
+    fileprivate func setSelectedIndex(indexPath:IndexPath?) {
+        setunSelectedIndex(indexPath: playIndex)
+        guard let indexPath = indexPath else {
+            return
+        }
+        if indexPath.row >= 0 && indexPath.row < checks.count {
+            checks[indexPath.row] = true
+        }
+        playIndex = indexPath
+        (resultTableView.cellForRow(at: indexPath) as? SearchResultCell)?.setChecked(isChecked: true)
+    }
+    
+    /// 设置未选中索引值
+    fileprivate func setunSelectedIndex(indexPath:IndexPath?) {
+        guard let indexPath = indexPath else {
+            return
+        }
+        if indexPath.row >= 0 && indexPath.row < checks.count {
+            checks[indexPath.row] = false
+        }
+        (resultTableView.cellForRow(at: indexPath) as? SearchResultCell)?.setChecked(isChecked: false)
     }
 }
 
@@ -167,7 +270,7 @@ extension SearchView :  UITableViewDataSource, UITableViewDelegate {
     
     // 各个分区的单元(Cell)个数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableView == artistTableView ? artists.count : results.count
+        return tableView == artistTableView ? artists.count : playlist.count
     }
     
     // 单元(cell)视图
@@ -179,7 +282,8 @@ extension SearchView :  UITableViewDataSource, UITableViewDelegate {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "kSearchResultCell", for: indexPath) as! SearchResultCell
-        cell.update(model: SongRealm.getModel(model: results[indexPath.row]))
+        cell.update(model: SongRealm.getModel(model: playlist[indexPath.row]))
+        cell.setChecked(isChecked: checks[indexPath.row])
         return cell
     }
     
@@ -200,6 +304,12 @@ extension SearchView :  UITableViewDataSource, UITableViewDelegate {
         }
         
         /// 添加至播放列表并播放
-        PlayerHelper.shared.changePlaylist(playlist: results, playIndex: indexPath.row, owner: self)
+        setSelectedIndex(indexPath: indexPath)
+        if PlayerHelper.shared.isOwner(owner: self) {
+            PlayerHelper.shared.song = playlist[playIndex!.row]
+            PlayerHelper.shared.start()
+        } else {
+            PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: playIndex!.row, owner: self)
+        }
     }
 }
