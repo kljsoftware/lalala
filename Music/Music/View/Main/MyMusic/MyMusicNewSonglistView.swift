@@ -34,7 +34,7 @@ class MyMusicNewSonglistView: UIView {
     
     /// 设置类型 0表示新建歌单， 1表示编辑歌单
     func setup(type:Int = 0, songlistName:String? = nil) {
-        titleLabel.text = type == 0 ? LanguageKey.MyMusic_CreatePlaylist.value : LanguageKey.MyMusic_EditPlaylistIntro.value
+        titleLabel.text = type == 0 ? LanguageKey.MyMusic_CreatePlaylist.value : LanguageKey.MyMusic_EditPlaylistName.value
         nameTextField.text = songlistName
         self.type = type
         self.songlistName = songlistName
