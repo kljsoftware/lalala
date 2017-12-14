@@ -29,3 +29,6 @@ let NoticationUpdateForSongDownload = Notification.Name("NoticationUpdateForSong
 
 /// 暂停定时时间到，通知界面更新, 并暂停后台音乐播放
 let NoticationUpdateForTimesup = Notification.Name("NoticationUpdateForTimesup")
+
+/// 模式发生改变
+let NoticationUpdateForCircleModeChanged = Notification.Name("NoticationUpdateForCircleModeChanged")

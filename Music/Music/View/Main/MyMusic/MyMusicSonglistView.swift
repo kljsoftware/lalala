@@ -280,13 +280,20 @@ extension MyMusicSonglistView :  UITableViewDataSource, UITableViewDelegate {
         view.update(isHiddenAdded: !(isLocalSonglist && songlistName != nil && songlistName! != LanguageKey.MyMusic_Favorite.value))
         
         /// 下一首
-        view.nextClosure = {
-            
-        }
-        
-        /// 循环模式
-        view.cycleClosure = {
-            
+        view.nextClosure = { [weak self] in
+            guard let wself = self else {
+                return
+            }
+            if wself.songlist.count > 0 {
+                if PlayerHelper.shared.isOwner(owner: wself) {
+                    _ = PlayerHelper.shared.next()
+                } else {
+                    let indexPath = IndexPath(row: 0, section: 0)
+                    let playlist = FMSongDataModel.getModels(with: wself.songlist)
+                    wself.setSelectedIndex(indexPath: indexPath)
+                    PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: 0, owner: wself)
+                }
+            }
         }
         
         /// 添加歌曲到歌单，只有本地非喜爱歌单有这个功能

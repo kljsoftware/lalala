@@ -24,7 +24,7 @@ enum PlayCircleMode {
 }
 
 ///// 循环播放模式图片资源
-//let circleModeDict = [PlayCircleMode.all:UIImage(named:"common_btn_cycle_all")!, PlayCircleMode.one:UIImage(named:"common_btn_cycle_one")!, PlayCircleMode.random:UIImage(named:"common_btn_cycle_random")!]
+let circleModeDict = [PlayCircleMode.all:UIImage(named:"common_btn_cycle_all")!, PlayCircleMode.one:UIImage(named:"common_btn_cycle_one")!, PlayCircleMode.random:UIImage(named:"common_btn_cycle_random")!]
 
 /// 播放器助手
 class PlayerHelper {

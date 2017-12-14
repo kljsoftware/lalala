@@ -120,6 +120,7 @@ class ImmersionPlayerView: UIView {
         animation?.setup(isScaled: true, step: 10, scaleValue: 0.1)
        
         /// 更新歌曲信息、按钮状态与进度
+        setupButtons()
         updateBySongChanged()
         updateByStatusChanged()
         updateByProgressChanged()
@@ -155,7 +156,8 @@ class ImmersionPlayerView: UIView {
     fileprivate func registerNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForAudioProgressChanged), name: NoticationUpdateForAudioProgressChanged, object: nil)
-         NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForSongChanged), name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForSongChanged), name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyUpdateForCircleModeChanged), name: NoticationUpdateForCircleModeChanged, object: nil)
     }
     
     /// 销毁通知
@@ -163,6 +165,7 @@ class ImmersionPlayerView: UIView {
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioStatusChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioProgressChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForCircleModeChanged, object: nil)
     }
     
     /// 通知相关音频控制更新
@@ -183,6 +186,11 @@ class ImmersionPlayerView: UIView {
         updateAnimationStatus()
     }
     
+    /// 通知模式改变
+    @objc private func notifyUpdateForCircleModeChanged(_ sender:Notification) {
+        circleButton.setImage(nor: playModeNormalDict[PlayerHelper.shared.playMode], dwn: playModePressedDict[PlayerHelper.shared.playMode])
+    }
+    
     /// 按钮初始化设置
     private func setupButtons() {
         loveButton.isExclusiveTouch = true
@@ -193,6 +201,7 @@ class ImmersionPlayerView: UIView {
         backButton.isExclusiveTouch = true
         shareButton.isExclusiveTouch = true
         circleButton.isExclusiveTouch = true
+        circleButton.setImage(nor: playModeNormalDict[PlayerHelper.shared.playMode], dwn: playModePressedDict[PlayerHelper.shared.playMode])
     }
     
     /// 按下
@@ -319,7 +328,7 @@ class ImmersionPlayerView: UIView {
         case .random:
             PlayerHelper.shared.playMode = .all
         }
-        sender.setImage(nor: playModeNormalDict[PlayerHelper.shared.playMode], dwn: playModePressedDict[PlayerHelper.shared.playMode])
+        NotificationCenter.default.post(name: NoticationUpdateForCircleModeChanged, object: nil)
     }
     
     /// 点击下载按钮
