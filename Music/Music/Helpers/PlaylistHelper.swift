@@ -29,7 +29,7 @@ class PlaylistHelper {
         }
         
         let message = (name == LanguageKey.MyMusic_Favorite.value ? LanguageKey.Tip_AddedToFavorites.value : LanguageKey.Tip_AddingComplete.value)
-        if !showTip {
+        if showTip {
             AppUI.tip(message)
         }
     }
