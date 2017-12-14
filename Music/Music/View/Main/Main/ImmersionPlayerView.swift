@@ -39,6 +39,9 @@ class ImmersionPlayerView: UIView {
     /// 循环按钮
     @IBOutlet weak var circleButton: UIButton!
     
+    /// 下载按钮
+    @IBOutlet weak var downloadButton: UIButton!
+    
     /// 上一首
     @IBOutlet weak var prevButton: UIButton!
     
@@ -202,6 +205,8 @@ class ImmersionPlayerView: UIView {
         shareButton.isExclusiveTouch = true
         circleButton.isExclusiveTouch = true
         circleButton.setImage(nor: playModeNormalDict[PlayerHelper.shared.playMode], dwn: playModePressedDict[PlayerHelper.shared.playMode])
+        downloadButton.isExclusiveTouch = true
+        downloadButton.isEnabled = !PlaylistHelper.isDownloadSong(sid: PlayerHelper.shared.song?.sid)
     }
     
     /// 按下
@@ -237,6 +242,7 @@ class ImmersionPlayerView: UIView {
         titleLabel.text = song?.title
         artistLabel.text = song?.artist
         lyricView.setup(lyricUrl: song?.lyricURL)
+        downloadButton.isEnabled = !PlaylistHelper.isDownloadSong(sid: PlayerHelper.shared.song?.sid)
     }
     
     /// 更新按钮状态

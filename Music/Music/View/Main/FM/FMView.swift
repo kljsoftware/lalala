@@ -263,29 +263,32 @@ class FMView: UIView {
             case .next:
                 wself.nextSong()
             case .more: /// 点击更多按钮
-                FuntionMenuView.show(items: [FunctionMenuType.refresh, FunctionMenuType.add, FunctionMenuType.download, FunctionMenuType.share], selectedIndex: { [weak self] (type) in
-                    guard let wself = self else {
-                        return
-                    }
-                    switch type {
-                    case .refresh: // 换一批歌
-                        wself.playIndex = 0
-                        wself.playlist.removeAll()
-                        wself.viewModel.getSongList(channelId: wself.channelId)
-                    case .add: // 添加至歌单
-                        if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
-                            PlaylistSheet.addToPlaylist(mode: SongRealm.getModel(model: wself.playlist[wself.playIndex]))
+                if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
+                    let type = PlaylistHelper.isDownloadSong(sid: wself.playlist[wself.playIndex].sid) ? FunctionMenuType.downloaded : FunctionMenuType.download
+                    FuntionMenuView.show(items: [FunctionMenuType.refresh, FunctionMenuType.add, type, FunctionMenuType.share], selectedIndex: { [weak self] (type) in
+                        guard let wself = self else {
+                            return
                         }
-                    case .download: // 下载
-                        if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
-                            DownloadTaskHelper.shared.addSongTask(model: SongRealm.getModel(model: wself.playlist[wself.playIndex]))
+                        switch type {
+                        case .refresh: // 换一批歌
+                            wself.playIndex = 0
+                            wself.playlist.removeAll()
+                            wself.viewModel.getSongList(channelId: wself.channelId)
+                        case .add: // 添加至歌单
+                            if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
+                                PlaylistSheet.addToPlaylist(mode: SongRealm.getModel(model: wself.playlist[wself.playIndex]))
+                            }
+                        case .download: // 下载
+                            if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
+                                DownloadTaskHelper.shared.addSongTask(model: SongRealm.getModel(model: wself.playlist[wself.playIndex]))
+                            }
+                        case .share: // 分享
+                            AppUI.share()
+                        default:
+                            break
                         }
-                    case .share: // 分享
-                        AppUI.share()
-                    default:
-                        break
-                    }
-                })
+                    })
+                }
             }
         }
     }

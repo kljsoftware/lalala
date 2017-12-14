@@ -39,6 +39,7 @@ class MyMusicDownloadingCell: UITableViewCell {
     @IBAction func onControlButtonClicked(_ sender: UIButton) {
         isPaused ? task?.resume() : task?.pause()
         updateButtonImage(isPaused: !isPaused)
+        NotificationCenter.default.post(name: NoticationUpdateForPauseOrResumeDownload, object: nil)
     }
     
     /// 更新

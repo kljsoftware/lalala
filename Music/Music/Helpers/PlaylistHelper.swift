@@ -61,4 +61,14 @@ class PlaylistHelper {
         let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "songlistName = %@ AND sid = %d", songRealm.songlistName, songRealm.sid))
         return results.count != 0
     }
+    
+    /// 判断歌曲是否已下载
+    class func isDownloadSong(sid:Int?) -> Bool {
+        guard let sid = sid else {
+            return false
+        }
+        let r1 = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "downloadFlag = %d AND sid = %d", 1, sid))
+        let r2 = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "downloadFlag = %d AND sid = %d", 2, sid))
+        return r1.count > 0 || r2.count > 0
+    }
 }

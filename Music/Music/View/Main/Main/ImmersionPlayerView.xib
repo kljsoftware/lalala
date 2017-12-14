@@ -443,6 +443,7 @@
                 <outlet property="circleButton" destination="tSU-dz-2Ev" id="SJr-Zt-uze"/>
                 <outlet property="controlButton" destination="TOE-cB-WCi" id="Etf-gl-36U"/>
                 <outlet property="currentLabel" destination="1BW-zC-G9i" id="71A-Lv-hjk"/>
+                <outlet property="downloadButton" destination="WXJ-ck-9D0" id="YN9-cU-78E"/>
                 <outlet property="durationLabel" destination="cW3-nA-6YR" id="sRv-wL-lXi"/>
                 <outlet property="loveButton" destination="KE5-wa-Gxz" id="gcu-LG-Y45"/>
                 <outlet property="moreButton" destination="rdG-j1-KhP" id="Eq6-Um-QkS"/>

@@ -71,7 +71,7 @@ class MyMusicSonglistSectionView: UIView {
         case .random:
             PlayerHelper.shared.playMode = .all
         }
-        sender.setImage(nor: circleModeDict[PlayerHelper.shared.playMode])
+        NotificationCenter.default.post(name: NoticationUpdateForCircleModeChanged, object: nil)
     }
     
     /// 点击添加按钮

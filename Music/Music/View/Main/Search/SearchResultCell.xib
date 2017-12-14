@@ -49,6 +49,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_ic_downloaded.png" translatesAutoresizingMaskIntoConstraints="NO" id="JPD-xr-U7z">
+                                <rect key="frame" x="0.0" y="42.5" width="10" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="MvT-N3-7GV"/>
+                                    <constraint firstAttribute="height" constant="10" id="tfD-le-oUq"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6or-pO-PLC">
                                 <rect key="frame" x="0.0" y="47.5" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
@@ -84,6 +91,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LiG-lg-ZCx" firstAttribute="leading" secondItem="xAP-yK-3ZN" secondAttribute="trailing" constant="12" id="2GW-Oj-BVW"/>
+                            <constraint firstItem="JPD-xr-U7z" firstAttribute="leading" secondItem="Sm2-Vr-6g7" secondAttribute="leading" id="3AW-Ou-mLH"/>
                             <constraint firstAttribute="bottom" secondItem="Pck-gD-wsO" secondAttribute="bottom" constant="0.5" id="3wq-eu-jbV"/>
                             <constraint firstItem="xAP-yK-3ZN" firstAttribute="leading" secondItem="Sm2-Vr-6g7" secondAttribute="leading" id="8TN-s8-lVx"/>
                             <constraint firstItem="xAP-yK-3ZN" firstAttribute="top" secondItem="Sm2-Vr-6g7" secondAttribute="top" constant="12" id="K0R-Fe-Asg"/>
@@ -91,6 +99,7 @@
                             <constraint firstAttribute="trailing" secondItem="LiG-lg-ZCx" secondAttribute="trailing" constant="12" id="W8v-fm-l29"/>
                             <constraint firstAttribute="trailing" secondItem="Pck-gD-wsO" secondAttribute="trailing" id="XVV-yi-TU8"/>
                             <constraint firstItem="LiG-lg-ZCx" firstAttribute="centerY" secondItem="Sm2-Vr-6g7" secondAttribute="centerY" id="co9-DN-2lF"/>
+                            <constraint firstItem="JPD-xr-U7z" firstAttribute="centerY" secondItem="6or-pO-PLC" secondAttribute="centerY" id="g3X-IP-YMN"/>
                             <constraint firstItem="Pck-gD-wsO" firstAttribute="leading" secondItem="Sm2-Vr-6g7" secondAttribute="leading" id="kJQ-Tb-whQ"/>
                             <constraint firstAttribute="bottom" secondItem="6or-pO-PLC" secondAttribute="bottom" constant="12" id="mps-Xv-LJI"/>
                         </constraints>
@@ -111,7 +120,9 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="artistLeadingLayoutConstraint" destination="ORp-F1-f8K" id="hat-bd-taA"/>
                 <outlet property="artistNameLabel" destination="6or-pO-PLC" id="pVB-ZL-Pt3"/>
+                <outlet property="downloadedImageView" destination="JPD-xr-U7z" id="VRI-le-Rrt"/>
                 <outlet property="indicatorView" destination="Usk-yl-CW0" id="lL2-Zy-ocD"/>
                 <outlet property="moreButton" destination="LiG-lg-ZCx" id="Nmw-T5-yug"/>
                 <outlet property="serialLabel" destination="Q38-6S-B7b" id="UqF-lP-Des"/>
@@ -122,5 +133,6 @@
     </objects>
     <resources>
         <image name="common_btn_more.png" width="81" height="81"/>
+        <image name="common_ic_downloaded.png" width="30" height="30"/>
     </resources>
 </document>

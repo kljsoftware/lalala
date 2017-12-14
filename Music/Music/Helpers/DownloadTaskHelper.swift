@@ -44,7 +44,7 @@ class DownloadTaskHelper {
     }
     
     /// 正在下载数组
-    private var downloadingTasks = [DownloadTask]()
+    var downloadingTasks = [DownloadTask]()
     
     /// 今日下载次数
     var amount = 0

@@ -235,7 +235,11 @@ extension MyMusicDownloadView :  UITableViewDataSource, UITableViewDelegate {
     
     // 分区(Section)视图
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = Bundle.main.loadNibNamed("MyMusicSonglistSectionView", owner: nil, options: nil)?[0] as! MyMusicSonglistSectionView
+        if downloadedButton.isSelected {
+            let view = Bundle.main.loadNibNamed("MyMusicSonglistSectionView", owner: nil, options: nil)?[0] as! MyMusicSonglistSectionView
+            return view
+        }
+        let view = Bundle.main.loadNibNamed("MyMusicDownloadingSectionView", owner: nil, options: nil)?[0] as! MyMusicDownloadingSectionView
         return view
     }
     
