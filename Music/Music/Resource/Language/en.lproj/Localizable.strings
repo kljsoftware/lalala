@@ -33,6 +33,7 @@
 "MyMusic_NoTask"          = "No Task";
 "MyMusic_PlaylistName"    = "Playlist Name";
 "MyMusic_EditPlaylistIntro" = "Edit Introduction";
+"MyMusic_EditPlaylistName" = "Edit Playlist Name";
 
 /// 发现
 "Discover_Rank"              = "Rank";

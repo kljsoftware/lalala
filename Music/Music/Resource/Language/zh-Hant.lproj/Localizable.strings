@@ -33,6 +33,7 @@
 "MyMusic_NoTask"          = "暫無任務";
 "MyMusic_PlaylistName"    = "歌單名稱";
 "MyMusic_EditPlaylistIntro" = "編輯歌單介紹";
+"MyMusic_EditPlaylistName" = "編輯歌單名稱";
 
 /// 发现
 "Discover_Rank"              = "排行榜";
