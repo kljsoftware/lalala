@@ -42,7 +42,7 @@ class MyMusicSonglistView: UIView {
     fileprivate var songlistHeaderView:MyMusicSonglistHeaderView!
     
     /// 歌曲模型列表
-    fileprivate var songlist = [SongRealm]()
+    fileprivate var songlist = [SongRealm](), checks = [Bool](), playIndex:IndexPath?
     
     // MARK: - override methods
     override func awakeFromNib() {
@@ -74,6 +74,7 @@ class MyMusicSonglistView: UIView {
             }
             let playlist = (resultModel as! DiscoverSongListResultModel).data.songs
             wself.songlist = SongRealm.getModels(models:playlist)
+            wself.checks = [Bool](repeating: false, count: wself.songlist.count)
             wself.songlistHeaderView.update(name: wself.playlistInfo!.song_list_name)
             wself.songlistHeaderView.update(imgurl: wself.playlistInfo!.song_list_cover)
             wself.tableView.reloadData()
@@ -115,6 +116,7 @@ class MyMusicSonglistView: UIView {
             if results.count > 0 {
                 songlistHeaderView.update(imgurl: results.first!.coverURL)
                 songlist = Array(results)
+                checks = [Bool](repeating: false, count: songlist.count)
             }
         }
         tableView.reloadData()
@@ -124,17 +126,63 @@ class MyMusicSonglistView: UIView {
     fileprivate func registerNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForPlaylistChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForChangePlaylist, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
     }
     
     /// 销毁通知
     fileprivate func unregisterNotification() {
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForPlaylistChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForChangePlaylist, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioStatusChanged, object: nil)
     }
     
     /// 新建歌单消息
     @objc private func notifyPlaylistChanged(_ sender:Notification) {
         reloadLocalSonglist()
+        if PlayerHelper.shared.isOwner(owner: self) {
+            setSelectedSong()
+        } 
+    }
+    
+    /// 设置当前播放歌曲为选中状态
+    fileprivate func setSelectedSong() {
+        guard let song = PlayerHelper.shared.song else {
+            return
+        }
+        if songlist.count > 0 {
+            for i in 0..<songlist.count {
+                if song.sid == songlist[i].sid {
+                    setSelectedIndex(indexPath: IndexPath(row: i, section: 0))
+                    break
+                }
+            }
+        }
+    }
+    
+    /// 设置选中索引值
+    fileprivate func setSelectedIndex(indexPath:IndexPath?) {
+        setunSelectedIndex(indexPath: playIndex)
+        guard let indexPath = indexPath else {
+            return
+        }
+        if indexPath.row >= 0 && indexPath.row < checks.count {
+            checks[indexPath.row] = true
+        }
+        playIndex = indexPath
+        (tableView.cellForRow(at: indexPath) as? SearchResultCell)?.setChecked(isChecked: true)
+    }
+    
+    /// 设置未选中索引值
+    fileprivate func setunSelectedIndex(indexPath:IndexPath?) {
+        guard let indexPath = indexPath else {
+            return
+        }
+        if indexPath.row >= 0 && indexPath.row < checks.count {
+            checks[indexPath.row] = false
+        }
+        (tableView.cellForRow(at: indexPath) as? SearchResultCell)?.setChecked(isChecked: false)
     }
     
     /// 点击编辑按钮
@@ -190,6 +238,7 @@ extension MyMusicSonglistView :  UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "kSearchResultCell", for: indexPath) as! SearchResultCell
         cell.update(model: songlist[indexPath.row])
+        cell.setChecked(isChecked: checks[indexPath.row])
         return cell
     }
     
@@ -251,8 +300,13 @@ extension MyMusicSonglistView :  UITableViewDataSource, UITableViewDelegate {
     
     /// 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.setSelected(true, animated: false)
         let playlist = FMSongDataModel.getModels(with: songlist)
-        PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: indexPath.row, owner: self)
+        setSelectedIndex(indexPath: indexPath)
+        if PlayerHelper.shared.isOwner(owner: self) {
+            PlayerHelper.shared.song = playlist[playIndex!.row]
+            PlayerHelper.shared.start()
+        } else {
+            PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: playIndex!.row, owner: self)
+        }
     }
 }

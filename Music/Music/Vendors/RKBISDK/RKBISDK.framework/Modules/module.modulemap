@@ -1,0 +1,6 @@
+framework module RKBISDK {
+  umbrella header "RKBISDK.h"
+
+  export *
+  module * { export * }
+}

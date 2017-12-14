@@ -132,6 +132,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         /// 同步本地数据
         DataHelper.shared.setup()
+        
+        /// RKBISDK 初始化
+       // RKBIPlatform.getInstance().rkInit()
     }
 }
 

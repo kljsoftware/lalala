@@ -151,6 +151,8 @@
 		3C526F691FCF95D80093B837 /* LyricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C526F681FCF95D80093B837 /* LyricView.swift */; };
 		3C526F731FD029B80093B837 /* default_ad_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C526F721FD029B80093B837 /* default_ad_banner.png */; };
 		3C526F7A1FD030580093B837 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C526F791FD030580093B837 /* launch.png */; };
+		3C52BFF51FE22AFC0073DD2F /* RKBISDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C52BFF31FE22AFC0073DD2F /* RKBISDK.framework */; };
+		3C52BFF61FE22AFC0073DD2F /* RekooBISDK.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C52BFF41FE22AFC0073DD2F /* RekooBISDK.plist */; };
 		3C58ABA41FE16D7D00C7D91C /* PortraitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58ABA31FE16D7D00C7D91C /* PortraitViewController.swift */; };
 		3C58CFC31FC94F1800045BA9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFC21FC94F1800045BA9 /* Log.swift */; };
 		3C58CFC61FC9525300045BA9 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58CFC51FC9525300045BA9 /* DataHelper.swift */; };
@@ -244,6 +246,7 @@
 		3CD05F681FCAA85800FEC161 /* tab_discover_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CD05F5E1FCAA85800FEC161 /* tab_discover_normal.png */; };
 		3CD05F691FCAA85800FEC161 /* tab_search_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CD05F5F1FCAA85800FEC161 /* tab_search_selected.png */; };
 		3CD05F6B1FCAAA2B00FEC161 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD05F6A1FCAAA2B00FEC161 /* TabView.swift */; };
+		3CD638751FE231FF0010EF28 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD638741FE231F40010EF28 /* AdSupport.framework */; };
 		3CF3AE2B1FDE76FE00BDE940 /* DownloadTaskHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF3AE2A1FDE76FE00BDE940 /* DownloadTaskHelper.swift */; };
 		3CF3AE2E1FDE956600BDE940 /* MyMusicDownloadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF3AE2C1FDE956600BDE940 /* MyMusicDownloadingCell.swift */; };
 		3CF3AE2F1FDE956600BDE940 /* MyMusicDownloadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF3AE2D1FDE956600BDE940 /* MyMusicDownloadingCell.xib */; };
@@ -413,6 +416,8 @@
 		3C526F681FCF95D80093B837 /* LyricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricView.swift; sourceTree = "<group>"; };
 		3C526F721FD029B80093B837 /* default_ad_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_ad_banner.png; sourceTree = "<group>"; };
 		3C526F791FD030580093B837 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
+		3C52BFF31FE22AFC0073DD2F /* RKBISDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RKBISDK.framework; sourceTree = "<group>"; };
+		3C52BFF41FE22AFC0073DD2F /* RekooBISDK.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RekooBISDK.plist; sourceTree = "<group>"; };
 		3C58ABA31FE16D7D00C7D91C /* PortraitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortraitViewController.swift; sourceTree = "<group>"; };
 		3C58CFC21FC94F1800045BA9 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		3C58CFC51FC9525300045BA9 /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
@@ -507,6 +512,7 @@
 		3CD05F5E1FCAA85800FEC161 /* tab_discover_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_discover_normal.png; sourceTree = "<group>"; };
 		3CD05F5F1FCAA85800FEC161 /* tab_search_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_search_selected.png; sourceTree = "<group>"; };
 		3CD05F6A1FCAAA2B00FEC161 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		3CD638741FE231F40010EF28 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		3CF3AE2A1FDE76FE00BDE940 /* DownloadTaskHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTaskHelper.swift; sourceTree = "<group>"; };
 		3CF3AE2C1FDE956600BDE940 /* MyMusicDownloadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicDownloadingCell.swift; sourceTree = "<group>"; };
 		3CF3AE2D1FDE956600BDE940 /* MyMusicDownloadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicDownloadingCell.xib; sourceTree = "<group>"; };
@@ -534,7 +540,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CD638751FE231FF0010EF28 /* AdSupport.framework in Frameworks */,
 				D1D73325D29EC0C73C0B9539 /* Pods_Music.framework in Frameworks */,
+				3C52BFF51FE22AFC0073DD2F /* RKBISDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -905,6 +913,15 @@
 			path = Launch;
 			sourceTree = "<group>";
 		};
+		3C52BFF21FE22AFC0073DD2F /* RKBISDK */ = {
+			isa = PBXGroup;
+			children = (
+				3C52BFF31FE22AFC0073DD2F /* RKBISDK.framework */,
+				3C52BFF41FE22AFC0073DD2F /* RekooBISDK.plist */,
+			);
+			path = RKBISDK;
+			sourceTree = "<group>";
+		};
 		3C58CFC41FC9523A00045BA9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -954,6 +971,7 @@
 		3C6203F01FC5A98F003D2309 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				3C52BFF21FE22AFC0073DD2F /* RKBISDK */,
 				3C48ACCB1FCBB89C00B8992A /* AFNetworking */,
 				3C6203F11FC5A9D1003D2309 /* DOUAudioStreamer */,
 			);
@@ -1121,6 +1139,7 @@
 		D11CF59E9EE81CAC0CC27C7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3CD638741FE231F40010EF28 /* AdSupport.framework */,
 				FCBFA9D0E44BFE7E7146AF3D /* Pods_Music.framework */,
 			);
 			name = Frameworks;
@@ -1299,6 +1318,7 @@
 				3CA541221FD83C3D0064764A /* MeSleepModeView.xib in Resources */,
 				3CA541261FD8BEAE0064764A /* MeSleepModeCell.xib in Resources */,
 				3C3BE5A61FDAB9AE002D140B /* common_btn_cycle_one.png in Resources */,
+				3C52BFF61FE22AFC0073DD2F /* RekooBISDK.plist in Resources */,
 				3C59CE901FE109BB00A4C69A /* MyMusicSelectSongView.xib in Resources */,
 				3CFF1EC41FDF7A13007C53EA /* FunctionMenuCell.xib in Resources */,
 				3C3BE5A71FDAB9AE002D140B /* common_btn_cycle_random.png in Resources */,
@@ -1674,6 +1694,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = PH3BAB6MV5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Music/Vendors/RKBISDK",
+				);
 				HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/Music/Config/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1698,6 +1722,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = PH3BAB6MV5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Music/Vendors/RKBISDK",
+				);
 				HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/Music/Config/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
