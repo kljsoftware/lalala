@@ -143,7 +143,9 @@ class MyMusicSonglistView: UIView {
         reloadLocalSonglist()
         if PlayerHelper.shared.isOwner(owner: self) {
             setSelectedSong()
-        } 
+        } else {
+            setunSelectedIndex(indexPath: playIndex)
+        }
     }
     
     /// 设置当前播放歌曲为选中状态

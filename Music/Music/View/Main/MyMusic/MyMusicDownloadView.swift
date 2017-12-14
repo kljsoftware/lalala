@@ -19,7 +19,7 @@ class MyMusicDownloadView : UIView {
     @IBOutlet weak var tableView: UITableView!
     
     /// 已下载、正在下载歌曲列表
-    fileprivate var downloadedSonglist = [SongRealm]()
+    fileprivate var downloadedSonglist = [SongRealm](), checks = [Bool](), playIndex:IndexPath?
     fileprivate var downloadingSonglist = [SongRealm]()
     fileprivate let downloadingEditImage = UIImage(named:"common_btn_edit")!, downloadingEditDoneImage = UIImage(named:"common_btn_edit_done")!
     fileprivate var isDownloadingEditing = true
@@ -45,11 +45,17 @@ class MyMusicDownloadView : UIView {
     /// 注册通知
     fileprivate func registerNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownloaded), name: NoticationUpdateForSongDownload, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownloaded), name: NoticationUpdateForChangePlaylist, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownloaded), name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifySongDownloaded), name: NoticationUpdateForAudioStatusChanged, object: nil)
     }
     
     /// 销毁通知
     fileprivate func unregisterNotification() {
         NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongDownload, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForChangePlaylist, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NoticationUpdateForAudioStatusChanged, object: nil)
     }
     
     /// 新建歌单消息
@@ -61,10 +67,19 @@ class MyMusicDownloadView : UIView {
         if downloadedButton.isSelected {
             let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "downloadFlag = %d", 2))
             downloadedSonglist = Array(results)
+            checks = [Bool](repeating: false, count: downloadedSonglist.count)
         } else {
             let results = RealmHelper.shared.query(type: SongRealm.self, predicate: NSPredicate(format: "downloadFlag = %d", 1))
             downloadingSonglist = Array(results)
         }
+        
+        /// 设置当前选择状态
+        if PlayerHelper.shared.isOwner(owner: self) {
+            setSelectedSong()
+        } else {
+            setunSelectedIndex(indexPath: playIndex)
+        }
+        
         tableView.reloadData()
     }
     
@@ -74,6 +89,45 @@ class MyMusicDownloadView : UIView {
         downloadedButton.isExclusiveTouch = true
         downloadingButton.isExclusiveTouch = true
         editButton.isExclusiveTouch = true
+    }
+    
+    /// 设置当前播放歌曲为选中状态
+    fileprivate func setSelectedSong() {
+        guard let song = PlayerHelper.shared.song else {
+            return
+        }
+        if downloadedSonglist.count > 0 {
+            for i in 0..<downloadedSonglist.count {
+                if song.sid == downloadedSonglist[i].sid {
+                    setSelectedIndex(indexPath: IndexPath(row: i, section: 0))
+                    break
+                }
+            }
+        }
+    }
+    
+    /// 设置选中索引值
+    fileprivate func setSelectedIndex(indexPath:IndexPath?) {
+        setunSelectedIndex(indexPath: playIndex)
+        guard let indexPath = indexPath else {
+            return
+        }
+        if indexPath.row >= 0 && indexPath.row < checks.count {
+            checks[indexPath.row] = true
+        }
+        playIndex = indexPath
+        (tableView.cellForRow(at: indexPath) as? SearchResultCell)?.setChecked(isChecked: true)
+    }
+    
+    /// 设置未选中索引值
+    fileprivate func setunSelectedIndex(indexPath:IndexPath?) {
+        guard let indexPath = indexPath else {
+            return
+        }
+        if indexPath.row >= 0 && indexPath.row < checks.count {
+            checks[indexPath.row] = false
+        }
+        (tableView.cellForRow(at: indexPath) as? SearchResultCell)?.setChecked(isChecked: false)
     }
     
     // MARK: - IBAction methods
@@ -167,9 +221,14 @@ extension MyMusicDownloadView :  UITableViewDataSource, UITableViewDelegate {
     /// 单元(cell)选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if downloadedButton.isSelected {
-            tableView.cellForRow(at: indexPath)?.setSelected(true, animated: false)
             let playlist = FMSongDataModel.getModels(with: downloadedSonglist)
-            PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: indexPath.row, owner: self)
+            setSelectedIndex(indexPath: indexPath)
+            if PlayerHelper.shared.isOwner(owner: self) {
+                PlayerHelper.shared.song = playlist[playIndex!.row]
+                PlayerHelper.shared.start()
+            } else {
+                PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: playIndex!.row, owner: self)
+            }
         }
     }
 }
