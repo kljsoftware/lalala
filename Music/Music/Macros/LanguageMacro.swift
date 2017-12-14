@@ -38,6 +38,7 @@ enum LanguageKey : String {
     case MyMusic_NoTask = "MyMusic_NoTask"
     case MyMusic_PlaylistName = "MyMusic_PlaylistName"
     case MyMusic_EditPlaylistIntro = "MyMusic_EditPlaylistIntro"
+    case MyMusic_EditPlaylistName = "MyMusic_EditPlaylistName"
     
     /// 发现
     case Discover_Rank              =  "Discover_Rank"
