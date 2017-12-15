@@ -182,7 +182,7 @@ class PlayerHelper {
     
     /// 快进/快退 value = [0, 1]
     func seekTo(time:TimeInterval) {
-       player.seekTo(time)
+        player.seekTo(time)
     }
     
     /// 上一首
