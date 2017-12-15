@@ -135,6 +135,7 @@ class DownloadTaskHelper {
                 if task == downloadingTasks[i] {
                     downloadingTasks[i].stop()
                     downloadingTasks.remove(at: i)
+                    break // 每次只删除一个，数据长度发生改变，需要退出循环，否则就会越界
                 }
             }
         }
