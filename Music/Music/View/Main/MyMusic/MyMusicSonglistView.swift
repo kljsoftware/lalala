@@ -126,7 +126,7 @@ class MyMusicSonglistView: UIView {
     fileprivate func registerNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForPlaylistChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForChangePlaylist, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(notifyPlaylistChanged), name: NoticationUpdateForSongChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifySongChanged), name: NoticationUpdateForSongChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notifyAudioStatusChanged), name: NoticationUpdateForAudioStatusChanged, object: nil)
     }
     
@@ -141,6 +141,12 @@ class MyMusicSonglistView: UIView {
     /// 新建歌单消息
     @objc private func notifyPlaylistChanged(_ sender:Notification) {
         reloadLocalSonglist()
+        if !setSelectedSong() {
+            setunSelectedIndex(indexPath: playIndex)
+        }
+    }
+    
+    @objc private func notifySongChanged(_ sender:Notification) {
         if !setSelectedSong() {
             setunSelectedIndex(indexPath: playIndex)
         }
@@ -289,9 +295,7 @@ extension MyMusicSonglistView :  UITableViewDataSource, UITableViewDelegate {
                 if PlayerHelper.shared.isOwner(owner: wself) {
                     _ = PlayerHelper.shared.next()
                 } else {
-                    let indexPath = IndexPath(row: 0, section: 0)
                     let playlist = FMSongDataModel.getModels(with: wself.songlist)
-                    wself.setSelectedIndex(indexPath: indexPath)
                     PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: 0, owner: wself)
                 }
             }

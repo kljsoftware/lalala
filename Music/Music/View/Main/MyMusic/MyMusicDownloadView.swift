@@ -217,6 +217,7 @@ extension MyMusicDownloadView :  UITableViewDataSource, UITableViewDelegate {
         if downloadedButton.isSelected {
             let cell = tableView.dequeueReusableCell(withIdentifier: "kSearchResultCell", for: indexPath) as! SearchResultCell
             cell.update(model: downloadedSonglist[indexPath.row])
+            cell.setChecked(isChecked: checks[indexPath.row])
             return cell
         }
 
@@ -239,6 +240,21 @@ extension MyMusicDownloadView :  UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if downloadedButton.isSelected {
             let view = Bundle.main.loadNibNamed("MyMusicSonglistSectionView", owner: nil, options: nil)?[0] as! MyMusicSonglistSectionView
+           
+            /// 下一首
+            view.nextClosure = { [weak self] in
+                guard let wself = self else {
+                    return
+                }
+                if wself.downloadedSonglist.count > 0 {
+                    if PlayerHelper.shared.isOwner(owner: wself) {
+                        _ = PlayerHelper.shared.next()
+                    } else {
+                        let playlist = FMSongDataModel.getModels(with: wself.downloadedSonglist)
+                        PlayerHelper.shared.changePlaylist(playlist: playlist, playIndex: 0, owner: wself)
+                    }
+                }
+            }
             return view
         }
         let view = Bundle.main.loadNibNamed("MyMusicDownloadingSectionView", owner: nil, options: nil)?[0] as! MyMusicDownloadingSectionView

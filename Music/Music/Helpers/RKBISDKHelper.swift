@@ -133,7 +133,7 @@ class RKBISDKHelper {
             return
         #endif
         
-        /// 获取value、key、value
+        /// 获取action、key、value
         let actionkey = eventType.tuple.action
         let key = eventType.tuple.key
         let value = eventType.tuple.value

@@ -141,11 +141,17 @@ class PlayerHelper {
     }
     
     private func songIndex(song:FMSongDataModel?) -> Int? {
-        if nil == song {return nil}
-        guard let index = songList.index(of: song!) else {
+        guard let song = song else {
             return nil
         }
-        return index
+        if songList.count > 0 {
+            for i in 0..<songList.count {
+                if song.sid == songList[i].sid {
+                    return i
+                }
+            }
+        }
+        return nil
     }
     
     /// MARK: - public methods
