@@ -118,6 +118,8 @@ class MeView: UIView {
     
     /// 新建歌单消息
     @objc private func notifySongDownload(_ sender:Notification) {
+        // 剩余下载次数统计
+        RKBISDKHelper.shared.rkTrackEvent(eventType: .me(type: .remainDownloadAmount(times: DOWNLOAD_LIMIT_TIMES - DownloadTaskHelper.shared.amount)))
         tableView.reloadData()
     }
     
@@ -174,7 +176,10 @@ extension MeView :  UITableViewDataSource, UITableViewDelegate {
             AppUI.push(to: view, with: CGSize(width: DEVICE_SCREEN_WIDTH, height: APP_HEIGHT))
         case .share:
             AppUI.share()
-            break
+            DataHelper.shared.shareappCount += 1
+            UserDefaults.standard.set(DataHelper.shared.shareappCount, forKey: UserDefaultShareAppCount)
+            // 分享应用次数统计
+            RKBISDKHelper.shared.rkTrackEvent(eventType: .me(type: .share(times: DataHelper.shared.shareappCount)))
         }
     }
 }

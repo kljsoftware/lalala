@@ -190,6 +190,7 @@
 		3C7C72631FC90AFA008793E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C72621FC90AFA008793E6 /* MainViewController.swift */; };
 		3C7C72651FC91B87008793E6 /* NotificationMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C72641FC91B87008793E6 /* NotificationMacro.swift */; };
 		3C7C72671FC924D6008793E6 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C72661FC924D6008793E6 /* Double+Extension.swift */; };
+		3C8E29BB1FE39740006C9F6C /* RKBISDKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8E29BA1FE39740006C9F6C /* RKBISDKHelper.swift */; };
 		3CA541201FD838410064764A /* MeSleepModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5411F1FD838410064764A /* MeSleepModeView.swift */; };
 		3CA541221FD83C3D0064764A /* MeSleepModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA541211FD83C3D0064764A /* MeSleepModeView.xib */; };
 		3CA541251FD8BEAE0064764A /* MeSleepModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA541231FD8BEAE0064764A /* MeSleepModeCell.swift */; };
@@ -459,6 +460,7 @@
 		3C7C72621FC90AFA008793E6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3C7C72641FC91B87008793E6 /* NotificationMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMacro.swift; sourceTree = "<group>"; };
 		3C7C72661FC924D6008793E6 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		3C8E29BA1FE39740006C9F6C /* RKBISDKHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKBISDKHelper.swift; sourceTree = "<group>"; };
 		3CA5411F1FD838410064764A /* MeSleepModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSleepModeView.swift; sourceTree = "<group>"; };
 		3CA541211FD83C3D0064764A /* MeSleepModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeSleepModeView.xib; sourceTree = "<group>"; };
 		3CA541231FD8BEAE0064764A /* MeSleepModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSleepModeCell.swift; sourceTree = "<group>"; };
@@ -943,6 +945,7 @@
 				3CC22A4E1FDC17AA003EA6BF /* PlaylistHelper.swift */,
 				3CF3AE2A1FDE76FE00BDE940 /* DownloadTaskHelper.swift */,
 				3CFF1ED31FDFD8CB007C53EA /* SleepHelper.swift */,
+				3C8E29BA1FE39740006C9F6C /* RKBISDKHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1564,6 +1567,7 @@
 				3C0EBE571FD22D780047B1E1 /* ImmersionPlayerView.swift in Sources */,
 				3C6FB54F1FDD271C003315E0 /* BaseViewModel.swift in Sources */,
 				3CA541251FD8BEAE0064764A /* MeSleepModeCell.swift in Sources */,
+				3C8E29BB1FE39740006C9F6C /* RKBISDKHelper.swift in Sources */,
 				3C16B8AF1FCDA95100FAABCA /* LoopPageView.swift in Sources */,
 				3C3AFAAD1FD6FAB4003FFCE3 /* DiscoverPlaylistCell.swift in Sources */,
 				3C3AFABA1FD7CC8D003FFCE3 /* RealmHelper.swift in Sources */,

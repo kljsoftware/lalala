@@ -26,12 +26,26 @@ class DataHelper {
     /// 第一次播放标志
     var isFirstPlay = true
     
+    /// 分享应用次数
+    var shareappCount = 0
+    
     /// 同步本地化数据
     func setup() {
         let standard = UserDefaults.standard
         channelId = standard.value(forKey: UserDefaultChannelId) as? Int
         isRememberLastChanneld = standard.bool(forKey: UserDefaultRememberLastChannel)
         isAutoPlay = standard.bool(forKey: UserDefaultAutoPlay)
+        shareappCount = standard.integer(forKey: UserDefaultShareAppCount)
+        
+        /// 统计设备uuid
+        var uuid = standard.value(forKey: UserDefaultUUID) as? String
+        if uuid == nil {
+            uuid = UIDevice.current.identifierForVendor?.uuidString
+            if nil != uuid {
+                standard.set(uuid, forKey: UserDefaultUUID)
+                RKBISDKHelper.shared.rkTrackEvent(eventType: .uuid(uuid: uuid!))
+            }
+        }
     }
 
     /// 设置当前频道

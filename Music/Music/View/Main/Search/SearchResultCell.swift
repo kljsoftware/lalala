@@ -54,8 +54,12 @@ class SearchResultCell: UITableViewCell {
                 weakself.downloadedImageView.isHidden = false
                 weakself.artistLeadingLayoutConstraint.constant = artistLeadingLength
                 DownloadTaskHelper.shared.addSongTask(model: SongRealm(value: weakself.model!))
+                /// 统计下载了那首歌曲
+                RKBISDKHelper.shared.rkTrackEvent(eventType: .mymusic(type: .download(name: weakself.model!.title)))
             case .share:
-                break
+                AppUI.share(activityItems: [String(format: LanguageKey.Share_TrackContent.value, weakself.model!.title, app_url)])
+                /// 统计分享的歌曲
+                RKBISDKHelper.shared.rkTrackEvent(eventType: .songshare(name: weakself.model!.title)
             default:
                 break
             }

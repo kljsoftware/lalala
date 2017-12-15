@@ -96,6 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var backTaskId = UIBackgroundTaskInvalid
+    var duration:TimeInterval = 0
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setup()
@@ -132,6 +133,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.endReceivingRemoteControlEvents()
         PlayerHelper.shared.clean()
         SleepHelper.shared.stop()
+        
+        /// 关闭应用统计
+        RKBISDKHelper.shared.rkTrackEvent(eventType: .exitapp)
+        
+        /// 统计应用运行时长
+        duration = Date().timeIntervalSinceNow - duration
+        RKBISDKHelper.shared.rkTrackEvent(eventType: .appduration(durtion: duration))
     }
 
     // MARK: - private methods
@@ -148,7 +156,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DataHelper.shared.setup()
         
         /// RKBISDK 初始化
-       // RKBIPlatform.getInstance().rkInit()
+        RKBISDKHelper.shared.rkInit()
+        
+        /// 应用记时开始
+        duration = Date().timeIntervalSinceNow
     }
 }
 

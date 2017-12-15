@@ -20,3 +20,9 @@ let UserDefaultRememberLastChannel = "UserDefaultRememberLastChannel"
 /// 是否自动播放
 let UserDefaultAutoPlay = "UserDefaultAutoPlay"
 
+/// 分享应用次数
+let UserDefaultShareAppCount = "UserDefaultShareAppCount"
+
+/// uuid
+let UserDefaultUUID = "UserDefaultUUID"
+

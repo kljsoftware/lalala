@@ -341,6 +341,9 @@ class ImmersionPlayerView: UIView {
     @IBAction func onDownloadButtonClicked(_ sender: UIButton) {
         if PlayerHelper.shared.song != nil {
             DownloadTaskHelper.shared.addSongTask(model: SongRealm.getModel(model: PlayerHelper.shared.song!))
+            
+            /// 统计下载了那首歌曲
+            RKBISDKHelper.shared.rkTrackEvent(eventType: .mymusic(type: .download(name: PlayerHelper.shared.song!.title)))
         }
         downloadButton.isEnabled = false
     }
@@ -365,7 +368,11 @@ class ImmersionPlayerView: UIView {
   
     /// 点击分享按钮
     @IBAction func onShareButtonClicked(_ sender: UIButton) {
-        AppUI.share()
+        if PlayerHelper.shared.song != nil {
+            AppUI.share(activityItems: [String(format: LanguageKey.Share_TrackContent.value, PlayerHelper.shared.song!.title, app_url)])
+            /// 统计分享的歌曲
+            RKBISDKHelper.shared.rkTrackEvent(eventType: .songshare(name: PlayerHelper.shared.song!.title))
+        }
     }
     
     /// 点击返回按钮

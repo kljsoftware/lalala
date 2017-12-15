@@ -217,6 +217,9 @@ class SearchView: UIView {
         searchPage = page
         viewModel.requestSearchResult(query: query, type: type, page: page)
         resultTableView.isHidden = false
+        
+        /// 搜索关键词统计
+        RKBISDKHelper.shared.rkTrackEvent(eventType: .search(name: query))
     }
     
     /// 设置当前播放歌曲为选中状态

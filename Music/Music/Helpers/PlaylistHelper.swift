@@ -54,6 +54,8 @@ class PlaylistHelper {
         if results.count == 0 {
             RealmHelper.shared.insert(obj: songRealm)
             message = LanguageKey.Tip_AddedToFavorites.value
+            /// 我喜欢的音乐（收藏哪首）统计
+            RKBISDKHelper.shared.rkTrackEvent(eventType: .mymusic(type: .collect(name: songModel.title)))
         } else {
             RealmHelper.shared.delete(obj: results.first!)
             message = LanguageKey.Tip_RemovedFromFavorites.value

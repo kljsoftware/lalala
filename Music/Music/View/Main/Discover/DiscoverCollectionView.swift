@@ -191,14 +191,20 @@ extension DiscoverCollectionView :  UICollectionViewDataSource, UICollectionView
             let view = Bundle.main.loadNibNamed("DiscoverRankView", owner: nil, options: nil)?.first as! DiscoverRankView
             view.rankInfo = model!.rank[indexPath.row]
             AppUI.push(from: self, to: view, with: APP_SIZE)
+            // 各榜单点击统计
+            RKBISDKHelper.shared.rkTrackEvent(eventType: .discover(type: .rank(name: model!.rank[indexPath.row].title)))
         case .enter:
             let view = Bundle.main.loadNibNamed("DiscoverRankView", owner: nil, options: nil)?.first as! DiscoverRankView
             view.rankInfo = model!.enter[indexPath.row]
             AppUI.push(from: self, to: view, with: APP_SIZE)
+            // 各榜单点击统计
+            RKBISDKHelper.shared.rkTrackEvent(eventType: .discover(type: .rank(name: model!.enter[indexPath.row].title)))
         case .playlist:
             let view = Bundle.main.loadNibNamed("MyMusicSonglistView", owner: nil, options: nil)?.first as! MyMusicSonglistView
             view.playlistInfo = playlist[indexPath.row]
             AppUI.push(from: self, to: view, with: APP_SIZE)
+            // 热门歌单分类点击统计
+            RKBISDKHelper.shared.rkTrackEvent(eventType: .discover(type: .playlist(name: playlist[indexPath.row].song_list_name)))
         }
     }
 }

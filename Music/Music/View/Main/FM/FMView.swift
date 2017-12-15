@@ -286,10 +286,17 @@ class FMView: UIView {
                             }
                         case .download: // 下载
                             if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
-                                DownloadTaskHelper.shared.addSongTask(model: SongRealm.getModel(model: wself.playlist[wself.playIndex]))
+                                let song = wself.playlist[wself.playIndex]
+                                DownloadTaskHelper.shared.addSongTask(model: SongRealm.getModel(model: song))
+                                /// 统计下载了那首歌曲
+                                RKBISDKHelper.shared.rkTrackEvent(eventType: .mymusic(type: .download(name: song.title)))
                             }
                         case .share: // 分享
-                            AppUI.share()
+                            if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
+                                AppUI.share(activityItems: [String(format: LanguageKey.Share_TrackContent.value, wself.playlist[wself.playIndex].title,app_url)])
+                                /// 统计分享的歌曲
+                                RKBISDKHelper.shared.rkTrackEvent(eventType: .songshare(name: wself.playlist[wself.playIndex].title))
+                            }
                         default:
                             break
                         }
@@ -307,6 +314,11 @@ class FMView: UIView {
         let text = (song != nil) ? ("\(song!.title) / \(song!.artist)") : nil
         loopPageView.showLabel(text: text)
         lyricView.setup(lyricUrl: song?.lyricURL)
+        
+        /// 统计听了电台那首歌曲
+        if nil != song {
+           RKBISDKHelper.shared.rkTrackEvent(eventType: .fm(type: .song(name: song!.title)))
+        }
     }
     
     /// 更新我喜爱按钮的状态

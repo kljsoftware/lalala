@@ -106,6 +106,23 @@ class FMChannelView: UIView {
         scrollToHeader(distance: button.frame.minX - 8) // 第一项位置是居左8dp
         DataHelper.shared.setupChannel(channelId: channelId)
         selectedClosure?(channelId)
+        
+        guard let channelName = getChannelName(channelId: channelId) else {
+            return
+        }
+        
+        /// 统计频道点击数据
+        RKBISDKHelper.shared.rkTrackEvent(eventType: .fm(type: .category(name: channelName)))
+    }
+    
+    /// 获取电台名字
+    private func getChannelName(channelId:Int) -> String? {
+        for channel in channelListDataModel!.channels {
+            if channel.id == channelId {
+                return channel.name
+            }
+        }
+        return nil
     }
     
     /// 取消频道按钮
