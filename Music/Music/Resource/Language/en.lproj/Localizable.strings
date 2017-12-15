@@ -105,3 +105,5 @@
 
 //  分享
 "Share_AppContent" = "Download the latest version of Music FM. Go to %@";
+"Share_TrackContent" = "I'm sharing a track from Music FM, %@. Tap for a trial. %@"; //歌曲名称 + 网址
+"Share_PlaylistContent" = "I'm sharing a playlist from Music FM, %@. Tap for a trial. %@";

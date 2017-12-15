@@ -105,3 +105,5 @@
 
 //  分享
 "Share_AppContent" = "最新バージョンをダウンロード、%@を開";
+"Share_TrackContent" = "Music FMから楽曲『%@』をシェアしました。タップして聴きましょう。 %@";
+"Share_PlaylistContent" = "Music FMからプレイリスト『%@』をシェアしました。タップして聴きましょう。 %@";

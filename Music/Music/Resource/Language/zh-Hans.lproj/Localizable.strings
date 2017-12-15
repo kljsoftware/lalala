@@ -104,4 +104,5 @@
 
 //  分享
 "Share_AppContent" = "下载最新版本Music FM，前往%@。";
-
+"Share_TrackContent" = "我从Music FM分享歌曲：%@，点击前往试听。%@"; //歌曲名称 + 网址
+"Share_PlaylistContent" = "我从Music FM分享歌单《%@》，点击前往试听。%@";
