@@ -342,6 +342,7 @@ class ImmersionPlayerView: UIView {
         if PlayerHelper.shared.song != nil {
             DownloadTaskHelper.shared.addSongTask(model: SongRealm.getModel(model: PlayerHelper.shared.song!))
         }
+        downloadButton.isEnabled = false
     }
     
     /// 点击添加至歌单按钮
