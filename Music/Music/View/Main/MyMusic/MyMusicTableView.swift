@@ -175,6 +175,12 @@ extension MyMusicTableView :  UITableViewDataSource, UITableViewDelegate {
         return (type == .owned) && indexPath.row != 0
     }
     
+    /// 不进行缩进处理
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        let type = MyMusicSectionType(rawValue:indexPath.section)!
+        return ((type == .owned) && indexPath.row != 0)
+    }
+    
     /*用户拖动某行sourceIndexPath经过目标行proposedDestinationIndexPath上方时，
      调用此函数询问是否可以移动，若不能移动则返回一个新的目的indexPath，
      否则直接返回proposedDestinationIndexPath,若无特别要求不需要实现*/
