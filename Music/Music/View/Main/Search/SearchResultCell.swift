@@ -59,7 +59,7 @@ class SearchResultCell: UITableViewCell {
             case .share:
                 AppUI.share(activityItems: [String(format: LanguageKey.Share_TrackContent.value, weakself.model!.title, app_url)])
                 /// 统计分享的歌曲
-                RKBISDKHelper.shared.rkTrackEvent(eventType: .songshare(name: weakself.model!.title)
+                RKBISDKHelper.shared.rkTrackEvent(eventType: .songshare(name: weakself.model!.title))
             default:
                 break
             }
