@@ -164,24 +164,35 @@ class LyricView: UIView {
     
     /// 滚动歌词
     func scrollByTime(currentTime:TimeInterval) {
-        if lyric == nil || lyric!.sentences.count == 0  || index > lyric!.sentences.count - 1{
+        if lyric == nil || lyric!.sentences.count == 0  || self.index > lyric!.sentences.count - 1{
             return
         }
 
-        for i in 0..<lyric!.sentences.count {
-            let sentence = lyric!.sentences[i]
-            if currentTime < sentence.fromTime {
-                let index = i - 1
-                if index > self.index  {
-                    let nextSentence = lyric!.sentences[index]
-                    if currentTime > nextSentence.fromTime && !nextSentence.content.isBlank() {
-                        unselectSentence(index: self.index)
-                        selectSentence(index: index)
-                    }
+        let index = findShowIndex(time: currentTime)
+        if self.index != index && !lyric!.sentences[index].content.isBlank() {
+            unselectSentence(index: self.index)
+            selectSentence(index: index)
+        }
+    }
+    
+    /// 二分法查找
+    private func findShowIndex(time:TimeInterval) -> Int {
+        var left = 0
+        var right = lyric!.sentences.count
+        while (left <= right) {
+            let middle = (left + right) / 2
+            let middleTime = lyric!.sentences[middle].fromTime
+            
+            if (time <= middleTime) {
+                right = middle - 1;
+            } else {
+                if (middle + 1 >= lyric!.sentences.count || time <= lyric!.sentences[middle + 1].fromTime) {
+                    return middle
                 }
-                break
+                left = middle + 1;
             }
         }
+        return 0
     }
     
 }
