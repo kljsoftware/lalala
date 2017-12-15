@@ -110,6 +110,8 @@ enum LanguageKey : String {
     
     // 分享
     case Share_AppContent = "Share_AppContent"
+    case Share_TrackContent = "Share_TrackContent"
+    case Share_PlaylistContent = "Share_PlaylistContent"
     
     /// 获取对应的语言字串
     var value : String {
