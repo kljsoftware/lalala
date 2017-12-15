@@ -14,6 +14,9 @@ class MyMusicDownloadingSectionView: UIView {
     /// 控制按钮，暂停所有任务、开始所有任务
     @IBOutlet weak var controlButton: UIButton!
     
+    /// 点击按钮,单独点击控制按钮，可点击范围太少
+    @IBOutlet weak var clickedButton: UIButton!
+    
     /// 控制信息：全部开始、全部暂停、暂无任务
     @IBOutlet weak var controlLabel: UILabel!
     
@@ -52,6 +55,7 @@ class MyMusicDownloadingSectionView: UIView {
         /// 暂无任务
         if tasks.count == 0 {
             controlButton.isHidden = true
+            clickedButton.isHidden = true
             controlLabel.text = LanguageKey.MyMusic_NoTask.value
             return
         }
@@ -66,6 +70,7 @@ class MyMusicDownloadingSectionView: UIView {
         }
         
         controlButton.isHidden = false
+        clickedButton.isHidden = false
         if isRunningTask {
             isAllPaused = false
             controlLabel.text = LanguageKey.MyMusic_PauseAll.value
@@ -84,5 +89,6 @@ class MyMusicDownloadingSectionView: UIView {
         } else {
             DownloadTaskHelper.shared.pauseAll()
         }
+        NotificationCenter.default.post(name: NoticationUpdateForPauseOrResumeDownload, object: nil)
     }
 }

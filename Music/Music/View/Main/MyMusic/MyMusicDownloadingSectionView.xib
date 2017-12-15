@@ -33,15 +33,12 @@
                         </constraint>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rz2-hK-BIU">
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rz2-hK-BIU">
                     <rect key="frame" x="12" y="32.5" width="22" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="22" id="DwP-ce-6IY"/>
                         <constraint firstAttribute="height" constant="22" id="MGW-eN-OG9"/>
                     </constraints>
-                    <connections>
-                        <action selector="onControlButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="esY-jn-cOo"/>
-                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kB7-Eg-p01">
                     <rect key="frame" x="34" y="43.5" width="0.0" height="0.0"/>
@@ -49,19 +46,31 @@
                     <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9f-b6-YgH">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <action selector="onControlButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="xF9-lb-ZTk"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="dfW-Ef-XRu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0eX-DI-0Mx"/>
+                <constraint firstItem="n9f-b6-YgH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6xC-0V-tMs"/>
                 <constraint firstAttribute="trailing" secondItem="dfW-Ef-XRu" secondAttribute="trailing" id="7n5-Uy-Cyq"/>
+                <constraint firstAttribute="bottom" secondItem="n9f-b6-YgH" secondAttribute="bottom" id="Git-8o-3tv"/>
                 <constraint firstAttribute="bottom" secondItem="dfW-Ef-XRu" secondAttribute="bottom" constant="0.5" id="QM4-Bc-WqG"/>
+                <constraint firstAttribute="trailing" secondItem="n9f-b6-YgH" secondAttribute="trailing" id="Qer-JP-BTa"/>
                 <constraint firstItem="kB7-Eg-p01" firstAttribute="leading" secondItem="rz2-hK-BIU" secondAttribute="trailing" id="XtB-v5-Lhk"/>
                 <constraint firstItem="kB7-Eg-p01" firstAttribute="centerY" secondItem="rz2-hK-BIU" secondAttribute="centerY" id="hrR-u6-qMR"/>
                 <constraint firstItem="rz2-hK-BIU" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="p9r-Bm-ndt"/>
+                <constraint firstItem="n9f-b6-YgH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="puK-f9-vZ1"/>
                 <constraint firstItem="rz2-hK-BIU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="usV-Z7-3bJ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="clickedButton" destination="n9f-b6-YgH" id="Hp2-5g-s8m"/>
                 <outlet property="controlButton" destination="rz2-hK-BIU" id="vxo-0D-uHI"/>
                 <outlet property="controlLabel" destination="kB7-Eg-p01" id="VaA-7k-1u0"/>
             </connections>
