@@ -7,7 +7,7 @@
 //
 
 /// 日记输出使能
-let LOG_ENABLED = true
+let LOG_ENABLED = false
 
 /// 屏幕宽
 let DEVICE_SCREEN_WIDTH         = UIScreen.main.bounds.size.width
