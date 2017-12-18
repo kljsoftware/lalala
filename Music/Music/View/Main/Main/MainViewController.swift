@@ -65,9 +65,9 @@ class MainViewController: PortraitViewController {
         let tabView = Bundle.main.loadNibNamed("TabView", owner: nil, options: nil)?[0] as! TabView
         containerView.addSubview(tabView)
         tabView.snp.makeConstraints { (maker) in
-            maker.left.right.width.equalTo(containerView)
-            maker.height.equalTo(BOTTOM_TAB_HEIGHT)
-            maker.bottom.equalTo(containerView).offset(-DEVICE_INDICATOR_HEIGHT)
+            maker.left.right.width.bottom.equalTo(containerView)
+            maker.height.equalTo(BOTTOM_TAB_HEIGHT+DEVICE_INDICATOR_HEIGHT)
+           // maker.bottom.equalTo(containerView).offset(-DEVICE_INDICATOR_HEIGHT)
         }
         tabView.selectedClosure = { [weak self](type) in
             self?.scrollView.setContentOffset(CGPoint(x: CGFloat(type.rawValue)*DEVICE_SCREEN_WIDTH, y: 0), animated: false)

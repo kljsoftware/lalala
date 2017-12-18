@@ -38,6 +38,9 @@ class MyMusicSonglistView: UIView {
     /// 列表视图
     @IBOutlet weak var tableView: UITableView!
     
+    /// 列表居底约束
+    @IBOutlet weak var tableViewBottomLayoutConstraint: NSLayoutConstraint!
+    
     /// 列表头部视图
     fileprivate var songlistHeaderView:MyMusicSonglistHeaderView!
     
@@ -48,6 +51,7 @@ class MyMusicSonglistView: UIView {
     override func awakeFromNib() {
         titleLabel.text = LanguageKey.Common_Playlist.value
         tableView.tableHeaderView = tableViewHeaderView()
+        tableViewBottomLayoutConstraint.constant = APP_BOTTOM_HEIGHT
         tableView.register(UINib(nibName: "SearchResultCell", bundle: nil), forCellReuseIdentifier: "kSearchResultCell")
         registerNotification()
     }

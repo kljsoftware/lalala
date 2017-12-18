@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -45,9 +45,9 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="lOl-Hm-ux2" firstAttribute="top" secondItem="aXw-5A-Mo2" secondAttribute="top" id="KK5-7s-P5N"/>
                         <constraint firstItem="l9H-dO-3cv" firstAttribute="centerX" secondItem="lOl-Hm-ux2" secondAttribute="centerX" id="MTQ-Nf-8vE"/>
                         <constraint firstItem="lOl-Hm-ux2" firstAttribute="centerX" secondItem="aXw-5A-Mo2" secondAttribute="centerX" id="afz-IU-XUG"/>
-                        <constraint firstItem="lOl-Hm-ux2" firstAttribute="centerY" secondItem="aXw-5A-Mo2" secondAttribute="centerY" id="jy5-5Q-zzC"/>
                         <constraint firstItem="l9H-dO-3cv" firstAttribute="bottom" secondItem="lOl-Hm-ux2" secondAttribute="bottom" constant="-2" id="riE-Ow-a9Z"/>
                     </constraints>
                 </view>
@@ -76,9 +76,9 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="v4R-FM-uOf" firstAttribute="centerY" secondItem="yBY-T9-glQ" secondAttribute="centerY" id="J0p-zh-xaZ"/>
                         <constraint firstItem="v4R-FM-uOf" firstAttribute="centerX" secondItem="yBY-T9-glQ" secondAttribute="centerX" id="X7c-PP-FVo"/>
                         <constraint firstItem="Wkz-z2-ek0" firstAttribute="bottom" secondItem="v4R-FM-uOf" secondAttribute="bottom" constant="-2" id="b2m-kC-n28"/>
+                        <constraint firstItem="v4R-FM-uOf" firstAttribute="top" secondItem="yBY-T9-glQ" secondAttribute="top" id="jXh-Qp-4Rl"/>
                         <constraint firstItem="Wkz-z2-ek0" firstAttribute="centerX" secondItem="v4R-FM-uOf" secondAttribute="centerX" id="vKL-3b-UbQ"/>
                     </constraints>
                 </view>
@@ -109,7 +109,7 @@
                     <constraints>
                         <constraint firstItem="XHu-GY-8hH" firstAttribute="bottom" secondItem="Lm2-RP-dF9" secondAttribute="bottom" constant="-2" id="BL9-jQ-qVp"/>
                         <constraint firstItem="Lm2-RP-dF9" firstAttribute="centerX" secondItem="mUd-pb-VlC" secondAttribute="centerX" id="BwH-P8-qwO"/>
-                        <constraint firstItem="Lm2-RP-dF9" firstAttribute="centerY" secondItem="mUd-pb-VlC" secondAttribute="centerY" id="J85-pH-vLk"/>
+                        <constraint firstItem="Lm2-RP-dF9" firstAttribute="top" secondItem="mUd-pb-VlC" secondAttribute="top" id="jDQ-U2-jkT"/>
                         <constraint firstItem="XHu-GY-8hH" firstAttribute="centerX" secondItem="Lm2-RP-dF9" secondAttribute="centerX" id="mH0-AW-Qp5"/>
                     </constraints>
                 </view>
@@ -141,7 +141,7 @@
                         <constraint firstItem="mIQ-mU-nxG" firstAttribute="centerX" secondItem="B3S-9I-c4n" secondAttribute="centerX" id="3Bi-Cv-dNV"/>
                         <constraint firstItem="JsD-Lf-zXO" firstAttribute="centerX" secondItem="mIQ-mU-nxG" secondAttribute="centerX" id="F1y-5f-Yxf"/>
                         <constraint firstItem="JsD-Lf-zXO" firstAttribute="bottom" secondItem="mIQ-mU-nxG" secondAttribute="bottom" constant="-2" id="HWG-ma-SmZ"/>
-                        <constraint firstItem="mIQ-mU-nxG" firstAttribute="centerY" secondItem="B3S-9I-c4n" secondAttribute="centerY" id="Sxa-Jb-Qzk"/>
+                        <constraint firstItem="mIQ-mU-nxG" firstAttribute="top" secondItem="B3S-9I-c4n" secondAttribute="top" id="zkJ-vd-MO2"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hA-I8-Pvj">
@@ -169,8 +169,8 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="LwD-od-SiT" firstAttribute="top" secondItem="6hA-I8-Pvj" secondAttribute="top" id="0Dz-a6-gsr"/>
                         <constraint firstItem="YnF-WS-9ES" firstAttribute="bottom" secondItem="LwD-od-SiT" secondAttribute="bottom" constant="-2" id="Enb-bt-10v"/>
-                        <constraint firstItem="LwD-od-SiT" firstAttribute="centerY" secondItem="6hA-I8-Pvj" secondAttribute="centerY" id="Una-Nw-qy6"/>
                         <constraint firstItem="YnF-WS-9ES" firstAttribute="centerX" secondItem="LwD-od-SiT" secondAttribute="centerX" id="dOj-1Z-CTo"/>
                         <constraint firstItem="LwD-od-SiT" firstAttribute="centerX" secondItem="6hA-I8-Pvj" secondAttribute="centerX" id="tsf-Oj-bmL"/>
                     </constraints>
