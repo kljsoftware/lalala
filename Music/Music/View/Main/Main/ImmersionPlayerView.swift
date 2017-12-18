@@ -243,6 +243,9 @@ class ImmersionPlayerView: UIView {
         artistLabel.text = song?.artist
         lyricView.setup(lyricUrl: song?.lyricURL)
         downloadButton.isEnabled = !PlaylistHelper.isDownloadSong(sid: PlayerHelper.shared.song?.sid)
+        if nil != song {
+            loveButton.isSelected = PlaylistHelper.isMyFavritesSong(songModel: song!)
+        }
     }
     
     /// 更新按钮状态
@@ -292,7 +295,7 @@ class ImmersionPlayerView: UIView {
         if owner.isKind(of: FMView.self) {
             (owner as! FMView).nextSong()
         } else {
-             PlayerHelper.shared.next()
+             _ = PlayerHelper.shared.next()
         }
     }
     
