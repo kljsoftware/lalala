@@ -23,6 +23,7 @@ class SleepHelper {
     /// 定时提醒
     func start(fireDate:Date) {
         stop()
+        self.fireDate = fireDate
         let interval = fireDate.timeIntervalSinceNow
         if interval > 0 {
             workItem = DispatchWorkItem(block: {
