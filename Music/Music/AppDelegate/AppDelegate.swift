@@ -89,6 +89,15 @@ class AppUI {
         let window = (UIApplication.shared.delegate as! AppDelegate).window
         window?.rootViewController?.present(alertController,animated:true,completion:nil)
     }
+    
+    /// 调转至广告页
+    class func pushToAdView(model:AdvertModel) {
+        if let url = URL(string: model.click) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
 }
 
 @UIApplicationMain

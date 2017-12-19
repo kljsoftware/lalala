@@ -23,11 +23,14 @@ class DataHelper {
     /// 自动播放
     var isAutoPlay = true
     
-    /// 第一次播放标志
-    var isFirstPlay = true
+    /// 第一次进入
+    var isFirst = true
     
     /// 分享应用次数
     var shareappCount = 0
+    
+    /// banner广告数据
+    var banners = [AdvertModel]()
     
     /// 同步本地化数据
     func setup() {

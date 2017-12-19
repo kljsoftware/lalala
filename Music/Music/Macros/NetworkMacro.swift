@@ -9,6 +9,9 @@
 /// Appstore 地址， 上线地址
 let app_url = "https://itunes.apple.com/us/app/id466211510?mt=8"
 
+/// 广告地址
+let advert_url = "http://push.sdk.rekoo.net/ads/test"
+
 /// 音乐类信息服务器地址
 let SERVER_ADDRESS = "https://theinfoapps.com"
 

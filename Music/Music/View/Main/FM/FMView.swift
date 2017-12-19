@@ -204,12 +204,12 @@ class FMView: UIView {
                     wself.playlist.append(contentsOf: playlist)
                 }
                 
-                let playing = DataHelper.shared.isAutoPlay || !DataHelper.shared.isFirstPlay
+                let playing = DataHelper.shared.isAutoPlay || !DataHelper.shared.isFirst
                 PlayerHelper.shared.changePlaylist(playlist: wself.playlist, playIndex: wself.playIndex, owner: wself, playing: playing)
-                if DataHelper.shared.isFirstPlay {
+                if DataHelper.shared.isFirst {
                     wself.updateBySongChanged()
                 }
-                DataHelper.shared.isFirstPlay = false
+                DataHelper.shared.isFirst = false
             }
         }) { (error) in
             Log.e("error = \(error)")

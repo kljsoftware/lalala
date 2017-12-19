@@ -11,16 +11,21 @@ import SnapKit
 
 class MainViewController: PortraitViewController {
     
+    /// 广告业务模块
+    let adViewModel = AdvertViewModel()
+    
     @IBOutlet weak var cdButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
     private var animation:RotateAnimation?
+    private var splashView:SplashView?
 
     // MARK: - override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNotification()
         setup()
+        setupViewModel()
     }
     
     deinit {
@@ -28,6 +33,42 @@ class MainViewController: PortraitViewController {
     }
 
     // MARK: - private methods
+    /// 业务模块设置
+    private func setupViewModel() {
+        if DataHelper.shared.isFirst {
+            setupSplashView()
+            adViewModel.requestAdvert()
+            adViewModel.setCompletion(onSuccess: {[weak self] (result) in
+                guard let wself = self else {
+                    return
+                }
+                let resultModel = result as! AdvertResultModel
+                var splashModels = [AdvertModel]()
+                for model in resultModel.advert {
+                    if model.pos == "splash" {
+                        splashModels.append(model)
+                    } else {
+                        DataHelper.shared.banners.append(model)
+                    }
+                }
+                if splashModels.count > 0 {
+                    wself.splashView?.model = splashModels.first!
+                }
+            }) {(error) in
+                Log.e(error)
+            }
+        }
+    }
+    
+    /// 设置启动页
+    private func setupSplashView() {
+        splashView = Bundle.main.loadNibNamed("SplashView", owner: nil, options: nil)?[0] as? SplashView
+        view.addSubview(splashView!)
+        splashView!.snp.makeConstraints { (maker) in
+            maker.left.right.width.bottom.equalTo(view)
+        }
+    }
+    
     /// 初始化
     private func setup() {
         setupcdButton()
@@ -67,7 +108,6 @@ class MainViewController: PortraitViewController {
         tabView.snp.makeConstraints { (maker) in
             maker.left.right.width.bottom.equalTo(containerView)
             maker.height.equalTo(BOTTOM_TAB_HEIGHT+DEVICE_INDICATOR_HEIGHT)
-           // maker.bottom.equalTo(containerView).offset(-DEVICE_INDICATOR_HEIGHT)
         }
         tabView.selectedClosure = { [weak self](type) in
             self?.scrollView.setContentOffset(CGPoint(x: CGFloat(type.rawValue)*DEVICE_SCREEN_WIDTH, y: 0), animated: false)
