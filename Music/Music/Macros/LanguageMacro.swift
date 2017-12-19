@@ -104,6 +104,7 @@ enum LanguageKey : String {
     // 引导
     case Guide_EditPlaylistInfo = "Guide_EditPlaylistInfo"
     case Guide_MultipleOperate = "Guide_MultipleOperate"
+    case Guide_skip = "Guide_skip"
     
     // 歌词
     case Lyric_NoLyrics = "Lyric_NoLyrics"

@@ -99,6 +99,7 @@
 /// 引导
 "Guide_EditPlaylistInfo" = "プレイリスト情報編集";
 "Guide_MultipleOperate" = "曲をまとめて操作";
+"Guide_skip" = "スキップ";
 
 //  歌词
 "Lyric_NoLyrics" = "歌詞がありません";

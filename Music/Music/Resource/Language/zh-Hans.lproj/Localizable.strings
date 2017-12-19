@@ -98,6 +98,7 @@
 /// 引导
 "Guide_EditPlaylistInfo" = "编辑歌单信息";
 "Guide_MultipleOperate" = "批量操作歌曲";
+"Guide_skip" = "跳过";
 
 //  歌词
 "Lyric_NoLyrics" = "暂无歌词";
