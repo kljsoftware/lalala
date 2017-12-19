@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Arial.ttf">
-            <string>ArialMT</string>
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
         </array>
     </customFonts>
     <objects>
@@ -37,7 +37,7 @@
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="av6-Um-SsN" customClass="BorderView" customModule="Music" customModuleProvider="target">
                             <rect key="frame" x="275" y="44" width="88" height="44"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="mRb-F1-J1N"/>
                                 <constraint firstAttribute="width" constant="88" id="njv-58-Gcl"/>
@@ -49,6 +49,9 @@
                                 <userDefinedRuntimeAttribute type="color" keyPath="fill">
                                     <color key="value" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="stroke">
+                                    <color key="value" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8H-pN-Nam">
@@ -58,18 +61,21 @@
                                 <constraint firstAttribute="width" constant="88" id="aEW-J7-BoK"/>
                                 <constraint firstAttribute="height" constant="44" id="lD1-FY-NPN"/>
                             </constraints>
+                            <connections>
+                                <action selector="onSkipButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="eK4-UV-8DM"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6sd-Nk-dH6" customClass="BorderView" customModule="Music" customModuleProvider="target">
                             <rect key="frame" x="225" y="44" width="44" height="44"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVF-ke-V44">
                                     <rect key="frame" x="22.666666666666657" y="22.666666666666671" width="0.0" height="0.0"/>
-                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="NVF-ke-V44" firstAttribute="centerX" secondItem="6sd-Nk-dH6" secondAttribute="centerX" id="5B6-n8-tIX"/>
                                 <constraint firstAttribute="width" constant="44" id="J3I-8j-kSM"/>
@@ -82,6 +88,9 @@
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="fill">
                                     <color key="value" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="stroke">
+                                    <color key="value" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>

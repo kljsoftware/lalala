@@ -19,7 +19,10 @@ class MainViewController: PortraitViewController {
     @IBOutlet weak var containerView: UIView!
     private var animation:RotateAnimation?
     private var splashView:SplashView?
-
+    
+    /// 广告滚动视图
+    @IBOutlet weak var adScrollView: UIScrollView!
+    
     // MARK: - override methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +67,43 @@ class MainViewController: PortraitViewController {
     private func setupSplashView() {
         splashView = Bundle.main.loadNibNamed("SplashView", owner: nil, options: nil)?[0] as? SplashView
         view.addSubview(splashView!)
+        splashView?.finishedClosure = { [weak self] in
+            self?.setupBanner()
+        }
         splashView!.snp.makeConstraints { (maker) in
-            maker.left.right.width.bottom.equalTo(view)
+            maker.left.right.top.bottom.equalTo(view)
+        }
+    }
+    
+    /// 初始化广告页
+    private func setupBanner() {
+        var models = DataHelper.shared.banners
+        var lastView:UIView?
+        for model in models {
+            let banner = Bundle.main.loadNibNamed("BannerView", owner: nil, options: nil)?[0] as! BannerView
+            banner.model = model
+            adScrollView.addSubview(banner)
+            
+            if lastView != nil {
+                banner.snp.makeConstraints({ (maker) in
+                    maker.top.bottom.equalTo(adScrollView)
+                    maker.width.equalTo(DEVICE_SCREEN_WIDTH)
+                    maker.left.equalTo(lastView!)
+                })
+            } else {
+                banner.snp.makeConstraints({ (maker) in
+                    maker.top.bottom.left.equalTo(adScrollView)
+                    maker.width.equalTo(DEVICE_SCREEN_WIDTH)
+                })
+            }
+            
+            lastView = banner
+        }
+        
+        if lastView != nil {
+            lastView!.snp.makeConstraints({ (maker) in
+                maker.right.equalTo(adScrollView)
+            })
         }
     }
     

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Fr-1Q-gi4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Fr-1Q-gi4">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,22 +21,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Te0-E5-Zhi">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbm-8N-W4x">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_ad_banner.png" translatesAutoresizingMaskIntoConstraints="NO" id="2rK-DS-6y8">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="2rK-DS-6y8" firstAttribute="top" secondItem="Te0-E5-Zhi" secondAttribute="top" id="WSH-sc-EpV"/>
-                                    <constraint firstAttribute="bottom" secondItem="2rK-DS-6y8" secondAttribute="bottom" id="bkD-TY-HOV"/>
-                                    <constraint firstAttribute="trailing" secondItem="2rK-DS-6y8" secondAttribute="trailing" id="oll-Ui-qs0"/>
-                                    <constraint firstItem="2rK-DS-6y8" firstAttribute="leading" secondItem="Te0-E5-Zhi" secondAttribute="leading" id="qAk-Yo-WRp"/>
-                                    <constraint firstAttribute="height" constant="44" id="wMR-mD-a5z"/>
+                                    <constraint firstAttribute="height" constant="44" id="PLm-yS-MCP"/>
                                 </constraints>
-                            </view>
+                            </scrollView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="406-DA-b5R">
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <subviews>
@@ -78,17 +68,18 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="406-DA-b5R" firstAttribute="top" secondItem="Te0-E5-Zhi" secondAttribute="bottom" id="10F-ci-1l4"/>
                             <constraint firstAttribute="bottom" secondItem="406-DA-b5R" secondAttribute="bottom" id="5Ed-og-wzg"/>
-                            <constraint firstAttribute="trailing" secondItem="Te0-E5-Zhi" secondAttribute="trailing" id="P41-cX-WFV"/>
-                            <constraint firstItem="Te0-E5-Zhi" firstAttribute="top" secondItem="hZ6-K4-fq2" secondAttribute="bottom" id="YtU-Bk-cS5"/>
+                            <constraint firstItem="Zbm-8N-W4x" firstAttribute="top" secondItem="hZ6-K4-fq2" secondAttribute="bottom" id="Cqk-3n-cgv"/>
+                            <constraint firstItem="Zbm-8N-W4x" firstAttribute="leading" secondItem="FiM-6P-Ko4" secondAttribute="leading" id="Gjp-Sb-Att"/>
+                            <constraint firstItem="406-DA-b5R" firstAttribute="top" secondItem="Zbm-8N-W4x" secondAttribute="bottom" id="KQN-49-shS"/>
                             <constraint firstAttribute="trailing" secondItem="406-DA-b5R" secondAttribute="trailing" id="bVB-Il-DsH"/>
+                            <constraint firstAttribute="trailing" secondItem="Zbm-8N-W4x" secondAttribute="trailing" id="igR-H0-oiL"/>
                             <constraint firstItem="406-DA-b5R" firstAttribute="leading" secondItem="FiM-6P-Ko4" secondAttribute="leading" id="kiV-2q-FfV"/>
-                            <constraint firstItem="Te0-E5-Zhi" firstAttribute="leading" secondItem="FiM-6P-Ko4" secondAttribute="leading" id="wKv-Pw-Amp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MUb-tp-dKA"/>
                     <connections>
+                        <outlet property="adScrollView" destination="Zbm-8N-W4x" id="IWD-5E-dUF"/>
                         <outlet property="cdButton" destination="wHx-9d-Cxh" id="SF3-cQ-xOd"/>
                         <outlet property="containerView" destination="406-DA-b5R" id="hON-0o-Lsc"/>
                         <outlet property="scrollView" destination="1bR-Dj-Qor" id="MGe-mI-eMF"/>
@@ -100,9 +91,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg.png" width="1242" height="2208"/>
+        <image name="bg.png" width="900" height="1600"/>
         <image name="common_btn_cd_activated.png" width="69" height="69"/>
         <image name="common_btn_cd_normal.png" width="69" height="69"/>
-        <image name="default_ad_banner.png" width="2150" height="296"/>
     </resources>
 </document>

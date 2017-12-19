@@ -256,6 +256,8 @@
 		3CE988521FE9040200C999A9 /* AdvertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE988511FE9040200C999A9 /* AdvertViewModel.swift */; };
 		3CE9885A1FE91CE300C999A9 /* SplashView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE988591FE91CE300C999A9 /* SplashView.xib */; };
 		3CE9885C1FE91D7B00C999A9 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE9885B1FE91D7B00C999A9 /* SplashView.swift */; };
+		3CE9885E1FE9517300C999A9 /* BannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE9885D1FE9517300C999A9 /* BannerView.xib */; };
+		3CE988601FE955F400C999A9 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE9885F1FE955F400C999A9 /* BannerView.swift */; };
 		3CF3AE2B1FDE76FE00BDE940 /* DownloadTaskHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF3AE2A1FDE76FE00BDE940 /* DownloadTaskHelper.swift */; };
 		3CF3AE2E1FDE956600BDE940 /* MyMusicDownloadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF3AE2C1FDE956600BDE940 /* MyMusicDownloadingCell.swift */; };
 		3CF3AE2F1FDE956600BDE940 /* MyMusicDownloadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF3AE2D1FDE956600BDE940 /* MyMusicDownloadingCell.xib */; };
@@ -531,6 +533,8 @@
 		3CE988511FE9040200C999A9 /* AdvertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertViewModel.swift; sourceTree = "<group>"; };
 		3CE988591FE91CE300C999A9 /* SplashView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashView.xib; sourceTree = "<group>"; };
 		3CE9885B1FE91D7B00C999A9 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		3CE9885D1FE9517300C999A9 /* BannerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerView.xib; sourceTree = "<group>"; };
+		3CE9885F1FE955F400C999A9 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		3CF3AE2A1FDE76FE00BDE940 /* DownloadTaskHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTaskHelper.swift; sourceTree = "<group>"; };
 		3CF3AE2C1FDE956600BDE940 /* MyMusicDownloadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicDownloadingCell.swift; sourceTree = "<group>"; };
 		3CF3AE2D1FDE956600BDE940 /* MyMusicDownloadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMusicDownloadingCell.xib; sourceTree = "<group>"; };
@@ -727,6 +731,8 @@
 				3CFF1EBD1FDF7222007C53EA /* FuntionMenuView.xib */,
 				3CFF1EC11FDF7A13007C53EA /* FunctionMenuCell.swift */,
 				3CFF1EC21FDF7A13007C53EA /* FunctionMenuCell.xib */,
+				3CE9885F1FE955F400C999A9 /* BannerView.swift */,
+				3CE9885D1FE9517300C999A9 /* BannerView.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1306,6 +1312,7 @@
 				3C3AFA951FD6BD38003FFCE3 /* SearchPopularSectionView.xib in Resources */,
 				3C0EBE8C1FD231220047B1E1 /* immersion_player_btn_cycle_all_pressed.png in Resources */,
 				3CFF1ECE1FDF7D6B007C53EA /* action_ic_share.png in Resources */,
+				3CE9885E1FE9517300C999A9 /* BannerView.xib in Resources */,
 				3C6FB53E1FDCD1D9003315E0 /* DiscoverRankDetailView.xib in Resources */,
 				3C6FB5461FDD204E003315E0 /* MyMusicSonglistSectionView.xib in Resources */,
 				3C3F8FD11FE29463005FC29A /* batch_btn_delete.png in Resources */,
@@ -1485,6 +1492,7 @@
 			files = (
 				3CA541201FD838410064764A /* MeSleepModeView.swift in Sources */,
 				3C16B8B11FCE3CFE00FAABCA /* UIView+Extension.swift in Sources */,
+				3CE988601FE955F400C999A9 /* BannerView.swift in Sources */,
 				3763B2441FD12DA6001433D4 /* DiscoveryLoadSonglistResultModel.swift in Sources */,
 				3C3AFAA71FD6F009003FFCE3 /* DiscoverEnterCell.swift in Sources */,
 				3CFF1EC31FDF7A13007C53EA /* FunctionMenuCell.swift in Sources */,

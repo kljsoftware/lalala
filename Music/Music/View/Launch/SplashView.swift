@@ -9,7 +9,7 @@
 /// 启动页面
 class SplashView: UIView {
     
-    //
+    // 启动页模型文件
     var model:AdvertModel? {
         didSet {
             if nil != model {
@@ -17,8 +17,9 @@ class SplashView: UIView {
             }
         }
     }
-//    /// 业务类
-//    private let viewModel = AdvertViewModel()
+    
+    /// 启动页启动结束
+    var finishedClosure:(()->Void)?
     
     /// 广告视图
     @IBOutlet weak var advertView: UIView!
@@ -36,12 +37,17 @@ class SplashView: UIView {
 
     /// 初始化
     override func awakeFromNib() {
-        skipButton.setTitle("", for: .normal)
+        skipButton.setTitle(LanguageKey.Guide_skip.value, for: .normal)
+    }
+    
+    deinit {
+        Log.e("deinit")
     }
     
     /// 点击跳过按钮
     @IBAction func onSkipButtonClicked(_ sender: UIButton) {
-        removeFromSuperview()
+        stopTimer()
+        finished()
     }
     
     /// 跳转至广告页
@@ -86,10 +92,16 @@ class SplashView: UIView {
     @objc private func fire() {
         if current <= 1 {
             stopTimer()
-            removeFromSuperview()
+            finished()
             return
         }
         current -= 1
         showTime()
+    }
+    
+    /// 启动完成
+    private func finished() {
+        finishedClosure?()
+        removeFromSuperview()
     }
 }
