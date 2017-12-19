@@ -99,6 +99,7 @@
 /// 引导
 "Guide_EditPlaylistInfo" = "Edit playlist info";
 "Guide_MultipleOperate" = "Operating mutiple tracks";
+"Guide_skip" = "skip";
 
 //  歌词
 "Lyric_NoLyrics" = "No lyrics";
