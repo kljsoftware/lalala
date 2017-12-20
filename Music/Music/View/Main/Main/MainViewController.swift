@@ -56,9 +56,17 @@ class MainViewController: PortraitViewController {
                 }
                 if splashModels.count > 0 {
                     wself.splashView?.model = splashModels.first!
+                } else {
+                    wself.splashView?.removeFromSuperview()
+                    wself.setupBanner()
                 }
-            }) {(error) in
+            }) {[weak self](error) in
+                guard let wself = self else {
+                    return
+                }
                 Log.e(error)
+                wself.splashView?.removeFromSuperview()
+                wself.setupBanner()
             }
         } else {
             setupBanner()
