@@ -150,6 +150,7 @@
 		3C48ACDE1FCBEABD00B8992A /* FMSongListResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACDC1FCBEABD00B8992A /* FMSongListResultModel.swift */; };
 		3C48ACDF1FCBEABD00B8992A /* FMChannelListResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACDD1FCBEABD00B8992A /* FMChannelListResultModel.swift */; };
 		3C48ACE11FCBEE7F00B8992A /* FMChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48ACE01FCBEE7F00B8992A /* FMChannelView.swift */; };
+		3C522A351FE9F55A006C5E87 /* BannerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C522A341FE9F55A006C5E87 /* BannerContainerView.swift */; };
 		3C526F691FCF95D80093B837 /* LyricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C526F681FCF95D80093B837 /* LyricView.swift */; };
 		3C526F731FD029B80093B837 /* default_ad_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C526F721FD029B80093B837 /* default_ad_banner.png */; };
 		3C526F7A1FD030580093B837 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C526F791FD030580093B837 /* launch.png */; };
@@ -426,6 +427,7 @@
 		3C48ACDC1FCBEABD00B8992A /* FMSongListResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSongListResultModel.swift; sourceTree = "<group>"; };
 		3C48ACDD1FCBEABD00B8992A /* FMChannelListResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMChannelListResultModel.swift; sourceTree = "<group>"; };
 		3C48ACE01FCBEE7F00B8992A /* FMChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMChannelView.swift; sourceTree = "<group>"; };
+		3C522A341FE9F55A006C5E87 /* BannerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerContainerView.swift; sourceTree = "<group>"; };
 		3C526F681FCF95D80093B837 /* LyricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricView.swift; sourceTree = "<group>"; };
 		3C526F721FD029B80093B837 /* default_ad_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_ad_banner.png; sourceTree = "<group>"; };
 		3C526F791FD030580093B837 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
@@ -733,6 +735,7 @@
 				3CFF1EC21FDF7A13007C53EA /* FunctionMenuCell.xib */,
 				3CE9885F1FE955F400C999A9 /* BannerView.swift */,
 				3CE9885D1FE9517300C999A9 /* BannerView.xib */,
+				3C522A341FE9F55A006C5E87 /* BannerContainerView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1498,6 +1501,7 @@
 				3CFF1EC31FDF7A13007C53EA /* FunctionMenuCell.swift in Sources */,
 				3C6FB54E1FDD271C003315E0 /* FMViewModel.swift in Sources */,
 				3C3AFA761FD63B02003FFCE3 /* SearchControlView.swift in Sources */,
+				3C522A351FE9F55A006C5E87 /* BannerContainerView.swift in Sources */,
 				3CC22A551FDC35CD003EA6BF /* DiscoverRankView.swift in Sources */,
 				3C16B8D21FCE5B7000FAABCA /* FMPlayerView.swift in Sources */,
 				3C1EF0081FD7D4890061742F /* HistoryRealm.swift in Sources */,

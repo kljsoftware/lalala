@@ -21,12 +21,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbm-8N-W4x">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0F-iA-VlI">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_ad_banner.png" translatesAutoresizingMaskIntoConstraints="NO" id="n8c-mi-XGh">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="PLm-yS-MCP"/>
+                                    <constraint firstItem="n8c-mi-XGh" firstAttribute="top" secondItem="p0F-iA-VlI" secondAttribute="top" id="695-PD-4ec"/>
+                                    <constraint firstAttribute="bottom" secondItem="n8c-mi-XGh" secondAttribute="bottom" id="E8Q-AC-KHc"/>
+                                    <constraint firstItem="n8c-mi-XGh" firstAttribute="leading" secondItem="p0F-iA-VlI" secondAttribute="leading" id="NOs-PH-4VS"/>
+                                    <constraint firstAttribute="height" constant="44" id="NjJ-02-Xx5"/>
+                                    <constraint firstAttribute="trailing" secondItem="n8c-mi-XGh" secondAttribute="trailing" id="t1K-It-eS4"/>
                                 </constraints>
-                            </scrollView>
+                            </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="406-DA-b5R">
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <subviews>
@@ -69,17 +79,17 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="406-DA-b5R" secondAttribute="bottom" id="5Ed-og-wzg"/>
-                            <constraint firstItem="Zbm-8N-W4x" firstAttribute="top" secondItem="hZ6-K4-fq2" secondAttribute="bottom" id="Cqk-3n-cgv"/>
-                            <constraint firstItem="Zbm-8N-W4x" firstAttribute="leading" secondItem="FiM-6P-Ko4" secondAttribute="leading" id="Gjp-Sb-Att"/>
-                            <constraint firstItem="406-DA-b5R" firstAttribute="top" secondItem="Zbm-8N-W4x" secondAttribute="bottom" id="KQN-49-shS"/>
+                            <constraint firstItem="406-DA-b5R" firstAttribute="top" secondItem="p0F-iA-VlI" secondAttribute="bottom" id="5NM-5o-hDI"/>
+                            <constraint firstItem="p0F-iA-VlI" firstAttribute="top" secondItem="hZ6-K4-fq2" secondAttribute="bottom" id="GsB-Xu-mKd"/>
+                            <constraint firstItem="p0F-iA-VlI" firstAttribute="leading" secondItem="FiM-6P-Ko4" secondAttribute="leading" id="Mcn-4c-W9Y"/>
+                            <constraint firstAttribute="trailing" secondItem="p0F-iA-VlI" secondAttribute="trailing" id="Nd7-rn-rgz"/>
                             <constraint firstAttribute="trailing" secondItem="406-DA-b5R" secondAttribute="trailing" id="bVB-Il-DsH"/>
-                            <constraint firstAttribute="trailing" secondItem="Zbm-8N-W4x" secondAttribute="trailing" id="igR-H0-oiL"/>
                             <constraint firstItem="406-DA-b5R" firstAttribute="leading" secondItem="FiM-6P-Ko4" secondAttribute="leading" id="kiV-2q-FfV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MUb-tp-dKA"/>
                     <connections>
-                        <outlet property="adScrollView" destination="Zbm-8N-W4x" id="IWD-5E-dUF"/>
+                        <outlet property="advertView" destination="p0F-iA-VlI" id="CnX-cr-2B3"/>
                         <outlet property="cdButton" destination="wHx-9d-Cxh" id="SF3-cQ-xOd"/>
                         <outlet property="containerView" destination="406-DA-b5R" id="hON-0o-Lsc"/>
                         <outlet property="scrollView" destination="1bR-Dj-Qor" id="MGe-mI-eMF"/>
@@ -94,5 +104,6 @@
         <image name="bg.png" width="900" height="1600"/>
         <image name="common_btn_cd_activated.png" width="69" height="69"/>
         <image name="common_btn_cd_normal.png" width="69" height="69"/>
+        <image name="default_ad_banner.png" width="2150" height="296"/>
     </resources>
 </document>

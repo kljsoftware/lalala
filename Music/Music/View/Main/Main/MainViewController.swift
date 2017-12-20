@@ -20,8 +20,8 @@ class MainViewController: PortraitViewController {
     private var animation:RotateAnimation?
     private var splashView:SplashView?
     
-    /// 广告滚动视图
-    @IBOutlet weak var adScrollView: UIScrollView!
+    /// 广告位
+    @IBOutlet weak var advertView: UIView!
     
     // MARK: - override methods
     override func viewDidLoad() {
@@ -60,6 +60,8 @@ class MainViewController: PortraitViewController {
             }) {(error) in
                 Log.e(error)
             }
+        } else {
+            setupBanner()
         }
     }
     
@@ -77,33 +79,13 @@ class MainViewController: PortraitViewController {
     
     /// 初始化广告页
     private func setupBanner() {
-        var models = DataHelper.shared.banners
-        var lastView:UIView?
-        for model in models {
-            let banner = Bundle.main.loadNibNamed("BannerView", owner: nil, options: nil)?[0] as! BannerView
-            banner.model = model
-            adScrollView.addSubview(banner)
-            
-            if lastView != nil {
-                banner.snp.makeConstraints({ (maker) in
-                    maker.top.bottom.equalTo(adScrollView)
-                    maker.width.equalTo(DEVICE_SCREEN_WIDTH)
-                    maker.left.equalTo(lastView!)
-                })
-            } else {
-                banner.snp.makeConstraints({ (maker) in
-                    maker.top.bottom.left.equalTo(adScrollView)
-                    maker.width.equalTo(DEVICE_SCREEN_WIDTH)
-                })
-            }
-            
-            lastView = banner
-        }
-        
-        if lastView != nil {
-            lastView!.snp.makeConstraints({ (maker) in
-                maker.right.equalTo(adScrollView)
-            })
+        let w = DEVICE_SCREEN_WIDTH
+        let h = TOP_AD_HEIGHT
+        let models = DataHelper.shared.banners
+        if models.count > 0 {
+            let bannerContainerView = BannerContainerView(frame: CGRect(x: 0, y: 0, width: w, height: h))
+            advertView.addSubview(bannerContainerView)
+            bannerContainerView.setup(banners: models)
         }
     }
     
