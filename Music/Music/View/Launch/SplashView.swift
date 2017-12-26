@@ -52,7 +52,8 @@ class SplashView: UIView {
     
     /// 跳转至广告页
     @IBAction func onPushAdButtonClicked(_ sender: UIButton) {
-       AppUI.pushToAdView(model: model!)
+        RKBISDKHelper.shared.rkTrackEvent(eventType: .ad)
+        AppUI.pushToAdView(model: model!)
     }
     
     // MARK: - private methods

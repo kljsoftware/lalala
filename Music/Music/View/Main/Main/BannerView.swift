@@ -31,6 +31,7 @@ class BannerView: UIView {
     /// 点击广告
     @IBAction func onBannerClicked(_ sender: UIButton) {
         if nil != model {
+            RKBISDKHelper.shared.rkTrackEvent(eventType: .ad)
             AppUI.pushToAdView(model: model!)
         }
     }

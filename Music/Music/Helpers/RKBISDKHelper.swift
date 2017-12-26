@@ -17,6 +17,7 @@ enum EventTracking  {
     case uuid(uuid:String)                   // uid 设备唯一码
     case exitapp                             // 关闭应用
     case appduration(durtion:TimeInterval)   // 应用运行时长
+    case ad                                  // 广告
     
     /// 元组类型：事件类型、事件参数
     var tuple:(action:String, key:String?, value:String?) {
@@ -80,6 +81,8 @@ enum EventTracking  {
             action = "action_appduration_id"
             key    = "name_appduration"
             value  = "\(durtion)"
+        case .ad:
+            action = "action_ad_id"
         }
         return (action, key, value)
     }
