@@ -293,7 +293,7 @@ class FMView: UIView {
                             }
                         case .share: // 分享
                             if wself.playIndex >= 0 && wself.playIndex < wself.playlist.count {
-                                AppUI.share(activityItems: [String(format: LanguageKey.Share_TrackContent.value, wself.playlist[wself.playIndex].title,app_url)])
+                                AppUI.share(activityItems: [String(format: LanguageKey.Share_TrackContent.value, wself.playlist[wself.playIndex].title,wself.playlist[wself.playIndex].share_uri)])
                                 /// 统计分享的歌曲
                                 RKBISDKHelper.shared.rkTrackEvent(eventType: .songshare(name: wself.playlist[wself.playIndex].title))
                             }

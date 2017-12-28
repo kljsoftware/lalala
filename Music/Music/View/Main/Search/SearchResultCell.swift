@@ -57,7 +57,7 @@ class SearchResultCell: UITableViewCell {
                 /// 统计下载了那首歌曲
                 RKBISDKHelper.shared.rkTrackEvent(eventType: .mymusic(type: .download(name: weakself.model!.title)))
             case .share:
-                AppUI.share(activityItems: [String(format: LanguageKey.Share_TrackContent.value, weakself.model!.title, app_url)])
+                AppUI.share(activityItems: [String(format: LanguageKey.Share_TrackContent.value, weakself.model!.title, weakself.model!.share_uri)])
                 /// 统计分享的歌曲
                 RKBISDKHelper.shared.rkTrackEvent(eventType: .songshare(name: weakself.model!.title))
             default:
